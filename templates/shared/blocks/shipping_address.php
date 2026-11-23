@@ -9,7 +9,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$address = $data->shipping_address();
+$address = $data->shipping_address( ! empty( $block['fallback'] ) );
 if ( '' === $address ) {
 	return;
 }

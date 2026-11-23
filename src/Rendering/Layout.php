@@ -142,7 +142,10 @@ class Layout {
 			'shipping_address'  => array(
 				'label'    => __( 'Shipping address', 'order-documents' ),
 				'icon'     => 'location',
-				'settings' => $address( __( 'Ship to', 'order-documents' ) ),
+				'settings' => array_merge(
+					$address( __( 'Ship to', 'order-documents' ) ),
+					array( 'fallback' => array( 'type' => 'checkbox', 'label' => __( 'Show the billing address when there is no separate delivery address', 'order-documents' ), 'default' => 0 ) )
+				),
 			),
 			'document_data'     => array(
 				'label'    => __( 'Document data', 'order-documents' ),

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-23T22:01:12+00:00\n"
+"POT-Creation-Date: 2026-11-23T22:29:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: order-documents\n"
@@ -219,7 +219,7 @@ msgid "PDF: %s"
 msgstr ""
 
 #: src/Admin/OrderMetaBoxes.php:41
-#: src/Rendering/Layout.php:148
+#: src/Rendering/Layout.php:151
 msgid "Document data"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgid "Date"
 msgstr ""
 
 #: src/Admin/OrderMetaBoxes.php:211
-#: src/Rendering/Layout.php:206
+#: src/Rendering/Layout.php:209
 #: templates/shared/blocks/document_notes.php:17
 msgid "Notes"
 msgstr ""
@@ -618,14 +618,14 @@ msgid "Date shown on the document"
 msgstr ""
 
 #: src/Documents/Document.php:173
-#: src/Rendering/Layout.php:152
+#: src/Rendering/Layout.php:155
 #: src/Rendering/Placeholders.php:25
 msgid "Document date"
 msgstr ""
 
 #: src/Documents/Document.php:174
-#: src/Rendering/Layout.php:154
-#: src/Rendering/OrderData.php:238
+#: src/Rendering/Layout.php:157
+#: src/Rendering/OrderData.php:245
 #: src/Rendering/Placeholders.php:31
 msgid "Order date"
 msgstr ""
@@ -827,8 +827,8 @@ msgid "Show customer number"
 msgstr ""
 
 #: src/Documents/Invoice.php:70
-#: src/Rendering/Layout.php:209
-#: src/Rendering/Layout.php:211
+#: src/Rendering/Layout.php:212
+#: src/Rendering/Layout.php:214
 #: templates/shared/blocks/payment_info.php:17
 msgid "Payment information"
 msgstr ""
@@ -870,7 +870,7 @@ msgstr ""
 
 #: src/Documents/Invoice.php:105
 #: src/Documents/ProformaInvoice.php:73
-#: src/Rendering/Layout.php:304
+#: src/Rendering/Layout.php:307
 #: src/Rendering/Placeholders.php:28
 #: templates/shared/blocks/payment_summary.php:32
 msgid "Due date"
@@ -928,7 +928,7 @@ msgid "Sort products by"
 msgstr ""
 
 #: src/Documents/PickingList.php:77
-#: src/Rendering/Layout.php:345
+#: src/Rendering/Layout.php:348
 msgid "SKU"
 msgstr ""
 
@@ -961,7 +961,7 @@ msgid "Printed"
 msgstr ""
 
 #: src/Documents/PickingList.php:150
-#: src/Rendering/Layout.php:359
+#: src/Rendering/Layout.php:362
 msgid "Orders"
 msgstr ""
 
@@ -1148,7 +1148,7 @@ msgid "Organisation number"
 msgstr ""
 
 #: src/Migration/WpoImporter.php:237
-#: src/Rendering/Layout.php:259
+#: src/Rendering/Layout.php:262
 #: src/Settings/Schema.php:81
 msgid "Footer"
 msgstr ""
@@ -1343,7 +1343,7 @@ msgid "Show heading"
 msgstr ""
 
 #: src/Rendering/Layout.php:82
-#: src/Rendering/Layout.php:313
+#: src/Rendering/Layout.php:316
 #: assets/editor/src/Inspector.js:52
 msgid "Heading"
 msgstr ""
@@ -1411,432 +1411,436 @@ msgid "Line below the title"
 msgstr ""
 
 #: src/Rendering/Layout.php:131
-#: src/Rendering/Layout.php:151
+#: src/Rendering/Layout.php:154
 #: src/Rendering/Placeholders.php:24
 msgid "Document number"
 msgstr ""
 
 #: src/Rendering/Layout.php:132
-#: src/Rendering/Layout.php:153
-#: src/Rendering/OrderData.php:237
+#: src/Rendering/Layout.php:156
+#: src/Rendering/OrderData.php:244
 #: src/Rendering/Placeholders.php:30
 msgid "Order number"
 msgstr ""
 
-#: src/Rendering/Layout.php:145
+#: src/Rendering/Layout.php:146
 #: templates/shared/blocks/shipping_address.php:17
 msgid "Ship to"
 msgstr ""
 
-#: src/Rendering/Layout.php:155
-#: src/Rendering/OrderData.php:240
+#: src/Rendering/Layout.php:147
+msgid "Show the billing address when there is no separate delivery address"
+msgstr ""
+
+#: src/Rendering/Layout.php:158
+#: src/Rendering/OrderData.php:247
 #: src/Rendering/Placeholders.php:33
 msgid "Payment method"
 msgstr ""
 
-#: src/Rendering/Layout.php:156
-#: src/Rendering/Layout.php:282
-#: src/Rendering/OrderData.php:243
+#: src/Rendering/Layout.php:159
+#: src/Rendering/Layout.php:285
+#: src/Rendering/OrderData.php:250
 #: src/Rendering/Placeholders.php:34
 #: templates/shared/blocks/shipping_info.php:16
 msgid "Shipping method"
 msgstr ""
 
-#: src/Rendering/Layout.php:157
+#: src/Rendering/Layout.php:160
 msgid "Other details (due date, KID, references...)"
 msgstr ""
 
-#: src/Rendering/Layout.php:158
+#: src/Rendering/Layout.php:161
 #: src/Settings/Schema.php:138
 msgid "Boxed"
 msgstr ""
 
-#: src/Rendering/Layout.php:161
-#: src/Rendering/Layout.php:267
+#: src/Rendering/Layout.php:164
+#: src/Rendering/Layout.php:270
 #: assets/editor/src/App.js:261
 msgid "Layout"
 msgstr ""
 
-#: src/Rendering/Layout.php:164
+#: src/Rendering/Layout.php:167
 msgid "Label and value side by side"
 msgstr ""
 
-#: src/Rendering/Layout.php:165
+#: src/Rendering/Layout.php:168
 msgid "Columns with the label above the value"
 msgstr ""
 
-#: src/Rendering/Layout.php:168
+#: src/Rendering/Layout.php:171
 msgid "Columns (column layout)"
 msgstr ""
 
-#: src/Rendering/Layout.php:169
+#: src/Rendering/Layout.php:172
 msgid "Hide these rows"
 msgstr ""
 
-#: src/Rendering/Layout.php:173
+#: src/Rendering/Layout.php:176
 msgid "Products table"
 msgstr ""
 
-#: src/Rendering/Layout.php:176
+#: src/Rendering/Layout.php:179
 #: assets/editor/src/Inspector.js:90
 msgid "Columns"
 msgstr ""
 
-#: src/Rendering/Layout.php:177
+#: src/Rendering/Layout.php:180
 msgid "Column headings"
 msgstr ""
 
-#: src/Rendering/Layout.php:178
+#: src/Rendering/Layout.php:181
 msgid "Image size (mm)"
 msgstr ""
 
-#: src/Rendering/Layout.php:182
+#: src/Rendering/Layout.php:185
 msgid "Totals"
 msgstr ""
 
-#: src/Rendering/Layout.php:185
-#: src/Rendering/OrderData.php:557
+#: src/Rendering/Layout.php:188
+#: src/Rendering/OrderData.php:564
 msgid "Subtotal"
 msgstr ""
 
-#: src/Rendering/Layout.php:186
-#: src/Rendering/Layout.php:353
-#: src/Rendering/OrderData.php:564
+#: src/Rendering/Layout.php:189
+#: src/Rendering/Layout.php:356
+#: src/Rendering/OrderData.php:571
 msgid "Discount"
 msgstr ""
 
-#: src/Rendering/Layout.php:187
+#: src/Rendering/Layout.php:190
 msgid "Shipping"
 msgstr ""
 
-#: src/Rendering/Layout.php:188
+#: src/Rendering/Layout.php:191
 msgid "Fees"
 msgstr ""
 
-#: src/Rendering/Layout.php:189
+#: src/Rendering/Layout.php:192
 msgid "Tax lines"
 msgstr ""
 
-#: src/Rendering/Layout.php:190
+#: src/Rendering/Layout.php:193
 msgid "Total label"
 msgstr ""
 
-#: src/Rendering/Layout.php:190
-#: src/Rendering/OrderData.php:548
-#: src/Rendering/OrderData.php:602
+#: src/Rendering/Layout.php:193
+#: src/Rendering/OrderData.php:555
+#: src/Rendering/OrderData.php:609
 #: templates/shared/blocks/vat_summary.php:24
 msgid "Total"
 msgstr ""
 
-#: src/Rendering/Layout.php:194
-#: src/Rendering/Layout.php:196
+#: src/Rendering/Layout.php:197
+#: src/Rendering/Layout.php:199
 #: templates/shared/blocks/vat_summary.php:21
 msgid "VAT summary"
 msgstr ""
 
-#: src/Rendering/Layout.php:199
-#: src/Rendering/Layout.php:201
+#: src/Rendering/Layout.php:202
+#: src/Rendering/Layout.php:204
 #: src/Rendering/Placeholders.php:35
 #: templates/shared/blocks/customer_note.php:17
 msgid "Customer note"
 msgstr ""
 
-#: src/Rendering/Layout.php:204
+#: src/Rendering/Layout.php:207
 msgid "Document notes"
 msgstr ""
 
-#: src/Rendering/Layout.php:214
+#: src/Rendering/Layout.php:217
 msgid "Document notice"
 msgstr ""
 
-#: src/Rendering/Layout.php:219
+#: src/Rendering/Layout.php:222
 msgid "Custom text"
 msgstr ""
 
-#: src/Rendering/Layout.php:222
+#: src/Rendering/Layout.php:225
 msgid "Text (HTML and placeholders allowed)"
 msgstr ""
 
-#: src/Rendering/Layout.php:226
+#: src/Rendering/Layout.php:229
 msgid "Divider"
 msgstr ""
 
-#: src/Rendering/Layout.php:229
-#: src/Rendering/Layout.php:254
+#: src/Rendering/Layout.php:232
+#: src/Rendering/Layout.php:257
 msgid "Colour"
 msgstr ""
 
-#: src/Rendering/Layout.php:230
+#: src/Rendering/Layout.php:233
 msgid "Thickness (pt)"
 msgstr ""
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 #: src/Settings/Schema.php:122
 #: assets/editor/src/App.js:263
 msgid "Style"
 msgstr ""
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 msgid "Solid"
 msgstr ""
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 msgid "Dashed"
 msgstr ""
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 msgid "Dotted"
 msgstr ""
 
-#: src/Rendering/Layout.php:235
+#: src/Rendering/Layout.php:238
 msgid "Spacer"
 msgstr ""
 
-#: src/Rendering/Layout.php:238
+#: src/Rendering/Layout.php:241
 msgid "Height (mm)"
 msgstr ""
 
-#: src/Rendering/Layout.php:242
+#: src/Rendering/Layout.php:245
 msgid "Signature line"
 msgstr ""
 
-#: src/Rendering/Layout.php:245
+#: src/Rendering/Layout.php:248
 msgid "Label"
 msgstr ""
 
-#: src/Rendering/Layout.php:245
+#: src/Rendering/Layout.php:248
 #: templates/shared/blocks/signature.php:11
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Signature"
 msgstr ""
 
-#: src/Rendering/Layout.php:246
+#: src/Rendering/Layout.php:249
 msgid "Date line"
 msgstr ""
 
-#: src/Rendering/Layout.php:250
+#: src/Rendering/Layout.php:253
 msgid "Paid stamp"
 msgstr ""
 
-#: src/Rendering/Layout.php:253
+#: src/Rendering/Layout.php:256
 msgid "Text (empty = receipt setting)"
 msgstr ""
 
-#: src/Rendering/Layout.php:255
+#: src/Rendering/Layout.php:258
 msgid "Only when the order is paid"
 msgstr ""
 
-#: src/Rendering/Layout.php:262
+#: src/Rendering/Layout.php:265
 msgid "Text (empty = footer from the general settings)"
 msgstr ""
 
-#: src/Rendering/Layout.php:263
+#: src/Rendering/Layout.php:266
 msgid "At the bottom of every page"
 msgstr ""
 
-#: src/Rendering/Layout.php:264
+#: src/Rendering/Layout.php:267
 msgid "Line above"
 msgstr ""
 
-#: src/Rendering/Layout.php:270
+#: src/Rendering/Layout.php:273
 msgid "Footer text"
 msgstr ""
 
-#: src/Rendering/Layout.php:271
+#: src/Rendering/Layout.php:274
 msgid "Shop details in three columns"
 msgstr ""
 
-#: src/Rendering/Layout.php:277
+#: src/Rendering/Layout.php:280
 msgid "Shipping details"
 msgstr ""
 
-#: src/Rendering/Layout.php:280
+#: src/Rendering/Layout.php:283
 #: templates/shared/blocks/shipping_info.php:42
 msgid "Delivery"
 msgstr ""
 
-#: src/Rendering/Layout.php:283
+#: src/Rendering/Layout.php:286
 msgid "Total weight"
 msgstr ""
 
-#: src/Rendering/Layout.php:284
+#: src/Rendering/Layout.php:287
 #: templates/shared/blocks/item_count.php:23
 #: templates/shared/blocks/shipping_info.php:32
 msgid "Total quantity"
 msgstr ""
 
-#: src/Rendering/Layout.php:285
+#: src/Rendering/Layout.php:288
 msgid "Tracking number field (order meta key)"
 msgstr ""
 
-#: src/Rendering/Layout.php:286
+#: src/Rendering/Layout.php:289
 msgid "Extra text (placeholders allowed)"
 msgstr ""
 
-#: src/Rendering/Layout.php:291
+#: src/Rendering/Layout.php:294
 msgid "Quantity summary"
 msgstr ""
 
-#: src/Rendering/Layout.php:294
+#: src/Rendering/Layout.php:297
 #: templates/shared/blocks/item_count.php:19
 msgid "Number of lines"
 msgstr ""
 
-#: src/Rendering/Layout.php:295
+#: src/Rendering/Layout.php:298
 msgid "Unit after the quantity"
 msgstr ""
 
-#: src/Rendering/Layout.php:295
+#: src/Rendering/Layout.php:298
 msgid "pcs"
 msgstr ""
 
-#: src/Rendering/Layout.php:299
+#: src/Rendering/Layout.php:302
 msgid "Payment band"
 msgstr ""
 
-#: src/Rendering/Layout.php:302
+#: src/Rendering/Layout.php:305
 msgid "Account label"
 msgstr ""
 
-#: src/Rendering/Layout.php:302
+#: src/Rendering/Layout.php:305
 #: templates/shared/blocks/payment_summary.php:24
 msgid "Bank account"
 msgstr ""
 
-#: src/Rendering/Layout.php:303
+#: src/Rendering/Layout.php:306
 msgid "Reference label"
 msgstr ""
 
-#: src/Rendering/Layout.php:303
+#: src/Rendering/Layout.php:306
 #: templates/shared/blocks/payment_summary.php:30
 msgid "Payment reference"
 msgstr ""
 
-#: src/Rendering/Layout.php:305
+#: src/Rendering/Layout.php:308
 #: templates/shared/blocks/payment_summary.php:35
 msgid "Amount to pay"
 msgstr ""
 
-#: src/Rendering/Layout.php:306
+#: src/Rendering/Layout.php:309
 msgid "Hide when the order is paid"
 msgstr ""
 
-#: src/Rendering/Layout.php:310
+#: src/Rendering/Layout.php:313
 msgid "Signature fields"
 msgstr ""
 
-#: src/Rendering/Layout.php:314
+#: src/Rendering/Layout.php:317
 msgid "Fields (comma separated)"
 msgstr ""
 
-#: src/Rendering/Layout.php:314
+#: src/Rendering/Layout.php:317
 msgid "Signature, Name in print, Date"
 msgstr ""
 
-#: src/Rendering/Layout.php:317
+#: src/Rendering/Layout.php:320
 msgid "Label position"
 msgstr ""
 
-#: src/Rendering/Layout.php:320
+#: src/Rendering/Layout.php:323
 msgid "Above the line"
 msgstr ""
 
-#: src/Rendering/Layout.php:321
+#: src/Rendering/Layout.php:324
 msgid "Below the line"
 msgstr ""
 
-#: src/Rendering/Layout.php:343
+#: src/Rendering/Layout.php:346
 msgid "Picked"
 msgstr ""
 
-#: src/Rendering/Layout.php:344
+#: src/Rendering/Layout.php:347
 msgid "Image"
 msgstr ""
 
-#: src/Rendering/Layout.php:346
+#: src/Rendering/Layout.php:349
 msgid "Location"
 msgstr ""
 
-#: src/Rendering/Layout.php:347
+#: src/Rendering/Layout.php:350
 msgid "Product"
 msgstr ""
 
-#: src/Rendering/Layout.php:348
+#: src/Rendering/Layout.php:351
 msgid "Qty"
 msgstr ""
 
-#: src/Rendering/Layout.php:349
+#: src/Rendering/Layout.php:352
 #: templates/shared/blocks/shipping_info.php:28
 msgid "Weight"
 msgstr ""
 
-#: src/Rendering/Layout.php:350
+#: src/Rendering/Layout.php:353
 msgid "Unit price"
 msgstr ""
 
-#: src/Rendering/Layout.php:351
+#: src/Rendering/Layout.php:354
 msgid "Unit price excl. tax"
 msgstr ""
 
-#: src/Rendering/Layout.php:352
+#: src/Rendering/Layout.php:355
 msgid "Unit price incl. tax"
 msgstr ""
 
-#: src/Rendering/Layout.php:354
+#: src/Rendering/Layout.php:357
 msgid "VAT %"
 msgstr ""
 
-#: src/Rendering/Layout.php:355
-#: src/Rendering/OrderData.php:445
-#: src/Rendering/OrderData.php:591
+#: src/Rendering/Layout.php:358
+#: src/Rendering/OrderData.php:452
+#: src/Rendering/OrderData.php:598
 #: templates/shared/blocks/vat_summary.php:24
 msgid "VAT"
 msgstr ""
 
-#: src/Rendering/Layout.php:356
+#: src/Rendering/Layout.php:359
 msgid "Amount"
 msgstr ""
 
-#: src/Rendering/Layout.php:357
+#: src/Rendering/Layout.php:360
 msgid "Amount excl. tax"
 msgstr ""
 
-#: src/Rendering/Layout.php:358
+#: src/Rendering/Layout.php:361
 msgid "Amount incl. tax"
 msgstr ""
 
-#: src/Rendering/Layout.php:360
+#: src/Rendering/Layout.php:363
 msgid "Delivered"
 msgstr ""
 
-#: src/Rendering/OrderData.php:281
+#: src/Rendering/OrderData.php:288
 msgid "Refund"
 msgstr ""
 
 #. translators: %s: SKU
-#: src/Rendering/OrderData.php:379
+#: src/Rendering/OrderData.php:386
 #, php-format
 msgid "SKU: %s"
 msgstr ""
 
 #. translators: %s: weight
-#: src/Rendering/OrderData.php:383
+#: src/Rendering/OrderData.php:390
 #, php-format
 msgid "Weight: %s"
 msgstr ""
 
 #. translators: %s: shipping method
-#: src/Rendering/OrderData.php:573
+#: src/Rendering/OrderData.php:580
 #, php-format
 msgid "Shipping: %s"
 msgstr ""
 
 #. translators: %s: tax amount
-#: src/Rendering/OrderData.php:610
+#: src/Rendering/OrderData.php:617
 msgid "Of which VAT"
 msgstr ""
 
-#: src/Rendering/OrderData.php:662
+#: src/Rendering/OrderData.php:669
 msgid "No VAT"
 msgstr ""
 

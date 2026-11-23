@@ -158,8 +158,15 @@ class OrderData {
 		return (string) apply_filters( 'odocs_billing_address', $address, $this->document );
 	}
 
-	public function shipping_address(): string {
+	public function shipping_address( bool $fallback_to_billing = false ): string {
 		$mode = $this->document->setting( 'shipping_address', 'different' );
+		if ( $fallback_to_billing && 'never' !== $mode ) {
+			$shipping = $this->order->has_shipping_address() ? $this->order->get_formatted_shipping_address() : '';
+			if ( '' === trim( wp_strip_all_tags( $shipping ) ) ) {
+				$shipping = $this->order->get_formatted_billing_address();
+			}
+			return (string) apply_filters( 'odocs_shipping_address', $shipping, $this->document );
+		}
 		if ( 'never' === $mode || ! $this->order->has_shipping_address() ) {
 			return '';
 		}

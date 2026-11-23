@@ -11,8 +11,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-23T22:01:12+00:00\n"
-"PO-Revision-Date: 2026-11-23 22:00+0100\n"
+"POT-Creation-Date: 2026-11-23T22:29:12+00:00\n"
+"PO-Revision-Date: 2026-11-23 22:30+0100\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: order-documents\n"
 
@@ -221,7 +221,7 @@ msgid "PDF: %s"
 msgstr "PDF: %s"
 
 #: src/Admin/OrderMetaBoxes.php:41
-#: src/Rendering/Layout.php:148
+#: src/Rendering/Layout.php:151
 msgid "Document data"
 msgstr "Dokumentdata"
 
@@ -274,7 +274,7 @@ msgid "Date"
 msgstr "Dato"
 
 #: src/Admin/OrderMetaBoxes.php:211
-#: src/Rendering/Layout.php:206
+#: src/Rendering/Layout.php:209
 #: templates/shared/blocks/document_notes.php:17
 msgid "Notes"
 msgstr "Noter"
@@ -620,14 +620,14 @@ msgid "Date shown on the document"
 msgstr "Dato, der vises på dokumentet"
 
 #: src/Documents/Document.php:173
-#: src/Rendering/Layout.php:152
+#: src/Rendering/Layout.php:155
 #: src/Rendering/Placeholders.php:25
 msgid "Document date"
 msgstr "Dokumentdato"
 
 #: src/Documents/Document.php:174
-#: src/Rendering/Layout.php:154
-#: src/Rendering/OrderData.php:238
+#: src/Rendering/Layout.php:157
+#: src/Rendering/OrderData.php:245
 #: src/Rendering/Placeholders.php:31
 msgid "Order date"
 msgstr "Ordredato"
@@ -829,8 +829,8 @@ msgid "Show customer number"
 msgstr "Vis kundenummer"
 
 #: src/Documents/Invoice.php:70
-#: src/Rendering/Layout.php:209
-#: src/Rendering/Layout.php:211
+#: src/Rendering/Layout.php:212
+#: src/Rendering/Layout.php:214
 #: templates/shared/blocks/payment_info.php:17
 msgid "Payment information"
 msgstr "Betalingsoplysninger"
@@ -872,7 +872,7 @@ msgstr "Samlet længde inkl. kontrolciffer, udfyldt med nuller. 0 betyder ingen 
 
 #: src/Documents/Invoice.php:105
 #: src/Documents/ProformaInvoice.php:73
-#: src/Rendering/Layout.php:304
+#: src/Rendering/Layout.php:307
 #: src/Rendering/Placeholders.php:28
 #: templates/shared/blocks/payment_summary.php:32
 msgid "Due date"
@@ -930,7 +930,7 @@ msgid "Sort products by"
 msgstr "Sortér produkter efter"
 
 #: src/Documents/PickingList.php:77
-#: src/Rendering/Layout.php:345
+#: src/Rendering/Layout.php:348
 msgid "SKU"
 msgstr "Varenummer"
 
@@ -963,7 +963,7 @@ msgid "Printed"
 msgstr "Udskrevet"
 
 #: src/Documents/PickingList.php:150
-#: src/Rendering/Layout.php:359
+#: src/Rendering/Layout.php:362
 msgid "Orders"
 msgstr "Ordrer"
 
@@ -1150,7 +1150,7 @@ msgid "Organisation number"
 msgstr "CVR-nummer"
 
 #: src/Migration/WpoImporter.php:237
-#: src/Rendering/Layout.php:259
+#: src/Rendering/Layout.php:262
 #: src/Settings/Schema.php:81
 msgid "Footer"
 msgstr "Sidefod"
@@ -1345,7 +1345,7 @@ msgid "Show heading"
 msgstr "Vis overskrift"
 
 #: src/Rendering/Layout.php:82
-#: src/Rendering/Layout.php:313
+#: src/Rendering/Layout.php:316
 #: assets/editor/src/Inspector.js:52
 msgid "Heading"
 msgstr "Overskrift"
@@ -1413,432 +1413,436 @@ msgid "Line below the title"
 msgstr "Linje under titlen"
 
 #: src/Rendering/Layout.php:131
-#: src/Rendering/Layout.php:151
+#: src/Rendering/Layout.php:154
 #: src/Rendering/Placeholders.php:24
 msgid "Document number"
 msgstr "Dokumentnummer"
 
 #: src/Rendering/Layout.php:132
-#: src/Rendering/Layout.php:153
-#: src/Rendering/OrderData.php:237
+#: src/Rendering/Layout.php:156
+#: src/Rendering/OrderData.php:244
 #: src/Rendering/Placeholders.php:30
 msgid "Order number"
 msgstr "Ordrenummer"
 
-#: src/Rendering/Layout.php:145
+#: src/Rendering/Layout.php:146
 #: templates/shared/blocks/shipping_address.php:17
 msgid "Ship to"
 msgstr "Leveres til"
 
-#: src/Rendering/Layout.php:155
-#: src/Rendering/OrderData.php:240
+#: src/Rendering/Layout.php:147
+msgid "Show the billing address when there is no separate delivery address"
+msgstr "Vis faktureringsadressen, når der ikke er en separat leveringsadresse"
+
+#: src/Rendering/Layout.php:158
+#: src/Rendering/OrderData.php:247
 #: src/Rendering/Placeholders.php:33
 msgid "Payment method"
 msgstr "Betalingsmetode"
 
-#: src/Rendering/Layout.php:156
-#: src/Rendering/Layout.php:282
-#: src/Rendering/OrderData.php:243
+#: src/Rendering/Layout.php:159
+#: src/Rendering/Layout.php:285
+#: src/Rendering/OrderData.php:250
 #: src/Rendering/Placeholders.php:34
 #: templates/shared/blocks/shipping_info.php:16
 msgid "Shipping method"
 msgstr "Leveringsmetode"
 
-#: src/Rendering/Layout.php:157
+#: src/Rendering/Layout.php:160
 msgid "Other details (due date, KID, references...)"
 msgstr "Andre oplysninger (forfaldsdato, KID, referencer …)"
 
-#: src/Rendering/Layout.php:158
+#: src/Rendering/Layout.php:161
 #: src/Settings/Schema.php:138
 msgid "Boxed"
 msgstr "Med ramme"
 
-#: src/Rendering/Layout.php:161
-#: src/Rendering/Layout.php:267
+#: src/Rendering/Layout.php:164
+#: src/Rendering/Layout.php:270
 #: assets/editor/src/App.js:261
 msgid "Layout"
 msgstr "Layout"
 
-#: src/Rendering/Layout.php:164
+#: src/Rendering/Layout.php:167
 msgid "Label and value side by side"
 msgstr "Etiket og værdi ved siden af hinanden"
 
-#: src/Rendering/Layout.php:165
+#: src/Rendering/Layout.php:168
 msgid "Columns with the label above the value"
 msgstr "Kolonner med etiketten over værdien"
 
-#: src/Rendering/Layout.php:168
+#: src/Rendering/Layout.php:171
 msgid "Columns (column layout)"
 msgstr "Kolonner (kolonnelayout)"
 
-#: src/Rendering/Layout.php:169
+#: src/Rendering/Layout.php:172
 msgid "Hide these rows"
 msgstr "Skjul disse rækker"
 
-#: src/Rendering/Layout.php:173
+#: src/Rendering/Layout.php:176
 msgid "Products table"
 msgstr "Produkttabel"
 
-#: src/Rendering/Layout.php:176
+#: src/Rendering/Layout.php:179
 #: assets/editor/src/Inspector.js:90
 msgid "Columns"
 msgstr "Kolonner"
 
-#: src/Rendering/Layout.php:177
+#: src/Rendering/Layout.php:180
 msgid "Column headings"
 msgstr "Kolonneoverskrifter"
 
-#: src/Rendering/Layout.php:178
+#: src/Rendering/Layout.php:181
 msgid "Image size (mm)"
 msgstr "Billedstørrelse (mm)"
 
-#: src/Rendering/Layout.php:182
+#: src/Rendering/Layout.php:185
 msgid "Totals"
 msgstr "Totaler"
 
-#: src/Rendering/Layout.php:185
-#: src/Rendering/OrderData.php:557
+#: src/Rendering/Layout.php:188
+#: src/Rendering/OrderData.php:564
 msgid "Subtotal"
 msgstr "Subtotal"
 
-#: src/Rendering/Layout.php:186
-#: src/Rendering/Layout.php:353
-#: src/Rendering/OrderData.php:564
+#: src/Rendering/Layout.php:189
+#: src/Rendering/Layout.php:356
+#: src/Rendering/OrderData.php:571
 msgid "Discount"
 msgstr "Rabat"
 
-#: src/Rendering/Layout.php:187
+#: src/Rendering/Layout.php:190
 msgid "Shipping"
 msgstr "Fragt"
 
-#: src/Rendering/Layout.php:188
+#: src/Rendering/Layout.php:191
 msgid "Fees"
 msgstr "Gebyrer"
 
-#: src/Rendering/Layout.php:189
+#: src/Rendering/Layout.php:192
 msgid "Tax lines"
 msgstr "Momslinjer"
 
-#: src/Rendering/Layout.php:190
+#: src/Rendering/Layout.php:193
 msgid "Total label"
 msgstr "Etiket for total"
 
-#: src/Rendering/Layout.php:190
-#: src/Rendering/OrderData.php:548
-#: src/Rendering/OrderData.php:602
+#: src/Rendering/Layout.php:193
+#: src/Rendering/OrderData.php:555
+#: src/Rendering/OrderData.php:609
 #: templates/shared/blocks/vat_summary.php:24
 msgid "Total"
 msgstr "I alt"
 
-#: src/Rendering/Layout.php:194
-#: src/Rendering/Layout.php:196
+#: src/Rendering/Layout.php:197
+#: src/Rendering/Layout.php:199
 #: templates/shared/blocks/vat_summary.php:21
 msgid "VAT summary"
 msgstr "Momsoversigt"
 
-#: src/Rendering/Layout.php:199
-#: src/Rendering/Layout.php:201
+#: src/Rendering/Layout.php:202
+#: src/Rendering/Layout.php:204
 #: src/Rendering/Placeholders.php:35
 #: templates/shared/blocks/customer_note.php:17
 msgid "Customer note"
 msgstr "Kundens bemærkning"
 
-#: src/Rendering/Layout.php:204
+#: src/Rendering/Layout.php:207
 msgid "Document notes"
 msgstr "Dokumentnoter"
 
-#: src/Rendering/Layout.php:214
+#: src/Rendering/Layout.php:217
 msgid "Document notice"
 msgstr "Dokumentbemærkning"
 
-#: src/Rendering/Layout.php:219
+#: src/Rendering/Layout.php:222
 msgid "Custom text"
 msgstr "Egen tekst"
 
-#: src/Rendering/Layout.php:222
+#: src/Rendering/Layout.php:225
 msgid "Text (HTML and placeholders allowed)"
 msgstr "Tekst (HTML og pladsholdere tilladt)"
 
-#: src/Rendering/Layout.php:226
+#: src/Rendering/Layout.php:229
 msgid "Divider"
 msgstr "Skillelinje"
 
-#: src/Rendering/Layout.php:229
-#: src/Rendering/Layout.php:254
+#: src/Rendering/Layout.php:232
+#: src/Rendering/Layout.php:257
 msgid "Colour"
 msgstr "Farve"
 
-#: src/Rendering/Layout.php:230
+#: src/Rendering/Layout.php:233
 msgid "Thickness (pt)"
 msgstr "Tykkelse (pt)"
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 #: src/Settings/Schema.php:122
 #: assets/editor/src/App.js:263
 msgid "Style"
 msgstr "Stil"
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 msgid "Solid"
 msgstr "Fuldt optrukket"
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 msgid "Dashed"
 msgstr "Stiplet"
 
-#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:234
 msgid "Dotted"
 msgstr "Prikket"
 
-#: src/Rendering/Layout.php:235
+#: src/Rendering/Layout.php:238
 msgid "Spacer"
 msgstr "Mellemrum"
 
-#: src/Rendering/Layout.php:238
+#: src/Rendering/Layout.php:241
 msgid "Height (mm)"
 msgstr "Højde (mm)"
 
-#: src/Rendering/Layout.php:242
+#: src/Rendering/Layout.php:245
 msgid "Signature line"
 msgstr "Underskriftslinje"
 
-#: src/Rendering/Layout.php:245
+#: src/Rendering/Layout.php:248
 msgid "Label"
 msgstr "Etiket"
 
-#: src/Rendering/Layout.php:245
+#: src/Rendering/Layout.php:248
 #: templates/shared/blocks/signature.php:11
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Signature"
 msgstr "Underskrift"
 
-#: src/Rendering/Layout.php:246
+#: src/Rendering/Layout.php:249
 msgid "Date line"
 msgstr "Datolinje"
 
-#: src/Rendering/Layout.php:250
+#: src/Rendering/Layout.php:253
 msgid "Paid stamp"
 msgstr "Betalt-stempel"
 
-#: src/Rendering/Layout.php:253
+#: src/Rendering/Layout.php:256
 msgid "Text (empty = receipt setting)"
 msgstr "Tekst (tom = kvitteringsindstilling)"
 
-#: src/Rendering/Layout.php:255
+#: src/Rendering/Layout.php:258
 msgid "Only when the order is paid"
 msgstr "Kun når ordren er betalt"
 
-#: src/Rendering/Layout.php:262
+#: src/Rendering/Layout.php:265
 msgid "Text (empty = footer from the general settings)"
 msgstr "Tekst (tom = sidefod fra de generelle indstillinger)"
 
-#: src/Rendering/Layout.php:263
+#: src/Rendering/Layout.php:266
 msgid "At the bottom of every page"
 msgstr "Nederst på hver side"
 
-#: src/Rendering/Layout.php:264
+#: src/Rendering/Layout.php:267
 msgid "Line above"
 msgstr "Linje over"
 
-#: src/Rendering/Layout.php:270
+#: src/Rendering/Layout.php:273
 msgid "Footer text"
 msgstr "Sidefodstekst"
 
-#: src/Rendering/Layout.php:271
+#: src/Rendering/Layout.php:274
 msgid "Shop details in three columns"
 msgstr "Butiksoplysninger i tre kolonner"
 
-#: src/Rendering/Layout.php:277
+#: src/Rendering/Layout.php:280
 msgid "Shipping details"
 msgstr "Forsendelsesoplysninger"
 
-#: src/Rendering/Layout.php:280
+#: src/Rendering/Layout.php:283
 #: templates/shared/blocks/shipping_info.php:42
 msgid "Delivery"
 msgstr "Levering"
 
-#: src/Rendering/Layout.php:283
+#: src/Rendering/Layout.php:286
 msgid "Total weight"
 msgstr "Samlet vægt"
 
-#: src/Rendering/Layout.php:284
+#: src/Rendering/Layout.php:287
 #: templates/shared/blocks/item_count.php:23
 #: templates/shared/blocks/shipping_info.php:32
 msgid "Total quantity"
 msgstr "Samlet antal"
 
-#: src/Rendering/Layout.php:285
+#: src/Rendering/Layout.php:288
 msgid "Tracking number field (order meta key)"
 msgstr "Felt til sporingsnummer (ordre-metanøgle)"
 
-#: src/Rendering/Layout.php:286
+#: src/Rendering/Layout.php:289
 msgid "Extra text (placeholders allowed)"
 msgstr "Ekstra tekst (pladsholdere tilladt)"
 
-#: src/Rendering/Layout.php:291
+#: src/Rendering/Layout.php:294
 msgid "Quantity summary"
 msgstr "Antalsoversigt"
 
-#: src/Rendering/Layout.php:294
+#: src/Rendering/Layout.php:297
 #: templates/shared/blocks/item_count.php:19
 msgid "Number of lines"
 msgstr "Antal linjer"
 
-#: src/Rendering/Layout.php:295
+#: src/Rendering/Layout.php:298
 msgid "Unit after the quantity"
 msgstr "Enhed efter antallet"
 
-#: src/Rendering/Layout.php:295
+#: src/Rendering/Layout.php:298
 msgid "pcs"
 msgstr "stk."
 
-#: src/Rendering/Layout.php:299
+#: src/Rendering/Layout.php:302
 msgid "Payment band"
 msgstr "Betalingsfelt"
 
-#: src/Rendering/Layout.php:302
+#: src/Rendering/Layout.php:305
 msgid "Account label"
 msgstr "Etiket for konto"
 
-#: src/Rendering/Layout.php:302
+#: src/Rendering/Layout.php:305
 #: templates/shared/blocks/payment_summary.php:24
 msgid "Bank account"
 msgstr "Bankkonto"
 
-#: src/Rendering/Layout.php:303
+#: src/Rendering/Layout.php:306
 msgid "Reference label"
 msgstr "Etiket for reference"
 
-#: src/Rendering/Layout.php:303
+#: src/Rendering/Layout.php:306
 #: templates/shared/blocks/payment_summary.php:30
 msgid "Payment reference"
 msgstr "Betalingsreference"
 
-#: src/Rendering/Layout.php:305
+#: src/Rendering/Layout.php:308
 #: templates/shared/blocks/payment_summary.php:35
 msgid "Amount to pay"
 msgstr "At betale"
 
-#: src/Rendering/Layout.php:306
+#: src/Rendering/Layout.php:309
 msgid "Hide when the order is paid"
 msgstr "Skjul, når ordren er betalt"
 
-#: src/Rendering/Layout.php:310
+#: src/Rendering/Layout.php:313
 msgid "Signature fields"
 msgstr "Underskriftsfelter"
 
-#: src/Rendering/Layout.php:314
+#: src/Rendering/Layout.php:317
 msgid "Fields (comma separated)"
 msgstr "Felter (kommasepareret)"
 
-#: src/Rendering/Layout.php:314
+#: src/Rendering/Layout.php:317
 msgid "Signature, Name in print, Date"
 msgstr "Underskrift, Navn med blokbogstaver, Dato"
 
-#: src/Rendering/Layout.php:317
+#: src/Rendering/Layout.php:320
 msgid "Label position"
 msgstr "Etiketplacering"
 
-#: src/Rendering/Layout.php:320
+#: src/Rendering/Layout.php:323
 msgid "Above the line"
 msgstr "Over linjen"
 
-#: src/Rendering/Layout.php:321
+#: src/Rendering/Layout.php:324
 msgid "Below the line"
 msgstr "Under linjen"
 
-#: src/Rendering/Layout.php:343
+#: src/Rendering/Layout.php:346
 msgid "Picked"
 msgstr "Plukket"
 
-#: src/Rendering/Layout.php:344
+#: src/Rendering/Layout.php:347
 msgid "Image"
 msgstr "Billede"
 
-#: src/Rendering/Layout.php:346
+#: src/Rendering/Layout.php:349
 msgid "Location"
 msgstr "Placering"
 
-#: src/Rendering/Layout.php:347
+#: src/Rendering/Layout.php:350
 msgid "Product"
 msgstr "Produkt"
 
-#: src/Rendering/Layout.php:348
+#: src/Rendering/Layout.php:351
 msgid "Qty"
 msgstr "Antal"
 
-#: src/Rendering/Layout.php:349
+#: src/Rendering/Layout.php:352
 #: templates/shared/blocks/shipping_info.php:28
 msgid "Weight"
 msgstr "Vægt"
 
-#: src/Rendering/Layout.php:350
+#: src/Rendering/Layout.php:353
 msgid "Unit price"
 msgstr "Stykpris"
 
-#: src/Rendering/Layout.php:351
+#: src/Rendering/Layout.php:354
 msgid "Unit price excl. tax"
 msgstr "Stykpris ekskl. moms"
 
-#: src/Rendering/Layout.php:352
+#: src/Rendering/Layout.php:355
 msgid "Unit price incl. tax"
 msgstr "Stykpris inkl. moms"
 
-#: src/Rendering/Layout.php:354
+#: src/Rendering/Layout.php:357
 msgid "VAT %"
 msgstr "Moms %"
 
-#: src/Rendering/Layout.php:355
-#: src/Rendering/OrderData.php:445
-#: src/Rendering/OrderData.php:591
+#: src/Rendering/Layout.php:358
+#: src/Rendering/OrderData.php:452
+#: src/Rendering/OrderData.php:598
 #: templates/shared/blocks/vat_summary.php:24
 msgid "VAT"
 msgstr "Moms"
 
-#: src/Rendering/Layout.php:356
+#: src/Rendering/Layout.php:359
 msgid "Amount"
 msgstr "Beløb"
 
-#: src/Rendering/Layout.php:357
+#: src/Rendering/Layout.php:360
 msgid "Amount excl. tax"
 msgstr "Beløb ekskl. moms"
 
-#: src/Rendering/Layout.php:358
+#: src/Rendering/Layout.php:361
 msgid "Amount incl. tax"
 msgstr "Beløb inkl. moms"
 
-#: src/Rendering/Layout.php:360
+#: src/Rendering/Layout.php:363
 msgid "Delivered"
 msgstr "Leveret"
 
-#: src/Rendering/OrderData.php:281
+#: src/Rendering/OrderData.php:288
 msgid "Refund"
 msgstr "Refusion"
 
 #. translators: %s: SKU
-#: src/Rendering/OrderData.php:379
+#: src/Rendering/OrderData.php:386
 #, php-format
 msgid "SKU: %s"
 msgstr "Varenr.: %s"
 
 #. translators: %s: weight
-#: src/Rendering/OrderData.php:383
+#: src/Rendering/OrderData.php:390
 #, php-format
 msgid "Weight: %s"
 msgstr "Vægt: %s"
 
 #. translators: %s: shipping method
-#: src/Rendering/OrderData.php:573
+#: src/Rendering/OrderData.php:580
 #, php-format
 msgid "Shipping: %s"
 msgstr "Fragt: %s"
 
 #. translators: %s: tax amount
-#: src/Rendering/OrderData.php:610
+#: src/Rendering/OrderData.php:617
 msgid "Of which VAT"
 msgstr "Heraf moms"
 
-#: src/Rendering/OrderData.php:662
+#: src/Rendering/OrderData.php:669
 msgid "No VAT"
 msgstr "Uden moms"
 

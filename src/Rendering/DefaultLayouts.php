@@ -240,7 +240,7 @@ class DefaultLayouts {
 			$info = array( 'box' => 'border', 'show_weight' => 'packing_slip' === $type ? 1 : 1, 'show_quantity' => 'packing_slip' === $type ? 1 : 0 );
 			$rows[] = self::row(
 				array(
-					array( 50, array( self::b( 'shipping_address', array( 'box' => 'filled', 'heading' => __( 'Delivery address', 'order-documents' ), 'margin_bottom' => 0 ) ) ) ),
+					array( 50, array( self::b( 'shipping_address', array( 'fallback' => 1, 'box' => 'filled', 'heading' => __( 'Delivery address', 'order-documents' ), 'margin_bottom' => 0 ) ) ) ),
 					array( 50, array( self::b( 'shipping_info', $info + array( 'margin_bottom' => 0 ) ) ) ),
 				),
 				array( 'margin_bottom' => 4 )
@@ -249,7 +249,7 @@ class DefaultLayouts {
 			$rows[] = self::row(
 				array(
 					array( 50, array( self::b( 'billing_address', array( 'box' => 'border', 'compact' => 1, 'margin_bottom' => 0 ) ) ) ),
-					array( 50, array( self::b( 'shipping_address', array( 'box' => 'border', 'compact' => 1, 'heading' => __( 'Delivery address', 'order-documents' ), 'margin_bottom' => 0 ) ) ) ),
+					array( 50, array( self::b( 'shipping_address', array( 'fallback' => 1, 'box' => 'border', 'compact' => 1, 'heading' => __( 'Delivery address', 'order-documents' ), 'margin_bottom' => 0 ) ) ) ),
 				),
 				array( 'margin_bottom' => 4 )
 			);

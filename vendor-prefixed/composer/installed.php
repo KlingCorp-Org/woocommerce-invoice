@@ -4,7 +4,7 @@
     'name' => 'order-documents/order-documents',
     'pretty_version' => 'dev-main',
     'version' => 'dev-main',
-    'reference' => '2c293276fa5dc5fdfbfa82c0ab5718c5fd59eaf0',
+    'reference' => 'dc55b5c6584c25ded555c8703abf8d31b14f5d91',
     'type' => 'wordpress-plugin',
     'install_path' => __DIR__ . '/../',
     'aliases' => 
