@@ -2,9 +2,9 @@
   'root' => 
   array (
     'name' => 'order-documents/order-documents',
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
-    'reference' => NULL,
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
+    'reference' => '2c293276fa5dc5fdfbfa82c0ab5718c5fd59eaf0',
     'type' => 'wordpress-plugin',
     'install_path' => __DIR__ . '/../',
     'aliases' => 

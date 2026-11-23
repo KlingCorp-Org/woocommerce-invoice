@@ -170,6 +170,22 @@ class OrderData {
 		return (string) apply_filters( 'odocs_shipping_address', $shipping, $this->document );
 	}
 
+	/**
+	 * Compact address HTML: first line in bold, the remaining lines joined with commas.
+	 */
+	public static function compact_address( string $address ): string {
+		$lines = array_values( array_filter( array_map( 'trim', preg_split( '#<br\s*/?>#i', $address ) ), 'strlen' ) );
+		if ( ! $lines ) {
+			return '';
+		}
+		$first = array_shift( $lines );
+		$html  = '<strong class="odocs-address-name">' . $first . '</strong>';
+		if ( $lines ) {
+			$html .= '<br>' . implode( ', ', $lines );
+		}
+		return $html;
+	}
+
 	private function normalize( string $address ): string {
 		return strtolower( preg_replace( '/\s+/', '', wp_strip_all_tags( str_replace( '<br/>', ' ', $address ) ) ) );
 	}
@@ -278,6 +294,27 @@ class OrderData {
 		unset( $row );
 		$this->items_cache = apply_filters( 'odocs_items', $rows, $this->document );
 		return $this->items_cache;
+	}
+
+	/** Sum of all item quantities. */
+	public function total_quantity(): float {
+		$total = 0.0;
+		foreach ( $this->items() as $row ) {
+			$total += abs( (float) $row['qty'] );
+		}
+		return $total;
+	}
+
+	/** Total product weight of all items, in the store's weight unit. */
+	public function total_weight(): float {
+		$total = 0.0;
+		foreach ( $this->items() as $row ) {
+			$product = ! empty( $row['product_id'] ) ? wc_get_product( $row['product_id'] ) : null;
+			if ( $product && $product->get_weight() ) {
+				$total += (float) $product->get_weight() * abs( (float) $row['qty'] );
+			}
+		}
+		return $total;
 	}
 
 	private function empty_row( array $values = array() ): array {

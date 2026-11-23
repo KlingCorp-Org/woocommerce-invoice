@@ -207,6 +207,118 @@ class DefaultLayouts {
 		);
 	}
 
+	/**
+	 * Fresh: logo left, big title right, green rule, data columns, rounded boxes, product images,
+	 * large total, payment band (invoices) or signature fields (packing slips, delivery notes).
+	 */
+	private static function layout_fresh( string $type ): array {
+		$is_shipping_doc = in_array( $type, array( 'packing_slip', 'delivery_note' ), true );
+		$rows            = array();
+
+		$rows[] = self::row(
+			array(
+				array( 50, array( self::b( 'logo', array( 'margin_bottom' => 0 ) ) ) ),
+				array( 50, array( self::b( 'document_title', array( 'align' => 'right', 'uppercase' => 1, 'subline' => $is_shipping_doc ? 'order' : 'number', 'margin_bottom' => 0 ) ) ) ),
+			),
+			array( 'margin_bottom' => 0 )
+		);
+		$rows[] = self::row( array( array( 100, array( self::b( 'divider', array( 'color' => 'accent-light', 'thickness' => 1.5, 'margin_bottom' => 4.5 ) ) ) ) ), array( 'margin_bottom' => 0 ) );
+
+		$data = array(
+			'layout'              => 'grid',
+			'grid_columns'        => 4,
+			'show_number'         => 0,
+			'show_order_date'     => $is_shipping_doc ? 1 : 0,
+			'show_order_number'   => $is_shipping_doc ? 0 : 1,
+			'show_payment_method' => 0,
+			'exclude'             => 'kid',
+			'margin_bottom'       => 4,
+		);
+		$rows[] = self::row( array( array( 100, array( self::b( 'document_data', $data ) ) ) ), array( 'margin_bottom' => 0 ) );
+
+		if ( $is_shipping_doc ) {
+			$info = array( 'box' => 'border', 'show_weight' => 'packing_slip' === $type ? 1 : 1, 'show_quantity' => 'packing_slip' === $type ? 1 : 0 );
+			$rows[] = self::row(
+				array(
+					array( 50, array( self::b( 'shipping_address', array( 'box' => 'filled', 'heading' => __( 'Delivery address', 'order-documents' ), 'margin_bottom' => 0 ) ) ) ),
+					array( 50, array( self::b( 'shipping_info', $info + array( 'margin_bottom' => 0 ) ) ) ),
+				),
+				array( 'margin_bottom' => 4 )
+			);
+		} else {
+			$rows[] = self::row(
+				array(
+					array( 50, array( self::b( 'billing_address', array( 'box' => 'border', 'compact' => 1, 'margin_bottom' => 0 ) ) ) ),
+					array( 50, array( self::b( 'shipping_address', array( 'box' => 'border', 'compact' => 1, 'heading' => __( 'Delivery address', 'order-documents' ), 'margin_bottom' => 0 ) ) ) ),
+				),
+				array( 'margin_bottom' => 4 )
+			);
+		}
+
+		if ( 'packing_slip' === $type ) {
+			$columns = self::label_columns(
+				Layout::columns( array( 'image', 'description', 'quantity', 'delivered', 'checkbox' ) ),
+				array(
+					'quantity' => __( 'Ordered', 'order-documents' ),
+					'checkbox' => __( 'Done', 'order-documents' ),
+				)
+			);
+			$image = 14.8;
+		} else {
+			$columns = Layout::columns( array( 'image', 'description', 'quantity', 'unit_price', 'total' ) );
+			$image   = 'delivery_note' === $type ? 12.7 : 11.6;
+		}
+		$rows[] = self::row( array( array( 100, array( self::b( 'items_table', array( 'columns' => $columns, 'image_size' => $image, 'margin_bottom' => 2 ) ) ) ) ), array( 'margin_bottom' => 2 ) );
+
+		$left = array( self::b( 'document_notice' ), self::b( 'payment_info', array( 'show_heading' => 0 ) ), self::b( 'customer_note' ), self::b( 'document_notes' ) );
+		if ( 'packing_slip' === $type ) {
+			$rows[] = self::row( array( array( 60, $left ), array( 40, array( self::b( 'item_count' ) ) ) ), array( 'margin_bottom' => 5 ) );
+			$rows[] = self::row(
+				array(
+					array(
+						100,
+						array(
+							self::b(
+								'signature_fields',
+								array(
+									'box'      => 'filled',
+									'labels'   => implode( ', ', array( __( 'Picked by', 'order-documents' ), __( 'Checked by', 'order-documents' ), __( 'Received by / date', 'order-documents' ) ) ),
+									'position' => 'above',
+								)
+							),
+						),
+					),
+				)
+			);
+		} else {
+			$right = array( self::b( 'totals', array( 'show_subtotal' => 1 ) ) );
+			if ( 'receipt' === $type ) {
+				$right[] = self::b( 'paid_stamp', array( 'align' => 'right' ) );
+			}
+			$rows[] = self::row( array( array( 55, $left ), array( 45, $right ) ), array( 'margin_bottom' => 2.5 ) );
+			if ( in_array( $type, array( 'invoice', 'proforma' ), true ) ) {
+				$rows[] = self::row( array( array( 100, array( self::b( 'payment_summary', array( 'box' => 'filled', 'hide_if_paid' => 0 ) ) ) ) ) );
+			} elseif ( 'delivery_note' === $type ) {
+				$rows[] = self::row( array( array( 100, array( self::b( 'signature_fields', array( 'box' => 'filled', 'heading' => __( 'Goods received', 'order-documents' ), 'position' => 'below' ) ) ) ) ) );
+			}
+		}
+
+		$rows[] = self::footer( array( 'layout' => 'columns', 'align' => 'left' ) );
+		return array( 'rows' => $rows );
+	}
+
+	/**
+	 * Sets custom headings on columns from Layout::columns().
+	 */
+	private static function label_columns( array $columns, array $labels ): array {
+		foreach ( $columns as &$column ) {
+			if ( isset( $labels[ $column['key'] ] ) ) {
+				$column['label'] = $labels[ $column['key'] ];
+			}
+		}
+		return $columns;
+	}
+
 	private static function layout_receipt_80mm( string $type ): array {
 		$blocks = array(
 			self::b( 'logo', array( 'align' => 'center', 'max_height' => 14 ) ),

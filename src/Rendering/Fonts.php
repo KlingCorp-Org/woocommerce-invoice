@@ -32,6 +32,16 @@ class Fonts {
 				'roboto'       => array( 'label' => 'Roboto', 'family' => 'Roboto', 'files' => $bundled( 'roboto', 'Roboto' ), 'fallback' => 'sans-serif' ),
 				'lato'         => array( 'label' => 'Lato', 'family' => 'Lato', 'files' => $bundled( 'lato', 'Lato' ), 'fallback' => 'sans-serif' ),
 				'merriweather' => array( 'label' => 'Merriweather', 'family' => 'Merriweather', 'files' => $bundled( 'merriweather', 'Merriweather' ), 'fallback' => 'serif' ),
+				'nunito'       => array( 'label' => 'Nunito', 'family' => 'Nunito', 'files' => $bundled( 'nunito', 'Nunito' ), 'fallback' => 'sans-serif' ),
+				'fredoka'      => array(
+					'label'    => 'Fredoka',
+					'family'   => 'Fredoka',
+					'files'    => array(
+						'normal' => 'fredoka/Fredoka_400Regular.ttf',
+						'bold'   => 'fredoka/Fredoka_600SemiBold.ttf',
+					),
+					'fallback' => 'sans-serif',
+				),
 				'helvetica'    => array( 'label' => __( 'Helvetica (built-in, smallest files)', 'order-documents' ), 'family' => 'Helvetica', 'files' => array(), 'fallback' => 'sans-serif' ),
 			)
 		);

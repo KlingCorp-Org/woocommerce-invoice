@@ -18,7 +18,7 @@ class TemplateRegistry {
 	public static function all(): array {
 		if ( null === self::$templates ) {
 			$templates = array();
-			foreach ( array( 'classic', 'modern', 'minimal', 'business', 'compact', 'receipt-80mm' ) as $id ) {
+			foreach ( array( 'classic', 'modern', 'minimal', 'business', 'compact', 'fresh', 'receipt-80mm' ) as $id ) {
 				$dir  = ODOCS_DIR . 'templates/' . $id . '/';
 				$meta = is_readable( $dir . 'template.php' ) ? include $dir . 'template.php' : array();
 				if ( is_array( $meta ) ) {

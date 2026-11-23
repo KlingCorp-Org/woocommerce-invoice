@@ -75,6 +75,24 @@ table { border-collapse: collapse; }
 .odocs-stamp { display: inline-block; font-weight: bold; font-size: 16pt; letter-spacing: 0.1em; padding: 1mm 4mm; border: 2pt solid; border-radius: 2mm; }
 .odocs-signature td { padding-top: 10mm; }
 .odocs-signature .odocs-sign-line { border-top: 0.75pt solid <?php echo $text; ?>; padding-top: 1mm; font-size: 0.85em; color: <?php echo $muted; ?>; }
+.odocs-box { padding: 3mm 4.5mm; border-radius: 3.5mm; page-break-inside: avoid; }
+.odocs-sign-fields, .odocs-payment-band, .odocs-footer-columns { page-break-inside: avoid; }
+.odocs-box .odocs-heading { margin-bottom: 1mm; }
+.odocs-title-sub { font-weight: bold; margin-top: 1.5mm; font-size: 1.1em; }
+.odocs-data-grid { width: 100%; border-collapse: collapse; }
+.odocs-data-grid td { vertical-align: top; padding: 0 3mm 1.5mm 0; }
+.odocs-grid-label { font-size: 0.85em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; color: <?php echo $muted; ?>; margin-bottom: 0.8mm; }
+.odocs-grid-value { font-weight: bold; }
+.odocs-check-box { display: inline-block; width: 4.2mm; height: 4.2mm; border: 1.4pt solid #9ca3af; border-radius: 1mm; }
+.odocs-fill-line { display: inline-block; width: 13mm; height: 4mm; border-bottom: 0.75pt solid #9ca3af; }
+.odocs-footer-columns { width: 100%; border-collapse: collapse; }
+.odocs-footer-columns td { width: 33.33%; vertical-align: top; padding-right: 4mm; line-height: 1.5; }
+.odocs-footer-extra { margin-top: 1.5mm; }
+.odocs-sign-fields { width: 100%; border-collapse: collapse; }
+.odocs-sign-fields td { vertical-align: top; }
+.odocs-sign-space { height: 7mm; border-bottom: 0.75pt solid <?php echo $muted; ?>; }
+.odocs-sign-label { font-size: 0.85em; font-weight: bold; margin: 1.2mm 0; }
+.odocs-shipping-info { line-height: 1.55; }
 <?php if ( 'pdf' !== $mode ) : ?>
 body { background: #e5e7eb; padding: 8mm 0; }
 .odocs-document { margin: 0 auto 8mm auto; }

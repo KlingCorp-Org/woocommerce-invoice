@@ -67,7 +67,10 @@ Try the import on a staging copy of the shop first.
 
 ## Templates and the editor
 
-- **Templates:** Classic, Modern, Minimal, Business, Compact and Receipt 80 mm. Each document type can use its own template (**Documents → [type] → Template**).
+- **Templates:** Classic, Modern, Minimal, Business, Compact, Fresh and Receipt 80 mm. Each document type can use its own template (**Documents → [type] → Template**).
+- **Fresh** is based on the Goggo Grossist designs. It has Nunito text with Fredoka headings, rounded and tinted boxes, product images, a large total, a payment band on invoices, and *Ordered / Delivered / Done* columns with signature fields on packing slips and delivery notes.
+  - Its green palette and fonts apply while the Design settings are left at their defaults; set your own accent colour or font there to override them.
+  - It brings new blocks that every template can use: *Shipping details*, *Quantity summary*, *Payment band* and *Signature fields*. It also adds a *Box* option on every block, a column layout for *Document data*, compact addresses, a three-column footer and a *Delivered* column.
 - **Visual editor:** **Order Documents → Design → Open the visual editor**.
   - Build the page from rows of 1–3 columns and drag blocks between them.
   - Click a block in the preview to edit it.

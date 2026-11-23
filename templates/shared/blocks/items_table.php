@@ -60,7 +60,9 @@ foreach ( $items as $i => $row ) {
 		if ( 'image' === $key ) {
 			$cell = $r->img( $row['image'] ?? null, 'width:' . $size . 'mm;height:auto;' );
 		} elseif ( 'checkbox' === $key ) {
-			$cell = '<span class="odocs-checkbox">&#9744;</span>';
+			$cell = '<span class="odocs-check-box"></span>';
+		} elseif ( 'delivered' === $key ) {
+			$cell = '<span class="odocs-fill-line"></span>';
 		} else {
 			$cell = (string) ( $row[ $key ] ?? '' );
 		}
@@ -68,7 +70,7 @@ foreach ( $items as $i => $row ) {
 			'<td class="odocs-c-%1$s odocs-col-%2$s">%3$s</td>',
 			esc_attr( $column['align'] ),
 			esc_attr( $key ),
-			in_array( $key, array( 'image', 'checkbox' ), true ) ? $cell : wp_kses_post( $cell ) // phpcs:ignore -- built by Renderer::img() / static markup.
+			in_array( $key, array( 'image', 'checkbox', 'delivered' ), true ) ? $cell : wp_kses_post( $cell ) // phpcs:ignore -- built by Renderer::img() / static markup.
 		);
 	}
 	echo '</tr>';

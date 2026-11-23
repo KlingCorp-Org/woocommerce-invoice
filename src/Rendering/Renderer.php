@@ -13,6 +13,7 @@
 namespace OrderDocs\Rendering;
 
 use OrderDocs\Documents\Document;
+use OrderDocs\Settings\Schema;
 use OrderDocs\Settings\Settings;
 
 defined( 'ABSPATH' ) || exit;
@@ -45,15 +46,79 @@ class Renderer {
 		return $this->bulk;
 	}
 
+	/** @var string Template being rendered (set by render()); drives template style defaults. */
+	protected $current_template = '';
+
 	/**
-	 * Design settings, merged with overrides from the editor.
+	 * Design settings, merged with overrides from the editor and the template's own style defaults.
+	 *
+	 * A template can ship its own defaults (e.g. a brand colour and font). They apply to every design
+	 * setting that is still at the global default, so the user's own choices always win.
 	 */
 	public function style(): array {
 		$style = Settings::section( 'design' );
 		if ( ! empty( $this->overrides['style'] ) && is_array( $this->overrides['style'] ) ) {
 			$style = array_merge( $style, array_intersect_key( $this->overrides['style'], $style ) );
 		}
+		$template = $this->current_template ? TemplateRegistry::get( $this->current_template ) : null;
+		if ( $template && ! empty( $template['style'] ) && is_array( $template['style'] ) ) {
+			$defaults = Schema::defaults( 'design' );
+			foreach ( $template['style'] as $key => $value ) {
+				if ( array_key_exists( $key, $style ) && strtolower( (string) $style[ $key ] ) === strtolower( (string) ( $defaults[ $key ] ?? '' ) ) ) {
+					$style[ $key ] = $value;
+				}
+			}
+		}
 		return $style;
+	}
+
+	public function set_template( string $template_id ): void {
+		$this->current_template = $template_id;
+	}
+
+	/**
+	 * Colour palette derived from the accent colour. Templates can pin exact shades for their default accent.
+	 *
+	 * @return array{accent:string,accent_light:string,tint:string,line:string}
+	 */
+	public function palette(): array {
+		$style   = $this->style();
+		$accent  = (string) ( sanitize_hex_color( (string) $style['accent_color'] ) ?: '#1f4e79' );
+		$palette = array(
+			'accent'       => $accent,
+			'accent_light' => self::mix( $accent, '#ffffff', 0.3 ),
+			'tint'         => self::mix( $accent, '#ffffff', 0.92 ),
+			'line'         => self::mix( $accent, '#ffffff', 0.82 ),
+		);
+		$template = $this->current_template ? TemplateRegistry::get( $this->current_template ) : null;
+		if ( $template && ! empty( $template['palette'] ) && strtolower( $accent ) === strtolower( (string) ( $template['style']['accent_color'] ?? '' ) ) ) {
+			$palette = array_merge( $palette, array_intersect_key( (array) $template['palette'], $palette ) );
+		}
+		return apply_filters( 'odocs_palette', $palette, $style, $this->current_template );
+	}
+
+	/**
+	 * Mixes two hex colours; $amount is the share of $with (0..1).
+	 */
+	public static function mix( string $color, string $with, float $amount ): string {
+		$a = self::rgb( $color );
+		$b = self::rgb( $with );
+		$out = '#';
+		for ( $i = 0; $i < 3; $i++ ) {
+			$out .= str_pad( dechex( (int) round( $a[ $i ] * ( 1 - $amount ) + $b[ $i ] * $amount ) ), 2, '0', STR_PAD_LEFT );
+		}
+		return $out;
+	}
+
+	private static function rgb( string $hex ): array {
+		$hex = ltrim( $hex, '#' );
+		if ( 3 === strlen( $hex ) ) {
+			$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+		}
+		if ( 6 !== strlen( $hex ) ) {
+			return array( 0, 0, 0 );
+		}
+		return array( hexdec( substr( $hex, 0, 2 ) ), hexdec( substr( $hex, 2, 2 ) ), hexdec( substr( $hex, 4, 2 ) ) );
 	}
 
 	public function template_id( Document $document ): string {
@@ -127,6 +192,7 @@ class Renderer {
 		$this->bulk  = count( $documents ) > 1;
 		$first       = $documents[0];
 		$template_id = $this->template_id( $first );
+		$this->set_template( $template_id );
 		$bodies      = array();
 		foreach ( $documents as $index => $document ) {
 			$bodies[] = $this->with_locale(
@@ -321,11 +387,18 @@ class Renderer {
 		if ( $settings['text_color'] ) {
 			$style[] = 'color:' . $this->color( $settings['text_color'] );
 		}
+		$box = (string) ( $settings['box'] ?? '' );
+		if ( 'border' === $box ) {
+			$style[] = 'border:0.75pt solid ' . $this->palette()['line'];
+		} elseif ( 'filled' === $box ) {
+			$style[] = 'background-color:' . $this->palette()['tint'];
+		}
 		$attr = 'preview' === $this->mode ? ' data-odocs-block="' . esc_attr( $block['id'] ?? '' ) . '"' : '';
 		return sprintf(
-			'<div class="odocs-block odocs-block-%s%s" style="%s"%s>%s</div>',
+			'<div class="odocs-block odocs-block-%s%s%s" style="%s"%s>%s</div>',
 			esc_attr( str_replace( '_', '-', $block['type'] ) ),
 			$settings['align'] ? ' odocs-align-' . esc_attr( $settings['align'] ) : '',
+			$box ? ' odocs-box odocs-box-' . esc_attr( $box ) : '',
 			esc_attr( implode( ';', $style ) ),
 			$attr,
 			$inner
@@ -355,6 +428,9 @@ class Renderer {
 		if ( 'accent' === $value ) {
 			return (string) $this->style()['accent_color'];
 		}
+		if ( in_array( $value, array( 'accent-light', 'tint', 'line' ), true ) ) {
+			return $this->palette()[ str_replace( '-', '_', $value ) ];
+		}
 		return sanitize_hex_color( $value ) ?: '';
 	}
 
@@ -375,6 +451,7 @@ class Renderer {
 	 * Complete stylesheet: page, fonts, shared base and template styles.
 	 */
 	public function css( string $template_id, Document $document ): string {
+		$this->set_template( $template_id );
 		$style   = $this->style();
 		$margins = $this->margins( $document );
 		$paper   = $this->paper( $document, count( ( new OrderData( $document, 'html' ) )->items() ) );
@@ -387,10 +464,15 @@ class Renderer {
 			'margins'     => $margins,
 			'paper'       => $paper,
 			'font'        => Fonts::family_css( (string) $style['font_family'] ),
+			'heading_font' => ! empty( $template['heading_font'] ) ? Fonts::family_css( (string) $template['heading_font'] ) : Fonts::family_css( (string) $style['font_family'] ),
 			'table_style' => $table_style,
 			'mode'        => $this->mode,
+			'palette'     => $this->palette(),
 		);
 		$css  = Fonts::font_face_css( (string) $style['font_family'], $this->is_pdf() ? 'pdf' : 'html' );
+		if ( ! empty( $template['heading_font'] ) && $template['heading_font'] !== $style['font_family'] ) {
+			$css .= Fonts::font_face_css( (string) $template['heading_font'], $this->is_pdf() ? 'pdf' : 'html' );
+		}
 		$css .= $this->partial( $template_id, 'base.css.php', $vars );
 		$css .= $this->partial( $template_id, 'style.css.php', $vars );
 		$css .= $this->partial( $template_id, 'custom.css', $vars );

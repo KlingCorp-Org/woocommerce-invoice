@@ -18,3 +18,14 @@ if ( $block['uppercase'] ) {
 }
 $style = (float) $block['font_size'] > 0 ? 'font-size:' . (float) $block['font_size'] . 'pt' : '';
 echo '<div class="odocs-title" style="' . esc_attr( $style ) . '">' . esc_html( $title ) . '</div>';
+$subline = '';
+if ( 'number' === $block['subline'] && $document->get_number() ) {
+	/* translators: %s: document number */
+	$subline = sprintf( __( 'No. %s', 'order-documents' ), $document->get_number() );
+} elseif ( 'order' === $block['subline'] || ( 'number' === $block['subline'] && ! $document->get_number() ) ) {
+	/* translators: %s: order number */
+	$subline = sprintf( __( 'Order %s', 'order-documents' ), $document->get_order()->get_order_number() );
+}
+if ( '' !== $subline ) {
+	echo '<div class="odocs-title-sub">' . esc_html( $subline ) . '</div>';
+}

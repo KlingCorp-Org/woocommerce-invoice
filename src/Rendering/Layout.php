@@ -68,6 +68,7 @@ class Layout {
 			'font_size'     => array( 'type' => 'number', 'label' => __( 'Font size (pt, 0 = default)', 'order-documents' ), 'default' => 0, 'min' => 0, 'max' => 40, 'step' => 0.5 ),
 			'margin_bottom' => array( 'type' => 'number', 'label' => __( 'Space below (mm)', 'order-documents' ), 'default' => 3, 'min' => 0, 'max' => 50, 'step' => 0.5 ),
 			'text_color'    => array( 'type' => 'color', 'label' => __( 'Text colour', 'order-documents' ), 'default' => '' ),
+			'box'           => array( 'type' => 'select', 'label' => __( 'Box', 'order-documents' ), 'default' => '', 'options' => array( '' => __( 'None', 'order-documents' ), 'border' => __( 'Rounded border', 'order-documents' ), 'filled' => __( 'Tinted background', 'order-documents' ) ) ),
 		);
 	}
 
@@ -79,6 +80,12 @@ class Layout {
 			return array(
 				'show_heading' => array( 'type' => 'checkbox', 'label' => __( 'Show heading', 'order-documents' ), 'default' => 1 ),
 				'heading'      => array( 'type' => 'text', 'label' => __( 'Heading', 'order-documents' ), 'default' => '', 'placeholder' => $default_label ),
+			);
+		};
+		$address = static function ( $default_label ) use ( $heading ) {
+			return array_merge(
+				$heading( $default_label ),
+				array( 'compact' => array( 'type' => 'checkbox', 'label' => __( 'Compact: name in bold, the rest on one line', 'order-documents' ), 'default' => 0 ) )
 			);
 		};
 
@@ -115,17 +122,27 @@ class Layout {
 					'text'       => array( 'type' => 'text', 'label' => __( 'Title (empty = document title)', 'order-documents' ), 'default' => '' ),
 					'uppercase'  => array( 'type' => 'checkbox', 'label' => __( 'Uppercase', 'order-documents' ), 'default' => 0 ),
 					'show_number' => array( 'type' => 'checkbox', 'label' => __( 'Add the document number', 'order-documents' ), 'default' => 0 ),
+					'subline'     => array(
+						'type'    => 'select',
+						'label'   => __( 'Line below the title', 'order-documents' ),
+						'default' => '',
+						'options' => array(
+							''       => __( 'None', 'order-documents' ),
+							'number' => __( 'Document number', 'order-documents' ),
+							'order'  => __( 'Order number', 'order-documents' ),
+						),
+					),
 				),
 			),
 			'billing_address'   => array(
 				'label'    => __( 'Billing address', 'order-documents' ),
 				'icon'     => 'id',
-				'settings' => $heading( __( 'Billing address', 'order-documents' ) ),
+				'settings' => $address( __( 'Billing address', 'order-documents' ) ),
 			),
 			'shipping_address'  => array(
 				'label'    => __( 'Shipping address', 'order-documents' ),
 				'icon'     => 'location',
-				'settings' => $heading( __( 'Ship to', 'order-documents' ) ),
+				'settings' => $address( __( 'Ship to', 'order-documents' ) ),
 			),
 			'document_data'     => array(
 				'label'    => __( 'Document data', 'order-documents' ),
@@ -139,6 +156,17 @@ class Layout {
 					'show_shipping_method' => array( 'type' => 'checkbox', 'label' => __( 'Shipping method', 'order-documents' ), 'default' => 0 ),
 					'show_other'           => array( 'type' => 'checkbox', 'label' => __( 'Other details (due date, KID, references...)', 'order-documents' ), 'default' => 1 ),
 					'boxed'                => array( 'type' => 'checkbox', 'label' => __( 'Boxed', 'order-documents' ), 'default' => 0 ),
+					'layout'               => array(
+						'type'    => 'select',
+						'label'   => __( 'Layout', 'order-documents' ),
+						'default' => 'table',
+						'options' => array(
+							'table' => __( 'Label and value side by side', 'order-documents' ),
+							'grid'  => __( 'Columns with the label above the value', 'order-documents' ),
+						),
+					),
+					'grid_columns'         => array( 'type' => 'number', 'label' => __( 'Columns (column layout)', 'order-documents' ), 'default' => 4, 'min' => 1, 'max' => 6 ),
+					'exclude'              => array( 'type' => 'text', 'label' => __( 'Hide these rows', 'order-documents' ), 'default' => '', 'placeholder' => 'kid, payment_method' ),
 				),
 			),
 			'items_table'       => array(
@@ -234,6 +262,65 @@ class Layout {
 					'content'     => array( 'type' => 'textarea', 'label' => __( 'Text (empty = footer from the general settings)', 'order-documents' ), 'default' => '' ),
 					'fixed'       => array( 'type' => 'checkbox', 'label' => __( 'At the bottom of every page', 'order-documents' ), 'default' => 1 ),
 					'show_border' => array( 'type' => 'checkbox', 'label' => __( 'Line above', 'order-documents' ), 'default' => 1 ),
+					'layout'      => array(
+						'type'    => 'select',
+						'label'   => __( 'Layout', 'order-documents' ),
+						'default' => 'text',
+						'options' => array(
+							'text'    => __( 'Footer text', 'order-documents' ),
+							'columns' => __( 'Shop details in three columns', 'order-documents' ),
+						),
+					),
+				),
+			),
+			'shipping_info'     => array(
+				'label'    => __( 'Shipping details', 'order-documents' ),
+				'icon'     => 'airplane',
+				'settings' => array_merge(
+					$heading( __( 'Delivery', 'order-documents' ) ),
+					array(
+						'show_method'   => array( 'type' => 'checkbox', 'label' => __( 'Shipping method', 'order-documents' ), 'default' => 1 ),
+						'show_weight'   => array( 'type' => 'checkbox', 'label' => __( 'Total weight', 'order-documents' ), 'default' => 1 ),
+						'show_quantity' => array( 'type' => 'checkbox', 'label' => __( 'Total quantity', 'order-documents' ), 'default' => 0 ),
+						'tracking_meta' => array( 'type' => 'text', 'label' => __( 'Tracking number field (order meta key)', 'order-documents' ), 'default' => '', 'placeholder' => '_tracking_number' ),
+						'text'          => array( 'type' => 'textarea', 'label' => __( 'Extra text (placeholders allowed)', 'order-documents' ), 'default' => '' ),
+					)
+				),
+			),
+			'item_count'        => array(
+				'label'    => __( 'Quantity summary', 'order-documents' ),
+				'icon'     => 'editor-ol',
+				'settings' => array(
+					'show_lines' => array( 'type' => 'checkbox', 'label' => __( 'Number of lines', 'order-documents' ), 'default' => 1 ),
+					'unit'       => array( 'type' => 'text', 'label' => __( 'Unit after the quantity', 'order-documents' ), 'default' => '', 'placeholder' => __( 'pcs', 'order-documents' ) ),
+				),
+			),
+			'payment_summary'   => array(
+				'label'    => __( 'Payment band', 'order-documents' ),
+				'icon'     => 'money-alt',
+				'settings' => array(
+					'account_label'   => array( 'type' => 'text', 'label' => __( 'Account label', 'order-documents' ), 'default' => '', 'placeholder' => __( 'Bank account', 'order-documents' ) ),
+					'reference_label' => array( 'type' => 'text', 'label' => __( 'Reference label', 'order-documents' ), 'default' => '', 'placeholder' => __( 'Payment reference', 'order-documents' ) ),
+					'show_due'        => array( 'type' => 'checkbox', 'label' => __( 'Due date', 'order-documents' ), 'default' => 1 ),
+					'show_amount'     => array( 'type' => 'checkbox', 'label' => __( 'Amount to pay', 'order-documents' ), 'default' => 1 ),
+					'hide_if_paid'    => array( 'type' => 'checkbox', 'label' => __( 'Hide when the order is paid', 'order-documents' ), 'default' => 0 ),
+				),
+			),
+			'signature_fields'  => array(
+				'label'    => __( 'Signature fields', 'order-documents' ),
+				'icon'     => 'welcome-write-blog',
+				'settings' => array(
+					'heading'  => array( 'type' => 'text', 'label' => __( 'Heading', 'order-documents' ), 'default' => '' ),
+					'labels'   => array( 'type' => 'text', 'label' => __( 'Fields (comma separated)', 'order-documents' ), 'default' => '', 'placeholder' => __( 'Signature, Name in print, Date', 'order-documents' ) ),
+					'position' => array(
+						'type'    => 'select',
+						'label'   => __( 'Label position', 'order-documents' ),
+						'default' => 'below',
+						'options' => array(
+							'above' => __( 'Above the line', 'order-documents' ),
+							'below' => __( 'Below the line', 'order-documents' ),
+						),
+					),
 				),
 			),
 		);
@@ -270,6 +357,7 @@ class Layout {
 				'total_excl'      => array( 'label' => __( 'Amount excl. tax', 'order-documents' ), 'width' => 15, 'align' => 'right' ),
 				'total_incl'      => array( 'label' => __( 'Amount incl. tax', 'order-documents' ), 'width' => 15, 'align' => 'right' ),
 				'orders'          => array( 'label' => __( 'Orders', 'order-documents' ), 'width' => 14, 'align' => 'left' ),
+				'delivered'       => array( 'label' => __( 'Delivered', 'order-documents' ), 'width' => 12, 'align' => 'center' ),
 			)
 		);
 	}
@@ -358,8 +446,8 @@ class Layout {
 	 */
 	public static function sanitize_color( $value ): string {
 		$value = trim( (string) $value );
-		if ( 'accent' === $value ) {
-			return 'accent';
+		if ( in_array( $value, array( 'accent', 'accent-light', 'tint', 'line' ), true ) ) {
+			return $value;
 		}
 		return sanitize_hex_color( $value ) ?: '';
 	}
