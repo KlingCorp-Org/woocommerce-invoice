@@ -1,0 +1,13 @@
+{
+  "name": "order-documents",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Visual layout editor for Order Documents for WooCommerce",
+  "scripts": {
+    "build": "wp-scripts build assets/editor/src/index.js --output-path=assets/editor/build",
+    "start": "wp-scripts start assets/editor/src/index.js --output-path=assets/editor/build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  }
+}

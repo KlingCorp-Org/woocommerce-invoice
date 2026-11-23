@@ -1,0 +1,43 @@
+{
+    "name": "order-documents/order-documents",
+    "description": "PDF invoices, packing slips, credit notes and more for WooCommerce.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=7.4",
+        "dompdf/dompdf": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6",
+        "yoast/phpunit-polyfills": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OrderDocs\\": "src/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.33"
+        },
+        "preferred-install": "source",
+        "sort-packages": true
+    },
+    "extra": {
+        "strauss": {
+            "target_directory": "vendor-prefixed",
+            "namespace_prefix": "OrderDocs\\Vendor\\",
+            "classmap_prefix": "OrderDocs_Vendor_",
+            "constant_prefix": "ODOCS_VENDOR_",
+            "packages": [
+                "dompdf/dompdf"
+            ],
+            "delete_vendor_packages": false,
+            "include_modified_date": false,
+            "include_author": false
+        }
+    },
+    "scripts": {
+        "prefix": "/opt/tools/strauss/vendor/bin/strauss"
+    }
+}

@@ -1,0 +1,49 @@
+/* Order screen: Documents box */
+.odocs-doc-buttons { margin: 0; }
+.odocs-doc-buttons li { margin: 0 0 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.odocs-doc-buttons .button { display: inline-flex; align-items: center; gap: 4px; min-width: 130px; }
+.odocs-doc-buttons .button .dashicons { font-size: 16px; width: 16px; height: 16px; }
+.odocs-doc-buttons .odocs-exists .button { border-color: #2271b1; }
+.odocs-doc-status { color: #646970; font-size: 12px; }
+.odocs-doc-buttons .button.disabled { cursor: not-allowed; }
+
+/* Order screen: Document data box */
+.odocs-data-doc { border-top: 1px solid #f0f0f1; padding: 8px 0; }
+.odocs-data-doc:first-child { border-top: 0; padding-top: 0; }
+.odocs-data-doc h4 { margin: 0 0 6px; display: flex; align-items: center; gap: 6px; }
+.odocs-data-view th { text-align: left; font-weight: 600; padding: 2px 16px 2px 0; }
+.odocs-data-view td { padding: 2px 0; }
+.odocs-data-edit textarea { width: 100%; max-width: 520px; }
+.odocs-data-actions { margin: 6px 0 0; }
+.odocs-badge { background: #f0f0f1; border-radius: 3px; padding: 1px 6px; font-size: 11px; font-weight: normal; color: #50575e; }
+.odocs-badge-archived { background: #edfaef; color: #00450c; }
+.odocs-muted { color: #8c8f94; }
+
+/* Orders list */
+.odocs-list-action.button { display: inline-flex !important; align-items: center; justify-content: center; padding: 0 !important; width: 2em; height: 2em; margin: 0 4px 4px 0 !important; text-indent: 0 !important; }
+.odocs-list-action.button::after { content: none !important; }
+.odocs-list-action .dashicons { font-size: 16px; width: 16px; height: 16px; line-height: 16px; }
+.odocs-list-action.odocs-exists { border-color: #2271b1; color: #2271b1; }
+
+
+/* Settings */
+.odocs-settings .odocs-section-title { margin-top: 2em; padding-top: 1em; border-top: 1px solid #dcdcde; }
+.odocs-settings .odocs-section-title:first-of-type { border-top: 0; margin-top: 1em; }
+.odocs-checklist { max-height: 220px; overflow: auto; padding: 8px 10px; background: #fff; border: 1px solid #dcdcde; max-width: 520px; }
+.odocs-checklist label { display: block; margin: 2px 0; }
+.odocs-media-preview img { max-width: 240px; max-height: 100px; display: block; margin-bottom: 8px; border: 1px solid #dcdcde; background: #fff; padding: 4px; }
+.odocs-template-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; max-width: 1000px; }
+.odocs-template-card { display: flex; flex-direction: column; gap: 4px; padding: 10px; border: 2px solid #dcdcde; border-radius: 6px; background: #fff; cursor: pointer; }
+.odocs-template-card input { position: absolute; opacity: 0; }
+.odocs-template-card.is-selected { border-color: #2271b1; box-shadow: 0 0 0 1px #2271b1; }
+.odocs-template-thumb img { width: 100%; height: auto; border: 1px solid #f0f0f1; }
+.odocs-template-card .description { font-size: 12px; }
+.odocs-doc-tabs .dashicons { font-size: 16px; width: 16px; height: 16px; vertical-align: text-bottom; }
+.odocs-doc-tabs .odocs-off { color: #8c8f94; }
+.odocs-editor-hint { margin: 1em 0 0; }
+.odocs-editor-hint .dashicons, .odocs-settings .button .dashicons { vertical-align: text-bottom; }
+.odocs-inline-form { display: inline; }
+.odocs-done { color: #00a32a; }
+.column-odocs_invoice_number { width: 15ch; }
+.odocs-list-actions { margin-top: 3px; }
+.odocs-invoice-number { font-weight: 600; }

@@ -1,0 +1,57 @@
+.odocs-editor-wrap { margin: 10px 20px 0 2px; }
+.odocs-editor { display: flex; flex-direction: column; height: calc(100vh - 32px - 30px); min-height: 560px; }
+.odocs-toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; padding: 12px; background: #fff; border: 1px solid #dcdcde; border-radius: 4px; margin-bottom: 8px;
+	.components-base-control { min-width: 170px; }
+}
+.odocs-toolbar-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.odocs-editor-body { display: flex; gap: 12px; flex: 1; min-height: 0; }
+.odocs-sidebar { width: 400px; flex: 0 0 400px; background: #fff; border: 1px solid #dcdcde; border-radius: 4px; overflow: auto;
+	.components-tab-panel__tabs { position: sticky; top: 0; background: #fff; z-index: 2; border-bottom: 1px solid #f0f0f1; }
+	.components-tab-panel__tab-content { padding: 12px; }
+}
+.odocs-preview { flex: 1; min-width: 0; background: #e5e7eb; border: 1px solid #dcdcde; border-radius: 4px; overflow: hidden;
+	iframe { width: 100%; height: 100%; border: 0; display: block; }
+}
+.odocs-help { color: #757575; font-size: 12px; margin: 0 0 12px; }
+.odocs-outline-row { border: 1px solid #dcdcde; border-radius: 4px; margin-bottom: 10px; background: #fafafa;
+	&.is-selected { border-color: var(--wp-admin-theme-color, #2271b1); box-shadow: 0 0 0 1px var(--wp-admin-theme-color, #2271b1); }
+	&.is-drop-target { border-style: dashed; border-color: var(--wp-admin-theme-color, #2271b1); }
+}
+.odocs-row-head { display: flex; align-items: center; gap: 2px; padding: 4px 6px; border-bottom: 1px solid #ececec;
+	.components-button.is-small { min-width: 24px; height: 24px; padding: 0 4px; }
+}
+.odocs-row-title { background: none; border: 0; padding: 2px 4px; font-weight: 600; cursor: pointer; margin-right: auto; }
+.odocs-col-count { display: inline-flex; margin-right: 4px; }
+.odocs-drag-handle { cursor: grab; color: #757575; }
+.odocs-row-columns { display: flex; gap: 6px; padding: 6px; }
+.odocs-outline-col { flex: 1 1 0; min-width: 0; border: 1px dashed #d0d0d0; border-radius: 3px; padding: 4px; background: #fff; min-height: 40px;
+	&.is-drop-target { background: #f0f6fc; border-color: var(--wp-admin-theme-color, #2271b1); }
+}
+.odocs-chip { display: flex; align-items: center; gap: 4px; padding: 4px 6px; margin-bottom: 4px; background: #f6f7f7; border: 1px solid #dcdcde; border-radius: 3px; cursor: grab; font-size: 12px; user-select: none;
+	.dashicons { font-size: 16px; width: 16px; height: 16px; color: #50575e; }
+	&:hover { border-color: #949494; }
+	&.is-selected { border-color: var(--wp-admin-theme-color, #2271b1); background: #f0f6fc; }
+	&.is-drop-before { box-shadow: 0 -3px 0 var(--wp-admin-theme-color, #2271b1); }
+	&.is-dragging { opacity: .4; }
+}
+.odocs-chip-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.odocs-add-block.components-button { font-size: 11px; height: 24px; width: 100%; justify-content: center; }
+.odocs-add-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.odocs-block-menu { max-height: 360px; overflow: auto; }
+.odocs-inspector { display: flex; flex-direction: column; gap: 12px;
+	h3 { margin: 0; display: flex; align-items: center; gap: 6px; }
+	h4 { margin: 8px 0 0; border-top: 1px solid #f0f0f1; padding-top: 12px; }
+}
+.odocs-inspector-actions { display: flex; gap: 8px; border-top: 1px solid #f0f0f1; padding-top: 12px; }
+.odocs-color-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+	input[type=color] { width: 36px; height: 28px; padding: 0; border: 1px solid #949494; border-radius: 2px; background: none; }
+}
+.odocs-color-value { font-family: monospace; font-size: 12px; color: #50575e; }
+.odocs-columns-editor { border: 1px solid #f0f0f1; border-radius: 3px; padding: 8px; }
+.odocs-column-item { border-bottom: 1px solid #f0f0f1; padding: 6px 0;
+	&:last-child { border-bottom: 0; }
+	&.is-enabled { background: #fbfbfb; }
+}
+.odocs-column-head { display: flex; align-items: center; gap: 6px; }
+.odocs-column-props { display: grid; grid-template-columns: 1.4fr .8fr 1fr; gap: 6px; margin: 6px 0 2px 22px; }
+.odocs-col-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
