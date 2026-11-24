@@ -223,7 +223,14 @@ class RestController {
 			return new \WP_Error( 'odocs_invalid', __( 'Could not build a preview.', 'order-documents' ), array( 'status' => 400 ) );
 		}
 		$renderer = new Renderer( 'preview', $this->preview_overrides( $request, $template ) );
-		return rest_ensure_response( array( 'html' => $renderer->render( array( $document ) ) ) );
+		$html     = $renderer->render( array( $document ) );
+		return rest_ensure_response(
+			array(
+				'html'    => $html,
+				'palette' => $renderer->palette(),
+				'style'   => $renderer->style(),
+			)
+		);
 	}
 
 	/**

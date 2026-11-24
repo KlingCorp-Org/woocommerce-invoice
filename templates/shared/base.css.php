@@ -99,8 +99,14 @@ body { background: #e5e7eb; padding: 8mm 0; }
 .odocs-sheet { background: #ffffff; width: <?php echo (float) $paper['width_mm']; ?>mm; min-height: <?php echo (float) $paper['height_mm']; ?>mm; padding: <?php echo (float) $mt; ?>mm <?php echo (float) $mr; ?>mm <?php echo (float) $mb; ?>mm <?php echo (float) $ml; ?>mm; margin: 0 auto; box-sizing: border-box; box-shadow: 0 1px 6px rgba(0,0,0,0.18); }
 <?php endif; ?>
 <?php if ( 'preview' === $mode ) : ?>
-[data-odocs-block] { cursor: pointer; }
-[data-odocs-block]:hover { outline: 1px dashed #2271b1; outline-offset: 1px; }
-.odocs-selected, .odocs-selected:hover { outline: 2px solid #2271b1; outline-offset: 1px; }
-.odocs-block-empty { border: 1px dashed #c3c4c7; color: #8c8f94; padding: 1.5mm 2mm; font-size: 8pt; margin-bottom: 2mm; font-family: sans-serif; }
+html, body { background: transparent; height: auto; overflow: hidden; }
+body { margin: 0; padding: 0; }
+.odocs-document { margin: 0 auto 24px auto; }
+.odocs-document:last-child { margin-bottom: 0; }
+.odocs-sheet { box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 6px 24px rgba(0,0,0,0.08); }
+[data-odocs-block] { cursor: pointer; transition: outline-color .12s ease; outline: 1px solid transparent; outline-offset: 2px; }
+[data-odocs-block]:hover { outline: 1px solid rgba(56, 88, 233, 0.55); }
+[data-odocs-row].odocs-selected { outline: 2px dashed #3858e9; outline-offset: 2px; }
+[data-odocs-block].odocs-selected, [data-odocs-block].odocs-selected:hover { outline: 2px solid #3858e9; outline-offset: 2px; }
+.odocs-block-empty { border: 1px dashed #c3c4c7; border-radius: 2px; color: #8c8f94; padding: 1.5mm 2mm; font-size: 8pt; margin-bottom: 2mm; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 <?php endif; ?>

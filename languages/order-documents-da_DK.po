@@ -1,20 +1,20 @@
-# Copyright (C) 2026 
+# Copyright (C) 2026
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Order Documents for WooCommerce 1.0.0\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/order-documents\n"
+"POT-Creation-Date: 2026-11-24T13:58:54+00:00\n"
+"PO-Revision-Date: 2026-11-23 22:30+0100\n"
 "Last-Translator: Order Documents\n"
 "Language-Team: da_DK\n"
-"MIME-Version: 1.0\n"
 "Language: da_DK\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-23T22:29:12+00:00\n"
-"PO-Revision-Date: 2026-11-23 22:30+0100\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: order-documents\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: order-documents.php
@@ -23,182 +23,251 @@ msgstr "Ordredokumenter til WooCommerce"
 
 #. Description of the plugin
 #: order-documents.php
-msgid "PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, receipts and picking lists for WooCommerce, with design templates and a visual layout editor."
-msgstr "PDF-fakturaer, pakkesedler, følgesedler, kreditnotaer, proformafakturaer, kvitteringer og pluklister til WooCommerce, med designskabeloner og visuel layouteditor."
+msgid ""
+"PDF invoices, packing slips, delivery notes, credit notes, proforma "
+"invoices, receipts and picking lists for WooCommerce, with design templates "
+"and a visual layout editor."
+msgstr ""
+"PDF-fakturaer, pakkesedler, følgesedler, kreditnotaer, proformafakturaer, "
+"kvitteringer og pluklister til WooCommerce, med designskabeloner og visuel "
+"layouteditor."
 
-#: order-documents.php:67
-msgid "Order Documents for WooCommerce requires WooCommerce to be installed and active."
-msgstr "Ordredokumenter til WooCommerce kræver, at WooCommerce er installeret og aktiveret."
+#: dist/order-documents/order-documents.php:67 order-documents.php:67
+msgid ""
+"Order Documents for WooCommerce requires WooCommerce to be installed and "
+"active."
+msgstr ""
+"Ordredokumenter til WooCommerce kræver, at WooCommerce er installeret og "
+"aktiveret."
 
-#: src/Admin/Assets.php:42
-msgid "Delete this document? Its number will not be reused automatically. This cannot be undone."
-msgstr "Slet dette dokument? Nummeret genbruges ikke automatisk. Dette kan ikke fortrydes."
+#: dist/order-documents/src/Admin/Assets.php:42 src/Admin/Assets.php:42
+msgid ""
+"Delete this document? Its number will not be reused automatically. This "
+"cannot be undone."
+msgstr ""
+"Slet dette dokument? Nummeret genbruges ikke automatisk. Dette kan ikke "
+"fortrydes."
 
-#: src/Admin/Assets.php:43
+#: dist/order-documents/src/Admin/Assets.php:43 src/Admin/Assets.php:43
 msgid "Select at least one order."
 msgstr "Vælg mindst én ordre."
 
-#: src/Admin/Assets.php:44
+#: dist/order-documents/src/Admin/Assets.php:44
+#: dist/order-documents/src/Admin/SettingsPage.php:370 src/Admin/Assets.php:44
 #: src/Admin/SettingsPage.php:370
 msgid "Choose logo"
 msgstr "Vælg logo"
 
-#: src/Admin/Assets.php:45
+#: dist/order-documents/src/Admin/Assets.php:45 src/Admin/Assets.php:45
 msgid "Use this image"
 msgstr "Brug dette billede"
 
-#: src/Admin/EditorPage.php:31
-#: src/Admin/EditorPage.php:32
-#: src/Admin/EditorPage.php:47
+#: dist/order-documents/src/Admin/EditorPage.php:31
+#: dist/order-documents/src/Admin/EditorPage.php:32
+#: dist/order-documents/src/Admin/EditorPage.php:47
+#: src/Admin/EditorPage.php:44 src/Admin/EditorPage.php:45
+#: src/Admin/EditorPage.php:60
 msgid "Document editor"
 msgstr "Dokumenteditor"
 
-#: src/Admin/EditorPage.php:48
+#: dist/order-documents/src/Admin/EditorPage.php:48
+#: src/Admin/EditorPage.php:61
 msgid "Loading the editor…"
 msgstr "Indlæser editoren …"
 
-#: src/Admin/EditorPage.php:50
+#: dist/order-documents/src/Admin/EditorPage.php:50
+#: src/Admin/EditorPage.php:63
 msgid "The editor files are missing. Reinstall the plugin."
 msgstr "Editorens filer mangler. Geninstaller pluginet."
 
+#: dist/order-documents/src/Admin/ImportPage.php:21
 #: src/Admin/ImportPage.php:21
 msgid "Import from WooCommerce PDF Invoices & Packing Slips"
 msgstr "Importér fra WooCommerce PDF Invoices & Packing Slips"
 
+#: dist/order-documents/src/Admin/ImportPage.php:23
 #: src/Admin/ImportPage.php:23
 msgid "No data from that plugin was found on this site."
 msgstr "Der blev ikke fundet data fra det plugin på dette websted."
 
+#: dist/order-documents/src/Admin/ImportPage.php:31
 #: src/Admin/ImportPage.php:31
-msgid "Orders that already have an invoice or other document from that plugin keep their number and date, even before importing anything. The steps below take over the settings, continue the number sequences, and copy the document data permanently. Nothing in the old plugin is changed, so both can stay active while you switch."
-msgstr "Ordrer, der allerede har en faktura eller et andet dokument fra det plugin, beholder nummer og dato, også før noget er importeret. Trinene nedenfor overtager indstillingerne, fortsætter nummerserierne og kopierer dokumentdata permanent. Intet i det gamle plugin ændres, så begge kan være aktive, mens du skifter."
+msgid ""
+"Orders that already have an invoice or other document from that plugin keep "
+"their number and date, even before importing anything. The steps below take "
+"over the settings, continue the number sequences, and copy the document data"
+" permanently. Nothing in the old plugin is changed, so both can stay active "
+"while you switch."
+msgstr ""
+"Ordrer, der allerede har en faktura eller et andet dokument fra det plugin, "
+"beholder nummer og dato, også før noget er importeret. Trinene nedenfor "
+"overtager indstillingerne, fortsætter nummerserierne og kopierer "
+"dokumentdata permanent. Intet i det gamle plugin ændres, så begge kan være "
+"aktive, mens du skifter."
 
+#: dist/order-documents/src/Admin/ImportPage.php:34
 #: src/Admin/ImportPage.php:34
 msgid "Continue the number sequences"
 msgstr "Fortsæt nummerserierne"
 
-#: src/Admin/ImportPage.php:39
-#: src/Endpoints/DocumentEndpoint.php:202
-#: assets/editor/src/App.js:199
+#: dist/order-documents/src/Admin/ImportPage.php:39
+#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:202
+#: src/Admin/ImportPage.php:39 src/Endpoints/DocumentEndpoint.php:202
+#: assets/editor/src/Inspector.js:48 assets/editor/src/TopBar.js:119
 msgid "Document"
 msgstr "Dokument"
 
+#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Documents found"
 msgstr "Fundne dokumenter"
 
+#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Highest number"
 msgstr "Højeste nummer"
 
+#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Next number in old plugin"
 msgstr "Næste nummer i gammelt plugin"
 
+#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Next number here"
 msgstr "Næste nummer her"
 
+#: dist/order-documents/src/Admin/ImportPage.php:45
 #: src/Admin/ImportPage.php:45
 msgid "yearly reset, this year only"
 msgstr "årlig nulstilling, kun i år"
 
+#: dist/order-documents/src/Admin/ImportPage.php:48
 #: src/Admin/ImportPage.php:48
 msgid "now:"
 msgstr "nu:"
 
 #. translators: %s: date
+#: dist/order-documents/src/Admin/ImportPage.php:57
 #: src/Admin/ImportPage.php:57
 #, php-format
 msgid "Number sequences were set on %s."
 msgstr "Nummerserierne blev indstillet %s."
 
+#: dist/order-documents/src/Admin/ImportPage.php:59
 #: src/Admin/ImportPage.php:59
 msgid "Set next numbers"
 msgstr "Indstil næste nummer"
 
+#: dist/order-documents/src/Admin/ImportPage.php:59
 #: src/Admin/ImportPage.php:59
 msgid "Set these next numbers? New documents will continue from them."
 msgstr "Indstil disse næste numre? Nye dokumenter fortsætter fra dem."
 
+#: dist/order-documents/src/Admin/ImportPage.php:63
 #: src/Admin/ImportPage.php:63
 msgid "Import settings"
 msgstr "Importér indstillinger"
 
+#: dist/order-documents/src/Admin/ImportPage.php:65
 #: src/Admin/ImportPage.php:65
 msgid "No settings found."
 msgstr "Ingen indstillinger fundet."
 
+#: dist/order-documents/src/Admin/ImportPage.php:70
 #: src/Admin/ImportPage.php:70
 msgid "Setting"
 msgstr "Indstilling"
 
+#: dist/order-documents/src/Admin/ImportPage.php:70
 #: src/Admin/ImportPage.php:70
 msgid "Value"
 msgstr "Værdi"
 
 #. translators: %s: date
+#: dist/order-documents/src/Admin/ImportPage.php:83
 #: src/Admin/ImportPage.php:83
 #, php-format
 msgid "Settings were imported on %s."
 msgstr "Indstillingerne blev importeret %s."
 
+#: dist/order-documents/src/Admin/ImportPage.php:85
 #: src/Admin/ImportPage.php:85
 msgid "Import selected settings"
 msgstr "Importér valgte indstillinger"
 
+#: dist/order-documents/src/Admin/ImportPage.php:90
 #: src/Admin/ImportPage.php:90
 msgid "Copy document data"
 msgstr "Kopiér dokumentdata"
 
+#: dist/order-documents/src/Admin/ImportPage.php:91
 #: src/Admin/ImportPage.php:91
-msgid "Copies numbers, dates and notes of all existing documents into this plugin, in the background. Needed before you remove the old plugin's data."
-msgstr "Kopierer numre, datoer og noter for alle eksisterende dokumenter til dette plugin i baggrunden. Nødvendigt, før du fjerner det gamle plugins data."
+msgid ""
+"Copies numbers, dates and notes of all existing documents into this plugin, "
+"in the background. Needed before you remove the old plugin's data."
+msgstr ""
+"Kopierer numre, datoer og noter for alle eksisterende dokumenter til dette "
+"plugin i baggrunden. Nødvendigt, før du fjerner det gamle plugins data."
 
 #. translators: 1: processed orders, 2: copied documents
+#: dist/order-documents/src/Admin/ImportPage.php:95
 #: src/Admin/ImportPage.php:95
 #, php-format
-msgid "Running: %1$d orders processed, %2$d documents copied. Reload the page to see progress."
-msgstr "Kører: %1$d ordrer behandlet, %2$d dokumenter kopieret. Genindlæs siden for at se fremskridt."
+msgid ""
+"Running: %1$d orders processed, %2$d documents copied. Reload the page to "
+"see progress."
+msgstr ""
+"Kører: %1$d ordrer behandlet, %2$d dokumenter kopieret. Genindlæs siden for "
+"at se fremskridt."
 
 #. translators: 1: processed orders, 2: copied documents
+#: dist/order-documents/src/Admin/ImportPage.php:98
 #: src/Admin/ImportPage.php:98
 #, php-format
 msgid "Finished: %1$d orders processed, %2$d documents copied."
 msgstr "Færdig: %1$d ordrer behandlet, %2$d dokumenter kopieret."
 
+#: dist/order-documents/src/Admin/ImportPage.php:103
 #: src/Admin/ImportPage.php:103
 msgid "Run again"
 msgstr "Kør igen"
 
+#: dist/order-documents/src/Admin/ImportPage.php:103
 #: src/Admin/ImportPage.php:103
 msgid "Start copying"
 msgstr "Start kopiering"
 
-#: src/Admin/ImportPage.php:110
-#: src/Admin/OrderMetaBoxes.php:358
-#: src/Admin/SettingsPage.php:245
-#: src/Endpoints/RestController.php:235
+#: dist/order-documents/src/Admin/ImportPage.php:110
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:358
+#: dist/order-documents/src/Admin/SettingsPage.php:245
+#: dist/order-documents/src/Endpoints/RestController.php:235
+#: src/Admin/ImportPage.php:110 src/Admin/OrderMetaBoxes.php:358
+#: src/Admin/SettingsPage.php:245 src/Endpoints/RestController.php:242
 msgid "Not allowed."
 msgstr "Ikke tilladt."
 
 #. translators: %s: document title, e.g. "Invoice"
+#: dist/order-documents/src/Admin/OrderActions.php:38
 #: src/Admin/OrderActions.php:38
 #, php-format
 msgid "E-mail %s to customer"
 msgstr "Send %s til kunden via e-mail"
 
+#: dist/order-documents/src/Admin/OrderActions.php:40
 #: src/Admin/OrderActions.php:40
 msgid "Regenerate archived document PDFs"
 msgstr "Generér arkiverede dokument-PDF'er igen"
 
 #. translators: 1: document title, 2: reason
+#: dist/order-documents/src/Admin/OrderActions.php:64
 #: src/Admin/OrderActions.php:64
 #, php-format
 msgid "%1$s was not sent: %2$s"
 msgstr "%1$s blev ikke sendt: %2$s"
 
 #. translators: %d: number of documents
+#: dist/order-documents/src/Admin/OrderActions.php:87
 #: src/Admin/OrderActions.php:87
 #, php-format
 msgid "%d archived document PDF will be regenerated."
@@ -206,1920 +275,2468 @@ msgid_plural "%d archived document PDFs will be regenerated."
 msgstr[0] "%d arkiveret dokument-PDF genereres igen."
 msgstr[1] "%d arkiverede dokument-PDF'er genereres igen."
 
-#: src/Admin/OrderListActions.php:93
-#: src/Admin/OrderListActions.php:97
-#: src/Admin/OrderMetaBoxes.php:40
-#: src/Admin/SettingsPage.php:114
+#: dist/order-documents/src/Admin/OrderListActions.php:93
+#: dist/order-documents/src/Admin/OrderListActions.php:97
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:40
+#: dist/order-documents/src/Admin/SettingsPage.php:114
+#: dist/order-documents/src/Frontend/MyAccount.php:102
+#: src/Admin/OrderListActions.php:93 src/Admin/OrderListActions.php:97
+#: src/Admin/OrderMetaBoxes.php:40 src/Admin/SettingsPage.php:114
 #: src/Frontend/MyAccount.php:102
 msgid "Documents"
 msgstr "Dokumenter"
 
 #. translators: %s: document type, plural, e.g. "invoices"
+#: dist/order-documents/src/Admin/OrderListActions.php:176
 #: src/Admin/OrderListActions.php:176
 #, php-format
 msgid "PDF: %s"
 msgstr "PDF: %s"
 
-#: src/Admin/OrderMetaBoxes.php:41
-#: src/Rendering/Layout.php:151
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:41
+#: dist/order-documents/src/Rendering/Layout.php:151
+#: src/Admin/OrderMetaBoxes.php:41 src/Rendering/Layout.php:151
 msgid "Document data"
 msgstr "Dokumentdata"
 
 #. translators: %s: refund amount
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:85
 #: src/Admin/OrderMetaBoxes.php:85
 #, php-format
 msgid "Refund %s"
 msgstr "Refusion %s"
 
 #. translators: %s: settings link
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:101
 #: src/Admin/OrderMetaBoxes.php:101
 #, php-format
 msgid "No document types are enabled. %s"
 msgstr "Ingen dokumenttyper er aktiveret. %s"
 
-#: src/Admin/OrderMetaBoxes.php:102
-#: src/Plugin.php:94
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:102
+#: dist/order-documents/src/Plugin.php:94 src/Admin/OrderMetaBoxes.php:102
+#: src/Plugin.php:94 assets/editor/src/App.js:727
+#: assets/editor/src/TopBar.js:334
 msgid "Settings"
 msgstr "Indstillinger"
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:123
 #: src/Admin/OrderMetaBoxes.php:123
 msgid "Not created yet"
 msgstr "Ikke oprettet endnu"
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:177
 #: src/Admin/OrderMetaBoxes.php:177
-msgid "No documents have been created for this order yet. Use the buttons in the Documents box."
-msgstr "Der er endnu ikke oprettet dokumenter for denne ordre. Brug knapperne i boksen Dokumenter."
+msgid ""
+"No documents have been created for this order yet. Use the buttons in the "
+"Documents box."
+msgstr ""
+"Der er endnu ikke oprettet dokumenter for denne ordre. Brug knapperne i "
+"boksen Dokumenter."
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:197
 #: src/Admin/OrderMetaBoxes.php:197
 msgid "from previous plugin"
 msgstr "fra tidligere plugin"
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:200
 #: src/Admin/OrderMetaBoxes.php:200
 msgid "The archived PDF is served. Regenerate to apply changes."
 msgstr "Den arkiverede PDF vises. Generér den igen for at anvende ændringer."
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:200
 #: src/Admin/OrderMetaBoxes.php:200
 msgid "archived"
 msgstr "arkiveret"
 
-#: src/Admin/OrderMetaBoxes.php:207
-#: src/Admin/OrderMetaBoxes.php:219
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:207
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:219
+#: src/Admin/OrderMetaBoxes.php:207 src/Admin/OrderMetaBoxes.php:219
 msgid "Number"
 msgstr "Nummer"
 
-#: src/Admin/OrderMetaBoxes.php:209
-#: src/Admin/OrderMetaBoxes.php:222
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:209
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:222
+#: dist/order-documents/templates/shared/blocks/signature_fields.php:13
+#: src/Admin/OrderMetaBoxes.php:209 src/Admin/OrderMetaBoxes.php:222
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Date"
 msgstr "Dato"
 
-#: src/Admin/OrderMetaBoxes.php:211
-#: src/Rendering/Layout.php:209
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:211
+#: dist/order-documents/src/Rendering/Layout.php:209
+#: dist/order-documents/templates/shared/blocks/document_notes.php:17
+#: src/Admin/OrderMetaBoxes.php:211 src/Rendering/Layout.php:209
 #: templates/shared/blocks/document_notes.php:17
 msgid "Notes"
 msgstr "Noter"
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:220
 #: src/Admin/OrderMetaBoxes.php:220
 msgid "Plain number; prefix, suffix and padding are added automatically."
 msgstr "Kun tallet; præfiks, suffiks og udfyldning tilføjes automatisk."
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:225
 #: src/Admin/OrderMetaBoxes.php:225
 msgid "Notes (printed in the \"Document notes\" block)"
 msgstr "Noter (udskrives i blokken »Dokumentnoter«)"
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:226
 #: src/Admin/OrderMetaBoxes.php:226
 msgid "Changes are saved when you update the order."
 msgstr "Ændringerne gemmes, når du opdaterer ordren."
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:230
 #: src/Admin/OrderMetaBoxes.php:230
 msgid "Edit"
 msgstr "Redigér"
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:232
 #: src/Admin/OrderMetaBoxes.php:232
 msgid "Regenerate PDF"
 msgstr "Generér PDF igen"
 
-#: src/Admin/OrderMetaBoxes.php:234
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:234
+#: src/Admin/OrderMetaBoxes.php:234 assets/editor/src/Canvas.js:329
+#: assets/editor/src/Inspector.js:687 assets/editor/src/Outline.js:81
 msgid "Delete"
 msgstr "Slet"
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:274
 #: src/Admin/OrderMetaBoxes.php:274
 msgid "Invalid document date."
 msgstr "Ugyldig dokumentdato."
 
 #. translators: 1: document number, 2: order number
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:286
 #: src/Admin/OrderMetaBoxes.php:286
 #, php-format
-msgid "Number %1$s is already used by order #%2$s. The number was not changed."
-msgstr "Nummer %1$s bruges allerede af ordre #%2$s. Nummeret blev ikke ændret."
+msgid ""
+"Number %1$s is already used by order #%2$s. The number was not changed."
+msgstr ""
+"Nummer %1$s bruges allerede af ordre #%2$s. Nummeret blev ikke ændret."
 
 #. translators: %s: document title
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:308
 #: src/Admin/OrderMetaBoxes.php:308
 #, php-format
 msgid "%s data was edited."
 msgstr "Data for %s blev redigeret."
 
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:365
 #: src/Admin/OrderMetaBoxes.php:365
 msgid "Document not found."
 msgstr "Dokumentet blev ikke fundet."
 
 #. translators: %s: document title and number
+#: dist/order-documents/src/Admin/OrderMetaBoxes.php:397
 #: src/Admin/OrderMetaBoxes.php:397
 #, php-format
 msgid "%s was deleted."
 msgstr "%s blev slettet."
 
-#: src/Admin/SettingsPage.php:37
-#: src/Admin/SettingsPage.php:38
+#: dist/order-documents/src/Admin/SettingsPage.php:37
+#: dist/order-documents/src/Admin/SettingsPage.php:38
+#: dist/order-documents/src/Admin/SettingsPage.php:129
+#: src/Admin/SettingsPage.php:37 src/Admin/SettingsPage.php:38
 #: src/Admin/SettingsPage.php:129
 msgid "Order Documents"
 msgstr "Ordredokumenter"
 
-#: src/Admin/SettingsPage.php:113
-#: src/Documents/Document.php:129
+#: dist/order-documents/src/Admin/SettingsPage.php:113
+#: dist/order-documents/src/Documents/Document.php:129
+#: dist/order-documents/src/Documents/PickingList.php:56
+#: src/Admin/SettingsPage.php:113 src/Documents/Document.php:129
 #: src/Documents/PickingList.php:56
 msgid "General"
 msgstr "Generelt"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:115
 #: src/Admin/SettingsPage.php:115
 msgid "Design"
 msgstr "Design"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:116
 #: src/Admin/SettingsPage.php:116
 msgid "Advanced"
 msgstr "Avanceret"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:117
 #: src/Admin/SettingsPage.php:117
 msgid "Tools"
 msgstr "Værktøjer"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:131
 #: src/Admin/SettingsPage.php:131
-msgid "Data from WooCommerce PDF Invoices & Packing Slips was found. Existing invoice numbers are used automatically; import the settings and continue the number sequences under Tools."
-msgstr "Der blev fundet data fra WooCommerce PDF Invoices & Packing Slips. Eksisterende fakturanumre bruges automatisk; importér indstillingerne og fortsæt nummerserierne under Værktøjer."
+msgid ""
+"Data from WooCommerce PDF Invoices & Packing Slips was found. Existing "
+"invoice numbers are used automatically; import the settings and continue the"
+" number sequences under Tools."
+msgstr ""
+"Der blev fundet data fra WooCommerce PDF Invoices & Packing Slips. "
+"Eksisterende fakturanumre bruges automatisk; importér indstillingerne og "
+"fortsæt nummerserierne under Værktøjer."
 
+#: dist/order-documents/src/Admin/SettingsPage.php:131
 #: src/Admin/SettingsPage.php:131
 msgid "Open the importer"
 msgstr "Åbn importværktøjet"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:183
 #: src/Admin/SettingsPage.php:183
-#: assets/editor/src/App.js:201
 msgid "off"
 msgstr "fra"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:190
 #: src/Admin/SettingsPage.php:190
 msgid "Edit the layout in the visual editor"
 msgstr "Redigér layoutet i den visuelle editor"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:201
 #: src/Admin/SettingsPage.php:201
 msgid "Open the visual editor"
 msgstr "Åbn den visuelle editor"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:202
 #: src/Admin/SettingsPage.php:202
-msgid "Arrange blocks and columns per template and document type, with a live preview."
-msgstr "Arrangér blokke og kolonner pr. skabelon og dokumenttype med live-forhåndsvisning."
+msgid ""
+"Arrange blocks and columns per template and document type, with a live "
+"preview."
+msgstr ""
+"Arrangér blokke og kolonner pr. skabelon og dokumenttype med live-"
+"forhåndsvisning."
 
+#: dist/order-documents/src/Admin/SettingsPage.php:210
 #: src/Admin/SettingsPage.php:210
 msgid "Number sequences"
 msgstr "Nummerserier"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:211
 #: src/Admin/SettingsPage.php:211
-msgid "Each sequence hands out numbers without gaps. Yearly or monthly sequences get their own row."
-msgstr "Hver serie uddeler numre uden huller. Årlige eller månedlige serier får deres egen række."
+msgid ""
+"Each sequence hands out numbers without gaps. Yearly or monthly sequences "
+"get their own row."
+msgstr ""
+"Hver serie uddeler numre uden huller. Årlige eller månedlige serier får "
+"deres egen række."
 
+#: dist/order-documents/src/Admin/SettingsPage.php:213
 #: src/Admin/SettingsPage.php:213
 msgid "Sequence"
 msgstr "Serie"
 
-#: src/Admin/SettingsPage.php:213
-#: src/Documents/Document.php:152
+#: dist/order-documents/src/Admin/SettingsPage.php:213
+#: dist/order-documents/src/Documents/Document.php:152
+#: src/Admin/SettingsPage.php:213 src/Documents/Document.php:152
 msgid "Next number"
 msgstr "Næste nummer"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:213
 #: src/Admin/SettingsPage.php:213
 msgid "Last change (UTC)"
 msgstr "Sidst ændret (UTC)"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:215
 #: src/Admin/SettingsPage.php:215
 msgid "No numbers have been issued yet."
 msgstr "Der er endnu ikke udstedt numre."
 
+#: dist/order-documents/src/Admin/SettingsPage.php:223
 #: src/Admin/SettingsPage.php:223
 msgid "Change the next number of this sequence? Numbers must stay unique."
 msgstr "Ændre næste nummer i denne serie? Numrene skal være unikke."
 
-#: src/Admin/SettingsPage.php:223
-#: assets/editor/src/App.js:240
+#: dist/order-documents/src/Admin/SettingsPage.php:223
+#: src/Admin/SettingsPage.php:223 assets/editor/src/App.js:65
+#: assets/editor/src/TopBar.js:354
 msgid "Save"
 msgstr "Gem"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:228
 #: src/Admin/SettingsPage.php:228
 msgid "Test print"
 msgstr "Testudskrift"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:231
 #: src/Admin/SettingsPage.php:231
 msgid "Order ID"
 msgstr "Ordre-ID"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:237
 #: src/Admin/SettingsPage.php:237
 msgid "Open"
 msgstr "Åbn"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:238
 #: src/Admin/SettingsPage.php:238
-msgid "Opening a document creates it (and gives it a number) if it does not exist yet."
-msgstr "Når du åbner et dokument, oprettes det (og får et nummer), hvis det ikke findes endnu."
+msgid ""
+"Opening a document creates it (and gives it a number) if it does not exist "
+"yet."
+msgstr ""
+"Når du åbner et dokument, oprettes det (og får et nummer), hvis det ikke "
+"findes endnu."
 
+#: dist/order-documents/src/Admin/SettingsPage.php:257
 #: src/Admin/SettingsPage.php:257
 msgid "Placeholders"
 msgstr "Pladsholdere"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:258
 #: src/Admin/SettingsPage.php:258
-msgid "Use these in the footer, extra fields, payment information and custom text blocks."
-msgstr "Brug disse i sidefod, ekstrafelter, betalingsoplysninger og egne tekstblokke."
+msgid ""
+"Use these in the footer, extra fields, payment information and custom text "
+"blocks."
+msgstr ""
+"Brug disse i sidefod, ekstrafelter, betalingsoplysninger og egne "
+"tekstblokke."
 
+#: dist/order-documents/src/Admin/SettingsPage.php:371
 #: src/Admin/SettingsPage.php:371
 msgid "Choose image"
 msgstr "Vælg billede"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:373
 #: src/Admin/SettingsPage.php:373
 msgid "Remove"
 msgstr "Fjern"
 
+#: dist/order-documents/src/Admin/SettingsPage.php:384
 #: src/Admin/SettingsPage.php:384
 msgid "Nothing to choose from."
 msgstr "Intet at vælge."
 
 #. translators: %s: sequence name
+#: dist/order-documents/src/Admin/SettingsPage.php:405
 #: src/Admin/SettingsPage.php:405
 #, php-format
 msgid "Sequence: %s"
 msgstr "Serie: %s"
 
+#: dist/order-documents/src/Documents/CreditNote.php:19
 #: src/Documents/CreditNote.php:19
 msgid "Credit note"
 msgstr "Kreditnota"
 
+#: dist/order-documents/src/Documents/CreditNote.php:23
 #: src/Documents/CreditNote.php:23
 msgid "Credit notes"
 msgstr "Kreditnotaer"
 
-#: src/Documents/CreditNote.php:52
-#: src/Documents/Document.php:257
+#: dist/order-documents/src/Documents/CreditNote.php:52
+#: dist/order-documents/src/Documents/Document.php:257
+#: src/Documents/CreditNote.php:52 src/Documents/Document.php:257
 msgid "Own sequence"
 msgstr "Egen serie"
 
+#: dist/order-documents/src/Documents/CreditNote.php:53
 #: src/Documents/CreditNote.php:53
 msgid "Shared with invoices"
 msgstr "Fælles med fakturaer"
 
+#: dist/order-documents/src/Documents/CreditNote.php:66
 #: src/Documents/CreditNote.php:66
 msgid "Credit note details"
 msgstr "Detaljer for kreditnota"
 
+#: dist/order-documents/src/Documents/CreditNote.php:67
 #: src/Documents/CreditNote.php:67
 msgid "Only for orders with an invoice"
 msgstr "Kun for ordrer med faktura"
 
+#: dist/order-documents/src/Documents/CreditNote.php:68
 #: src/Documents/CreditNote.php:68
 msgid "Show amounts as negative numbers"
 msgstr "Vis beløb som negative tal"
 
+#: dist/order-documents/src/Documents/CreditNote.php:69
 #: src/Documents/CreditNote.php:69
 msgid "Show the refund reason"
 msgstr "Vis årsagen til refusionen"
 
+#: dist/order-documents/src/Documents/CreditNote.php:80
 #: src/Documents/CreditNote.php:80
 msgid "A credit note belongs to a refund. Refund the order first."
 msgstr "En kreditnota hører til en refusion. Refundér ordren først."
 
+#: dist/order-documents/src/Documents/CreditNote.php:86
 #: src/Documents/CreditNote.php:86
 msgid "Create the invoice before the credit note."
 msgstr "Opret fakturaen før kreditnotaen."
 
+#: dist/order-documents/src/Documents/CreditNote.php:101
 #: src/Documents/CreditNote.php:101
 msgid "Original invoice"
 msgstr "Oprindelig faktura"
 
-#: src/Documents/CreditNote.php:102
-#: src/Rendering/Placeholders.php:27
+#: dist/order-documents/src/Documents/CreditNote.php:102
+#: dist/order-documents/src/Rendering/Placeholders.php:27
+#: src/Documents/CreditNote.php:102 src/Rendering/Placeholders.php:27
 msgid "Invoice date"
 msgstr "Fakturadato"
 
+#: dist/order-documents/src/Documents/CreditNote.php:105
 #: src/Documents/CreditNote.php:105
 msgid "Reason"
 msgstr "Årsag"
 
+#: dist/order-documents/src/Documents/DeliveryNote.php:19
 #: src/Documents/DeliveryNote.php:19
 msgid "Delivery note"
 msgstr "Følgeseddel"
 
+#: dist/order-documents/src/Documents/DeliveryNote.php:23
 #: src/Documents/DeliveryNote.php:23
 msgid "Delivery notes"
 msgstr "Følgesedler"
 
-#: src/Documents/Document.php:130
-#: src/Documents/PickingList.php:57
+#: dist/order-documents/src/Documents/Document.php:130
+#: dist/order-documents/src/Documents/PickingList.php:57
+#: dist/order-documents/src/Migration/WpoImporter.php:272
+#: src/Documents/Document.php:130 src/Documents/PickingList.php:57
 #: src/Migration/WpoImporter.php:272
 msgid "Enabled"
 msgstr "Aktiveret"
 
 #. translators: %s: document type
+#: dist/order-documents/src/Documents/Document.php:130
 #: src/Documents/Document.php:130
 #, php-format
 msgid "Show %s buttons and allow creating this document."
 msgstr "Vis knapper til %s og tillad oprettelse af dokumentet."
 
 #. translators: %s: document type
-#: src/Documents/Document.php:131
-#: src/Documents/PickingList.php:58
-#: src/Rendering/Layout.php:119
-#: src/Rendering/Placeholders.php:23
+#: dist/order-documents/src/Documents/Document.php:131
+#: dist/order-documents/src/Documents/PickingList.php:58
+#: dist/order-documents/src/Rendering/Layout.php:119
+#: dist/order-documents/src/Rendering/Placeholders.php:23
+#: src/Documents/Document.php:131 src/Documents/PickingList.php:58
+#: src/Rendering/Layout.php:119 src/Rendering/Placeholders.php:23
 msgid "Document title"
 msgstr "Dokumenttitel"
 
-#: src/Documents/Document.php:135
-#: src/Documents/PickingList.php:62
-#: src/Settings/Schema.php:120
-#: assets/editor/src/App.js:215
+#: dist/order-documents/src/Documents/Document.php:135
+#: dist/order-documents/src/Documents/PickingList.php:62
+#: dist/order-documents/src/Settings/Schema.php:120
+#: src/Documents/Document.php:135 src/Documents/PickingList.php:62
+#: src/Settings/Schema.php:120 assets/editor/src/TopBar.js:142
 msgid "Template"
 msgstr "Skabelon"
 
-#: src/Documents/Document.php:138
-#: src/Documents/PickingList.php:65
+#: dist/order-documents/src/Documents/Document.php:138
+#: dist/order-documents/src/Documents/PickingList.php:65
+#: src/Documents/Document.php:138 src/Documents/PickingList.php:65
 msgid "Use the default template"
 msgstr "Brug standardskabelonen"
 
-#: src/Documents/Document.php:141
-#: src/Documents/PickingList.php:68
+#: dist/order-documents/src/Documents/Document.php:141
+#: dist/order-documents/src/Documents/PickingList.php:68
+#: src/Documents/Document.php:141 src/Documents/PickingList.php:68
 msgid "File name"
 msgstr "Filnavn"
 
+#: dist/order-documents/src/Documents/Document.php:141
 #: src/Documents/Document.php:141
-msgid "Without \".pdf\". Placeholders such as {{document_number}}, {{order_number}} and {{document_title}} are supported."
-msgstr "Uden ».pdf«. Pladsholdere som {{document_number}}, {{order_number}} og {{document_title}} understøttes."
+msgid ""
+"Without \".pdf\". Placeholders such as {{document_number}}, {{order_number}}"
+" and {{document_title}} are supported."
+msgstr ""
+"Uden ».pdf«. Pladsholdere som {{document_number}}, {{order_number}} og "
+"{{document_title}} understøttes."
 
+#: dist/order-documents/src/Documents/Document.php:144
 #: src/Documents/Document.php:144
 msgid "Numbering"
 msgstr "Nummerering"
 
+#: dist/order-documents/src/Documents/Document.php:146
 #: src/Documents/Document.php:146
 msgid "Give this document a number"
 msgstr "Giv dette dokument et nummer"
 
+#: dist/order-documents/src/Documents/Document.php:150
 #: src/Documents/Document.php:150
 msgid "Number sequence"
 msgstr "Nummerserie"
 
+#: dist/order-documents/src/Documents/Document.php:152
 #: src/Documents/Document.php:152
-msgid "The number the next document gets. Change it only if you are sure, numbers must stay unique."
-msgstr "Nummeret, som næste dokument får. Ændr det kun, hvis du er sikker – numrene skal være unikke."
+msgid ""
+"The number the next document gets. Change it only if you are sure, numbers "
+"must stay unique."
+msgstr ""
+"Nummeret, som næste dokument får. Ændr det kun, hvis du er sikker – numrene "
+"skal være unikke."
 
-#: src/Documents/Document.php:153
-#: src/Migration/WpoImporter.php:306
+#: dist/order-documents/src/Documents/Document.php:153
+#: dist/order-documents/src/Migration/WpoImporter.php:306
+#: src/Documents/Document.php:153 src/Migration/WpoImporter.php:306
 msgid "Prefix"
 msgstr "Præfiks"
 
+#: dist/order-documents/src/Documents/Document.php:153
 #: src/Documents/Document.php:153
-msgid "Supports {{year}}, {{month}}, {{day}}, {{order_year}}, {{order_month}} and {{order_number}}."
-msgstr "Understøtter {{year}}, {{month}}, {{day}}, {{order_year}}, {{order_month}} og {{order_number}}."
+msgid ""
+"Supports {{year}}, {{month}}, {{day}}, {{order_year}}, {{order_month}} and "
+"{{order_number}}."
+msgstr ""
+"Understøtter {{year}}, {{month}}, {{day}}, {{order_year}}, {{order_month}} "
+"og {{order_number}}."
 
-#: src/Documents/Document.php:154
-#: src/Migration/WpoImporter.php:307
+#: dist/order-documents/src/Documents/Document.php:154
+#: dist/order-documents/src/Migration/WpoImporter.php:307
+#: src/Documents/Document.php:154 src/Migration/WpoImporter.php:307
 msgid "Suffix"
 msgstr "Suffiks"
 
-#: src/Documents/Document.php:155
-#: src/Migration/WpoImporter.php:309
+#: dist/order-documents/src/Documents/Document.php:155
+#: dist/order-documents/src/Migration/WpoImporter.php:309
+#: src/Documents/Document.php:155 src/Migration/WpoImporter.php:309
 msgid "Padding"
 msgstr "Udfyldning"
 
+#: dist/order-documents/src/Documents/Document.php:155
 #: src/Documents/Document.php:155
 msgid "Minimum number of digits, for example 5 turns 42 into 00042."
 msgstr "Mindste antal cifre, f.eks. gør 5 tallet 42 til 00042."
 
-#: src/Documents/Document.php:159
-#: src/Migration/WpoImporter.php:313
+#: dist/order-documents/src/Documents/Document.php:159
+#: dist/order-documents/src/Migration/WpoImporter.php:313
+#: src/Documents/Document.php:159 src/Migration/WpoImporter.php:313
 msgid "Restart numbering"
 msgstr "Start nummereringen forfra"
 
-#: src/Documents/Document.php:162
-#: src/Documents/Document.php:238
+#: dist/order-documents/src/Documents/Document.php:162
+#: dist/order-documents/src/Documents/Document.php:238
+#: src/Documents/Document.php:162 src/Documents/Document.php:238
 msgid "Never"
 msgstr "Aldrig"
 
-#: src/Documents/Document.php:163
-#: src/Migration/WpoImporter.php:313
+#: dist/order-documents/src/Documents/Document.php:163
+#: dist/order-documents/src/Migration/WpoImporter.php:313
+#: src/Documents/Document.php:163 src/Migration/WpoImporter.php:313
 msgid "Every year"
 msgstr "Hvert år"
 
+#: dist/order-documents/src/Documents/Document.php:164
 #: src/Documents/Document.php:164
 msgid "Every month"
 msgstr "Hver måned"
 
+#: dist/order-documents/src/Documents/Document.php:170
 #: src/Documents/Document.php:170
 msgid "Date shown on the document"
 msgstr "Dato, der vises på dokumentet"
 
-#: src/Documents/Document.php:173
-#: src/Rendering/Layout.php:155
+#: dist/order-documents/src/Documents/Document.php:173
+#: dist/order-documents/src/Rendering/Layout.php:155
+#: dist/order-documents/src/Rendering/Placeholders.php:25
+#: src/Documents/Document.php:173 src/Rendering/Layout.php:155
 #: src/Rendering/Placeholders.php:25
 msgid "Document date"
 msgstr "Dokumentdato"
 
-#: src/Documents/Document.php:174
-#: src/Rendering/Layout.php:157
-#: src/Rendering/OrderData.php:245
-#: src/Rendering/Placeholders.php:31
+#: dist/order-documents/src/Documents/Document.php:174
+#: dist/order-documents/src/Rendering/Layout.php:157
+#: dist/order-documents/src/Rendering/OrderData.php:245
+#: dist/order-documents/src/Rendering/Placeholders.php:31
+#: src/Documents/Document.php:174 src/Rendering/Layout.php:157
+#: src/Rendering/OrderData.php:245 src/Rendering/Placeholders.php:31
 msgid "Order date"
 msgstr "Ordredato"
 
-#: src/Documents/Document.php:179
+#: dist/order-documents/src/Documents/Document.php:179
+#: src/Documents/Document.php:179 assets/editor/src/Inspector.js:633
 msgid "Content"
 msgstr "Indhold"
 
-#: src/Documents/Document.php:183
-#: src/Migration/WpoImporter.php:294
-#: src/Rendering/Layout.php:138
-#: src/Rendering/Layout.php:140
+#: dist/order-documents/src/Documents/Document.php:183
+#: dist/order-documents/src/Migration/WpoImporter.php:294
+#: dist/order-documents/src/Rendering/Layout.php:138
+#: dist/order-documents/src/Rendering/Layout.php:140
+#: dist/order-documents/templates/shared/blocks/billing_address.php:17
+#: src/Documents/Document.php:183 src/Migration/WpoImporter.php:294
+#: src/Rendering/Layout.php:138 src/Rendering/Layout.php:140
 #: templates/shared/blocks/billing_address.php:17
 msgid "Billing address"
 msgstr "Faktureringsadresse"
 
+#: dist/order-documents/src/Documents/Document.php:186
 #: src/Documents/Document.php:186
 msgid "Show"
 msgstr "Vis"
 
-#: src/Documents/Document.php:187
-#: src/Documents/Document.php:198
+#: dist/order-documents/src/Documents/Document.php:187
+#: dist/order-documents/src/Documents/Document.php:198
+#: src/Documents/Document.php:187 src/Documents/Document.php:198
 msgid "Hide"
 msgstr "Skjul"
 
-#: src/Documents/Document.php:193
-#: src/Migration/WpoImporter.php:291
+#: dist/order-documents/src/Documents/Document.php:193
+#: dist/order-documents/src/Migration/WpoImporter.php:291
+#: dist/order-documents/src/Rendering/Layout.php:143
+#: src/Documents/Document.php:193 src/Migration/WpoImporter.php:291
 #: src/Rendering/Layout.php:143
 msgid "Shipping address"
 msgstr "Leveringsadresse"
 
+#: dist/order-documents/src/Documents/Document.php:196
 #: src/Documents/Document.php:196
 msgid "Always show"
 msgstr "Vis altid"
 
+#: dist/order-documents/src/Documents/Document.php:197
 #: src/Documents/Document.php:197
 msgid "Only when different from the billing address"
 msgstr "Kun når den er forskellig fra faktureringsadressen"
 
+#: dist/order-documents/src/Documents/Document.php:201
 #: src/Documents/Document.php:201
 msgid "Customer e-mail"
 msgstr "Kundens e-mail"
 
+#: dist/order-documents/src/Documents/Document.php:202
 #: src/Documents/Document.php:202
 msgid "Customer phone"
 msgstr "Kundens telefon"
 
-#: src/Documents/Document.php:203
-#: src/Documents/PickingList.php:85
+#: dist/order-documents/src/Documents/Document.php:203
+#: dist/order-documents/src/Documents/PickingList.php:85
+#: src/Documents/Document.php:203 src/Documents/PickingList.php:85
 msgid "SKU under the product name"
 msgstr "Varenummer under produktnavnet"
 
-#: src/Documents/Document.php:204
-#: src/Documents/PickingList.php:86
+#: dist/order-documents/src/Documents/Document.php:204
+#: dist/order-documents/src/Documents/PickingList.php:86
+#: src/Documents/Document.php:204 src/Documents/PickingList.php:86
 msgid "Weight under the product name"
 msgstr "Vægt under produktnavnet"
 
-#: src/Documents/Document.php:205
-#: src/Documents/PickingList.php:87
+#: dist/order-documents/src/Documents/Document.php:205
+#: dist/order-documents/src/Documents/PickingList.php:87
+#: src/Documents/Document.php:205 src/Documents/PickingList.php:87
 msgid "Product options and variation details"
 msgstr "Produktvalg og variantdetaljer"
 
+#: dist/order-documents/src/Documents/Document.php:210
 #: src/Documents/Document.php:210
 msgid "Prices"
 msgstr "Priser"
 
+#: dist/order-documents/src/Documents/Document.php:213
 #: src/Documents/Document.php:213
 msgid "Excluding tax, with tax lines in the totals"
 msgstr "Ekskl. moms, med momslinjer i totalerne"
 
+#: dist/order-documents/src/Documents/Document.php:214
 #: src/Documents/Document.php:214
 msgid "Including tax"
 msgstr "Inkl. moms"
 
+#: dist/order-documents/src/Documents/Document.php:220
 #: src/Documents/Document.php:220
 msgid "Automation"
 msgstr "Automatisering"
 
-#: src/Documents/Document.php:221
-#: src/Migration/WpoImporter.php:275
+#: dist/order-documents/src/Documents/Document.php:221
+#: dist/order-documents/src/Migration/WpoImporter.php:275
+#: src/Documents/Document.php:221 src/Migration/WpoImporter.php:275
 msgid "Attach to e-mails"
 msgstr "Vedhæft til e-mails"
 
+#: dist/order-documents/src/Documents/Document.php:222
 #: src/Documents/Document.php:222
 msgid "Create automatically when the order status becomes"
 msgstr "Opret automatisk, når ordrestatus bliver"
 
+#: dist/order-documents/src/Documents/Document.php:225
 #: src/Documents/Document.php:225
 msgid "Restrictions"
 msgstr "Begrænsninger"
 
+#: dist/order-documents/src/Documents/Document.php:226
 #: src/Documents/Document.php:226
 msgid "Not available for orders with status"
 msgstr "Ikke tilgængelig for ordrer med status"
 
+#: dist/order-documents/src/Documents/Document.php:227
 #: src/Documents/Document.php:227
 msgid "Not available for free orders"
 msgstr "Ikke tilgængelig for gratis ordrer"
 
+#: dist/order-documents/src/Documents/Document.php:228
 #: src/Documents/Document.php:228
 msgid "Not available for payment methods"
 msgstr "Ikke tilgængelig for betalingsmetoder"
 
+#: dist/order-documents/src/Documents/Document.php:231
 #: src/Documents/Document.php:231
 msgid "My Account"
 msgstr "Min konto"
 
+#: dist/order-documents/src/Documents/Document.php:235
 #: src/Documents/Document.php:235
 msgid "Download button for customers"
 msgstr "Downloadknap til kunder"
 
+#: dist/order-documents/src/Documents/Document.php:239
 #: src/Documents/Document.php:239
 msgid "Only when the document has been created"
 msgstr "Kun når dokumentet er oprettet"
 
+#: dist/order-documents/src/Documents/Document.php:240
 #: src/Documents/Document.php:240
 msgid "Always (created on demand)"
 msgstr "Altid (oprettes efter behov)"
 
+#: dist/order-documents/src/Documents/Document.php:241
 #: src/Documents/Document.php:241
 msgid "For the order statuses below"
 msgstr "For ordrestatusserne nedenfor"
 
+#: dist/order-documents/src/Documents/Document.php:244
 #: src/Documents/Document.php:244
 msgid "Order statuses"
 msgstr "Ordrestatusser"
 
+#: dist/order-documents/src/Documents/Document.php:247
 #: src/Documents/Document.php:247
 msgid "Archive"
 msgstr "Arkiv"
 
+#: dist/order-documents/src/Documents/Document.php:248
 #: src/Documents/Document.php:248
 msgid "Keep an archived copy"
 msgstr "Behold en arkiveret kopi"
 
+#: dist/order-documents/src/Documents/Document.php:248
 #: src/Documents/Document.php:248
-msgid "Saves the PDF the first time it is generated and always serves that copy afterwards, so the document never changes. Recommended for invoices and credit notes."
-msgstr "Gemmer PDF'en første gang, den genereres, og viser altid den kopi bagefter, så dokumentet aldrig ændres. Anbefales til fakturaer og kreditnotaer."
+msgid ""
+"Saves the PDF the first time it is generated and always serves that copy "
+"afterwards, so the document never changes. Recommended for invoices and "
+"credit notes."
+msgstr ""
+"Gemmer PDF'en første gang, den genereres, og viser altid den kopi bagefter, "
+"så dokumentet aldrig ændres. Anbefales til fakturaer og kreditnotaer."
 
-#: src/Documents/Document.php:406
-#: src/Documents/PickingList.php:118
+#: dist/order-documents/src/Documents/Document.php:406
+#: dist/order-documents/src/Documents/PickingList.php:118
+#: src/Documents/Document.php:406 src/Documents/PickingList.php:118
 msgid "This document type is disabled."
 msgstr "Denne dokumenttype er deaktiveret."
 
+#: dist/order-documents/src/Documents/Document.php:409
 #: src/Documents/Document.php:409
 msgid "Not available for this order status."
 msgstr "Ikke tilgængelig for denne ordrestatus."
 
+#: dist/order-documents/src/Documents/Document.php:412
 #: src/Documents/Document.php:412
 msgid "Not available for free orders."
 msgstr "Ikke tilgængelig for gratis ordrer."
 
+#: dist/order-documents/src/Documents/Document.php:415
 #: src/Documents/Document.php:415
 msgid "Not available for this payment method."
 msgstr "Ikke tilgængelig for denne betalingsmetode."
 
 #. translators: %s: document title, e.g. Invoice
+#: dist/order-documents/src/Documents/Document.php:630
 #: src/Documents/Document.php:630
 #, php-format
 msgid "%s number"
 msgstr "%snummer"
 
 #. translators: %s: document title, e.g. Invoice
+#: dist/order-documents/src/Documents/Document.php:636
 #: src/Documents/Document.php:636
 #, php-format
 msgid "%s date"
 msgstr "%sdato"
 
+#: dist/order-documents/src/Documents/Invoice.php:19
 #: src/Documents/Invoice.php:19
 msgid "Invoice"
 msgstr "Faktura"
 
+#: dist/order-documents/src/Documents/Invoice.php:23
 #: src/Documents/Invoice.php:23
 msgid "Invoices"
 msgstr "Fakturaer"
 
+#: dist/order-documents/src/Documents/Invoice.php:56
 #: src/Documents/Invoice.php:56
 msgid "Invoice details"
 msgstr "Fakturadetaljer"
 
+#: dist/order-documents/src/Documents/Invoice.php:57
 #: src/Documents/Invoice.php:57
 msgid "Due date (days after the invoice date)"
 msgstr "Forfaldsdato (dage efter fakturadato)"
 
+#: dist/order-documents/src/Documents/Invoice.php:57
 #: src/Documents/Invoice.php:57
 msgid "0 hides the due date."
 msgstr "0 skjuler forfaldsdatoen."
 
+#: dist/order-documents/src/Documents/Invoice.php:58
 #: src/Documents/Invoice.php:58
 msgid "Show delivery date"
 msgstr "Vis leveringsdato"
 
+#: dist/order-documents/src/Documents/Invoice.php:58
 #: src/Documents/Invoice.php:58
 msgid "The date the order was completed."
 msgstr "Datoen, hvor ordren blev gennemført."
 
+#: dist/order-documents/src/Documents/Invoice.php:59
 #: src/Documents/Invoice.php:59
 msgid "Show customer number"
 msgstr "Vis kundenummer"
 
-#: src/Documents/Invoice.php:70
-#: src/Rendering/Layout.php:212
-#: src/Rendering/Layout.php:214
-#: templates/shared/blocks/payment_info.php:17
+#: dist/order-documents/src/Documents/Invoice.php:70
+#: dist/order-documents/src/Rendering/Layout.php:212
+#: dist/order-documents/src/Rendering/Layout.php:214
+#: dist/order-documents/templates/shared/blocks/payment_info.php:17
+#: src/Documents/Invoice.php:70 src/Rendering/Layout.php:212
+#: src/Rendering/Layout.php:214 templates/shared/blocks/payment_info.php:17
 msgid "Payment information"
 msgstr "Betalingsoplysninger"
 
+#: dist/order-documents/src/Documents/Invoice.php:70
 #: src/Documents/Invoice.php:70
-msgid "Shown in the \"Payment information\" block, e.g. \"Pay to account {{bank_account}}, KID {{kid}}, due {{due_date}}\"."
-msgstr "Vises i blokken »Betalingsoplysninger«, f.eks. »Betal til konto {{bank_account}}, KID {{kid}}, forfald {{due_date}}«."
+msgid ""
+"Shown in the \"Payment information\" block, e.g. \"Pay to account "
+"{{bank_account}}, KID {{kid}}, due {{due_date}}\"."
+msgstr ""
+"Vises i blokken »Betalingsoplysninger«, f.eks. »Betal til konto "
+"{{bank_account}}, KID {{kid}}, forfald {{due_date}}«."
 
-#: src/Documents/Invoice.php:74
-#: src/Rendering/Placeholders.php:29
+#: dist/order-documents/src/Documents/Invoice.php:74
+#: dist/order-documents/src/Rendering/Placeholders.php:29
+#: src/Documents/Invoice.php:74 src/Rendering/Placeholders.php:29
 msgid "KID payment reference"
 msgstr "KID-reference"
 
-#: src/Documents/Invoice.php:77
-#: src/Rendering/Layout.php:71
+#: dist/order-documents/src/Documents/Invoice.php:77
+#: dist/order-documents/src/Rendering/Layout.php:71
+#: dist/order-documents/src/Rendering/Layout.php:130
+#: src/Documents/Invoice.php:77 src/Rendering/Layout.php:71
 #: src/Rendering/Layout.php:130
 msgid "None"
 msgstr "Ingen"
 
+#: dist/order-documents/src/Documents/Invoice.php:78
 #: src/Documents/Invoice.php:78
 msgid "MOD10 (Luhn)"
 msgstr "MOD10 (Luhn)"
 
+#: dist/order-documents/src/Documents/Invoice.php:79
 #: src/Documents/Invoice.php:79
 msgid "MOD11"
 msgstr "MOD11"
 
+#: dist/order-documents/src/Documents/Invoice.php:81
 #: src/Documents/Invoice.php:81
-msgid "Norwegian payment reference available as {{kid}}, built from the document number (or the order number when the document has none)."
-msgstr "Norsk betalingsreference som {{kid}}, dannet ud fra dokumentnummeret (eller ordrenummeret, når dokumentet ikke har et nummer)."
+msgid ""
+"Norwegian payment reference available as {{kid}}, built from the document "
+"number (or the order number when the document has none)."
+msgstr ""
+"Norsk betalingsreference som {{kid}}, dannet ud fra dokumentnummeret (eller "
+"ordrenummeret, når dokumentet ikke har et nummer)."
 
+#: dist/order-documents/src/Documents/Invoice.php:83
 #: src/Documents/Invoice.php:83
 msgid "KID length"
 msgstr "KID-længde"
 
+#: dist/order-documents/src/Documents/Invoice.php:83
 #: src/Documents/Invoice.php:83
-msgid "Total length including the check digit, padded with zeros. 0 means no padding."
-msgstr "Samlet længde inkl. kontrolciffer, udfyldt med nuller. 0 betyder ingen udfyldning."
+msgid ""
+"Total length including the check digit, padded with zeros. 0 means no "
+"padding."
+msgstr ""
+"Samlet længde inkl. kontrolciffer, udfyldt med nuller. 0 betyder ingen "
+"udfyldning."
 
-#: src/Documents/Invoice.php:105
-#: src/Documents/ProformaInvoice.php:73
-#: src/Rendering/Layout.php:307
-#: src/Rendering/Placeholders.php:28
+#: dist/order-documents/src/Documents/Invoice.php:105
+#: dist/order-documents/src/Documents/ProformaInvoice.php:73
+#: dist/order-documents/src/Rendering/Layout.php:307
+#: dist/order-documents/src/Rendering/Placeholders.php:28
+#: dist/order-documents/templates/shared/blocks/payment_summary.php:32
+#: src/Documents/Invoice.php:105 src/Documents/ProformaInvoice.php:73
+#: src/Rendering/Layout.php:307 src/Rendering/Placeholders.php:28
 #: templates/shared/blocks/payment_summary.php:32
 msgid "Due date"
 msgstr "Forfaldsdato"
 
+#: dist/order-documents/src/Documents/Invoice.php:108
 #: src/Documents/Invoice.php:108
 msgid "Delivery date"
 msgstr "Leveringsdato"
 
-#: src/Documents/Invoice.php:111
-#: src/Documents/PackingSlip.php:45
+#: dist/order-documents/src/Documents/Invoice.php:111
+#: dist/order-documents/src/Documents/PackingSlip.php:45
+#: src/Documents/Invoice.php:111 src/Documents/PackingSlip.php:45
 msgid "Customer number"
 msgstr "Kundenummer"
 
-#: src/Documents/Invoice.php:115
-#: src/Documents/ProformaInvoice.php:77
+#: dist/order-documents/src/Documents/Invoice.php:115
+#: dist/order-documents/src/Documents/ProformaInvoice.php:77
+#: src/Documents/Invoice.php:115 src/Documents/ProformaInvoice.php:77
 msgid "KID"
 msgstr "KID"
 
+#: dist/order-documents/src/Documents/PackingSlip.php:19
 #: src/Documents/PackingSlip.php:19
 msgid "Packing slip"
 msgstr "Pakkeseddel"
 
+#: dist/order-documents/src/Documents/PackingSlip.php:23
 #: src/Documents/PackingSlip.php:23
 msgid "Packing slips"
 msgstr "Pakkesedler"
 
-#: src/Documents/PackingSlip.php:49
-#: src/Rendering/Placeholders.php:26
+#: dist/order-documents/src/Documents/PackingSlip.php:49
+#: dist/order-documents/src/Rendering/Placeholders.php:26
+#: src/Documents/PackingSlip.php:49 src/Rendering/Placeholders.php:26
 msgid "Invoice number"
 msgstr "Fakturanummer"
 
+#: dist/order-documents/src/Documents/PickingList.php:27
 #: src/Documents/PickingList.php:27
 msgid "Picking list"
 msgstr "Plukliste"
 
+#: dist/order-documents/src/Documents/PickingList.php:31
 #: src/Documents/PickingList.php:31
 msgid "Picking lists"
 msgstr "Pluklister"
 
+#: dist/order-documents/src/Documents/PickingList.php:69
 #: src/Documents/PickingList.php:69
 msgid "Picking"
 msgstr "Plukning"
 
+#: dist/order-documents/src/Documents/PickingList.php:70
 #: src/Documents/PickingList.php:70
 msgid "Combine products across orders"
 msgstr "Saml produkter på tværs af ordrer"
 
+#: dist/order-documents/src/Documents/PickingList.php:70
 #: src/Documents/PickingList.php:70
-msgid "When printing several orders at once, identical products are added up in one line."
-msgstr "Når flere ordrer udskrives på én gang, lægges ens produkter sammen på én linje."
+msgid ""
+"When printing several orders at once, identical products are added up in one"
+" line."
+msgstr ""
+"Når flere ordrer udskrives på én gang, lægges ens produkter sammen på én "
+"linje."
 
+#: dist/order-documents/src/Documents/PickingList.php:74
 #: src/Documents/PickingList.php:74
 msgid "Sort products by"
 msgstr "Sortér produkter efter"
 
-#: src/Documents/PickingList.php:77
-#: src/Rendering/Layout.php:348
+#: dist/order-documents/src/Documents/PickingList.php:77
+#: dist/order-documents/src/Rendering/Layout.php:348
+#: src/Documents/PickingList.php:77 src/Rendering/Layout.php:348
 msgid "SKU"
 msgstr "Varenummer"
 
+#: dist/order-documents/src/Documents/PickingList.php:78
 #: src/Documents/PickingList.php:78
 msgid "Product name"
 msgstr "Produktnavn"
 
+#: dist/order-documents/src/Documents/PickingList.php:79
 #: src/Documents/PickingList.php:79
 msgid "Category"
 msgstr "Kategori"
 
+#: dist/order-documents/src/Documents/PickingList.php:80
 #: src/Documents/PickingList.php:80
 msgid "Stock location"
 msgstr "Lagerplacering"
 
+#: dist/order-documents/src/Documents/PickingList.php:81
 #: src/Documents/PickingList.php:81
 msgid "Order"
 msgstr "Ordre"
 
+#: dist/order-documents/src/Documents/PickingList.php:84
 #: src/Documents/PickingList.php:84
 msgid "Stock location field"
 msgstr "Felt til lagerplacering"
 
+#: dist/order-documents/src/Documents/PickingList.php:84
 #: src/Documents/PickingList.php:84
-msgid "Product meta key or attribute slug (e.g. \"_bin_location\" or \"pa_shelf\") shown in the Location column."
-msgstr "Produktets metanøgle eller attribut-slug (f.eks. »_bin_location« eller »pa_shelf«), der vises i kolonnen Placering."
+msgid ""
+"Product meta key or attribute slug (e.g. \"_bin_location\" or \"pa_shelf\") "
+"shown in the Location column."
+msgstr ""
+"Produktets metanøgle eller attribut-slug (f.eks. »_bin_location« eller "
+"»pa_shelf«), der vises i kolonnen Placering."
 
+#: dist/order-documents/src/Documents/PickingList.php:147
 #: src/Documents/PickingList.php:147
 msgid "Printed"
 msgstr "Udskrevet"
 
-#: src/Documents/PickingList.php:150
-#: src/Rendering/Layout.php:362
+#: dist/order-documents/src/Documents/PickingList.php:150
+#: dist/order-documents/src/Rendering/Layout.php:362
+#: src/Documents/PickingList.php:150 src/Rendering/Layout.php:362
 msgid "Orders"
 msgstr "Ordrer"
 
+#: dist/order-documents/src/Documents/ProformaInvoice.php:19
 #: src/Documents/ProformaInvoice.php:19
 msgid "Proforma invoice"
 msgstr "Proformafaktura"
 
+#: dist/order-documents/src/Documents/ProformaInvoice.php:23
 #: src/Documents/ProformaInvoice.php:23
 msgid "Proforma invoices"
 msgstr "Proformafakturaer"
 
+#: dist/order-documents/src/Documents/ProformaInvoice.php:47
 #: src/Documents/ProformaInvoice.php:47
 msgid "Proforma details"
 msgstr "Proformadetaljer"
 
+#: dist/order-documents/src/Documents/ProformaInvoice.php:48
 #: src/Documents/ProformaInvoice.php:48
 msgid "Disclaimer"
 msgstr "Ansvarsfraskrivelse"
 
+#: dist/order-documents/src/Documents/ProformaInvoice.php:48
 #: src/Documents/ProformaInvoice.php:48
 msgid "This is a proforma invoice and not a VAT invoice."
 msgstr "Dette er en proformafaktura og ikke en momsfaktura."
 
+#: dist/order-documents/src/Documents/ProformaInvoice.php:49
 #: src/Documents/ProformaInvoice.php:49
 msgid "Due date (days after the document date)"
 msgstr "Forfaldsdato (dage efter dokumentdato)"
 
+#: dist/order-documents/src/Documents/Receipt.php:19
 #: src/Documents/Receipt.php:19
 msgid "Receipt"
 msgstr "Kvittering"
 
+#: dist/order-documents/src/Documents/Receipt.php:23
 #: src/Documents/Receipt.php:23
 msgid "Receipts"
 msgstr "Kvitteringer"
 
+#: dist/order-documents/src/Documents/Receipt.php:46
 #: src/Documents/Receipt.php:46
 msgid "Receipt details"
 msgstr "Kvitteringsdetaljer"
 
+#: dist/order-documents/src/Documents/Receipt.php:47
 #: src/Documents/Receipt.php:47
 msgid "Use the invoice number"
 msgstr "Brug fakturanummeret"
 
+#: dist/order-documents/src/Documents/Receipt.php:47
 #: src/Documents/Receipt.php:47
-msgid "The receipt shows the invoice number instead of its own (the invoice is created if needed)."
-msgstr "Kvitteringen viser fakturanummeret i stedet for sit eget (fakturaen oprettes efter behov)."
+msgid ""
+"The receipt shows the invoice number instead of its own (the invoice is "
+"created if needed)."
+msgstr ""
+"Kvitteringen viser fakturanummeret i stedet for sit eget (fakturaen oprettes"
+" efter behov)."
 
+#: dist/order-documents/src/Documents/Receipt.php:48
 #: src/Documents/Receipt.php:48
 msgid "Show a \"paid\" stamp"
 msgstr "Vis et »betalt«-stempel"
 
+#: dist/order-documents/src/Documents/Receipt.php:49
 #: src/Documents/Receipt.php:49
 msgid "Stamp text"
 msgstr "Stempeltekst"
 
-#: src/Documents/Receipt.php:49
-#: templates/shared/blocks/paid_stamp.php:19
+#: dist/order-documents/src/Documents/Receipt.php:49
+#: dist/order-documents/templates/shared/blocks/paid_stamp.php:19
+#: dist/order-documents/templates/shared/blocks/paid_stamp.php:22
+#: src/Documents/Receipt.php:49 templates/shared/blocks/paid_stamp.php:19
 #: templates/shared/blocks/paid_stamp.php:22
 msgid "PAID"
 msgstr "BETALT"
 
+#: dist/order-documents/src/Documents/Receipt.php:50
 #: src/Documents/Receipt.php:50
 msgid "Show the transaction ID"
 msgstr "Vis transaktions-ID"
 
+#: dist/order-documents/src/Documents/Receipt.php:56
 #: src/Documents/Receipt.php:56
 msgid "Receipts are only available for paid orders."
 msgstr "Kvitteringer er kun tilgængelige for betalte ordrer."
 
+#: dist/order-documents/src/Documents/Receipt.php:77
 #: src/Documents/Receipt.php:77
 msgid "Paid"
 msgstr "Betalt"
 
+#: dist/order-documents/src/Documents/Receipt.php:80
 #: src/Documents/Receipt.php:80
 msgid "Transaction ID"
 msgstr "Transaktions-ID"
 
+#: dist/order-documents/src/Emails/DocumentEmail.php:26
 #: src/Emails/DocumentEmail.php:26
 msgid "Order document"
 msgstr "Ordredokument"
 
+#: dist/order-documents/src/Emails/DocumentEmail.php:27
 #: src/Emails/DocumentEmail.php:27
-msgid "Sent when you e-mail an invoice, packing slip or other document to the customer from the order screen. The PDF is attached."
-msgstr "Sendes, når du sender en faktura, pakkeseddel eller et andet dokument til kunden fra ordreskærmen. PDF'en vedhæftes."
+msgid ""
+"Sent when you e-mail an invoice, packing slip or other document to the "
+"customer from the order screen. The PDF is attached."
+msgstr ""
+"Sendes, når du sender en faktura, pakkeseddel eller et andet dokument til "
+"kunden fra ordreskærmen. PDF'en vedhæftes."
 
+#: dist/order-documents/src/Emails/DocumentEmail.php:51
 #: src/Emails/DocumentEmail.php:51
 msgid "{document_title} {document_number} for order #{order_number}"
 msgstr "{document_title} {document_number} for ordre #{order_number}"
 
+#: dist/order-documents/src/Emails/DocumentEmail.php:55
 #: src/Emails/DocumentEmail.php:55
 msgid "Your {document_title}"
 msgstr "Din {document_title}"
 
+#: dist/order-documents/src/Emails/DocumentEmail.php:59
 #: src/Emails/DocumentEmail.php:59
 msgid "Thank you for your order."
 msgstr "Tak for din bestilling."
 
 #. translators: 1: document title, 2: e-mail address
+#: dist/order-documents/src/Emails/DocumentEmail.php:84
 #: src/Emails/DocumentEmail.php:84
 #, php-format
 msgid "%1$s e-mailed to %2$s."
 msgstr "%1$s sendt via e-mail til %2$s."
 
 #. translators: 1: document title, 2: e-mail address
+#: dist/order-documents/src/Emails/DocumentEmail.php:84
 #: src/Emails/DocumentEmail.php:84
 #, php-format
 msgid "%1$s could not be e-mailed to %2$s."
 msgstr "%1$s kunne ikke sendes via e-mail til %2$s."
 
+#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:42
 #: src/Endpoints/DocumentEndpoint.php:42
 msgid "Unknown document or order."
 msgstr "Ukendt dokument eller ordre."
 
+#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:47
 #: src/Endpoints/DocumentEndpoint.php:47
 msgid "You are not allowed to view this document."
 msgstr "Du har ikke adgang til dette dokument."
 
 #. translators: %d: maximum number of orders
+#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:53
 #: src/Endpoints/DocumentEndpoint.php:53
 #, php-format
 msgid "Please select at most %d orders at a time."
 msgstr "Vælg højst %d ordrer ad gangen."
 
+#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:72
 #: src/Endpoints/DocumentEndpoint.php:72
 msgid "There is nothing to print for the selected orders."
 msgstr "Der er intet at udskrive for de valgte ordrer."
 
+#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:92
 #: src/Endpoints/DocumentEndpoint.php:92
-msgid "The PDF could not be generated. Details are in WooCommerce → Status → Logs (order-documents)."
-msgstr "PDF'en kunne ikke genereres. Detaljer findes under WooCommerce → Status → Logfiler (order-documents)."
+msgid ""
+"The PDF could not be generated. Details are in WooCommerce → Status → Logs "
+"(order-documents)."
+msgstr ""
+"PDF'en kunne ikke genereres. Detaljer findes under WooCommerce → Status → "
+"Logfiler (order-documents)."
 
+#: dist/order-documents/src/Endpoints/RestController.php:77
 #: src/Endpoints/RestController.php:77
 msgid "Unknown template or document type."
 msgstr "Ukendt skabelon eller dokumenttype."
 
+#: dist/order-documents/src/Endpoints/RestController.php:147
 #: src/Endpoints/RestController.php:147
 msgid "Invalid layout."
 msgstr "Ugyldigt layout."
 
+#: dist/order-documents/src/Endpoints/RestController.php:166
 #: src/Endpoints/RestController.php:166
 msgid "Invalid design settings."
 msgstr "Ugyldige designindstillinger."
 
+#: dist/order-documents/src/Endpoints/RestController.php:223
 #: src/Endpoints/RestController.php:223
 msgid "Could not build a preview."
 msgstr "Kunne ikke lave forhåndsvisning."
 
-#: src/Migration/WpoImporter.php:213
-#: src/Rendering/Layout.php:105
-#: src/Rendering/Placeholders.php:37
-#: src/Settings/Schema.php:64
+#: dist/order-documents/src/Migration/WpoImporter.php:213
+#: dist/order-documents/src/Rendering/Layout.php:105
+#: dist/order-documents/src/Rendering/Placeholders.php:37
+#: dist/order-documents/src/Settings/Schema.php:64
+#: src/Migration/WpoImporter.php:213 src/Rendering/Layout.php:105
+#: src/Rendering/Placeholders.php:37 src/Settings/Schema.php:64
 msgid "Shop name"
 msgstr "Butiksnavn"
 
-#: src/Migration/WpoImporter.php:232
-#: src/Settings/Schema.php:65
+#: dist/order-documents/src/Migration/WpoImporter.php:232
+#: dist/order-documents/src/Settings/Schema.php:65
+#: src/Migration/WpoImporter.php:232 src/Settings/Schema.php:65
 msgid "Shop address"
 msgstr "Butiksadresse"
 
-#: src/Migration/WpoImporter.php:233
-#: src/Rendering/Layout.php:107
+#: dist/order-documents/src/Migration/WpoImporter.php:233
+#: dist/order-documents/src/Rendering/Layout.php:107
+#: dist/order-documents/src/Settings/Schema.php:66
+#: src/Migration/WpoImporter.php:233 src/Rendering/Layout.php:107
 #: src/Settings/Schema.php:66
 msgid "Phone"
 msgstr "Telefon"
 
-#: src/Migration/WpoImporter.php:234
-#: src/Rendering/Layout.php:108
+#: dist/order-documents/src/Migration/WpoImporter.php:234
+#: dist/order-documents/src/Rendering/Layout.php:108
+#: dist/order-documents/src/Settings/Schema.php:67
+#: src/Migration/WpoImporter.php:234 src/Rendering/Layout.php:108
 #: src/Settings/Schema.php:67
 msgid "E-mail"
 msgstr "E-mail"
 
-#: src/Migration/WpoImporter.php:235
-#: src/Rendering/Layout.php:111
-#: src/Rendering/Placeholders.php:39
-#: src/Settings/Schema.php:70
+#: dist/order-documents/src/Migration/WpoImporter.php:235
+#: dist/order-documents/src/Rendering/Layout.php:111
+#: dist/order-documents/src/Rendering/Placeholders.php:39
+#: dist/order-documents/src/Settings/Schema.php:70
+#: src/Migration/WpoImporter.php:235 src/Rendering/Layout.php:111
+#: src/Rendering/Placeholders.php:39 src/Settings/Schema.php:70
 msgid "VAT number"
 msgstr "Momsnummer"
 
-#: src/Migration/WpoImporter.php:236
-#: src/Rendering/Layout.php:110
-#: src/Rendering/Placeholders.php:38
-#: src/Settings/Schema.php:69
+#: dist/order-documents/src/Migration/WpoImporter.php:236
+#: dist/order-documents/src/Rendering/Layout.php:110
+#: dist/order-documents/src/Rendering/Placeholders.php:38
+#: dist/order-documents/src/Settings/Schema.php:69
+#: src/Migration/WpoImporter.php:236 src/Rendering/Layout.php:110
+#: src/Rendering/Placeholders.php:38 src/Settings/Schema.php:69
 msgid "Organisation number"
 msgstr "CVR-nummer"
 
-#: src/Migration/WpoImporter.php:237
-#: src/Rendering/Layout.php:262
+#: dist/order-documents/src/Migration/WpoImporter.php:237
+#: dist/order-documents/src/Rendering/Layout.php:262
+#: dist/order-documents/src/Settings/Schema.php:81
+#: src/Migration/WpoImporter.php:237 src/Rendering/Layout.php:262
 #: src/Settings/Schema.php:81
 msgid "Footer"
 msgstr "Sidefod"
 
 #. translators: %d: field number
+#: dist/order-documents/src/Migration/WpoImporter.php:240
 #: src/Migration/WpoImporter.php:240
 #, php-format
 msgid "Extra field %d"
 msgstr "Ekstrafelt %d"
 
-#: src/Migration/WpoImporter.php:245
-#: src/Rendering/Layout.php:94
+#: dist/order-documents/src/Migration/WpoImporter.php:245
+#: dist/order-documents/src/Rendering/Layout.php:94
+#: dist/order-documents/src/Settings/Schema.php:63
+#: src/Migration/WpoImporter.php:245 src/Rendering/Layout.php:94
 #: src/Settings/Schema.php:63
 msgid "Logo"
 msgstr "Logo"
 
-#: src/Migration/WpoImporter.php:249
-#: src/Settings/Schema.php:128
+#: dist/order-documents/src/Migration/WpoImporter.php:249
+#: dist/order-documents/src/Settings/Schema.php:128
+#: src/Migration/WpoImporter.php:249 src/Settings/Schema.php:128
 msgid "Logo height (mm)"
 msgstr "Logohøjde (mm)"
 
-#: src/Migration/WpoImporter.php:253
-#: src/Settings/Schema.php:86
+#: dist/order-documents/src/Migration/WpoImporter.php:253
+#: dist/order-documents/src/Settings/Schema.php:86
+#: src/Migration/WpoImporter.php:253 src/Settings/Schema.php:86
 msgid "Paper size"
 msgstr "Papirstørrelse"
 
-#: src/Migration/WpoImporter.php:256
-#: src/Settings/Schema.php:97
+#: dist/order-documents/src/Migration/WpoImporter.php:256
+#: dist/order-documents/src/Settings/Schema.php:97
+#: src/Migration/WpoImporter.php:256 src/Settings/Schema.php:97
 msgid "How to open PDFs"
 msgstr "Sådan åbnes PDF'er"
 
-#: src/Migration/WpoImporter.php:260
-#: src/Settings/Schema.php:123
-#: assets/editor/src/fields.js:26
+#: dist/order-documents/src/Migration/WpoImporter.php:260
+#: dist/order-documents/src/Settings/Schema.php:123
+#: src/Migration/WpoImporter.php:260 src/Settings/Schema.php:123
 msgid "Accent colour"
 msgstr "Accentfarve"
 
-#: src/Migration/WpoImporter.php:272
-#: src/Migration/WpoImporter.php:298
+#: dist/order-documents/src/Migration/WpoImporter.php:272
+#: dist/order-documents/src/Migration/WpoImporter.php:298
+#: src/Migration/WpoImporter.php:272 src/Migration/WpoImporter.php:298
 msgid "Yes"
 msgstr "Ja"
 
-#: src/Migration/WpoImporter.php:272
-#: src/Migration/WpoImporter.php:298
+#: dist/order-documents/src/Migration/WpoImporter.php:272
+#: dist/order-documents/src/Migration/WpoImporter.php:298
+#: src/Migration/WpoImporter.php:272 src/Migration/WpoImporter.php:298
 msgid "No"
 msgstr "Nej"
 
+#: dist/order-documents/src/Migration/WpoImporter.php:284
 #: src/Migration/WpoImporter.php:284
 msgid "Not available for statuses"
 msgstr "Ikke tilgængelig for statusser"
 
+#: dist/order-documents/src/Migration/WpoImporter.php:302
 #: src/Migration/WpoImporter.php:302
 msgid "Date shown"
 msgstr "Viste dato"
 
+#: dist/order-documents/src/Migration/WpoImporter.php:322
 #: src/Migration/WpoImporter.php:322
 msgid "My Account button"
 msgstr "Knap i Min konto"
 
+#: dist/order-documents/src/Migration/WpoImporter.php:327
 #: src/Migration/WpoImporter.php:327
 msgid "My Account statuses"
 msgstr "Statusser i Min konto"
 
+#: dist/order-documents/src/Migration/WpoImporter.php:338
 #: src/Migration/WpoImporter.php:338
 msgid "Due days"
 msgstr "Forfaldsdage"
 
-#: src/Rendering/DefaultLayouts.php:243
-#: src/Rendering/DefaultLayouts.php:252
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:243
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:252
+#: src/Rendering/DefaultLayouts.php:243 src/Rendering/DefaultLayouts.php:252
 msgid "Delivery address"
 msgstr "Leveringsadresse"
 
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:262
 #: src/Rendering/DefaultLayouts.php:262
 msgid "Ordered"
 msgstr "Bestilt"
 
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:263
 #: src/Rendering/DefaultLayouts.php:263
 msgid "Done"
 msgstr "Færdig"
 
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:285
 #: src/Rendering/DefaultLayouts.php:285
 msgid "Picked by"
 msgstr "Plukket af"
 
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:285
 #: src/Rendering/DefaultLayouts.php:285
 msgid "Checked by"
 msgstr "Kontrolleret af"
 
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:285
 #: src/Rendering/DefaultLayouts.php:285
 msgid "Received by / date"
 msgstr "Modtaget af / dato"
 
+#: dist/order-documents/src/Rendering/DefaultLayouts.php:302
 #: src/Rendering/DefaultLayouts.php:302
 msgid "Goods received"
 msgstr "Varerne modtaget"
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:35
 #: src/Rendering/DemoOrder.php:35
 msgid "Card payment"
 msgstr "Kortbetaling"
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:36
 #: src/Rendering/DemoOrder.php:36
 msgid "Please leave the parcel at the back door."
 msgstr "Pakken må stilles ved bagdøren."
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:41
 #: src/Rendering/DemoOrder.php:41
 msgid "Example Company Ltd"
 msgstr "Eksempelfirma ApS"
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:64
 #: src/Rendering/DemoOrder.php:64
 msgid "Wool sweater, blue"
 msgstr "Uldsweater, blå"
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:64
 #: src/Rendering/DemoOrder.php:64
 msgid "Size"
 msgstr "Størrelse"
 
-#: src/Rendering/DemoOrder.php:65
-#: src/Rendering/DemoOrder.php:122
+#: dist/order-documents/src/Rendering/DemoOrder.php:65
+#: dist/order-documents/src/Rendering/DemoOrder.php:122
+#: src/Rendering/DemoOrder.php:65 src/Rendering/DemoOrder.php:122
 msgid "Hiking socks (2-pack)"
 msgstr "Vandresokker (2-pak)"
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:66
 #: src/Rendering/DemoOrder.php:66
 msgid "Cookbook: Nordic kitchen"
 msgstr "Kogebog: Nordisk køkken"
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:92
 #: src/Rendering/DemoOrder.php:92
 msgid "Home delivery"
 msgstr "Hjemmelevering"
 
+#: dist/order-documents/src/Rendering/DemoOrder.php:119
 #: src/Rendering/DemoOrder.php:119
 msgid "Returned item"
 msgstr "Returneret vare"
 
-#: src/Rendering/Fonts.php:45
+#: dist/order-documents/src/Rendering/Fonts.php:45 src/Rendering/Fonts.php:45
 msgid "Helvetica (built-in, smallest files)"
 msgstr "Helvetica (indbygget, mindste filer)"
 
+#: dist/order-documents/src/Rendering/Layout.php:67
 #: src/Rendering/Layout.php:67
 msgid "Alignment"
 msgstr "Justering"
 
-#: src/Rendering/Layout.php:67
-#: assets/editor/src/fields.js:26
-#: assets/editor/src/Inspector.js:59
+#: dist/order-documents/src/Rendering/Layout.php:67
+#: src/Rendering/Layout.php:67 assets/editor/src/fields.js:162
 msgid "Default"
 msgstr "Standard"
 
+#: dist/order-documents/src/Rendering/Layout.php:67
 #: src/Rendering/Layout.php:67
-#: assets/editor/src/Inspector.js:60
 msgid "Left"
 msgstr "Venstre"
 
+#: dist/order-documents/src/Rendering/Layout.php:67
 #: src/Rendering/Layout.php:67
-#: assets/editor/src/Inspector.js:61
 msgid "Center"
 msgstr "Centreret"
 
+#: dist/order-documents/src/Rendering/Layout.php:67
 #: src/Rendering/Layout.php:67
-#: assets/editor/src/Inspector.js:62
 msgid "Right"
 msgstr "Højre"
 
+#: dist/order-documents/src/Rendering/Layout.php:68
 #: src/Rendering/Layout.php:68
 msgid "Font size (pt, 0 = default)"
 msgstr "Skriftstørrelse (pt, 0 = standard)"
 
-#: src/Rendering/Layout.php:69
-#: assets/editor/src/Inspector.js:88
+#: dist/order-documents/src/Rendering/Layout.php:69
+#: src/Rendering/Layout.php:69 assets/editor/src/Inspector.js:520
 msgid "Space below (mm)"
 msgstr "Afstand under (mm)"
 
-#: src/Rendering/Layout.php:70
-#: src/Settings/Schema.php:124
-#: assets/editor/src/Inspector.js:86
+#: dist/order-documents/src/Rendering/Layout.php:70
+#: dist/order-documents/src/Settings/Schema.php:124
+#: src/Rendering/Layout.php:70 src/Settings/Schema.php:124
+#: assets/editor/src/Inspector.js:498
 msgid "Text colour"
 msgstr "Tekstfarve"
 
+#: dist/order-documents/src/Rendering/Layout.php:71
 #: src/Rendering/Layout.php:71
 msgid "Box"
 msgstr "Boks"
 
+#: dist/order-documents/src/Rendering/Layout.php:71
 #: src/Rendering/Layout.php:71
 msgid "Rounded border"
 msgstr "Afrundet ramme"
 
+#: dist/order-documents/src/Rendering/Layout.php:71
 #: src/Rendering/Layout.php:71
 msgid "Tinted background"
 msgstr "Farvet baggrund"
 
+#: dist/order-documents/src/Rendering/Layout.php:81
 #: src/Rendering/Layout.php:81
 msgid "Show heading"
 msgstr "Vis overskrift"
 
-#: src/Rendering/Layout.php:82
-#: src/Rendering/Layout.php:316
-#: assets/editor/src/Inspector.js:52
+#: dist/order-documents/src/Rendering/Layout.php:82
+#: dist/order-documents/src/Rendering/Layout.php:316
+#: src/Rendering/Layout.php:82 src/Rendering/Layout.php:316
+#: assets/editor/src/Inspector.js:260
 msgid "Heading"
 msgstr "Overskrift"
 
+#: dist/order-documents/src/Rendering/Layout.php:88
 #: src/Rendering/Layout.php:88
 msgid "Compact: name in bold, the rest on one line"
 msgstr "Kompakt: navn med fed skrift, resten på én linje"
 
+#: dist/order-documents/src/Rendering/Layout.php:97
 #: src/Rendering/Layout.php:97
 msgid "Height (mm, 0 = design setting)"
 msgstr "Højde (mm, 0 = designindstilling)"
 
+#: dist/order-documents/src/Rendering/Layout.php:98
 #: src/Rendering/Layout.php:98
 msgid "Show the shop name when there is no logo"
 msgstr "Vis butiksnavnet, når der ikke er et logo"
 
-#: src/Rendering/Layout.php:102
-#: src/Settings/Schema.php:62
+#: dist/order-documents/src/Rendering/Layout.php:102
+#: dist/order-documents/src/Settings/Schema.php:62
+#: src/Rendering/Layout.php:102 src/Settings/Schema.php:62
 msgid "Shop details"
 msgstr "Butiksoplysninger"
 
+#: dist/order-documents/src/Rendering/Layout.php:106
 #: src/Rendering/Layout.php:106
 msgid "Address"
 msgstr "Adresse"
 
-#: src/Rendering/Layout.php:109
-#: src/Settings/Schema.php:68
+#: dist/order-documents/src/Rendering/Layout.php:109
+#: dist/order-documents/src/Settings/Schema.php:68
+#: src/Rendering/Layout.php:109 src/Settings/Schema.php:68
 msgid "Website"
 msgstr "Websted"
 
-#: src/Rendering/Layout.php:112
-#: src/Settings/Schema.php:71
+#: dist/order-documents/src/Rendering/Layout.php:112
+#: dist/order-documents/src/Settings/Schema.php:71
+#: src/Rendering/Layout.php:112 src/Settings/Schema.php:71
 msgid "Business register text"
 msgstr "Tekst til virksomhedsregister"
 
-#: src/Rendering/Layout.php:113
-#: src/Settings/Schema.php:78
+#: dist/order-documents/src/Rendering/Layout.php:113
+#: dist/order-documents/src/Settings/Schema.php:78
+#: src/Rendering/Layout.php:113 src/Settings/Schema.php:78
 msgid "Extra field 1"
 msgstr "Ekstrafelt 1"
 
-#: src/Rendering/Layout.php:114
-#: src/Settings/Schema.php:79
+#: dist/order-documents/src/Rendering/Layout.php:114
+#: dist/order-documents/src/Settings/Schema.php:79
+#: src/Rendering/Layout.php:114 src/Settings/Schema.php:79
 msgid "Extra field 2"
 msgstr "Ekstrafelt 2"
 
-#: src/Rendering/Layout.php:115
-#: src/Settings/Schema.php:80
+#: dist/order-documents/src/Rendering/Layout.php:115
+#: dist/order-documents/src/Settings/Schema.php:80
+#: src/Rendering/Layout.php:115 src/Settings/Schema.php:80
 msgid "Extra field 3"
 msgstr "Ekstrafelt 3"
 
+#: dist/order-documents/src/Rendering/Layout.php:122
 #: src/Rendering/Layout.php:122
 msgid "Title (empty = document title)"
 msgstr "Titel (tom = dokumenttitel)"
 
+#: dist/order-documents/src/Rendering/Layout.php:123
 #: src/Rendering/Layout.php:123
 msgid "Uppercase"
 msgstr "Store bogstaver"
 
+#: dist/order-documents/src/Rendering/Layout.php:124
 #: src/Rendering/Layout.php:124
 msgid "Add the document number"
 msgstr "Tilføj dokumentnummeret"
 
+#: dist/order-documents/src/Rendering/Layout.php:127
 #: src/Rendering/Layout.php:127
 msgid "Line below the title"
 msgstr "Linje under titlen"
 
-#: src/Rendering/Layout.php:131
-#: src/Rendering/Layout.php:154
+#: dist/order-documents/src/Rendering/Layout.php:131
+#: dist/order-documents/src/Rendering/Layout.php:154
+#: dist/order-documents/src/Rendering/Placeholders.php:24
+#: src/Rendering/Layout.php:131 src/Rendering/Layout.php:154
 #: src/Rendering/Placeholders.php:24
 msgid "Document number"
 msgstr "Dokumentnummer"
 
-#: src/Rendering/Layout.php:132
-#: src/Rendering/Layout.php:156
-#: src/Rendering/OrderData.php:244
-#: src/Rendering/Placeholders.php:30
+#: dist/order-documents/src/Rendering/Layout.php:132
+#: dist/order-documents/src/Rendering/Layout.php:156
+#: dist/order-documents/src/Rendering/OrderData.php:244
+#: dist/order-documents/src/Rendering/Placeholders.php:30
+#: src/Rendering/Layout.php:132 src/Rendering/Layout.php:156
+#: src/Rendering/OrderData.php:244 src/Rendering/Placeholders.php:30
 msgid "Order number"
 msgstr "Ordrenummer"
 
+#: dist/order-documents/src/Rendering/Layout.php:146
+#: dist/order-documents/templates/shared/blocks/shipping_address.php:17
 #: src/Rendering/Layout.php:146
 #: templates/shared/blocks/shipping_address.php:17
 msgid "Ship to"
 msgstr "Leveres til"
 
+#: dist/order-documents/src/Rendering/Layout.php:147
 #: src/Rendering/Layout.php:147
 msgid "Show the billing address when there is no separate delivery address"
 msgstr "Vis faktureringsadressen, når der ikke er en separat leveringsadresse"
 
-#: src/Rendering/Layout.php:158
-#: src/Rendering/OrderData.php:247
+#: dist/order-documents/src/Rendering/Layout.php:158
+#: dist/order-documents/src/Rendering/OrderData.php:247
+#: dist/order-documents/src/Rendering/Placeholders.php:33
+#: src/Rendering/Layout.php:158 src/Rendering/OrderData.php:247
 #: src/Rendering/Placeholders.php:33
 msgid "Payment method"
 msgstr "Betalingsmetode"
 
-#: src/Rendering/Layout.php:159
-#: src/Rendering/Layout.php:285
-#: src/Rendering/OrderData.php:250
-#: src/Rendering/Placeholders.php:34
+#: dist/order-documents/src/Rendering/Layout.php:159
+#: dist/order-documents/src/Rendering/Layout.php:285
+#: dist/order-documents/src/Rendering/OrderData.php:250
+#: dist/order-documents/src/Rendering/Placeholders.php:34
+#: dist/order-documents/templates/shared/blocks/shipping_info.php:16
+#: src/Rendering/Layout.php:159 src/Rendering/Layout.php:285
+#: src/Rendering/OrderData.php:250 src/Rendering/Placeholders.php:34
 #: templates/shared/blocks/shipping_info.php:16
 msgid "Shipping method"
 msgstr "Leveringsmetode"
 
+#: dist/order-documents/src/Rendering/Layout.php:160
 #: src/Rendering/Layout.php:160
 msgid "Other details (due date, KID, references...)"
 msgstr "Andre oplysninger (forfaldsdato, KID, referencer …)"
 
-#: src/Rendering/Layout.php:161
-#: src/Settings/Schema.php:138
+#: dist/order-documents/src/Rendering/Layout.php:161
+#: dist/order-documents/src/Settings/Schema.php:138
+#: src/Rendering/Layout.php:161 src/Settings/Schema.php:138
 msgid "Boxed"
 msgstr "Med ramme"
 
-#: src/Rendering/Layout.php:164
-#: src/Rendering/Layout.php:270
-#: assets/editor/src/App.js:261
+#: dist/order-documents/src/Rendering/Layout.php:164
+#: dist/order-documents/src/Rendering/Layout.php:270
+#: src/Rendering/Layout.php:164 src/Rendering/Layout.php:270
 msgid "Layout"
 msgstr "Layout"
 
+#: dist/order-documents/src/Rendering/Layout.php:167
 #: src/Rendering/Layout.php:167
 msgid "Label and value side by side"
 msgstr "Etiket og værdi ved siden af hinanden"
 
+#: dist/order-documents/src/Rendering/Layout.php:168
 #: src/Rendering/Layout.php:168
 msgid "Columns with the label above the value"
 msgstr "Kolonner med etiketten over værdien"
 
+#: dist/order-documents/src/Rendering/Layout.php:171
 #: src/Rendering/Layout.php:171
 msgid "Columns (column layout)"
 msgstr "Kolonner (kolonnelayout)"
 
+#: dist/order-documents/src/Rendering/Layout.php:172
 #: src/Rendering/Layout.php:172
 msgid "Hide these rows"
 msgstr "Skjul disse rækker"
 
+#: dist/order-documents/src/Rendering/Layout.php:176
 #: src/Rendering/Layout.php:176
 msgid "Products table"
 msgstr "Produkttabel"
 
-#: src/Rendering/Layout.php:179
-#: assets/editor/src/Inspector.js:90
+#: dist/order-documents/src/Rendering/Layout.php:179
+#: src/Rendering/Layout.php:179 assets/editor/src/Inspector.js:373
+#: assets/editor/src/Inspector.js:644 assets/editor/src/Outline.js:104
 msgid "Columns"
 msgstr "Kolonner"
 
+#: dist/order-documents/src/Rendering/Layout.php:180
 #: src/Rendering/Layout.php:180
 msgid "Column headings"
 msgstr "Kolonneoverskrifter"
 
+#: dist/order-documents/src/Rendering/Layout.php:181
 #: src/Rendering/Layout.php:181
 msgid "Image size (mm)"
 msgstr "Billedstørrelse (mm)"
 
+#: dist/order-documents/src/Rendering/Layout.php:185
 #: src/Rendering/Layout.php:185
 msgid "Totals"
 msgstr "Totaler"
 
-#: src/Rendering/Layout.php:188
-#: src/Rendering/OrderData.php:564
+#: dist/order-documents/src/Rendering/Layout.php:188
+#: dist/order-documents/src/Rendering/OrderData.php:564
+#: src/Rendering/Layout.php:188 src/Rendering/OrderData.php:564
 msgid "Subtotal"
 msgstr "Subtotal"
 
-#: src/Rendering/Layout.php:189
-#: src/Rendering/Layout.php:356
+#: dist/order-documents/src/Rendering/Layout.php:189
+#: dist/order-documents/src/Rendering/Layout.php:356
+#: dist/order-documents/src/Rendering/OrderData.php:571
+#: src/Rendering/Layout.php:189 src/Rendering/Layout.php:356
 #: src/Rendering/OrderData.php:571
 msgid "Discount"
 msgstr "Rabat"
 
+#: dist/order-documents/src/Rendering/Layout.php:190
 #: src/Rendering/Layout.php:190
 msgid "Shipping"
 msgstr "Fragt"
 
+#: dist/order-documents/src/Rendering/Layout.php:191
 #: src/Rendering/Layout.php:191
 msgid "Fees"
 msgstr "Gebyrer"
 
+#: dist/order-documents/src/Rendering/Layout.php:192
 #: src/Rendering/Layout.php:192
 msgid "Tax lines"
 msgstr "Momslinjer"
 
+#: dist/order-documents/src/Rendering/Layout.php:193
 #: src/Rendering/Layout.php:193
 msgid "Total label"
 msgstr "Etiket for total"
 
-#: src/Rendering/Layout.php:193
-#: src/Rendering/OrderData.php:555
-#: src/Rendering/OrderData.php:609
-#: templates/shared/blocks/vat_summary.php:24
+#: dist/order-documents/src/Rendering/Layout.php:193
+#: dist/order-documents/src/Rendering/OrderData.php:555
+#: dist/order-documents/src/Rendering/OrderData.php:609
+#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
+#: src/Rendering/Layout.php:193 src/Rendering/OrderData.php:555
+#: src/Rendering/OrderData.php:609 templates/shared/blocks/vat_summary.php:24
 msgid "Total"
 msgstr "I alt"
 
-#: src/Rendering/Layout.php:197
-#: src/Rendering/Layout.php:199
+#: dist/order-documents/src/Rendering/Layout.php:197
+#: dist/order-documents/src/Rendering/Layout.php:199
+#: dist/order-documents/templates/shared/blocks/vat_summary.php:21
+#: src/Rendering/Layout.php:197 src/Rendering/Layout.php:199
 #: templates/shared/blocks/vat_summary.php:21
 msgid "VAT summary"
 msgstr "Momsoversigt"
 
-#: src/Rendering/Layout.php:202
-#: src/Rendering/Layout.php:204
+#: dist/order-documents/src/Rendering/Layout.php:202
+#: dist/order-documents/src/Rendering/Layout.php:204
+#: dist/order-documents/src/Rendering/Placeholders.php:35
+#: dist/order-documents/templates/shared/blocks/customer_note.php:17
+#: src/Rendering/Layout.php:202 src/Rendering/Layout.php:204
 #: src/Rendering/Placeholders.php:35
 #: templates/shared/blocks/customer_note.php:17
 msgid "Customer note"
 msgstr "Kundens bemærkning"
 
+#: dist/order-documents/src/Rendering/Layout.php:207
 #: src/Rendering/Layout.php:207
 msgid "Document notes"
 msgstr "Dokumentnoter"
 
+#: dist/order-documents/src/Rendering/Layout.php:217
 #: src/Rendering/Layout.php:217
 msgid "Document notice"
 msgstr "Dokumentbemærkning"
 
+#: dist/order-documents/src/Rendering/Layout.php:222
 #: src/Rendering/Layout.php:222
 msgid "Custom text"
 msgstr "Egen tekst"
 
+#: dist/order-documents/src/Rendering/Layout.php:225
 #: src/Rendering/Layout.php:225
 msgid "Text (HTML and placeholders allowed)"
 msgstr "Tekst (HTML og pladsholdere tilladt)"
 
+#: dist/order-documents/src/Rendering/Layout.php:229
 #: src/Rendering/Layout.php:229
 msgid "Divider"
 msgstr "Skillelinje"
 
-#: src/Rendering/Layout.php:232
-#: src/Rendering/Layout.php:257
+#: dist/order-documents/src/Rendering/Layout.php:232
+#: dist/order-documents/src/Rendering/Layout.php:257
+#: src/Rendering/Layout.php:232 src/Rendering/Layout.php:257
 msgid "Colour"
 msgstr "Farve"
 
+#: dist/order-documents/src/Rendering/Layout.php:233
 #: src/Rendering/Layout.php:233
 msgid "Thickness (pt)"
 msgstr "Tykkelse (pt)"
 
-#: src/Rendering/Layout.php:234
-#: src/Settings/Schema.php:122
-#: assets/editor/src/App.js:263
+#: dist/order-documents/src/Rendering/Layout.php:234
+#: dist/order-documents/src/Settings/Schema.php:122
+#: src/Rendering/Layout.php:234 src/Settings/Schema.php:122
 msgid "Style"
 msgstr "Stil"
 
+#: dist/order-documents/src/Rendering/Layout.php:234
 #: src/Rendering/Layout.php:234
 msgid "Solid"
 msgstr "Fuldt optrukket"
 
+#: dist/order-documents/src/Rendering/Layout.php:234
 #: src/Rendering/Layout.php:234
 msgid "Dashed"
 msgstr "Stiplet"
 
+#: dist/order-documents/src/Rendering/Layout.php:234
 #: src/Rendering/Layout.php:234
 msgid "Dotted"
 msgstr "Prikket"
 
+#: dist/order-documents/src/Rendering/Layout.php:238
 #: src/Rendering/Layout.php:238
 msgid "Spacer"
 msgstr "Mellemrum"
 
+#: dist/order-documents/src/Rendering/Layout.php:241
 #: src/Rendering/Layout.php:241
 msgid "Height (mm)"
 msgstr "Højde (mm)"
 
+#: dist/order-documents/src/Rendering/Layout.php:245
 #: src/Rendering/Layout.php:245
 msgid "Signature line"
 msgstr "Underskriftslinje"
 
+#: dist/order-documents/src/Rendering/Layout.php:248
 #: src/Rendering/Layout.php:248
 msgid "Label"
 msgstr "Etiket"
 
-#: src/Rendering/Layout.php:248
-#: templates/shared/blocks/signature.php:11
+#: dist/order-documents/src/Rendering/Layout.php:248
+#: dist/order-documents/templates/shared/blocks/signature.php:11
+#: dist/order-documents/templates/shared/blocks/signature_fields.php:13
+#: src/Rendering/Layout.php:248 templates/shared/blocks/signature.php:11
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Signature"
 msgstr "Underskrift"
 
+#: dist/order-documents/src/Rendering/Layout.php:249
 #: src/Rendering/Layout.php:249
 msgid "Date line"
 msgstr "Datolinje"
 
+#: dist/order-documents/src/Rendering/Layout.php:253
 #: src/Rendering/Layout.php:253
 msgid "Paid stamp"
 msgstr "Betalt-stempel"
 
+#: dist/order-documents/src/Rendering/Layout.php:256
 #: src/Rendering/Layout.php:256
 msgid "Text (empty = receipt setting)"
 msgstr "Tekst (tom = kvitteringsindstilling)"
 
+#: dist/order-documents/src/Rendering/Layout.php:258
 #: src/Rendering/Layout.php:258
 msgid "Only when the order is paid"
 msgstr "Kun når ordren er betalt"
 
+#: dist/order-documents/src/Rendering/Layout.php:265
 #: src/Rendering/Layout.php:265
 msgid "Text (empty = footer from the general settings)"
 msgstr "Tekst (tom = sidefod fra de generelle indstillinger)"
 
+#: dist/order-documents/src/Rendering/Layout.php:266
 #: src/Rendering/Layout.php:266
 msgid "At the bottom of every page"
 msgstr "Nederst på hver side"
 
+#: dist/order-documents/src/Rendering/Layout.php:267
 #: src/Rendering/Layout.php:267
 msgid "Line above"
 msgstr "Linje over"
 
+#: dist/order-documents/src/Rendering/Layout.php:273
 #: src/Rendering/Layout.php:273
 msgid "Footer text"
 msgstr "Sidefodstekst"
 
+#: dist/order-documents/src/Rendering/Layout.php:274
 #: src/Rendering/Layout.php:274
 msgid "Shop details in three columns"
 msgstr "Butiksoplysninger i tre kolonner"
 
+#: dist/order-documents/src/Rendering/Layout.php:280
 #: src/Rendering/Layout.php:280
 msgid "Shipping details"
 msgstr "Forsendelsesoplysninger"
 
-#: src/Rendering/Layout.php:283
-#: templates/shared/blocks/shipping_info.php:42
+#: dist/order-documents/src/Rendering/Layout.php:283
+#: dist/order-documents/templates/shared/blocks/shipping_info.php:42
+#: src/Rendering/Layout.php:283 templates/shared/blocks/shipping_info.php:42
 msgid "Delivery"
 msgstr "Levering"
 
+#: dist/order-documents/src/Rendering/Layout.php:286
 #: src/Rendering/Layout.php:286
 msgid "Total weight"
 msgstr "Samlet vægt"
 
-#: src/Rendering/Layout.php:287
-#: templates/shared/blocks/item_count.php:23
+#: dist/order-documents/src/Rendering/Layout.php:287
+#: dist/order-documents/templates/shared/blocks/item_count.php:23
+#: dist/order-documents/templates/shared/blocks/shipping_info.php:32
+#: src/Rendering/Layout.php:287 templates/shared/blocks/item_count.php:23
 #: templates/shared/blocks/shipping_info.php:32
 msgid "Total quantity"
 msgstr "Samlet antal"
 
+#: dist/order-documents/src/Rendering/Layout.php:288
 #: src/Rendering/Layout.php:288
 msgid "Tracking number field (order meta key)"
 msgstr "Felt til sporingsnummer (ordre-metanøgle)"
 
+#: dist/order-documents/src/Rendering/Layout.php:289
 #: src/Rendering/Layout.php:289
 msgid "Extra text (placeholders allowed)"
 msgstr "Ekstra tekst (pladsholdere tilladt)"
 
+#: dist/order-documents/src/Rendering/Layout.php:294
 #: src/Rendering/Layout.php:294
 msgid "Quantity summary"
 msgstr "Antalsoversigt"
 
-#: src/Rendering/Layout.php:297
-#: templates/shared/blocks/item_count.php:19
+#: dist/order-documents/src/Rendering/Layout.php:297
+#: dist/order-documents/templates/shared/blocks/item_count.php:19
+#: src/Rendering/Layout.php:297 templates/shared/blocks/item_count.php:19
 msgid "Number of lines"
 msgstr "Antal linjer"
 
+#: dist/order-documents/src/Rendering/Layout.php:298
 #: src/Rendering/Layout.php:298
 msgid "Unit after the quantity"
 msgstr "Enhed efter antallet"
 
+#: dist/order-documents/src/Rendering/Layout.php:298
 #: src/Rendering/Layout.php:298
 msgid "pcs"
 msgstr "stk."
 
+#: dist/order-documents/src/Rendering/Layout.php:302
 #: src/Rendering/Layout.php:302
 msgid "Payment band"
 msgstr "Betalingsfelt"
 
+#: dist/order-documents/src/Rendering/Layout.php:305
 #: src/Rendering/Layout.php:305
 msgid "Account label"
 msgstr "Etiket for konto"
 
-#: src/Rendering/Layout.php:305
-#: templates/shared/blocks/payment_summary.php:24
+#: dist/order-documents/src/Rendering/Layout.php:305
+#: dist/order-documents/templates/shared/blocks/payment_summary.php:24
+#: src/Rendering/Layout.php:305 templates/shared/blocks/payment_summary.php:24
 msgid "Bank account"
 msgstr "Bankkonto"
 
+#: dist/order-documents/src/Rendering/Layout.php:306
 #: src/Rendering/Layout.php:306
 msgid "Reference label"
 msgstr "Etiket for reference"
 
-#: src/Rendering/Layout.php:306
-#: templates/shared/blocks/payment_summary.php:30
+#: dist/order-documents/src/Rendering/Layout.php:306
+#: dist/order-documents/templates/shared/blocks/payment_summary.php:30
+#: src/Rendering/Layout.php:306 templates/shared/blocks/payment_summary.php:30
 msgid "Payment reference"
 msgstr "Betalingsreference"
 
-#: src/Rendering/Layout.php:308
-#: templates/shared/blocks/payment_summary.php:35
+#: dist/order-documents/src/Rendering/Layout.php:308
+#: dist/order-documents/templates/shared/blocks/payment_summary.php:35
+#: src/Rendering/Layout.php:308 templates/shared/blocks/payment_summary.php:35
 msgid "Amount to pay"
 msgstr "At betale"
 
+#: dist/order-documents/src/Rendering/Layout.php:309
 #: src/Rendering/Layout.php:309
 msgid "Hide when the order is paid"
 msgstr "Skjul, når ordren er betalt"
 
+#: dist/order-documents/src/Rendering/Layout.php:313
 #: src/Rendering/Layout.php:313
 msgid "Signature fields"
 msgstr "Underskriftsfelter"
 
+#: dist/order-documents/src/Rendering/Layout.php:317
 #: src/Rendering/Layout.php:317
 msgid "Fields (comma separated)"
 msgstr "Felter (kommasepareret)"
 
+#: dist/order-documents/src/Rendering/Layout.php:317
 #: src/Rendering/Layout.php:317
 msgid "Signature, Name in print, Date"
 msgstr "Underskrift, Navn med blokbogstaver, Dato"
 
+#: dist/order-documents/src/Rendering/Layout.php:320
 #: src/Rendering/Layout.php:320
 msgid "Label position"
 msgstr "Etiketplacering"
 
+#: dist/order-documents/src/Rendering/Layout.php:323
 #: src/Rendering/Layout.php:323
 msgid "Above the line"
 msgstr "Over linjen"
 
+#: dist/order-documents/src/Rendering/Layout.php:324
 #: src/Rendering/Layout.php:324
 msgid "Below the line"
 msgstr "Under linjen"
 
+#: dist/order-documents/src/Rendering/Layout.php:346
 #: src/Rendering/Layout.php:346
 msgid "Picked"
 msgstr "Plukket"
 
+#: dist/order-documents/src/Rendering/Layout.php:347
 #: src/Rendering/Layout.php:347
 msgid "Image"
 msgstr "Billede"
 
+#: dist/order-documents/src/Rendering/Layout.php:349
 #: src/Rendering/Layout.php:349
 msgid "Location"
 msgstr "Placering"
 
+#: dist/order-documents/src/Rendering/Layout.php:350
 #: src/Rendering/Layout.php:350
 msgid "Product"
 msgstr "Produkt"
 
+#: dist/order-documents/src/Rendering/Layout.php:351
 #: src/Rendering/Layout.php:351
 msgid "Qty"
 msgstr "Antal"
 
-#: src/Rendering/Layout.php:352
-#: templates/shared/blocks/shipping_info.php:28
+#: dist/order-documents/src/Rendering/Layout.php:352
+#: dist/order-documents/templates/shared/blocks/shipping_info.php:28
+#: src/Rendering/Layout.php:352 templates/shared/blocks/shipping_info.php:28
 msgid "Weight"
 msgstr "Vægt"
 
+#: dist/order-documents/src/Rendering/Layout.php:353
 #: src/Rendering/Layout.php:353
 msgid "Unit price"
 msgstr "Stykpris"
 
+#: dist/order-documents/src/Rendering/Layout.php:354
 #: src/Rendering/Layout.php:354
 msgid "Unit price excl. tax"
 msgstr "Stykpris ekskl. moms"
 
+#: dist/order-documents/src/Rendering/Layout.php:355
 #: src/Rendering/Layout.php:355
 msgid "Unit price incl. tax"
 msgstr "Stykpris inkl. moms"
 
+#: dist/order-documents/src/Rendering/Layout.php:357
 #: src/Rendering/Layout.php:357
 msgid "VAT %"
 msgstr "Moms %"
 
-#: src/Rendering/Layout.php:358
-#: src/Rendering/OrderData.php:452
-#: src/Rendering/OrderData.php:598
-#: templates/shared/blocks/vat_summary.php:24
+#: dist/order-documents/src/Rendering/Layout.php:358
+#: dist/order-documents/src/Rendering/OrderData.php:452
+#: dist/order-documents/src/Rendering/OrderData.php:598
+#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
+#: src/Rendering/Layout.php:358 src/Rendering/OrderData.php:452
+#: src/Rendering/OrderData.php:598 templates/shared/blocks/vat_summary.php:24
 msgid "VAT"
 msgstr "Moms"
 
+#: dist/order-documents/src/Rendering/Layout.php:359
 #: src/Rendering/Layout.php:359
 msgid "Amount"
 msgstr "Beløb"
 
+#: dist/order-documents/src/Rendering/Layout.php:360
 #: src/Rendering/Layout.php:360
 msgid "Amount excl. tax"
 msgstr "Beløb ekskl. moms"
 
+#: dist/order-documents/src/Rendering/Layout.php:361
 #: src/Rendering/Layout.php:361
 msgid "Amount incl. tax"
 msgstr "Beløb inkl. moms"
 
+#: dist/order-documents/src/Rendering/Layout.php:363
 #: src/Rendering/Layout.php:363
 msgid "Delivered"
 msgstr "Leveret"
 
+#: dist/order-documents/src/Rendering/OrderData.php:288
 #: src/Rendering/OrderData.php:288
 msgid "Refund"
 msgstr "Refusion"
 
 #. translators: %s: SKU
+#: dist/order-documents/src/Rendering/OrderData.php:386
 #: src/Rendering/OrderData.php:386
 #, php-format
 msgid "SKU: %s"
 msgstr "Varenr.: %s"
 
 #. translators: %s: weight
+#: dist/order-documents/src/Rendering/OrderData.php:390
 #: src/Rendering/OrderData.php:390
 #, php-format
 msgid "Weight: %s"
 msgstr "Vægt: %s"
 
 #. translators: %s: shipping method
+#: dist/order-documents/src/Rendering/OrderData.php:580
 #: src/Rendering/OrderData.php:580
 #, php-format
 msgid "Shipping: %s"
 msgstr "Fragt: %s"
 
 #. translators: %s: tax amount
+#: dist/order-documents/src/Rendering/OrderData.php:617
 #: src/Rendering/OrderData.php:617
 msgid "Of which VAT"
 msgstr "Heraf moms"
 
+#: dist/order-documents/src/Rendering/OrderData.php:669
 #: src/Rendering/OrderData.php:669
 msgid "No VAT"
 msgstr "Uden moms"
 
-#. translators: 1: page number, 2: page count. Keep {PAGE_NUM} style placeholders out; numbers are filled in.
+#. translators: 1: page number, 2: page count. Keep {PAGE_NUM} style
+#. placeholders out; numbers are filled in.
+#: dist/order-documents/src/Rendering/PdfGenerator.php:49
 #: src/Rendering/PdfGenerator.php:49
 #, php-format
 msgid "Page %1$d of %2$d"
 msgstr "Side %1$d af %2$d"
 
+#: dist/order-documents/src/Rendering/Placeholders.php:32
 #: src/Rendering/Placeholders.php:32
 msgid "Order total"
 msgstr "Ordretotal"
 
+#: dist/order-documents/src/Rendering/Placeholders.php:36
 #: src/Rendering/Placeholders.php:36
 msgid "Any billing_ or shipping_ field, e.g. billing_company"
 msgstr "Ethvert billing_- eller shipping_-felt, f.eks. billing_company"
 
-#: src/Rendering/Placeholders.php:40
-#: src/Settings/Schema.php:74
+#: dist/order-documents/src/Rendering/Placeholders.php:40
+#: dist/order-documents/src/Settings/Schema.php:74
+#: src/Rendering/Placeholders.php:40 src/Settings/Schema.php:74
 msgid "Bank account number"
 msgstr "Kontonummer"
 
-#: src/Rendering/Placeholders.php:41
-#: src/Settings/Schema.php:75
+#: dist/order-documents/src/Rendering/Placeholders.php:41
+#: dist/order-documents/src/Settings/Schema.php:75
+#: src/Rendering/Placeholders.php:41 src/Settings/Schema.php:75
 msgid "IBAN"
 msgstr "IBAN"
 
-#: src/Rendering/Placeholders.php:42
-#: src/Settings/Schema.php:76
+#: dist/order-documents/src/Rendering/Placeholders.php:42
+#: dist/order-documents/src/Settings/Schema.php:76
+#: src/Rendering/Placeholders.php:42 src/Settings/Schema.php:76
 msgid "BIC / SWIFT"
 msgstr "BIC / SWIFT"
 
+#: dist/order-documents/src/Rendering/Placeholders.php:43
 #: src/Rendering/Placeholders.php:43
 msgid "Site title"
 msgstr "Webstedets titel"
 
+#: dist/order-documents/src/Rendering/Placeholders.php:44
 #: src/Rendering/Placeholders.php:44
 msgid "Site address"
 msgstr "Webstedets adresse"
 
+#: dist/order-documents/src/Rendering/Placeholders.php:45
 #: src/Rendering/Placeholders.php:45
 msgid "Current year"
 msgstr "Indeværende år"
 
+#: dist/order-documents/src/Rendering/Placeholders.php:46
 #: src/Rendering/Placeholders.php:46
 msgid "Any order meta field"
 msgstr "Ethvert metafelt på ordren"
 
-#: src/Settings/Schema.php:62
+#: dist/order-documents/src/Settings/Schema.php:62 src/Settings/Schema.php:62
 msgid "Shown in the header of every document."
 msgstr "Vises øverst på alle dokumenter."
 
-#: src/Settings/Schema.php:69
+#: dist/order-documents/src/Settings/Schema.php:69 src/Settings/Schema.php:69
 msgid "For example \"Org.nr. 123 456 789 MVA\". Shown as entered."
 msgstr "For eksempel »CVR-nr. 12345678«. Vises som indtastet."
 
-#: src/Settings/Schema.php:71
+#: dist/order-documents/src/Settings/Schema.php:71 src/Settings/Schema.php:71
 msgid "For example \"Foretaksregisteret\" (Norwegian limited companies)."
 msgstr "For eksempel »Foretaksregisteret« (norske aktieselskaber)."
 
-#: src/Settings/Schema.php:72
+#: dist/order-documents/src/Settings/Schema.php:72 src/Settings/Schema.php:72
 msgid "Payment details"
 msgstr "Betalingsoplysninger"
 
-#: src/Settings/Schema.php:72
+#: dist/order-documents/src/Settings/Schema.php:72 src/Settings/Schema.php:72
 msgid "Available as placeholders in payment information texts."
 msgstr "Tilgængelige som pladsholdere i betalingsoplysninger."
 
-#: src/Settings/Schema.php:73
+#: dist/order-documents/src/Settings/Schema.php:73 src/Settings/Schema.php:73
 msgid "Bank"
 msgstr "Bank"
 
-#: src/Settings/Schema.php:77
+#: dist/order-documents/src/Settings/Schema.php:77 src/Settings/Schema.php:77
 msgid "Extra texts"
 msgstr "Ekstra tekster"
 
-#: src/Settings/Schema.php:81
+#: dist/order-documents/src/Settings/Schema.php:81 src/Settings/Schema.php:81
 msgid "Placeholders are supported, see the list at the bottom of the page."
 msgstr "Pladsholdere understøttes, se listen nederst på siden."
 
-#: src/Settings/Schema.php:82
+#: dist/order-documents/src/Settings/Schema.php:82 src/Settings/Schema.php:82
 msgid "Output"
 msgstr "Output"
 
-#: src/Settings/Schema.php:90
+#: dist/order-documents/src/Settings/Schema.php:90 src/Settings/Schema.php:90
 msgid "Letter"
 msgstr "Letter"
 
+#: dist/order-documents/src/Settings/Schema.php:100
 #: src/Settings/Schema.php:100
 msgid "Open in the browser"
 msgstr "Åbn i browseren"
 
+#: dist/order-documents/src/Settings/Schema.php:101
 #: src/Settings/Schema.php:101
 msgid "Download the file"
 msgstr "Download filen"
 
+#: dist/order-documents/src/Settings/Schema.php:104
 #: src/Settings/Schema.php:104
 msgid "Date format"
 msgstr "Datoformat"
 
+#: dist/order-documents/src/Settings/Schema.php:104
 #: src/Settings/Schema.php:104
 msgid "PHP date format. Leave empty to use the WordPress setting."
-msgstr "PHP-datoformat. Lad feltet stå tomt for at bruge WordPress-indstillingen."
+msgstr ""
+"PHP-datoformat. Lad feltet stå tomt for at bruge WordPress-indstillingen."
 
+#: dist/order-documents/src/Settings/Schema.php:108
 #: src/Settings/Schema.php:108
 msgid "Document language"
 msgstr "Dokumentsprog"
 
+#: dist/order-documents/src/Settings/Schema.php:111
 #: src/Settings/Schema.php:111
 msgid "Site language"
 msgstr "Webstedets sprog"
 
+#: dist/order-documents/src/Settings/Schema.php:112
 #: src/Settings/Schema.php:112
 msgid "Customer's profile language (when set)"
 msgstr "Kundens profilsprog (når angivet)"
 
+#: dist/order-documents/src/Settings/Schema.php:121
 #: src/Settings/Schema.php:121
 msgid "Default template"
 msgstr "Standardskabelon"
 
+#: dist/order-documents/src/Settings/Schema.php:125
 #: src/Settings/Schema.php:125
 msgid "Secondary text colour"
 msgstr "Sekundær tekstfarve"
 
+#: dist/order-documents/src/Settings/Schema.php:126
 #: src/Settings/Schema.php:126
 msgid "Font"
 msgstr "Skrifttype"
 
+#: dist/order-documents/src/Settings/Schema.php:127
 #: src/Settings/Schema.php:127
 msgid "Base font size (pt)"
 msgstr "Grundlæggende skriftstørrelse (pt)"
 
+#: dist/order-documents/src/Settings/Schema.php:132
 #: src/Settings/Schema.php:132
 msgid "Table style"
 msgstr "Tabelstil"
 
+#: dist/order-documents/src/Settings/Schema.php:135
 #: src/Settings/Schema.php:135
 msgid "Template default"
 msgstr "Skabelonens standard"
 
+#: dist/order-documents/src/Settings/Schema.php:136
 #: src/Settings/Schema.php:136
 msgid "Lines between rows"
 msgstr "Linjer mellem rækkerne"
 
+#: dist/order-documents/src/Settings/Schema.php:137
 #: src/Settings/Schema.php:137
 msgid "Striped rows"
 msgstr "Stribede rækker"
 
+#: dist/order-documents/src/Settings/Schema.php:139
 #: src/Settings/Schema.php:139
 msgid "Plain"
 msgstr "Enkel"
 
-#: src/Settings/Schema.php:142
+#: dist/order-documents/src/Settings/Schema.php:142
+#: src/Settings/Schema.php:142 assets/editor/src/StylePanel.js:24
 msgid "Page"
 msgstr "Side"
 
+#: dist/order-documents/src/Settings/Schema.php:143
 #: src/Settings/Schema.php:143
 msgid "Top margin (mm)"
 msgstr "Topmargen (mm)"
 
+#: dist/order-documents/src/Settings/Schema.php:144
 #: src/Settings/Schema.php:144
 msgid "Right margin (mm)"
 msgstr "Højre margen (mm)"
 
+#: dist/order-documents/src/Settings/Schema.php:145
 #: src/Settings/Schema.php:145
 msgid "Bottom margin (mm)"
 msgstr "Bundmargen (mm)"
 
+#: dist/order-documents/src/Settings/Schema.php:146
 #: src/Settings/Schema.php:146
 msgid "Left margin (mm)"
 msgstr "Venstre margen (mm)"
 
+#: dist/order-documents/src/Settings/Schema.php:147
 #: src/Settings/Schema.php:147
 msgid "Page numbers"
 msgstr "Sidenumre"
 
+#: dist/order-documents/src/Settings/Schema.php:147
 #: src/Settings/Schema.php:147
 msgid "Print \"Page X of Y\" at the bottom of multi-page documents."
 msgstr "Udskriv »Side X af Y« nederst på dokumenter med flere sider."
 
+#: dist/order-documents/src/Settings/Schema.php:153
 #: src/Settings/Schema.php:153
 msgid "Access"
 msgstr "Adgang"
 
+#: dist/order-documents/src/Settings/Schema.php:157
 #: src/Settings/Schema.php:157
 msgid "Who can create documents in the admin"
 msgstr "Hvem der kan oprette dokumenter i administrationen"
 
+#: dist/order-documents/src/Settings/Schema.php:160
 #: src/Settings/Schema.php:160
 msgid "Shop managers and administrators"
 msgstr "Butiksadministratorer og administratorer"
 
+#: dist/order-documents/src/Settings/Schema.php:161
 #: src/Settings/Schema.php:161
 msgid "Anyone who can edit orders"
 msgstr "Alle, der kan redigere ordrer"
 
+#: dist/order-documents/src/Settings/Schema.php:164
 #: src/Settings/Schema.php:164
 msgid "Guest access"
 msgstr "Gæsteadgang"
 
+#: dist/order-documents/src/Settings/Schema.php:164
 #: src/Settings/Schema.php:164
-msgid "Let customers without an account open their documents with a secure link that contains the order key."
-msgstr "Lad kunder uden konto åbne deres dokumenter med et sikkert link, der indeholder ordrenøglen."
+msgid ""
+"Let customers without an account open their documents with a secure link "
+"that contains the order key."
+msgstr ""
+"Lad kunder uden konto åbne deres dokumenter med et sikkert link, der "
+"indeholder ordrenøglen."
 
+#: dist/order-documents/src/Settings/Schema.php:165
 #: src/Settings/Schema.php:165
 msgid "Previous plugin data"
 msgstr "Data fra tidligere plugin"
 
+#: dist/order-documents/src/Settings/Schema.php:166
 #: src/Settings/Schema.php:166
 msgid "Use WooCommerce PDF Invoices & Packing Slips data"
 msgstr "Brug data fra WooCommerce PDF Invoices & Packing Slips"
 
+#: dist/order-documents/src/Settings/Schema.php:166
 #: src/Settings/Schema.php:166
-msgid "Orders that already have an invoice (or other document) from that plugin keep its number and date."
-msgstr "Ordrer, der allerede har en faktura (eller et andet dokument) fra det plugin, beholder nummer og dato."
+msgid ""
+"Orders that already have an invoice (or other document) from that plugin "
+"keep its number and date."
+msgstr ""
+"Ordrer, der allerede har en faktura (eller et andet dokument) fra det "
+"plugin, beholder nummer og dato."
 
+#: dist/order-documents/src/Settings/Schema.php:167
 #: src/Settings/Schema.php:167
 msgid "Performance and debugging"
 msgstr "Ydeevne og fejlfinding"
 
+#: dist/order-documents/src/Settings/Schema.php:168
 #: src/Settings/Schema.php:168
 msgid "Bulk limit"
 msgstr "Grænse for masseudskrift"
 
+#: dist/order-documents/src/Settings/Schema.php:168
 #: src/Settings/Schema.php:168
 msgid "Maximum number of orders in one bulk PDF."
 msgstr "Største antal ordrer i én samlet PDF."
 
+#: dist/order-documents/src/Settings/Schema.php:169
 #: src/Settings/Schema.php:169
 msgid "Output HTML instead of PDF"
 msgstr "Vis HTML i stedet for PDF"
 
+#: dist/order-documents/src/Settings/Schema.php:169
 #: src/Settings/Schema.php:169
 msgid "For template development only."
 msgstr "Kun til skabelonudvikling."
 
+#: dist/order-documents/src/Settings/Schema.php:170
 #: src/Settings/Schema.php:170
 msgid "Delete settings on uninstall"
 msgstr "Slet indstillinger ved afinstallation"
 
+#: dist/order-documents/src/Settings/Schema.php:170
 #: src/Settings/Schema.php:170
-msgid "Removes settings, layouts and number sequences when the plugin is deleted. Document data on orders and archived PDFs are always kept."
-msgstr "Fjerner indstillinger, layouts og nummerserier, når pluginet slettes. Dokumentdata på ordrer og arkiverede PDF'er bevares altid."
+msgid ""
+"Removes settings, layouts and number sequences when the plugin is deleted. "
+"Document data on orders and archived PDFs are always kept."
+msgstr ""
+"Fjerner indstillinger, layouts og nummerserier, når pluginet slettes. "
+"Dokumentdata på ordrer og arkiverede PDF'er bevares altid."
 
+#: dist/order-documents/src/Settings/Settings.php:151
 #: src/Settings/Settings.php:151
 msgid "admin"
 msgstr "admin"
 
+#: dist/order-documents/src/Settings/Settings.php:153
 #: src/Settings/Settings.php:153
 msgid "Refunded order (full and partial refunds)"
 msgstr "Refunderet ordre (hel og delvis refusion)"
 
+#: dist/order-documents/templates/business/template.php:11
 #: templates/business/template.php:11
 msgid "Business"
 msgstr "Business"
 
+#: dist/order-documents/templates/business/template.php:12
 #: templates/business/template.php:12
 msgid "Boxed sections and a boxed product table, formal and easy to scan."
 msgstr "Indrammede sektioner og produkttabel, formel og let at overskue."
 
+#: dist/order-documents/templates/classic/template.php:11
 #: templates/classic/template.php:11
 msgid "Classic"
 msgstr "Klassisk"
 
+#: dist/order-documents/templates/classic/template.php:12
 #: templates/classic/template.php:12
-msgid "Timeless layout with the logo on the left and shop details on the right."
-msgstr "Tidløst layout med logoet til venstre og butiksoplysningerne til højre."
+msgid ""
+"Timeless layout with the logo on the left and shop details on the right."
+msgstr ""
+"Tidløst layout med logoet til venstre og butiksoplysningerne til højre."
 
+#: dist/order-documents/templates/compact/template.php:11
 #: templates/compact/template.php:11
 msgid "Compact"
 msgstr "Kompakt"
 
+#: dist/order-documents/templates/compact/template.php:12
 #: templates/compact/template.php:12
-msgid "Dense one-line header and tight rows. Fits many products on a page; good for packing slips and picking lists."
-msgstr "Kompakt sidehoved på én linje og tætte rækker. Plads til mange produkter pr. side; god til pakkesedler og pluklister."
+msgid ""
+"Dense one-line header and tight rows. Fits many products on a page; good for"
+" packing slips and picking lists."
+msgstr ""
+"Kompakt sidehoved på én linje og tætte rækker. Plads til mange produkter pr."
+" side; god til pakkesedler og pluklister."
 
 #. translators: %s: customer first name
+#: dist/order-documents/templates/emails/odocs-document.php:17
+#: dist/order-documents/templates/emails/plain/odocs-document.php:17
 #: templates/emails/odocs-document.php:17
 #: templates/emails/plain/odocs-document.php:17
 #, php-format
@@ -2127,248 +2744,586 @@ msgid "Hi %s,"
 msgstr "Hej %s,"
 
 #. translators: 1: document title, 2: order number
+#: dist/order-documents/templates/emails/odocs-document.php:22
+#: dist/order-documents/templates/emails/plain/odocs-document.php:19
 #: templates/emails/odocs-document.php:22
 #: templates/emails/plain/odocs-document.php:19
 #, php-format
 msgid "Please find your %1$s for order #%2$s attached to this e-mail."
 msgstr "Vedhæftet finder du din %1$s for ordre #%2$s."
 
+#: dist/order-documents/templates/fresh/template.php:16
 #: templates/fresh/template.php:16
 msgid "Fresh"
 msgstr "Frisk"
 
+#: dist/order-documents/templates/fresh/template.php:17
 #: templates/fresh/template.php:17
-msgid "Rounded boxes, product images, a tinted table header, a large total and a payment band."
-msgstr "Afrundede bokse, produktbilleder, farvet tabelhoved, stor total og betalingsfelt."
+msgid ""
+"Rounded boxes, product images, a tinted table header, a large total and a "
+"payment band."
+msgstr ""
+"Afrundede bokse, produktbilleder, farvet tabelhoved, stor total og "
+"betalingsfelt."
 
+#: dist/order-documents/templates/minimal/template.php:11
 #: templates/minimal/template.php:11
 msgid "Minimal"
 msgstr "Minimal"
 
+#: dist/order-documents/templates/minimal/template.php:12
 #: templates/minimal/template.php:12
 msgid "Large title, generous white space and hairlines only."
 msgstr "Stor titel, masser af luft og kun tynde linjer."
 
+#: dist/order-documents/templates/modern/template.php:11
 #: templates/modern/template.php:11
 msgid "Modern"
 msgstr "Moderne"
 
+#: dist/order-documents/templates/modern/template.php:12
 #: templates/modern/template.php:12
 msgid "Coloured title band, striped product table and a highlighted total."
 msgstr "Farvet titelfelt, stribet produkttabel og fremhævet total."
 
+#: dist/order-documents/templates/receipt-80mm/template.php:11
 #: templates/receipt-80mm/template.php:11
 msgid "Receipt 80 mm"
 msgstr "Kvittering 80 mm"
 
+#: dist/order-documents/templates/receipt-80mm/template.php:12
 #: templates/receipt-80mm/template.php:12
 msgid "Narrow single-column layout for 80 mm receipt printers."
 msgstr "Smalt layout i én kolonne til 80 mm bonprintere."
 
 #. translators: %s: document number
+#: dist/order-documents/templates/shared/blocks/document_title.php:24
 #: templates/shared/blocks/document_title.php:24
 #, php-format
 msgid "No. %s"
 msgstr "Nr. %s"
 
 #. translators: %s: order number
+#: dist/order-documents/templates/shared/blocks/document_title.php:27
 #: templates/shared/blocks/document_title.php:27
 #, php-format
 msgid "Order %s"
 msgstr "Ordre %s"
 
 #. translators: %s: VAT number
+#: dist/order-documents/templates/shared/blocks/footer.php:17
+#: dist/order-documents/templates/shared/blocks/shop_info.php:39
 #: templates/shared/blocks/footer.php:17
 #: templates/shared/blocks/shop_info.php:39
 #, php-format
 msgid "VAT: %s"
 msgstr "Momsnr.: %s"
 
+#: dist/order-documents/templates/shared/blocks/shipping_info.php:22
 #: templates/shared/blocks/shipping_info.php:22
 msgid "Tracking number"
 msgstr "Sporingsnummer"
 
+#: dist/order-documents/templates/shared/blocks/signature.php:14
 #: templates/shared/blocks/signature.php:14
 msgid "Place and date"
 msgstr "Sted og dato"
 
+#: dist/order-documents/templates/shared/blocks/signature_fields.php:13
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Name in print"
 msgstr "Navn med blokbogstaver"
 
+#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
 #: templates/shared/blocks/vat_summary.php:24
 msgid "Rate"
 msgstr "Sats"
 
+#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
 #: templates/shared/blocks/vat_summary.php:24
 msgid "Basis"
 msgstr "Grundlag"
 
-#: assets/editor/src/App.js:124
-msgid "You have unsaved layout changes. Discard them?"
-msgstr "Du har ugemte ændringer i layoutet. Kassér dem?"
+#: assets/editor/src/App.js:66 assets/editor/src/App.js:192
+#: assets/editor/src/TopBar.js:265
+msgid "Undo"
+msgstr "Fortryd"
 
-#: assets/editor/src/App.js:140
+#: assets/editor/src/App.js:67 assets/editor/src/TopBar.js:273
+msgid "Redo"
+msgstr "Annuller fortryd"
+
+#: assets/editor/src/App.js:70
+msgid "Duplicate the selected block or row"
+msgstr "Dupliker valgt blok eller række"
+
+#: assets/editor/src/App.js:72
+msgid "Delete the selected block or row"
+msgstr "Slet valgt blok eller række"
+
+#: assets/editor/src/App.js:75
+msgid "Move the selected block or row"
+msgstr "Flyt valgt blok eller række"
+
+#: assets/editor/src/App.js:77
+msgid "Move through the structure list"
+msgstr "Gå gennem strukturlisten"
+
+#: assets/editor/src/App.js:80
+msgid "Select the parent (block → row → document)"
+msgstr "Vælg overordnet (blok → række → dokument)"
+
+#: assets/editor/src/App.js:82
+msgid "Show these shortcuts"
+msgstr "Vis disse genveje"
+
+#: assets/editor/src/App.js:98
+msgid "Cancel"
+msgstr "Annuller"
+
+#: assets/editor/src/App.js:339
 msgid "Saved."
 msgstr "Gemt."
 
-#: assets/editor/src/App.js:149
-msgid "Reset this layout to the template default? Your changes to it will be lost."
-msgstr "Nulstil dette layout til skabelonens standard? Dine ændringer går tabt."
+#: assets/editor/src/App.js:355
+msgid "Unsaved layout changes"
+msgstr "Ikke-gemte ændringer i layoutet"
 
-#: assets/editor/src/App.js:157
+#: assets/editor/src/App.js:356
+msgid ""
+"This layout has changes that are not saved yet. What do you want to do with "
+"them?"
+msgstr ""
+"Dette layout har ændringer, der ikke er gemt endnu. Hvad vil du gøre med "
+"dem?"
+
+#: assets/editor/src/App.js:362
+msgid "Discard"
+msgstr "Kassér"
+
+#: assets/editor/src/App.js:367
+msgid "Save and continue"
+msgstr "Gem og fortsæt"
+
+#: assets/editor/src/App.js:389
+msgid "Reset layout?"
+msgstr "Nulstil layoutet?"
+
+#: assets/editor/src/App.js:390
+msgid ""
+"This restores the template’s original layout for this document type. You can"
+" still undo it until you leave the editor."
+msgstr ""
+"Dette gendanner skabelonens oprindelige layout for denne dokumenttype. Du "
+"kan fortryde, indtil du forlader editoren."
+
+#: assets/editor/src/App.js:396 assets/editor/src/TopBar.js:397
+msgid "Reset layout"
+msgstr "Nulstil layout"
+
+#: assets/editor/src/App.js:413
 msgid "Layout reset to the template default."
 msgstr "Layoutet er nulstillet til skabelonens standard."
 
-#: assets/editor/src/App.js:223
-msgid "Preview with"
-msgstr "Forhåndsvis med"
-
-#: assets/editor/src/App.js:226
-msgid "Sample data"
-msgstr "Eksempeldata"
-
-#: assets/editor/src/App.js:234
-msgid "Reset to default"
-msgstr "Nulstil til standard"
-
-#: assets/editor/src/App.js:237
-msgid "Preview PDF"
-msgstr "Forhåndsvis PDF"
-
-#: assets/editor/src/App.js:240
-msgid "Saved"
-msgstr "Gemt"
-
-#: assets/editor/src/App.js:246
-msgid "You are editing a template this document type does not use. Choose the template under Order Documents → Documents or Design."
-msgstr "Du redigerer en skabelon, som denne dokumenttype ikke bruger. Vælg skabelon under Ordredokumenter → Dokumenter eller Design."
-
-#: assets/editor/src/App.js:262
-msgid "Block"
-msgstr "Blok"
-
-#: assets/editor/src/App.js:281
-msgid "Preview"
-msgstr "Forhåndsvisning"
-
-#: assets/editor/src/fields.js:30
-msgid "Use accent"
-msgstr "Brug accentfarve"
-
-#: assets/editor/src/fields.js:35
-msgid "Clear"
-msgstr "Ryd"
-
-#: assets/editor/src/Inspector.js:24
-msgid "Drag to reorder. Width 0 = automatic."
-msgstr "Træk for at ændre rækkefølgen. Bredde 0 = automatisk."
-
-#: assets/editor/src/Inspector.js:53
-msgid "Width %"
-msgstr "Bredde %"
-
-#: assets/editor/src/Inspector.js:56
-msgid "Align"
-msgstr "Justér"
+#. translators: %s: block name
+#: assets/editor/src/App.js:491
+msgid "%s deleted."
+msgstr "%s slettet."
 
 #. translators: %d: row number
-#: assets/editor/src/Inspector.js:84
-#: assets/editor/src/Outline.js:117
-#, js-format
+#: assets/editor/src/App.js:529
+msgid "Row %d deleted."
+msgstr "Række %d slettet."
+
+#: assets/editor/src/App.js:676 assets/editor/src/Outline.js:437
+#: assets/editor/src/TopBar.js:328
+msgid "Structure"
+msgstr "Struktur"
+
+#: assets/editor/src/App.js:769 assets/editor/src/TopBar.js:381
+msgid "Keyboard shortcuts"
+msgstr "Tastaturgenveje"
+
+#. translators: %d: row number
+#: assets/editor/src/Canvas.js:262 assets/editor/src/Inspector.js:54
+#: assets/editor/src/Inspector.js:69 assets/editor/src/Inspector.js:355
+#: assets/editor/src/Inspector.js:610 assets/editor/src/Outline.js:598
 msgid "Row %d"
 msgstr "Række %d"
 
-#: assets/editor/src/Inspector.js:85
-msgid "Background"
-msgstr "Baggrund"
-
-#: assets/editor/src/Inspector.js:87
-msgid "Padding (mm)"
-msgstr "Indvendig margen (mm)"
-
-#: assets/editor/src/Inspector.js:89
-msgid "Border"
-msgstr "Ramme"
-
-#. translators: %d: column number
-#: assets/editor/src/Inspector.js:98
-#, js-format
-msgid "Column %d width %%"
-msgstr "Kolonne %d bredde %%"
-
-#: assets/editor/src/Inspector.js:104
-msgid "Vertical alignment"
-msgstr "Lodret justering"
-
-#: assets/editor/src/Inspector.js:107
-msgid "Top"
-msgstr "Top"
-
-#: assets/editor/src/Inspector.js:108
-msgid "Middle"
-msgstr "Midte"
-
-#: assets/editor/src/Inspector.js:109
-msgid "Bottom"
-msgstr "Bund"
-
-#: assets/editor/src/Inspector.js:121
-msgid "Select a block in the outline or click it in the preview to change its settings."
-msgstr "Vælg en blok i oversigten, eller klik på den i forhåndsvisningen for at ændre indstillingerne."
-
-#: assets/editor/src/Inspector.js:134
-msgid "Unknown block type."
-msgstr "Ukendt bloktype."
-
-#: assets/editor/src/Inspector.js:169
-msgid "Appearance"
-msgstr "Udseende"
-
-#: assets/editor/src/Inspector.js:174
-msgid "Duplicate"
-msgstr "Duplikér"
-
-#: assets/editor/src/Inspector.js:175
-msgid "Remove block"
-msgstr "Fjern blok"
-
-#: assets/editor/src/Outline.js:22
-msgid "Add block"
-msgstr "Tilføj blok"
-
-#: assets/editor/src/Outline.js:105
-msgid "Drag to move the row"
-msgstr "Træk for at flytte rækken"
-
-#. translators: %d: number of columns
-#: assets/editor/src/Outline.js:126
-#, js-format
-msgid "%d columns"
-msgstr "%d kolonner"
-
-#: assets/editor/src/Outline.js:132
+#: assets/editor/src/Canvas.js:294 assets/editor/src/Outline.js:56
+#: assets/editor/src/Outline.js:150
 msgid "Move up"
 msgstr "Flyt op"
 
-#: assets/editor/src/Outline.js:137
+#: assets/editor/src/Canvas.js:306 assets/editor/src/Outline.js:64
+#: assets/editor/src/Outline.js:160
 msgid "Move down"
 msgstr "Flyt ned"
 
-#: assets/editor/src/Outline.js:142
+#: assets/editor/src/Canvas.js:318 assets/editor/src/Inspector.js:679
+#: assets/editor/src/Outline.js:71
+msgid "Duplicate"
+msgstr "Duplikér"
+
+#: assets/editor/src/Canvas.js:368
+msgid "Updating preview"
+msgstr "Opdaterer eksempel"
+
+#: assets/editor/src/Canvas.js:394
+msgid "Document preview"
+msgstr "Eksempel på dokument"
+
+#: assets/editor/src/fields.js:104
+msgid "Uses the template default."
+msgstr "Bruger skabelonens standard."
+
+#: assets/editor/src/fields.js:124
+msgid "Black"
+msgstr "Sort"
+
+#: assets/editor/src/fields.js:125
+msgid "Charcoal"
+msgstr "Koksgrå"
+
+#: assets/editor/src/fields.js:126
+msgid "Dark grey"
+msgstr "Mørkegrå"
+
+#: assets/editor/src/fields.js:127
+msgid "Grey"
+msgstr "Grå"
+
+#: assets/editor/src/fields.js:128
+msgid "Light grey"
+msgstr "Lysegrå"
+
+#: assets/editor/src/fields.js:129
+msgid "White"
+msgstr "Hvid"
+
+#: assets/editor/src/fields.js:133
+msgid "Accent"
+msgstr "Accent"
+
+#: assets/editor/src/fields.js:137
+msgid "Accent, light"
+msgstr "Accent, lys"
+
+#: assets/editor/src/fields.js:139
+msgid "Tint"
+msgstr "Tone"
+
+#: assets/editor/src/fields.js:140
+msgid "Line"
+msgstr "Linje"
+
+#: assets/editor/src/fields.js:202
+msgid "Template colours"
+msgstr "Skabelonens farver"
+
+#: assets/editor/src/fields.js:239 assets/editor/src/StylePanel.js:12
+msgid "Colours"
+msgstr "Farver"
+
+#: assets/editor/src/fields.js:257
+msgid "Reset to default"
+msgstr "Nulstil til standard"
+
+#: assets/editor/src/Inserter.js:33
+msgid "Search blocks"
+msgstr "Søg i blokke"
+
+#: assets/editor/src/Inserter.js:44
+msgid "Blocks"
+msgstr "Blokke"
+
+#: assets/editor/src/Inserter.js:60
+msgid "Already in this layout"
+msgstr "Findes allerede i layoutet"
+
+#: assets/editor/src/Inserter.js:70
+msgid "No blocks found."
+msgstr "Ingen blokke fundet."
+
+#: assets/editor/src/Inserter.js:100 assets/editor/src/Outline.js:450
+msgid "Add block"
+msgstr "Tilføj blok"
+
+#: assets/editor/src/Inspector.js:86
+msgid "Selection"
+msgstr "Markering"
+
+#: assets/editor/src/Inspector.js:168
+msgid "Turn columns on or off and drag to reorder them."
+msgstr "Slå kolonner til eller fra, og træk for at ændre rækkefølgen."
+
+#: assets/editor/src/Inspector.js:224
+msgid "Drag to reorder"
+msgstr "Træk for at ændre rækkefølge"
+
+#: assets/editor/src/Inspector.js:244
+msgid "Column options"
+msgstr "Kolonneindstillinger"
+
+#: assets/editor/src/Inspector.js:269 assets/editor/src/Inspector.js:447
+msgid "Width %"
+msgstr "Bredde %"
+
+#: assets/editor/src/Inspector.js:273
+msgid "0 = automatic"
+msgstr "0 = automatisk"
+
+#: assets/editor/src/Inspector.js:288
+msgid "Align"
+msgstr "Justér"
+
+#: assets/editor/src/Inspector.js:337
+msgid "Top"
+msgstr "Top"
+
+#: assets/editor/src/Inspector.js:342
+msgid "Middle"
+msgstr "Midte"
+
+#: assets/editor/src/Inspector.js:347
+msgid "Bottom"
+msgstr "Bund"
+
+#. translators: %d: number of columns
+#: assets/editor/src/Inspector.js:364
+msgid "%d columns side by side."
+msgstr "%d kolonner side om side."
+
+#: assets/editor/src/Inspector.js:370
+msgid "One full-width column."
+msgstr "Én kolonne i fuld bredde."
+
+#: assets/editor/src/Inspector.js:378
+msgid "Number of columns"
+msgstr "Antal kolonner"
+
+#: assets/editor/src/Inspector.js:402
+msgid "Column widths"
+msgstr "Kolonnebredder"
+
+#. translators: %d: column number
+#: assets/editor/src/Inspector.js:437
+msgid "Column %d"
+msgstr "Kolonne %d"
+
+#: assets/editor/src/Inspector.js:466
+msgid "Vertical"
+msgstr "Lodret"
+
+#: assets/editor/src/Inspector.js:487 assets/editor/src/Inspector.js:656
+msgid "Appearance"
+msgstr "Udseende"
+
+#: assets/editor/src/Inspector.js:490
+msgid "Background"
+msgstr "Baggrund"
+
+#: assets/editor/src/Inspector.js:507
+msgid "Padding (mm)"
+msgstr "Indvendig margen (mm)"
+
+#: assets/editor/src/Inspector.js:538
+msgid "Border"
+msgstr "Ramme"
+
+#: assets/editor/src/Inspector.js:552 assets/editor/src/Outline.js:169
+msgid "Duplicate row"
+msgstr "Dupliker række"
+
+#: assets/editor/src/Inspector.js:560 assets/editor/src/Outline.js:189
 msgid "Delete row"
 msgstr "Slet række"
 
-#: assets/editor/src/Outline.js:144
-msgid "Delete this row and its blocks?"
-msgstr "Slet denne række og dens blokke?"
+#: assets/editor/src/Inspector.js:581
+msgid "Unknown block type."
+msgstr "Ukendt bloktype."
+
+#. translators: 1: row number, 2: column number
+#: assets/editor/src/Inspector.js:602
+msgid "Row %1$d, column %2$d"
+msgstr "Række %1$d, kolonne %2$d"
+
+#: assets/editor/src/Inspector.js:723
+msgid "Document style"
+msgstr "Dokumentstil"
+
+#: assets/editor/src/Inspector.js:724
+msgid "Colours, fonts and margins for all documents."
+msgstr "Farver, skrifttyper og margener for alle dokumenter."
+
+#: assets/editor/src/Inspector.js:736
+msgid "Tip: click any part of the page to change it."
+msgstr "Tip: klik på en del af siden for at ændre den."
+
+#: assets/editor/src/Outline.js:39
+msgid "Options"
+msgstr "Indstillinger"
+
+#: assets/editor/src/Outline.js:94
+msgid "Row options"
+msgstr "Rækkeindstillinger"
 
 #. translators: %d: number of columns
-#: assets/editor/src/Outline.js:218
-#, js-format
-msgid "Row with %d columns"
-msgstr "Række med %d kolonner"
+#: assets/editor/src/Outline.js:124 assets/editor/src/Outline.js:617
+msgid "%d column"
+msgid_plural "%d columns"
+msgstr[0] "%d kolonne"
+msgstr[1] "%d kolonner"
 
-#: assets/editor/src/StylePanel.js:10
-msgid "These settings apply to all documents."
-msgstr "Disse indstillinger gælder for alle dokumenter."
+#: assets/editor/src/Outline.js:177
+msgid "Insert row below"
+msgstr "Indsæt række nedenfor"
+
+#. translators: 1: column number, 2: width in percent
+#: assets/editor/src/Outline.js:393
+msgid "Column %1$d · %2$s%%"
+msgstr "Kolonne %1$d · %2$s%%"
+
+#: assets/editor/src/Outline.js:426
+msgid "Empty – drag a block here"
+msgstr "Tom – træk en blok herhen"
+
+#: assets/editor/src/Outline.js:453
+msgid "Block"
+msgstr "Blok"
+
+#: assets/editor/src/Outline.js:462
+msgid "Document structure"
+msgstr "Dokumentstruktur"
+
+#: assets/editor/src/Outline.js:564
+msgid "Expand"
+msgstr "Udvid"
+
+#: assets/editor/src/Outline.js:568
+msgid "Collapse"
+msgstr "Skjul"
+
+#. translators: %d: number of blocks
+#: assets/editor/src/Outline.js:607
+msgid "%d block"
+msgid_plural "%d blocks"
+msgstr[0] "%d blok"
+msgstr[1] "%d blokke"
+
+#: assets/editor/src/Outline.js:667
+msgid "This layout is empty. Add a row to start."
+msgstr "Layoutet er tomt. Tilføj en række for at begynde."
+
+#: assets/editor/src/RowLayoutPicker.js:41
+msgid "Full width"
+msgstr "Fuld bredde"
+
+#: assets/editor/src/RowLayoutPicker.js:52
+msgid "Add row"
+msgstr "Tilføj række"
+
+#: assets/editor/src/RowLayoutPicker.js:75
+msgid "Choose a row layout"
+msgstr "Vælg rækkelayout"
+
+#: assets/editor/src/StylePanel.js:16
+msgid "Typography"
+msgstr "Typografi"
+
+#: assets/editor/src/StylePanel.js:20
+msgid "Logo and tables"
+msgstr "Logo og tabeller"
+
+#: assets/editor/src/StylePanel.js:56
+msgid "Margins"
+msgstr "Margener"
+
+#: assets/editor/src/StylePanel.js:64
+msgid "Unlink sides"
+msgstr "Frakobl siderne"
+
+#: assets/editor/src/StylePanel.js:65
+msgid "Link sides"
+msgstr "Sammenkæd siderne"
+
+#: assets/editor/src/StylePanel.js:99 assets/editor/src/TopBar.js:358
+msgid "More"
+msgstr "Mere"
+
+#: assets/editor/src/StylePanel.js:119
+msgid "Set by this template."
+msgstr "Angivet af denne skabelon."
+
+#: assets/editor/src/TopBar.js:102 assets/editor/src/TopBar.js:110
+msgid "Back to Order Documents settings"
+msgstr "Tilbage til indstillingerne for ordredokumenter"
+
+#: assets/editor/src/TopBar.js:131
+msgid "Turned off"
+msgstr "Slået fra"
+
+#: assets/editor/src/TopBar.js:149
+msgid "Choose a template to edit"
+msgstr "Vælg en skabelon, der skal redigeres"
+
+#: assets/editor/src/TopBar.js:197
+msgid "In use"
+msgstr "I brug"
+
+#: assets/editor/src/TopBar.js:211
+msgid ""
+"This document type uses another template. Choose templates under Order "
+"Documents → Documents."
+msgstr ""
+"Denne dokumenttype bruger en anden skabelon. Vælg skabeloner under "
+"Ordredokumenter → Dokumenter."
+
+#: assets/editor/src/TopBar.js:218
+msgid "Not in use"
+msgstr "Ikke i brug"
+
+#: assets/editor/src/TopBar.js:223
+msgid "Preview with"
+msgstr "Forhåndsvis med"
+
+#: assets/editor/src/TopBar.js:227 assets/editor/src/TopBar.js:238
+msgid "Sample data"
+msgstr "Eksempeldata"
+
+#: assets/editor/src/TopBar.js:242
+msgid "A made-up order with every field filled in"
+msgstr "En opdigtet ordre med alle felter udfyldt"
+
+#: assets/editor/src/TopBar.js:282
+msgid "Zoom"
+msgstr "Zoom"
+
+#: assets/editor/src/TopBar.js:293
+msgid "Fit to width"
+msgstr "Tilpas til bredde"
+
+#: assets/editor/src/TopBar.js:321
+msgid "Saving…"
+msgstr "Gemmer …"
+
+#: assets/editor/src/TopBar.js:323
+msgid "Unsaved changes"
+msgstr "Ikke-gemte ændringer"
+
+#: assets/editor/src/TopBar.js:324
+msgid "All changes saved"
+msgstr "Alle ændringer er gemt"
+
+#: assets/editor/src/TopBar.js:343
+msgid "Preview PDF"
+msgstr "Forhåndsvis PDF"
+
+#: assets/editor/src/TopBar.js:372
+msgid "Full screen"
+msgstr "Fuld skærm"
+
+#: assets/editor/src/TopBar.js:392
+msgid "Restore the template’s original layout"
+msgstr "Gendan skabelonens oprindelige layout"

@@ -71,17 +71,18 @@ Try the import on a staging copy of the shop first.
 - **Fresh** is based on the Goggo Grossist designs. It has Nunito text with Fredoka headings, rounded and tinted boxes, product images, a large total, a payment band on invoices, and *Ordered / Delivered / Done* columns with signature fields on packing slips and delivery notes.
   - Its green palette and fonts apply while the Design settings are left at their defaults; set your own accent colour or font there to override them.
   - It brings new blocks that every template can use: *Shipping details*, *Quantity summary*, *Payment band* and *Signature fields*. It also adds a *Box* option on every block, a column layout for *Document data*, compact addresses, a three-column footer and a *Delivered* column.
-- **Visual editor:** **Order Documents → Design → Open the visual editor**.
-  - Build the page from rows of 1–3 columns and drag blocks between them.
-  - Click a block in the preview to edit it.
-  - The preview is rendered by the same code that makes the PDF.
-  - Layouts are saved per template and document type. **Reset to default** brings the template's layout back.
+- **Visual editor:** **Order Documents → Design → Open the visual editor**. It opens full screen (turn this off in the ⋯ menu) with three panes:
+  - **Structure** (left): the rows of 1–3 columns and their blocks. Drag to reorder, use **+ Block** (searchable) and **Add row** (column layouts such as 50/50 or 33/67).
+  - **Page** (centre): the live preview, rendered by the same code that makes the PDF. Click any part to select it; the toolbar above the selection moves, duplicates or deletes it. Zoom with the percentage in the top bar.
+  - **Settings** (right): the selected block or row, or the document style (colours, fonts, margins) when nothing is selected.
+  - Undo/redo, and keyboard shortcuts (press **?** in the editor for the list).
+  - Layouts are saved per template and document type. **⋯ → Reset layout** brings the template's layout back.
 - **Overriding files in a theme:** copy a file to `yourtheme/order-documents/{template}/…` or `yourtheme/order-documents/shared/…`. Examples are `blocks/totals.php`, `style.css.php` or `custom.css`.
 
 ## Developer hooks (selection)
 
 - **Types and data:** `odocs_document_types`, `odocs_items`, `odocs_item_row`, `odocs_totals`, `odocs_vat_summary`, `odocs_data_rows`.
-- **Output:** `odocs_layout`, `odocs_default_layout`, `odocs_block_types`, `odocs_css`, `odocs_html`, `odocs_filename`, `odocs_formatted_number`, `odocs_placeholder_value`.
+- **Output:** `odocs_layout`, `odocs_default_layout`, `odocs_block_types`, `odocs_css`, `odocs_html`, `odocs_preview_script`, `odocs_filename`, `odocs_formatted_number`, `odocs_placeholder_value`.
 - **Rules:** `odocs_attach_document`, `odocs_document_allowed`, `odocs_document_visible_to_customer`, `odocs_document_locale`, `odocs_templates`, `odocs_fonts`.
 - **Actions:** `odocs_document_created`, `odocs_document_saved`, `odocs_document_deleted`, `odocs_before_document`, `odocs_after_document`.
 - **Helper:** `odocs_get_document( 'invoice', $order )` returns a document object.

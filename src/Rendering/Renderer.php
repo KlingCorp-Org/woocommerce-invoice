@@ -479,7 +479,10 @@ class Renderer {
 		return (string) apply_filters( 'odocs_css', $css, $template_id, $style, $this );
 	}
 
+	/**
+	 * The editor drives the (same-origin) preview frame itself; this hook is kept for extensions.
+	 */
 	protected function preview_script(): string {
-		return '<script>(function(){document.addEventListener("click",function(e){var el=e.target.closest("[data-odocs-block]");if(!el)return;e.preventDefault();parent.postMessage({source:"odocs-preview",block:el.getAttribute("data-odocs-block")},"*");});window.addEventListener("message",function(e){if(!e.data||e.data.source!=="odocs-editor")return;document.querySelectorAll(".odocs-selected").forEach(function(n){n.classList.remove("odocs-selected");});if(e.data.block){var t=document.querySelector("[data-odocs-block=\""+e.data.block+"\"]");if(t){t.classList.add("odocs-selected");}}});})();</script>';
+		return (string) apply_filters( 'odocs_preview_script', '' );
 	}
 }

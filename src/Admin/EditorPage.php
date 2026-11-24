@@ -23,6 +23,19 @@ class EditorPage {
 	public function register(): void {
 		add_action( 'admin_menu', array( $this, 'menu' ), 61 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
+		add_filter( 'admin_body_class', array( $this, 'body_class' ) );
+	}
+
+	/**
+	 * The editor opens full screen; the class is added server-side so the admin menu never flashes.
+	 *
+	 * @param string $classes Body classes.
+	 */
+	public function body_class( $classes ): string {
+		if ( $this->hook && get_current_screen() && get_current_screen()->id === $this->hook ) {
+			$classes .= ' odocs-editor-page odocs-editor-fullscreen';
+		}
+		return (string) $classes;
 	}
 
 	public function menu(): void {
