@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Order Documents for WooCommerce
  * Description:       PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, receipts and picking lists for WooCommerce, with design templates and a visual layout editor.
- * Version:           1.0.0
+ * Version:           1.0.2
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Requires Plugins:  woocommerce
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ODOCS_VERSION', '1.0.0' );
+define( 'ODOCS_VERSION', '1.0.2' );
 define( 'ODOCS_FILE', __FILE__ );
 define( 'ODOCS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ODOCS_URL', plugin_dir_url( __FILE__ ) );

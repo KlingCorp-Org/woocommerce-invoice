@@ -99,3 +99,13 @@ bin/build.sh                                               # dist/order-document
 
 - **Dompdf is renamespaced** to `OrderDocs\Vendor\Dompdf` with Strauss, so it never conflicts with another plugin's copy.
 - **Translations** live in `languages/`. Regenerate the template with `wp i18n make-pot . languages/order-documents.pot --exclude=node_modules,vendor,vendor-prefixed,assets/editor/build,tests,bin`.
+
+## Changelog
+
+### 1.0.2
+- Redesigned the visual editor: full screen with structure, page and settings panes; the preview updates in place; on-page toolbar; searchable block inserter; row layout presets; undo/redo and keyboard shortcuts.
+- New *Fresh* template with the *Shipping details*, *Quantity summary*, *Payment band* and *Signature fields* blocks.
+- Fresh always shows a delivery address (falls back to the billing address).
+
+### 1.0.0
+- First release.
