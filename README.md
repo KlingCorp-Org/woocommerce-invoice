@@ -4,11 +4,11 @@ PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, re
 
 - **Requirements:** WordPress 6.4+, WooCommerce 8.5+, PHP 7.4+.
 - **Order storage:** works with both HPOS and legacy order storage.
-- **Languages:** English, Norwegian Bokmål, Swedish and Danish.
+- **Languages:** English, Swedish and Danish.
 
 ## Installing
 
-1. Go to **Plugins → Add New → Upload Plugin** and choose `order-documents.zip`. Then activate it.
+1. Go to **Plugins → Add New → Upload Plugin** and choose `order-documents-<version>.zip` (for example `order-documents-1.1.2.zip`). Then activate it.
 2. Go to **WooCommerce → Order Documents**:
    - **General:** shop name, address, org.nr., logo, bank details, footer.
    - **Documents:** turn on the document types you want and set numbering, e-mail attachments and My Account buttons.
@@ -104,13 +104,17 @@ composer install            # Dompdf + PHPUnit
 php /path/to/strauss-run.php && php bin/patch-vendor.php   # prefix Dompdf into vendor-prefixed/
 npm install && npm run build                               # visual editor
 WP_ROOT=/path/to/test-wordpress vendor/bin/phpunit         # tests against a WP+WooCommerce test site
-bin/build.sh                                               # dist/order-documents.zip
+bin/build.sh                                               # dist/order-documents-<version>.zip
 ```
 
 - **Dompdf is renamespaced** to `OrderDocs\Vendor\Dompdf` with Strauss, so it never conflicts with another plugin's copy.
 - **Translations** live in `languages/`. Regenerate the template with `wp i18n make-pot . languages/order-documents.pot --exclude=node_modules,vendor,vendor-prefixed,assets/editor/build,tests,bin`.
 
 ## Changelog
+
+### 1.1.2
+- The zip file is named after the plugin version, for example `order-documents-1.1.2.zip`.
+- Norwegian translation removed; the plugin ships in English, Swedish and Danish.
 
 ### 1.1.1
 - Free-form visual editor: drag and drop components directly on the page, resize them with handles or exact sizes in mm, overlap them in layers, and snap them to a grid and smart guides (or place them freely). Components never push each other, so the layout stays the same whatever the length of an address.

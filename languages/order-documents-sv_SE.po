@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Order Documents for WooCommerce 1.1.1\n"
+"Project-Id-Version: Order Documents for WooCommerce 1.1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/order-documents\n"
 "POT-Creation-Date: 2026-11-25T11:48:41+00:00\n"
 "PO-Revision-Date: 2026-11-23 22:30+0100\n"
