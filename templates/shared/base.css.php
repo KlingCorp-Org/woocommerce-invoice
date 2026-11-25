@@ -26,6 +26,7 @@ table { border-collapse: collapse; }
 .odocs-block p { margin: 0 0 1.5mm 0; }
 .odocs-heading { font-size: 0.82em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.04em; color: <?php echo $muted; ?>; margin-bottom: 1.2mm; }
 .odocs-row-band .odocs-heading, .odocs-row-band .odocs-muted, .odocs-row-band .odocs-title { color: inherit; }
+.odocs .odocs-colored .odocs-heading, .odocs .odocs-colored .odocs-muted, .odocs .odocs-colored .odocs-title, .odocs .odocs-colored .odocs-logo-text { color: inherit; }
 .odocs-title { font-size: 18pt; font-weight: bold; color: <?php echo $accent; ?>; line-height: 1.15; }
 .odocs-shop-name { font-weight: bold; font-size: 1.15em; }
 .odocs-muted { color: <?php echo $muted; ?>; }
@@ -93,10 +94,14 @@ table { border-collapse: collapse; }
 .odocs-sign-space { height: 7mm; border-bottom: 0.75pt solid <?php echo $muted; ?>; }
 .odocs-sign-label { font-size: 0.85em; font-weight: bold; margin: 1.2mm 0; }
 .odocs-shipping-info { line-height: 1.55; }
+.odocs-section-canvas, .odocs-section-footer { width: 100%; }
+.odocs-item > .odocs-block { margin-bottom: 0; }
+.odocs-item > .odocs-block-logo { line-height: 0; font-size: 0; }
+.odocs-item > .odocs-block-logo .odocs-logo-text { font-size: 16pt; line-height: 1.2; }
 <?php if ( 'pdf' !== $mode ) : ?>
 body { background: #e5e7eb; padding: 8mm 0; }
 .odocs-document { margin: 0 auto 8mm auto; }
-.odocs-sheet { background: #ffffff; width: <?php echo (float) $paper['width_mm']; ?>mm; min-height: <?php echo (float) $paper['height_mm']; ?>mm; padding: <?php echo (float) $mt; ?>mm <?php echo (float) $mr; ?>mm <?php echo (float) $mb; ?>mm <?php echo (float) $ml; ?>mm; margin: 0 auto; box-sizing: border-box; box-shadow: 0 1px 6px rgba(0,0,0,0.18); }
+.odocs-sheet { position: relative; background: #ffffff; width: <?php echo (float) $paper['width_mm']; ?>mm; min-height: <?php echo (float) $paper['height_mm']; ?>mm; padding: <?php echo (float) $mt; ?>mm <?php echo (float) $mr; ?>mm <?php echo (float) $mb; ?>mm <?php echo (float) $ml; ?>mm; margin: 0 auto; box-sizing: border-box; box-shadow: 0 1px 6px rgba(0,0,0,0.18); }
 <?php endif; ?>
 <?php if ( 'preview' === $mode ) : ?>
 html, body { background: transparent; height: auto; overflow: hidden; }
@@ -104,9 +109,7 @@ body { margin: 0; padding: 0; }
 .odocs-document { margin: 0 auto 24px auto; }
 .odocs-document:last-child { margin-bottom: 0; }
 .odocs-sheet { box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 6px 24px rgba(0,0,0,0.08); }
-[data-odocs-block] { cursor: pointer; transition: outline-color .12s ease; outline: 1px solid transparent; outline-offset: 2px; }
-[data-odocs-block]:hover { outline: 1px solid rgba(56, 88, 233, 0.55); }
-[data-odocs-row].odocs-selected { outline: 2px dashed #3858e9; outline-offset: 2px; }
-[data-odocs-block].odocs-selected, [data-odocs-block].odocs-selected:hover { outline: 2px solid #3858e9; outline-offset: 2px; }
+body { -webkit-user-select: none; user-select: none; }
+.odocs-section-flow:empty { min-height: 14mm; }
 .odocs-block-empty { border: 1px dashed #c3c4c7; border-radius: 2px; color: #8c8f94; padding: 1.5mm 2mm; font-size: 8pt; margin-bottom: 2mm; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 <?php endif; ?>

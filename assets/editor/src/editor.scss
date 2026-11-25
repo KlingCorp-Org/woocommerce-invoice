@@ -365,10 +365,13 @@ html.wp-toolbar:has(body.odocs-editor-fullscreen) { padding-top: 0; }
 
 /* ---------- Inserter ---------- */
 
-.odocs-inserter { width: 340px; padding: 12px; }
-.odocs-inserter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 12px; max-height: 360px; overflow: auto; }
+.odocs-inserter { box-sizing: border-box; width: 100%; padding: 12px; .odocs-help { margin: 8px 0 0; } }
+.odocs-inserter-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; margin-top: 12px; }
 .odocs-inserter-item {
 	position: relative;
+	min-width: 0;
+	cursor: grab;
+	span { max-width: 100%; text-align: center; overflow-wrap: anywhere; hyphens: auto; }
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -397,7 +400,7 @@ html.wp-toolbar:has(body.odocs-editor-fullscreen) { padding-top: 0; }
 .odocs-canvas-wrap { flex: 1; position: relative; min-height: 0; }
 .odocs-canvas { position: absolute; inset: 0; overflow: auto; padding: 48px 32px 96px; box-sizing: border-box; }
 .odocs-canvas-loading { position: absolute; inset: 0; display: grid; place-items: center; }
-.odocs-page { position: relative; margin: 0 auto; transition: width $ease, height $ease;
+.odocs-page { position: relative; margin: 0 auto; transition: width $ease, height $ease; user-select: none;
 	iframe { position: absolute; top: 0; left: 0; border: 0; display: block; background: transparent; transform-origin: 0 0; }
 }
 .odocs-progress {
@@ -454,6 +457,293 @@ html.wp-toolbar:has(body.odocs-editor-fullscreen) { padding-top: 0; }
 	from { opacity: 0; transform: translateY(4px); }
 	to { opacity: 1; transform: none; }
 }
+/* ---------- Free-form overlay ---------- */
+
+$guide: #e5398c;
+$warn: #f08c00;
+.odocs-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	outline: none;
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+	&.is-converting { pointer-events: none; }
+}
+.odocs-page.is-move .odocs-overlay, .odocs-page.is-move .odocs-hit { cursor: grabbing; }
+.odocs-page.is-section .odocs-overlay { cursor: ns-resize; }
+.odocs-page.is-interacting .odocs-block-toolbar { display: none; }
+.odocs-sec {
+	position: absolute;
+	box-sizing: border-box;
+	pointer-events: none;
+	transition: outline-color $ease;
+	outline: 1px dashed transparent;
+	&.is-hover, &.is-selected, &.is-target { outline-color: rgba(56, 88, 233, 0.28); }
+	&.is-selected { outline: 1.5px solid rgba(56, 88, 233, 0.6); background-color: rgba(56, 88, 233, 0.03); }
+	&.is-target { background-color: rgba(56, 88, 233, 0.04); }
+	.show-grid &.odocs-sec-canvas, .show-grid &.odocs-sec-footer {
+		background-image:
+			linear-gradient(to right, rgba(56, 88, 233, 0.1) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(56, 88, 233, 0.1) 1px, transparent 1px);
+	}
+}
+.odocs-sec-tag {
+	position: absolute;
+	z-index: 2500;
+	right: -1px;
+	top: 0;
+	transform: translateY(-100%);
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	max-width: 100%;
+	padding: 2px 7px;
+	border: 0;
+	border-radius: $radius $radius 0 0;
+	background: rgba(56, 88, 233, 0.85);
+	color: #fff;
+	font-size: 11px;
+	line-height: 15px;
+	white-space: nowrap;
+	cursor: pointer;
+	pointer-events: auto;
+	opacity: 0;
+	transition: opacity $ease;
+	small { font-size: 10px; opacity: 0.8; }
+	.odocs-sec.is-hover &, .odocs-sec.is-selected & { opacity: 1; }
+	.odocs-page.is-interacting & { opacity: 0; pointer-events: none; }
+	&:focus-visible { opacity: 1; outline: 2px solid $text; }
+}
+.odocs-sec-resize {
+	position: absolute;
+	z-index: 2500;
+	left: 0;
+	right: 0;
+	bottom: -4px;
+	height: 8px;
+	cursor: ns-resize;
+	pointer-events: auto;
+	span {
+		position: absolute;
+		left: 50%;
+		top: 2px;
+		width: 36px;
+		height: 4px;
+		margin-left: -18px;
+		border-radius: 2px;
+		background: $accent;
+		opacity: 0;
+		transition: opacity $ease;
+	}
+	&:hover span, .odocs-sec.is-selected & span, .odocs-page.is-section & span { opacity: 1; }
+	&:hover { background: rgba(56, 88, 233, 0.15); }
+}
+.odocs-hit {
+	position: absolute;
+	box-sizing: border-box;
+	cursor: move;
+	&.is-hover { outline: 1px solid rgba(56, 88, 233, 0.6); }
+	&.is-locked { cursor: pointer; }
+	&.is-flow { cursor: grab; }
+	&.is-ghost {
+		outline: 2px dashed $accent;
+		background: rgba(56, 88, 233, 0.08);
+		z-index: 2900 !important;
+	}
+}
+.odocs-ghost-label {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	padding: 1px 6px;
+	background: $accent;
+	color: #fff;
+	font-size: 11px;
+	border-radius: $radius;
+}
+.odocs-selframe {
+	position: absolute;
+	z-index: 3000;
+	box-sizing: border-box;
+	outline: 2px solid $accent;
+	pointer-events: none;
+	&.is-locked { outline-style: dashed; }
+}
+.odocs-selbox {
+	position: absolute;
+	z-index: 3000;
+	outline: 1px dashed $accent;
+	outline-offset: 3px;
+	pointer-events: none;
+}
+.odocs-handle-r {
+	position: absolute;
+	z-index: 4000;
+	width: 10px;
+	height: 10px;
+	margin: -5px 0 0 -5px;
+	box-sizing: border-box;
+	background: #fff;
+	border: 1.5px solid $accent;
+	border-radius: 2px;
+	&.is-nw, &.is-se { cursor: nwse-resize; }
+	&.is-ne, &.is-sw { cursor: nesw-resize; }
+	&.is-n, &.is-s { cursor: ns-resize; }
+	&.is-e, &.is-w { cursor: ew-resize; }
+	&:hover { background: $accent; }
+}
+.odocs-guide {
+	position: absolute;
+	z-index: 4500;
+	background: $guide;
+	pointer-events: none;
+	&.is-v { width: 1px; }
+	&.is-h { height: 1px; }
+}
+.odocs-measure {
+	position: absolute;
+	z-index: 4600;
+	padding: 2px 6px;
+	background: $text;
+	color: #fff;
+	font-size: 11px;
+	line-height: 15px;
+	border-radius: $radius;
+	white-space: nowrap;
+	pointer-events: none;
+	font-variant-numeric: tabular-nums;
+}
+.odocs-measure-sec { left: 50%; bottom: -26px; transform: translateX(-50%); }
+.odocs-overflow {
+	position: absolute;
+	z-index: 2800;
+	box-sizing: border-box;
+	border: 1px dashed $warn;
+	border-top: 0;
+	background: repeating-linear-gradient(45deg, rgba(240, 140, 0, 0.16) 0 4px, transparent 4px 8px);
+	pointer-events: none;
+	i {
+		position: absolute;
+		right: -9px;
+		bottom: -9px;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background: $warn;
+		color: #fff;
+		font: 700 12px/18px sans-serif;
+		font-style: normal;
+		text-align: center;
+		pointer-events: auto;
+		cursor: help;
+	}
+}
+.odocs-pagebreak {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	border-top: 1px dashed #a7aaad;
+	pointer-events: none;
+	span {
+		position: absolute;
+		right: 6px;
+		top: -9px;
+		padding: 0 6px;
+		background: #fff;
+		color: $muted;
+		font-size: 10px;
+		line-height: 16px;
+		border-radius: 8px;
+		box-shadow: 0 0 0 1px #dcdcde;
+	}
+}
+.odocs-marquee {
+	position: absolute;
+	z-index: 4700;
+	border: 1px solid $accent;
+	background: rgba(56, 88, 233, 0.08);
+	pointer-events: none;
+}
+.odocs-insert-ghost {
+	position: absolute;
+	z-index: 4700;
+	box-sizing: border-box;
+	border: 2px dashed $accent;
+	background: rgba(56, 88, 233, 0.08);
+	pointer-events: none;
+	span { position: absolute; top: 4px; left: 4px; padding: 1px 6px; background: $accent; color: #fff; font-size: 11px; border-radius: $radius; }
+}
+.odocs-dropline {
+	position: absolute;
+	z-index: 4700;
+	height: 3px;
+	background: $accent;
+	border-radius: 2px;
+	pointer-events: none;
+}
+.odocs-converting {
+	position: absolute;
+	inset: 0;
+	z-index: 8;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 8px;
+	padding-top: 120px;
+	background: rgba(236, 236, 236, 0.75);
+	font-weight: 500;
+	.components-spinner { margin: 0; }
+}
+.odocs-block-toolbar { z-index: 5000; }
+.odocs-hover-tag { z-index: 3500; .dashicons { font-size: 12px; width: 12px; height: 12px; vertical-align: -2px; margin-left: 3px; } }
+
+/* ---------- Layers pane ---------- */
+
+.odocs-tabs { display: flex; align-items: stretch; gap: 0; padding: 0 8px; }
+.odocs-tab {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 0 12px;
+	border: 0;
+	border-bottom: 2px solid transparent;
+	background: none;
+	color: $text;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	svg { fill: currentColor; }
+	&:hover { color: $accent; }
+	&.is-active { border-bottom-color: $accent; }
+	&:focus-visible { outline: 2px solid $accent; outline-offset: -2px; }
+}
+.odocs-layer-section {
+	margin-bottom: 4px;
+	border-radius: $radius;
+	&.is-drop-target { box-shadow: inset 0 0 0 2px $accent; }
+}
+.odocs-layer-items { margin-left: 15px; padding: 2px 0 4px 8px; border-left: 1px solid $border; }
+.odocs-lock {
+	opacity: 0;
+	transition: opacity $ease;
+	.odocs-item:hover &, &.is-locked, .odocs-item:focus-within & { opacity: 1; }
+}
+.odocs-layer-top { width: 6px; height: 6px; border-radius: 50%; background: $accent; flex: none; opacity: 0.6; }
+.odocs-item.is-selected .odocs-layer-top { background: #fff; }
+.odocs-tree-foot { padding: 8px 4px 4px; }
+
+/* ---------- Inspector additions ---------- */
+
+.odocs-grid4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.odocs-iconrow { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.odocs-field-label { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 500; line-height: 1.4; text-transform: uppercase; }
+.odocs-rotate svg { transform: rotate(90deg); }
+.odocs-layer-buttons .components-button.is-secondary { padding: 0 10px; }
+.odocs-grid-popover .odocs-popover-body { width: 260px; }
+
 .odocs-snackbars { position: absolute; left: 24px; bottom: 24px; z-index: 5; width: auto; max-width: 420px; }
 
 /* ---------- Settings pane ---------- */
@@ -576,5 +866,6 @@ html.wp-toolbar:has(body.odocs-editor-fullscreen) { padding-top: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.odocs-sec, .odocs-sec-tag, .odocs-sec-resize span, .odocs-lock { transition: none; }
 	.odocs-editor *, .odocs-popover * { transition: none !important; animation: none !important; }
 }

@@ -59,6 +59,18 @@ class PdfGenerator {
 	 * @param array        $args    page_numbers, font, color, margins (mm), label.
 	 */
 	public static function html_to_pdf( string $html, $size = 'a4', array $args = array() ): string {
+		$dompdf = self::dompdf();
+		$dompdf->setPaper( $size, 'portrait' );
+		$dompdf->loadHtml( $html, 'UTF-8' );
+		$dompdf->render();
+		self::add_page_numbers( $dompdf, $args );
+		return (string) $dompdf->output();
+	}
+
+	/**
+	 * A Dompdf instance with the plugin's options.
+	 */
+	public static function dompdf(): Dompdf {
 		if ( ! class_exists( Dompdf::class ) ) {
 			throw new \RuntimeException( 'The PDF library is missing. Reinstall the plugin.' );
 		}
@@ -91,12 +103,13 @@ class PdfGenerator {
 		$options->setFontCache( $font_dir );
 		$options->setTempDir( Storage::dir( 'tmp' ) );
 		$options = apply_filters( 'odocs_dompdf_options', $options );
+		return new Dompdf( $options );
+	}
 
-		$dompdf = new Dompdf( $options );
-		$dompdf->setPaper( $size, 'portrait' );
-		$dompdf->loadHtml( $html, 'UTF-8' );
-		$dompdf->render();
-
+	/**
+	 * Draws "Page X of Y" in the bottom margin of every page.
+	 */
+	private static function add_page_numbers( Dompdf $dompdf, array $args ): void {
 		if ( ! empty( $args['page_numbers'] ) ) {
 			$label   = (string) ( $args['label'] ?? 'Page %1$d of %2$d' );
 			$margins = $args['margins'] ?? array( 15, 15, 20, 15 );
@@ -117,7 +130,6 @@ class PdfGenerator {
 				}
 			);
 		}
-		return (string) $dompdf->output();
 	}
 
 	private static function hex_to_rgb( string $hex ): array {

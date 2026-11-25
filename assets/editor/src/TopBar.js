@@ -9,6 +9,9 @@ import {
 	MenuItem,
 	MenuItemsChoice,
 	Tooltip,
+	ToggleControl,
+	__experimentalToggleGroupControl as ToggleGroupControl,
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import {
@@ -26,10 +29,12 @@ import {
 	keyboard,
 	fullscreen,
 	caution,
+	grid as gridIcon,
 } from '@wordpress/icons';
 
 export const SAMPLE = '0';
-const ZOOMS = [ 0.5, 0.75, 1, 1.25 ];
+const ZOOMS = [ 0.5, 0.75, 1, 1.25, 1.5 ];
+export const GRID_SIZES = [ 1, 2, 2.5, 5, 10 ];
 
 function Picker( {
 	label,
@@ -89,6 +94,8 @@ export default function TopBar( props ) {
 		toggleWpMenu,
 		openShortcuts,
 		settingsUrl,
+		grid,
+		setGrid,
 	} = props;
 	const docType = config.documentTypes.find( ( t ) => t.id === type );
 	const tpl = config.templates.find( ( t ) => t.id === template );
@@ -310,6 +317,60 @@ export default function TopBar( props ) {
 						</MenuGroup>
 					) }
 				</DropdownMenu>
+				<Dropdown
+					className="odocs-grid-menu"
+					contentClassName="odocs-popover odocs-grid-popover"
+					popoverProps={ { placement: 'bottom', offset: 6 } }
+					renderToggle={ ( { isOpen, onToggle } ) => (
+						<Button
+							icon={ gridIcon }
+							label={ __( 'Grid and guides', 'order-documents' ) }
+							isPressed={ isOpen }
+							onClick={ onToggle }
+							aria-expanded={ isOpen }
+						/>
+					) }
+					renderContent={ () => (
+						<div className="odocs-popover-body odocs-fields">
+							<ToggleControl
+								__nextHasNoMarginBottom
+								label={ __( 'Snap to grid', 'order-documents' ) }
+								help={ __( 'Hold Alt while dragging to place freely.', 'order-documents' ) }
+								checked={ grid.snap }
+								onChange={ ( v ) => setGrid( { ...grid, snap: v } ) }
+							/>
+							<ToggleControl
+								__nextHasNoMarginBottom
+								label={ __( 'Show grid', 'order-documents' ) }
+								checked={ grid.show }
+								onChange={ ( v ) => setGrid( { ...grid, show: v } ) }
+							/>
+							<ToggleControl
+								__nextHasNoMarginBottom
+								label={ __( 'Smart guides', 'order-documents' ) }
+								help={ __( 'Line components up with each other and the section edges.', 'order-documents' ) }
+								checked={ grid.guides }
+								onChange={ ( v ) => setGrid( { ...grid, guides: v } ) }
+							/>
+							<ToggleGroupControl
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+								isBlock
+								label={ __( 'Grid size (mm)', 'order-documents' ) }
+								value={ String( grid.size ) }
+								onChange={ ( v ) => setGrid( { ...grid, size: Number( v ) } ) }
+							>
+								{ GRID_SIZES.map( ( g ) => (
+									<ToggleGroupControlOption
+										key={ g }
+										value={ String( g ) }
+										label={ String( g ).replace( '.', ',' ) }
+									/>
+								) ) }
+							</ToggleGroupControl>
+						</div>
+					) }
+				/>
 			</div>
 
 			<div className="odocs-topbar-end">
@@ -325,7 +386,7 @@ export default function TopBar( props ) {
 				</span>
 				<Button
 					icon={ listView }
-					label={ __( 'Structure', 'order-documents' ) }
+					label={ __( 'Layers', 'order-documents' ) }
 					isPressed={ panes.structure }
 					onClick={ () => togglePane( 'structure' ) }
 				/>

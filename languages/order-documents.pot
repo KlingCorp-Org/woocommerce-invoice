@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Order Documents for WooCommerce 1.0.2\n"
+"Project-Id-Version: Order Documents for WooCommerce 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/order-documents\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-24T13:58:54+00:00\n"
+"POT-Creation-Date: 2026-11-25T11:48:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: order-documents\n"
@@ -24,226 +24,180 @@ msgstr ""
 msgid "PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, receipts and picking lists for WooCommerce, with design templates and a visual layout editor."
 msgstr ""
 
-#: dist/order-documents/order-documents.php:67
 #: order-documents.php:67
 msgid "Order Documents for WooCommerce requires WooCommerce to be installed and active."
 msgstr ""
 
-#: dist/order-documents/src/Admin/Assets.php:42
 #: src/Admin/Assets.php:42
 msgid "Delete this document? Its number will not be reused automatically. This cannot be undone."
 msgstr ""
 
-#: dist/order-documents/src/Admin/Assets.php:43
 #: src/Admin/Assets.php:43
 msgid "Select at least one order."
 msgstr ""
 
-#: dist/order-documents/src/Admin/Assets.php:44
-#: dist/order-documents/src/Admin/SettingsPage.php:370
 #: src/Admin/Assets.php:44
 #: src/Admin/SettingsPage.php:370
 msgid "Choose logo"
 msgstr ""
 
-#: dist/order-documents/src/Admin/Assets.php:45
 #: src/Admin/Assets.php:45
 msgid "Use this image"
 msgstr ""
 
-#: dist/order-documents/src/Admin/EditorPage.php:31
-#: dist/order-documents/src/Admin/EditorPage.php:32
-#: dist/order-documents/src/Admin/EditorPage.php:47
 #: src/Admin/EditorPage.php:44
 #: src/Admin/EditorPage.php:45
 #: src/Admin/EditorPage.php:60
 msgid "Document editor"
 msgstr ""
 
-#: dist/order-documents/src/Admin/EditorPage.php:48
 #: src/Admin/EditorPage.php:61
 msgid "Loading the editor…"
 msgstr ""
 
-#: dist/order-documents/src/Admin/EditorPage.php:50
 #: src/Admin/EditorPage.php:63
 msgid "The editor files are missing. Reinstall the plugin."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:21
 #: src/Admin/ImportPage.php:21
 msgid "Import from WooCommerce PDF Invoices & Packing Slips"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:23
 #: src/Admin/ImportPage.php:23
 msgid "No data from that plugin was found on this site."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:31
 #: src/Admin/ImportPage.php:31
 msgid "Orders that already have an invoice or other document from that plugin keep their number and date, even before importing anything. The steps below take over the settings, continue the number sequences, and copy the document data permanently. Nothing in the old plugin is changed, so both can stay active while you switch."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:34
 #: src/Admin/ImportPage.php:34
 msgid "Continue the number sequences"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:39
-#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:202
 #: src/Admin/ImportPage.php:39
 #: src/Endpoints/DocumentEndpoint.php:202
-#: assets/editor/src/Inspector.js:48
-#: assets/editor/src/TopBar.js:119
+#: assets/editor/src/Inspector.js:56
+#: assets/editor/src/TopBar.js:126
 msgid "Document"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Documents found"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Highest number"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Next number in old plugin"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:39
 #: src/Admin/ImportPage.php:39
 msgid "Next number here"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:45
 #: src/Admin/ImportPage.php:45
 msgid "yearly reset, this year only"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:48
 #: src/Admin/ImportPage.php:48
 msgid "now:"
 msgstr ""
 
 #. translators: %s: date
-#: dist/order-documents/src/Admin/ImportPage.php:57
 #: src/Admin/ImportPage.php:57
 #, php-format
 msgid "Number sequences were set on %s."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:59
 #: src/Admin/ImportPage.php:59
 msgid "Set next numbers"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:59
 #: src/Admin/ImportPage.php:59
 msgid "Set these next numbers? New documents will continue from them."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:63
 #: src/Admin/ImportPage.php:63
 msgid "Import settings"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:65
 #: src/Admin/ImportPage.php:65
 msgid "No settings found."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:70
 #: src/Admin/ImportPage.php:70
 msgid "Setting"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:70
 #: src/Admin/ImportPage.php:70
 msgid "Value"
 msgstr ""
 
 #. translators: %s: date
-#: dist/order-documents/src/Admin/ImportPage.php:83
 #: src/Admin/ImportPage.php:83
 #, php-format
 msgid "Settings were imported on %s."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:85
 #: src/Admin/ImportPage.php:85
 msgid "Import selected settings"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:90
 #: src/Admin/ImportPage.php:90
 msgid "Copy document data"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:91
 #: src/Admin/ImportPage.php:91
 msgid "Copies numbers, dates and notes of all existing documents into this plugin, in the background. Needed before you remove the old plugin's data."
 msgstr ""
 
 #. translators: 1: processed orders, 2: copied documents
-#: dist/order-documents/src/Admin/ImportPage.php:95
 #: src/Admin/ImportPage.php:95
 #, php-format
 msgid "Running: %1$d orders processed, %2$d documents copied. Reload the page to see progress."
 msgstr ""
 
 #. translators: 1: processed orders, 2: copied documents
-#: dist/order-documents/src/Admin/ImportPage.php:98
 #: src/Admin/ImportPage.php:98
 #, php-format
 msgid "Finished: %1$d orders processed, %2$d documents copied."
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:103
 #: src/Admin/ImportPage.php:103
 msgid "Run again"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:103
 #: src/Admin/ImportPage.php:103
 msgid "Start copying"
 msgstr ""
 
-#: dist/order-documents/src/Admin/ImportPage.php:110
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:358
-#: dist/order-documents/src/Admin/SettingsPage.php:245
-#: dist/order-documents/src/Endpoints/RestController.php:235
 #: src/Admin/ImportPage.php:110
 #: src/Admin/OrderMetaBoxes.php:358
 #: src/Admin/SettingsPage.php:245
-#: src/Endpoints/RestController.php:242
+#: src/Endpoints/RestController.php:345
 msgid "Not allowed."
 msgstr ""
 
 #. translators: %s: document title, e.g. "Invoice"
-#: dist/order-documents/src/Admin/OrderActions.php:38
 #: src/Admin/OrderActions.php:38
 #, php-format
 msgid "E-mail %s to customer"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderActions.php:40
 #: src/Admin/OrderActions.php:40
 msgid "Regenerate archived document PDFs"
 msgstr ""
 
 #. translators: 1: document title, 2: reason
-#: dist/order-documents/src/Admin/OrderActions.php:64
 #: src/Admin/OrderActions.php:64
 #, php-format
 msgid "%1$s was not sent: %2$s"
 msgstr ""
 
 #. translators: %d: number of documents
-#: dist/order-documents/src/Admin/OrderActions.php:87
 #: src/Admin/OrderActions.php:87
 #, php-format
 msgid "%d archived document PDF will be regenerated."
@@ -251,11 +205,6 @@ msgid_plural "%d archived document PDFs will be regenerated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: dist/order-documents/src/Admin/OrderListActions.php:93
-#: dist/order-documents/src/Admin/OrderListActions.php:97
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:40
-#: dist/order-documents/src/Admin/SettingsPage.php:114
-#: dist/order-documents/src/Frontend/MyAccount.php:102
 #: src/Admin/OrderListActions.php:93
 #: src/Admin/OrderListActions.php:97
 #: src/Admin/OrderMetaBoxes.php:40
@@ -265,397 +214,314 @@ msgid "Documents"
 msgstr ""
 
 #. translators: %s: document type, plural, e.g. "invoices"
-#: dist/order-documents/src/Admin/OrderListActions.php:176
 #: src/Admin/OrderListActions.php:176
 #, php-format
 msgid "PDF: %s"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:41
-#: dist/order-documents/src/Rendering/Layout.php:151
 #: src/Admin/OrderMetaBoxes.php:41
-#: src/Rendering/Layout.php:151
+#: src/Rendering/Layout.php:180
 msgid "Document data"
 msgstr ""
 
 #. translators: %s: refund amount
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:85
 #: src/Admin/OrderMetaBoxes.php:85
 #, php-format
 msgid "Refund %s"
 msgstr ""
 
 #. translators: %s: settings link
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:101
 #: src/Admin/OrderMetaBoxes.php:101
 #, php-format
 msgid "No document types are enabled. %s"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:102
-#: dist/order-documents/src/Plugin.php:94
 #: src/Admin/OrderMetaBoxes.php:102
 #: src/Plugin.php:94
-#: assets/editor/src/App.js:727
-#: assets/editor/src/TopBar.js:334
+#: assets/editor/src/App.js:968
+#: assets/editor/src/TopBar.js:395
 msgid "Settings"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:123
 #: src/Admin/OrderMetaBoxes.php:123
 msgid "Not created yet"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:177
 #: src/Admin/OrderMetaBoxes.php:177
 msgid "No documents have been created for this order yet. Use the buttons in the Documents box."
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:197
 #: src/Admin/OrderMetaBoxes.php:197
 msgid "from previous plugin"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:200
 #: src/Admin/OrderMetaBoxes.php:200
 msgid "The archived PDF is served. Regenerate to apply changes."
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:200
 #: src/Admin/OrderMetaBoxes.php:200
 msgid "archived"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:207
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:219
 #: src/Admin/OrderMetaBoxes.php:207
 #: src/Admin/OrderMetaBoxes.php:219
 msgid "Number"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:209
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:222
-#: dist/order-documents/templates/shared/blocks/signature_fields.php:13
 #: src/Admin/OrderMetaBoxes.php:209
 #: src/Admin/OrderMetaBoxes.php:222
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Date"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:211
-#: dist/order-documents/src/Rendering/Layout.php:209
-#: dist/order-documents/templates/shared/blocks/document_notes.php:17
 #: src/Admin/OrderMetaBoxes.php:211
-#: src/Rendering/Layout.php:209
+#: src/Rendering/Layout.php:238
 #: templates/shared/blocks/document_notes.php:17
 msgid "Notes"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:220
 #: src/Admin/OrderMetaBoxes.php:220
 msgid "Plain number; prefix, suffix and padding are added automatically."
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:225
 #: src/Admin/OrderMetaBoxes.php:225
 msgid "Notes (printed in the \"Document notes\" block)"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:226
 #: src/Admin/OrderMetaBoxes.php:226
 msgid "Changes are saved when you update the order."
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:230
 #: src/Admin/OrderMetaBoxes.php:230
 msgid "Edit"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:232
 #: src/Admin/OrderMetaBoxes.php:232
 msgid "Regenerate PDF"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:234
 #: src/Admin/OrderMetaBoxes.php:234
-#: assets/editor/src/Canvas.js:329
-#: assets/editor/src/Inspector.js:687
-#: assets/editor/src/Outline.js:81
+#: assets/editor/src/Canvas.js:1314
+#: assets/editor/src/Inspector.js:534
+#: assets/editor/src/Inspector.js:570
+#: assets/editor/src/Inspector.js:669
+#: assets/editor/src/Layers.js:91
 msgid "Delete"
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:274
 #: src/Admin/OrderMetaBoxes.php:274
 msgid "Invalid document date."
 msgstr ""
 
 #. translators: 1: document number, 2: order number
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:286
 #: src/Admin/OrderMetaBoxes.php:286
 #, php-format
 msgid "Number %1$s is already used by order #%2$s. The number was not changed."
 msgstr ""
 
 #. translators: %s: document title
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:308
 #: src/Admin/OrderMetaBoxes.php:308
 #, php-format
 msgid "%s data was edited."
 msgstr ""
 
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:365
 #: src/Admin/OrderMetaBoxes.php:365
 msgid "Document not found."
 msgstr ""
 
 #. translators: %s: document title and number
-#: dist/order-documents/src/Admin/OrderMetaBoxes.php:397
 #: src/Admin/OrderMetaBoxes.php:397
 #, php-format
 msgid "%s was deleted."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:37
-#: dist/order-documents/src/Admin/SettingsPage.php:38
-#: dist/order-documents/src/Admin/SettingsPage.php:129
 #: src/Admin/SettingsPage.php:37
 #: src/Admin/SettingsPage.php:38
 #: src/Admin/SettingsPage.php:129
 msgid "Order Documents"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:113
-#: dist/order-documents/src/Documents/Document.php:129
-#: dist/order-documents/src/Documents/PickingList.php:56
 #: src/Admin/SettingsPage.php:113
 #: src/Documents/Document.php:129
 #: src/Documents/PickingList.php:56
 msgid "General"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:115
 #: src/Admin/SettingsPage.php:115
 msgid "Design"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:116
 #: src/Admin/SettingsPage.php:116
 msgid "Advanced"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:117
 #: src/Admin/SettingsPage.php:117
 msgid "Tools"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:131
 #: src/Admin/SettingsPage.php:131
 msgid "Data from WooCommerce PDF Invoices & Packing Slips was found. Existing invoice numbers are used automatically; import the settings and continue the number sequences under Tools."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:131
 #: src/Admin/SettingsPage.php:131
 msgid "Open the importer"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:183
 #: src/Admin/SettingsPage.php:183
 msgid "off"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:190
 #: src/Admin/SettingsPage.php:190
 msgid "Edit the layout in the visual editor"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:201
 #: src/Admin/SettingsPage.php:201
 msgid "Open the visual editor"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:202
 #: src/Admin/SettingsPage.php:202
 msgid "Arrange blocks and columns per template and document type, with a live preview."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:210
 #: src/Admin/SettingsPage.php:210
 msgid "Number sequences"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:211
 #: src/Admin/SettingsPage.php:211
 msgid "Each sequence hands out numbers without gaps. Yearly or monthly sequences get their own row."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:213
 #: src/Admin/SettingsPage.php:213
 msgid "Sequence"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:213
-#: dist/order-documents/src/Documents/Document.php:152
 #: src/Admin/SettingsPage.php:213
 #: src/Documents/Document.php:152
 msgid "Next number"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:213
 #: src/Admin/SettingsPage.php:213
 msgid "Last change (UTC)"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:215
 #: src/Admin/SettingsPage.php:215
 msgid "No numbers have been issued yet."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:223
 #: src/Admin/SettingsPage.php:223
 msgid "Change the next number of this sequence? Numbers must stay unique."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:223
 #: src/Admin/SettingsPage.php:223
-#: assets/editor/src/App.js:65
-#: assets/editor/src/TopBar.js:354
+#: assets/editor/src/App.js:84
+#: assets/editor/src/TopBar.js:415
 msgid "Save"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:228
 #: src/Admin/SettingsPage.php:228
 msgid "Test print"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:231
 #: src/Admin/SettingsPage.php:231
 msgid "Order ID"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:237
 #: src/Admin/SettingsPage.php:237
 msgid "Open"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:238
 #: src/Admin/SettingsPage.php:238
 msgid "Opening a document creates it (and gives it a number) if it does not exist yet."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:257
 #: src/Admin/SettingsPage.php:257
 msgid "Placeholders"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:258
 #: src/Admin/SettingsPage.php:258
 msgid "Use these in the footer, extra fields, payment information and custom text blocks."
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:371
 #: src/Admin/SettingsPage.php:371
 msgid "Choose image"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:373
 #: src/Admin/SettingsPage.php:373
 msgid "Remove"
 msgstr ""
 
-#: dist/order-documents/src/Admin/SettingsPage.php:384
 #: src/Admin/SettingsPage.php:384
 msgid "Nothing to choose from."
 msgstr ""
 
 #. translators: %s: sequence name
-#: dist/order-documents/src/Admin/SettingsPage.php:405
 #: src/Admin/SettingsPage.php:405
 #, php-format
 msgid "Sequence: %s"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:19
 #: src/Documents/CreditNote.php:19
 msgid "Credit note"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:23
 #: src/Documents/CreditNote.php:23
 msgid "Credit notes"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:52
-#: dist/order-documents/src/Documents/Document.php:257
 #: src/Documents/CreditNote.php:52
 #: src/Documents/Document.php:257
 msgid "Own sequence"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:53
 #: src/Documents/CreditNote.php:53
 msgid "Shared with invoices"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:66
 #: src/Documents/CreditNote.php:66
 msgid "Credit note details"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:67
 #: src/Documents/CreditNote.php:67
 msgid "Only for orders with an invoice"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:68
 #: src/Documents/CreditNote.php:68
 msgid "Show amounts as negative numbers"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:69
 #: src/Documents/CreditNote.php:69
 msgid "Show the refund reason"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:80
 #: src/Documents/CreditNote.php:80
 msgid "A credit note belongs to a refund. Refund the order first."
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:86
 #: src/Documents/CreditNote.php:86
 msgid "Create the invoice before the credit note."
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:101
 #: src/Documents/CreditNote.php:101
 msgid "Original invoice"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:102
-#: dist/order-documents/src/Rendering/Placeholders.php:27
 #: src/Documents/CreditNote.php:102
 #: src/Rendering/Placeholders.php:27
 msgid "Invoice date"
 msgstr ""
 
-#: dist/order-documents/src/Documents/CreditNote.php:105
 #: src/Documents/CreditNote.php:105
 msgid "Reason"
 msgstr ""
 
-#: dist/order-documents/src/Documents/DeliveryNote.php:19
 #: src/Documents/DeliveryNote.php:19
 msgid "Delivery note"
 msgstr ""
 
-#: dist/order-documents/src/Documents/DeliveryNote.php:23
 #: src/Documents/DeliveryNote.php:23
 msgid "Delivery notes"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:130
-#: dist/order-documents/src/Documents/PickingList.php:57
-#: dist/order-documents/src/Migration/WpoImporter.php:272
 #: src/Documents/Document.php:130
 #: src/Documents/PickingList.php:57
 #: src/Migration/WpoImporter.php:272
@@ -663,2085 +529,1623 @@ msgid "Enabled"
 msgstr ""
 
 #. translators: %s: document type
-#: dist/order-documents/src/Documents/Document.php:130
 #: src/Documents/Document.php:130
 #, php-format
 msgid "Show %s buttons and allow creating this document."
 msgstr ""
 
 #. translators: %s: document type
-#: dist/order-documents/src/Documents/Document.php:131
-#: dist/order-documents/src/Documents/PickingList.php:58
-#: dist/order-documents/src/Rendering/Layout.php:119
-#: dist/order-documents/src/Rendering/Placeholders.php:23
 #: src/Documents/Document.php:131
 #: src/Documents/PickingList.php:58
-#: src/Rendering/Layout.php:119
+#: src/Rendering/Layout.php:148
 #: src/Rendering/Placeholders.php:23
 msgid "Document title"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:135
-#: dist/order-documents/src/Documents/PickingList.php:62
-#: dist/order-documents/src/Settings/Schema.php:120
 #: src/Documents/Document.php:135
 #: src/Documents/PickingList.php:62
 #: src/Settings/Schema.php:120
-#: assets/editor/src/TopBar.js:142
+#: assets/editor/src/TopBar.js:149
 msgid "Template"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:138
-#: dist/order-documents/src/Documents/PickingList.php:65
 #: src/Documents/Document.php:138
 #: src/Documents/PickingList.php:65
 msgid "Use the default template"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:141
-#: dist/order-documents/src/Documents/PickingList.php:68
 #: src/Documents/Document.php:141
 #: src/Documents/PickingList.php:68
 msgid "File name"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:141
 #: src/Documents/Document.php:141
 msgid "Without \".pdf\". Placeholders such as {{document_number}}, {{order_number}} and {{document_title}} are supported."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:144
 #: src/Documents/Document.php:144
 msgid "Numbering"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:146
 #: src/Documents/Document.php:146
 msgid "Give this document a number"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:150
 #: src/Documents/Document.php:150
 msgid "Number sequence"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:152
 #: src/Documents/Document.php:152
 msgid "The number the next document gets. Change it only if you are sure, numbers must stay unique."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:153
-#: dist/order-documents/src/Migration/WpoImporter.php:306
 #: src/Documents/Document.php:153
 #: src/Migration/WpoImporter.php:306
 msgid "Prefix"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:153
 #: src/Documents/Document.php:153
 msgid "Supports {{year}}, {{month}}, {{day}}, {{order_year}}, {{order_month}} and {{order_number}}."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:154
-#: dist/order-documents/src/Migration/WpoImporter.php:307
 #: src/Documents/Document.php:154
 #: src/Migration/WpoImporter.php:307
 msgid "Suffix"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:155
-#: dist/order-documents/src/Migration/WpoImporter.php:309
 #: src/Documents/Document.php:155
 #: src/Migration/WpoImporter.php:309
 msgid "Padding"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:155
 #: src/Documents/Document.php:155
 msgid "Minimum number of digits, for example 5 turns 42 into 00042."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:159
-#: dist/order-documents/src/Migration/WpoImporter.php:313
 #: src/Documents/Document.php:159
 #: src/Migration/WpoImporter.php:313
 msgid "Restart numbering"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:162
-#: dist/order-documents/src/Documents/Document.php:238
 #: src/Documents/Document.php:162
 #: src/Documents/Document.php:238
 msgid "Never"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:163
-#: dist/order-documents/src/Migration/WpoImporter.php:313
 #: src/Documents/Document.php:163
 #: src/Migration/WpoImporter.php:313
 msgid "Every year"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:164
 #: src/Documents/Document.php:164
 msgid "Every month"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:170
 #: src/Documents/Document.php:170
 msgid "Date shown on the document"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:173
-#: dist/order-documents/src/Rendering/Layout.php:155
-#: dist/order-documents/src/Rendering/Placeholders.php:25
 #: src/Documents/Document.php:173
-#: src/Rendering/Layout.php:155
+#: src/Rendering/Layout.php:184
 #: src/Rendering/Placeholders.php:25
 msgid "Document date"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:174
-#: dist/order-documents/src/Rendering/Layout.php:157
-#: dist/order-documents/src/Rendering/OrderData.php:245
-#: dist/order-documents/src/Rendering/Placeholders.php:31
 #: src/Documents/Document.php:174
-#: src/Rendering/Layout.php:157
+#: src/Rendering/Layout.php:186
 #: src/Rendering/OrderData.php:245
 #: src/Rendering/Placeholders.php:31
 msgid "Order date"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:179
 #: src/Documents/Document.php:179
-#: assets/editor/src/Inspector.js:633
+#: assets/editor/src/Inspector.js:502
 msgid "Content"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:183
-#: dist/order-documents/src/Migration/WpoImporter.php:294
-#: dist/order-documents/src/Rendering/Layout.php:138
-#: dist/order-documents/src/Rendering/Layout.php:140
-#: dist/order-documents/templates/shared/blocks/billing_address.php:17
 #: src/Documents/Document.php:183
 #: src/Migration/WpoImporter.php:294
-#: src/Rendering/Layout.php:138
-#: src/Rendering/Layout.php:140
+#: src/Rendering/Layout.php:167
+#: src/Rendering/Layout.php:169
 #: templates/shared/blocks/billing_address.php:17
 msgid "Billing address"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:186
 #: src/Documents/Document.php:186
 msgid "Show"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:187
-#: dist/order-documents/src/Documents/Document.php:198
 #: src/Documents/Document.php:187
 #: src/Documents/Document.php:198
 msgid "Hide"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:193
-#: dist/order-documents/src/Migration/WpoImporter.php:291
-#: dist/order-documents/src/Rendering/Layout.php:143
 #: src/Documents/Document.php:193
 #: src/Migration/WpoImporter.php:291
-#: src/Rendering/Layout.php:143
+#: src/Rendering/Layout.php:172
 msgid "Shipping address"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:196
 #: src/Documents/Document.php:196
 msgid "Always show"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:197
 #: src/Documents/Document.php:197
 msgid "Only when different from the billing address"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:201
 #: src/Documents/Document.php:201
 msgid "Customer e-mail"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:202
 #: src/Documents/Document.php:202
 msgid "Customer phone"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:203
-#: dist/order-documents/src/Documents/PickingList.php:85
 #: src/Documents/Document.php:203
 #: src/Documents/PickingList.php:85
 msgid "SKU under the product name"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:204
-#: dist/order-documents/src/Documents/PickingList.php:86
 #: src/Documents/Document.php:204
 #: src/Documents/PickingList.php:86
 msgid "Weight under the product name"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:205
-#: dist/order-documents/src/Documents/PickingList.php:87
 #: src/Documents/Document.php:205
 #: src/Documents/PickingList.php:87
 msgid "Product options and variation details"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:210
 #: src/Documents/Document.php:210
 msgid "Prices"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:213
 #: src/Documents/Document.php:213
 msgid "Excluding tax, with tax lines in the totals"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:214
 #: src/Documents/Document.php:214
 msgid "Including tax"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:220
 #: src/Documents/Document.php:220
 msgid "Automation"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:221
-#: dist/order-documents/src/Migration/WpoImporter.php:275
 #: src/Documents/Document.php:221
 #: src/Migration/WpoImporter.php:275
 msgid "Attach to e-mails"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:222
 #: src/Documents/Document.php:222
 msgid "Create automatically when the order status becomes"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:225
 #: src/Documents/Document.php:225
 msgid "Restrictions"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:226
 #: src/Documents/Document.php:226
 msgid "Not available for orders with status"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:227
 #: src/Documents/Document.php:227
 msgid "Not available for free orders"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:228
 #: src/Documents/Document.php:228
 msgid "Not available for payment methods"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:231
 #: src/Documents/Document.php:231
 msgid "My Account"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:235
 #: src/Documents/Document.php:235
 msgid "Download button for customers"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:239
 #: src/Documents/Document.php:239
 msgid "Only when the document has been created"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:240
 #: src/Documents/Document.php:240
 msgid "Always (created on demand)"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:241
 #: src/Documents/Document.php:241
 msgid "For the order statuses below"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:244
 #: src/Documents/Document.php:244
 msgid "Order statuses"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:247
 #: src/Documents/Document.php:247
 msgid "Archive"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:248
 #: src/Documents/Document.php:248
 msgid "Keep an archived copy"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:248
 #: src/Documents/Document.php:248
 msgid "Saves the PDF the first time it is generated and always serves that copy afterwards, so the document never changes. Recommended for invoices and credit notes."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:406
-#: dist/order-documents/src/Documents/PickingList.php:118
 #: src/Documents/Document.php:406
 #: src/Documents/PickingList.php:118
 msgid "This document type is disabled."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:409
 #: src/Documents/Document.php:409
 msgid "Not available for this order status."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:412
 #: src/Documents/Document.php:412
 msgid "Not available for free orders."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Document.php:415
 #: src/Documents/Document.php:415
 msgid "Not available for this payment method."
 msgstr ""
 
 #. translators: %s: document title, e.g. Invoice
-#: dist/order-documents/src/Documents/Document.php:630
 #: src/Documents/Document.php:630
 #, php-format
 msgid "%s number"
 msgstr ""
 
 #. translators: %s: document title, e.g. Invoice
-#: dist/order-documents/src/Documents/Document.php:636
 #: src/Documents/Document.php:636
 #, php-format
 msgid "%s date"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:19
 #: src/Documents/Invoice.php:19
 msgid "Invoice"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:23
 #: src/Documents/Invoice.php:23
 msgid "Invoices"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:56
 #: src/Documents/Invoice.php:56
 msgid "Invoice details"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:57
 #: src/Documents/Invoice.php:57
 msgid "Due date (days after the invoice date)"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:57
 #: src/Documents/Invoice.php:57
 msgid "0 hides the due date."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:58
 #: src/Documents/Invoice.php:58
 msgid "Show delivery date"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:58
 #: src/Documents/Invoice.php:58
 msgid "The date the order was completed."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:59
 #: src/Documents/Invoice.php:59
 msgid "Show customer number"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:70
-#: dist/order-documents/src/Rendering/Layout.php:212
-#: dist/order-documents/src/Rendering/Layout.php:214
-#: dist/order-documents/templates/shared/blocks/payment_info.php:17
 #: src/Documents/Invoice.php:70
-#: src/Rendering/Layout.php:212
-#: src/Rendering/Layout.php:214
+#: src/Rendering/Layout.php:241
+#: src/Rendering/Layout.php:243
 #: templates/shared/blocks/payment_info.php:17
 msgid "Payment information"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:70
 #: src/Documents/Invoice.php:70
 msgid "Shown in the \"Payment information\" block, e.g. \"Pay to account {{bank_account}}, KID {{kid}}, due {{due_date}}\"."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:74
-#: dist/order-documents/src/Rendering/Placeholders.php:29
 #: src/Documents/Invoice.php:74
 #: src/Rendering/Placeholders.php:29
 msgid "KID payment reference"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:77
-#: dist/order-documents/src/Rendering/Layout.php:71
-#: dist/order-documents/src/Rendering/Layout.php:130
 #: src/Documents/Invoice.php:77
-#: src/Rendering/Layout.php:71
-#: src/Rendering/Layout.php:130
+#: src/Rendering/Layout.php:100
+#: src/Rendering/Layout.php:159
 msgid "None"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:78
 #: src/Documents/Invoice.php:78
 msgid "MOD10 (Luhn)"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:79
 #: src/Documents/Invoice.php:79
 msgid "MOD11"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:81
 #: src/Documents/Invoice.php:81
 msgid "Norwegian payment reference available as {{kid}}, built from the document number (or the order number when the document has none)."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:83
 #: src/Documents/Invoice.php:83
 msgid "KID length"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:83
 #: src/Documents/Invoice.php:83
 msgid "Total length including the check digit, padded with zeros. 0 means no padding."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:105
-#: dist/order-documents/src/Documents/ProformaInvoice.php:73
-#: dist/order-documents/src/Rendering/Layout.php:307
-#: dist/order-documents/src/Rendering/Placeholders.php:28
-#: dist/order-documents/templates/shared/blocks/payment_summary.php:32
 #: src/Documents/Invoice.php:105
 #: src/Documents/ProformaInvoice.php:73
-#: src/Rendering/Layout.php:307
+#: src/Rendering/Layout.php:347
 #: src/Rendering/Placeholders.php:28
 #: templates/shared/blocks/payment_summary.php:32
 msgid "Due date"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:108
 #: src/Documents/Invoice.php:108
 msgid "Delivery date"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:111
-#: dist/order-documents/src/Documents/PackingSlip.php:45
 #: src/Documents/Invoice.php:111
 #: src/Documents/PackingSlip.php:45
 msgid "Customer number"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Invoice.php:115
-#: dist/order-documents/src/Documents/ProformaInvoice.php:77
 #: src/Documents/Invoice.php:115
 #: src/Documents/ProformaInvoice.php:77
 msgid "KID"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PackingSlip.php:19
 #: src/Documents/PackingSlip.php:19
 msgid "Packing slip"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PackingSlip.php:23
 #: src/Documents/PackingSlip.php:23
 msgid "Packing slips"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PackingSlip.php:49
-#: dist/order-documents/src/Rendering/Placeholders.php:26
 #: src/Documents/PackingSlip.php:49
 #: src/Rendering/Placeholders.php:26
 msgid "Invoice number"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:27
 #: src/Documents/PickingList.php:27
 msgid "Picking list"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:31
 #: src/Documents/PickingList.php:31
 msgid "Picking lists"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:69
 #: src/Documents/PickingList.php:69
 msgid "Picking"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:70
 #: src/Documents/PickingList.php:70
 msgid "Combine products across orders"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:70
 #: src/Documents/PickingList.php:70
 msgid "When printing several orders at once, identical products are added up in one line."
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:74
 #: src/Documents/PickingList.php:74
 msgid "Sort products by"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:77
-#: dist/order-documents/src/Rendering/Layout.php:348
 #: src/Documents/PickingList.php:77
-#: src/Rendering/Layout.php:348
+#: src/Rendering/Layout.php:426
 msgid "SKU"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:78
 #: src/Documents/PickingList.php:78
 msgid "Product name"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:79
 #: src/Documents/PickingList.php:79
 msgid "Category"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:80
 #: src/Documents/PickingList.php:80
 msgid "Stock location"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:81
 #: src/Documents/PickingList.php:81
 msgid "Order"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:84
 #: src/Documents/PickingList.php:84
 msgid "Stock location field"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:84
 #: src/Documents/PickingList.php:84
 msgid "Product meta key or attribute slug (e.g. \"_bin_location\" or \"pa_shelf\") shown in the Location column."
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:147
 #: src/Documents/PickingList.php:147
 msgid "Printed"
 msgstr ""
 
-#: dist/order-documents/src/Documents/PickingList.php:150
-#: dist/order-documents/src/Rendering/Layout.php:362
 #: src/Documents/PickingList.php:150
-#: src/Rendering/Layout.php:362
+#: src/Rendering/Layout.php:440
 msgid "Orders"
 msgstr ""
 
-#: dist/order-documents/src/Documents/ProformaInvoice.php:19
 #: src/Documents/ProformaInvoice.php:19
 msgid "Proforma invoice"
 msgstr ""
 
-#: dist/order-documents/src/Documents/ProformaInvoice.php:23
 #: src/Documents/ProformaInvoice.php:23
 msgid "Proforma invoices"
 msgstr ""
 
-#: dist/order-documents/src/Documents/ProformaInvoice.php:47
 #: src/Documents/ProformaInvoice.php:47
 msgid "Proforma details"
 msgstr ""
 
-#: dist/order-documents/src/Documents/ProformaInvoice.php:48
 #: src/Documents/ProformaInvoice.php:48
 msgid "Disclaimer"
 msgstr ""
 
-#: dist/order-documents/src/Documents/ProformaInvoice.php:48
 #: src/Documents/ProformaInvoice.php:48
 msgid "This is a proforma invoice and not a VAT invoice."
 msgstr ""
 
-#: dist/order-documents/src/Documents/ProformaInvoice.php:49
 #: src/Documents/ProformaInvoice.php:49
 msgid "Due date (days after the document date)"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:19
 #: src/Documents/Receipt.php:19
 msgid "Receipt"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:23
 #: src/Documents/Receipt.php:23
 msgid "Receipts"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:46
 #: src/Documents/Receipt.php:46
 msgid "Receipt details"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:47
 #: src/Documents/Receipt.php:47
 msgid "Use the invoice number"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:47
 #: src/Documents/Receipt.php:47
 msgid "The receipt shows the invoice number instead of its own (the invoice is created if needed)."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:48
 #: src/Documents/Receipt.php:48
 msgid "Show a \"paid\" stamp"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:49
 #: src/Documents/Receipt.php:49
 msgid "Stamp text"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:49
-#: dist/order-documents/templates/shared/blocks/paid_stamp.php:19
-#: dist/order-documents/templates/shared/blocks/paid_stamp.php:22
 #: src/Documents/Receipt.php:49
 #: templates/shared/blocks/paid_stamp.php:19
 #: templates/shared/blocks/paid_stamp.php:22
 msgid "PAID"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:50
 #: src/Documents/Receipt.php:50
 msgid "Show the transaction ID"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:56
 #: src/Documents/Receipt.php:56
 msgid "Receipts are only available for paid orders."
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:77
 #: src/Documents/Receipt.php:77
 msgid "Paid"
 msgstr ""
 
-#: dist/order-documents/src/Documents/Receipt.php:80
 #: src/Documents/Receipt.php:80
 msgid "Transaction ID"
 msgstr ""
 
-#: dist/order-documents/src/Emails/DocumentEmail.php:26
 #: src/Emails/DocumentEmail.php:26
 msgid "Order document"
 msgstr ""
 
-#: dist/order-documents/src/Emails/DocumentEmail.php:27
 #: src/Emails/DocumentEmail.php:27
 msgid "Sent when you e-mail an invoice, packing slip or other document to the customer from the order screen. The PDF is attached."
 msgstr ""
 
-#: dist/order-documents/src/Emails/DocumentEmail.php:51
 #: src/Emails/DocumentEmail.php:51
 msgid "{document_title} {document_number} for order #{order_number}"
 msgstr ""
 
-#: dist/order-documents/src/Emails/DocumentEmail.php:55
 #: src/Emails/DocumentEmail.php:55
 msgid "Your {document_title}"
 msgstr ""
 
-#: dist/order-documents/src/Emails/DocumentEmail.php:59
 #: src/Emails/DocumentEmail.php:59
 msgid "Thank you for your order."
 msgstr ""
 
 #. translators: 1: document title, 2: e-mail address
-#: dist/order-documents/src/Emails/DocumentEmail.php:84
 #: src/Emails/DocumentEmail.php:84
 #, php-format
 msgid "%1$s e-mailed to %2$s."
 msgstr ""
 
 #. translators: 1: document title, 2: e-mail address
-#: dist/order-documents/src/Emails/DocumentEmail.php:84
 #: src/Emails/DocumentEmail.php:84
 #, php-format
 msgid "%1$s could not be e-mailed to %2$s."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:42
 #: src/Endpoints/DocumentEndpoint.php:42
 msgid "Unknown document or order."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:47
 #: src/Endpoints/DocumentEndpoint.php:47
 msgid "You are not allowed to view this document."
 msgstr ""
 
 #. translators: %d: maximum number of orders
-#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:53
 #: src/Endpoints/DocumentEndpoint.php:53
 #, php-format
 msgid "Please select at most %d orders at a time."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:72
 #: src/Endpoints/DocumentEndpoint.php:72
 msgid "There is nothing to print for the selected orders."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/DocumentEndpoint.php:92
 #: src/Endpoints/DocumentEndpoint.php:92
 msgid "The PDF could not be generated. Details are in WooCommerce → Status → Logs (order-documents)."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/RestController.php:77
-#: src/Endpoints/RestController.php:77
+#: src/Endpoints/RestController.php:80
 msgid "Unknown template or document type."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/RestController.php:147
-#: src/Endpoints/RestController.php:147
+#: src/Endpoints/RestController.php:150
 msgid "Invalid layout."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/RestController.php:166
-#: src/Endpoints/RestController.php:166
+#: src/Endpoints/RestController.php:169
 msgid "Invalid design settings."
 msgstr ""
 
-#: dist/order-documents/src/Endpoints/RestController.php:223
-#: src/Endpoints/RestController.php:223
+#: src/Endpoints/RestController.php:226
+#: src/Endpoints/RestController.php:255
 msgid "Could not build a preview."
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:213
-#: dist/order-documents/src/Rendering/Layout.php:105
-#: dist/order-documents/src/Rendering/Placeholders.php:37
-#: dist/order-documents/src/Settings/Schema.php:64
 #: src/Migration/WpoImporter.php:213
-#: src/Rendering/Layout.php:105
+#: src/Rendering/Layout.php:134
 #: src/Rendering/Placeholders.php:37
 #: src/Settings/Schema.php:64
 msgid "Shop name"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:232
-#: dist/order-documents/src/Settings/Schema.php:65
 #: src/Migration/WpoImporter.php:232
 #: src/Settings/Schema.php:65
 msgid "Shop address"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:233
-#: dist/order-documents/src/Rendering/Layout.php:107
-#: dist/order-documents/src/Settings/Schema.php:66
 #: src/Migration/WpoImporter.php:233
-#: src/Rendering/Layout.php:107
+#: src/Rendering/Layout.php:136
 #: src/Settings/Schema.php:66
 msgid "Phone"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:234
-#: dist/order-documents/src/Rendering/Layout.php:108
-#: dist/order-documents/src/Settings/Schema.php:67
 #: src/Migration/WpoImporter.php:234
-#: src/Rendering/Layout.php:108
+#: src/Rendering/Layout.php:137
 #: src/Settings/Schema.php:67
 msgid "E-mail"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:235
-#: dist/order-documents/src/Rendering/Layout.php:111
-#: dist/order-documents/src/Rendering/Placeholders.php:39
-#: dist/order-documents/src/Settings/Schema.php:70
 #: src/Migration/WpoImporter.php:235
-#: src/Rendering/Layout.php:111
+#: src/Rendering/Layout.php:140
 #: src/Rendering/Placeholders.php:39
 #: src/Settings/Schema.php:70
 msgid "VAT number"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:236
-#: dist/order-documents/src/Rendering/Layout.php:110
-#: dist/order-documents/src/Rendering/Placeholders.php:38
-#: dist/order-documents/src/Settings/Schema.php:69
 #: src/Migration/WpoImporter.php:236
-#: src/Rendering/Layout.php:110
+#: src/Rendering/Layout.php:139
 #: src/Rendering/Placeholders.php:38
 #: src/Settings/Schema.php:69
 msgid "Organisation number"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:237
-#: dist/order-documents/src/Rendering/Layout.php:262
-#: dist/order-documents/src/Settings/Schema.php:81
 #: src/Migration/WpoImporter.php:237
-#: src/Rendering/Layout.php:262
+#: src/Rendering/Layout.php:302
 #: src/Settings/Schema.php:81
 msgid "Footer"
 msgstr ""
 
 #. translators: %d: field number
-#: dist/order-documents/src/Migration/WpoImporter.php:240
 #: src/Migration/WpoImporter.php:240
 #, php-format
 msgid "Extra field %d"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:245
-#: dist/order-documents/src/Rendering/Layout.php:94
-#: dist/order-documents/src/Settings/Schema.php:63
 #: src/Migration/WpoImporter.php:245
-#: src/Rendering/Layout.php:94
+#: src/Rendering/Layout.php:123
 #: src/Settings/Schema.php:63
 msgid "Logo"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:249
-#: dist/order-documents/src/Settings/Schema.php:128
 #: src/Migration/WpoImporter.php:249
 #: src/Settings/Schema.php:128
 msgid "Logo height (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:253
-#: dist/order-documents/src/Settings/Schema.php:86
 #: src/Migration/WpoImporter.php:253
 #: src/Settings/Schema.php:86
 msgid "Paper size"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:256
-#: dist/order-documents/src/Settings/Schema.php:97
 #: src/Migration/WpoImporter.php:256
 #: src/Settings/Schema.php:97
 msgid "How to open PDFs"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:260
-#: dist/order-documents/src/Settings/Schema.php:123
 #: src/Migration/WpoImporter.php:260
 #: src/Settings/Schema.php:123
 msgid "Accent colour"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:272
-#: dist/order-documents/src/Migration/WpoImporter.php:298
 #: src/Migration/WpoImporter.php:272
 #: src/Migration/WpoImporter.php:298
 msgid "Yes"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:272
-#: dist/order-documents/src/Migration/WpoImporter.php:298
 #: src/Migration/WpoImporter.php:272
 #: src/Migration/WpoImporter.php:298
 msgid "No"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:284
 #: src/Migration/WpoImporter.php:284
 msgid "Not available for statuses"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:302
 #: src/Migration/WpoImporter.php:302
 msgid "Date shown"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:322
 #: src/Migration/WpoImporter.php:322
 msgid "My Account button"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:327
 #: src/Migration/WpoImporter.php:327
 msgid "My Account statuses"
 msgstr ""
 
-#: dist/order-documents/src/Migration/WpoImporter.php:338
 #: src/Migration/WpoImporter.php:338
 msgid "Due days"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:243
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:252
 #: src/Rendering/DefaultLayouts.php:243
 #: src/Rendering/DefaultLayouts.php:252
 msgid "Delivery address"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:262
 #: src/Rendering/DefaultLayouts.php:262
 msgid "Ordered"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:263
 #: src/Rendering/DefaultLayouts.php:263
 msgid "Done"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:285
 #: src/Rendering/DefaultLayouts.php:285
 msgid "Picked by"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:285
 #: src/Rendering/DefaultLayouts.php:285
 msgid "Checked by"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:285
 #: src/Rendering/DefaultLayouts.php:285
 msgid "Received by / date"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DefaultLayouts.php:302
 #: src/Rendering/DefaultLayouts.php:302
 msgid "Goods received"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:35
 #: src/Rendering/DemoOrder.php:35
 msgid "Card payment"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:36
 #: src/Rendering/DemoOrder.php:36
 msgid "Please leave the parcel at the back door."
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:41
 #: src/Rendering/DemoOrder.php:41
 msgid "Example Company Ltd"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:64
 #: src/Rendering/DemoOrder.php:64
 msgid "Wool sweater, blue"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:64
 #: src/Rendering/DemoOrder.php:64
 msgid "Size"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:65
-#: dist/order-documents/src/Rendering/DemoOrder.php:122
 #: src/Rendering/DemoOrder.php:65
 #: src/Rendering/DemoOrder.php:122
 msgid "Hiking socks (2-pack)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:66
 #: src/Rendering/DemoOrder.php:66
 msgid "Cookbook: Nordic kitchen"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:92
 #: src/Rendering/DemoOrder.php:92
 msgid "Home delivery"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/DemoOrder.php:119
 #: src/Rendering/DemoOrder.php:119
 msgid "Returned item"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Fonts.php:45
 #: src/Rendering/Fonts.php:45
 msgid "Helvetica (built-in, smallest files)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:67
-#: src/Rendering/Layout.php:67
+#: src/Rendering/Layout.php:96
 msgid "Alignment"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:67
-#: src/Rendering/Layout.php:67
+#: src/Rendering/Layout.php:96
 #: assets/editor/src/fields.js:162
 msgid "Default"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:67
-#: src/Rendering/Layout.php:67
+#: src/Rendering/Layout.php:96
 msgid "Left"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:67
-#: src/Rendering/Layout.php:67
+#: src/Rendering/Layout.php:96
 msgid "Center"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:67
-#: src/Rendering/Layout.php:67
+#: src/Rendering/Layout.php:96
 msgid "Right"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:68
-#: src/Rendering/Layout.php:68
+#: src/Rendering/Layout.php:97
 msgid "Font size (pt, 0 = default)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:69
-#: src/Rendering/Layout.php:69
-#: assets/editor/src/Inspector.js:520
+#: src/Rendering/Layout.php:98
 msgid "Space below (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:70
-#: dist/order-documents/src/Settings/Schema.php:124
-#: src/Rendering/Layout.php:70
+#: src/Rendering/Layout.php:99
 #: src/Settings/Schema.php:124
-#: assets/editor/src/Inspector.js:498
 msgid "Text colour"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:71
-#: src/Rendering/Layout.php:71
+#: src/Rendering/Layout.php:100
 msgid "Box"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:71
-#: src/Rendering/Layout.php:71
+#: src/Rendering/Layout.php:100
 msgid "Rounded border"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:71
-#: src/Rendering/Layout.php:71
+#: src/Rendering/Layout.php:100
 msgid "Tinted background"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:81
-#: src/Rendering/Layout.php:81
+#: src/Rendering/Layout.php:110
 msgid "Show heading"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:82
-#: dist/order-documents/src/Rendering/Layout.php:316
-#: src/Rendering/Layout.php:82
-#: src/Rendering/Layout.php:316
-#: assets/editor/src/Inspector.js:260
+#: src/Rendering/Layout.php:111
+#: src/Rendering/Layout.php:356
+#: assets/editor/src/Inspector.js:252
 msgid "Heading"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:88
-#: src/Rendering/Layout.php:88
+#: src/Rendering/Layout.php:117
 msgid "Compact: name in bold, the rest on one line"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:97
-#: src/Rendering/Layout.php:97
-msgid "Height (mm, 0 = design setting)"
+#: src/Rendering/Layout.php:126
+msgid "Logo height (mm, 0 = automatic)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:98
-#: src/Rendering/Layout.php:98
+#: src/Rendering/Layout.php:126
+msgid "Automatic: fills the box on the page, or uses the logo height from the design settings."
+msgstr ""
+
+#: src/Rendering/Layout.php:127
 msgid "Show the shop name when there is no logo"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:102
-#: dist/order-documents/src/Settings/Schema.php:62
-#: src/Rendering/Layout.php:102
+#: src/Rendering/Layout.php:131
 #: src/Settings/Schema.php:62
 msgid "Shop details"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:106
-#: src/Rendering/Layout.php:106
+#: src/Rendering/Layout.php:135
 msgid "Address"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:109
-#: dist/order-documents/src/Settings/Schema.php:68
-#: src/Rendering/Layout.php:109
+#: src/Rendering/Layout.php:138
 #: src/Settings/Schema.php:68
 msgid "Website"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:112
-#: dist/order-documents/src/Settings/Schema.php:71
-#: src/Rendering/Layout.php:112
+#: src/Rendering/Layout.php:141
 #: src/Settings/Schema.php:71
 msgid "Business register text"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:113
-#: dist/order-documents/src/Settings/Schema.php:78
-#: src/Rendering/Layout.php:113
+#: src/Rendering/Layout.php:142
 #: src/Settings/Schema.php:78
 msgid "Extra field 1"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:114
-#: dist/order-documents/src/Settings/Schema.php:79
-#: src/Rendering/Layout.php:114
+#: src/Rendering/Layout.php:143
 #: src/Settings/Schema.php:79
 msgid "Extra field 2"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:115
-#: dist/order-documents/src/Settings/Schema.php:80
-#: src/Rendering/Layout.php:115
+#: src/Rendering/Layout.php:144
 #: src/Settings/Schema.php:80
 msgid "Extra field 3"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:122
-#: src/Rendering/Layout.php:122
+#: src/Rendering/Layout.php:151
 msgid "Title (empty = document title)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:123
-#: src/Rendering/Layout.php:123
+#: src/Rendering/Layout.php:152
 msgid "Uppercase"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:124
-#: src/Rendering/Layout.php:124
+#: src/Rendering/Layout.php:153
 msgid "Add the document number"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:127
-#: src/Rendering/Layout.php:127
+#: src/Rendering/Layout.php:156
 msgid "Line below the title"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:131
-#: dist/order-documents/src/Rendering/Layout.php:154
-#: dist/order-documents/src/Rendering/Placeholders.php:24
-#: src/Rendering/Layout.php:131
-#: src/Rendering/Layout.php:154
+#: src/Rendering/Layout.php:160
+#: src/Rendering/Layout.php:183
 #: src/Rendering/Placeholders.php:24
 msgid "Document number"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:132
-#: dist/order-documents/src/Rendering/Layout.php:156
-#: dist/order-documents/src/Rendering/OrderData.php:244
-#: dist/order-documents/src/Rendering/Placeholders.php:30
-#: src/Rendering/Layout.php:132
-#: src/Rendering/Layout.php:156
+#: src/Rendering/Layout.php:161
+#: src/Rendering/Layout.php:185
 #: src/Rendering/OrderData.php:244
 #: src/Rendering/Placeholders.php:30
 msgid "Order number"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:146
-#: dist/order-documents/templates/shared/blocks/shipping_address.php:17
-#: src/Rendering/Layout.php:146
+#: src/Rendering/Layout.php:175
 #: templates/shared/blocks/shipping_address.php:17
 msgid "Ship to"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:147
-#: src/Rendering/Layout.php:147
+#: src/Rendering/Layout.php:176
 msgid "Show the billing address when there is no separate delivery address"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:158
-#: dist/order-documents/src/Rendering/OrderData.php:247
-#: dist/order-documents/src/Rendering/Placeholders.php:33
-#: src/Rendering/Layout.php:158
+#: src/Rendering/Layout.php:187
 #: src/Rendering/OrderData.php:247
 #: src/Rendering/Placeholders.php:33
 msgid "Payment method"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:159
-#: dist/order-documents/src/Rendering/Layout.php:285
-#: dist/order-documents/src/Rendering/OrderData.php:250
-#: dist/order-documents/src/Rendering/Placeholders.php:34
-#: dist/order-documents/templates/shared/blocks/shipping_info.php:16
-#: src/Rendering/Layout.php:159
-#: src/Rendering/Layout.php:285
+#: src/Rendering/Layout.php:188
+#: src/Rendering/Layout.php:325
 #: src/Rendering/OrderData.php:250
 #: src/Rendering/Placeholders.php:34
 #: templates/shared/blocks/shipping_info.php:16
 msgid "Shipping method"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:160
-#: src/Rendering/Layout.php:160
+#: src/Rendering/Layout.php:189
 msgid "Other details (due date, KID, references...)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:161
-#: dist/order-documents/src/Settings/Schema.php:138
-#: src/Rendering/Layout.php:161
+#: src/Rendering/Layout.php:190
 #: src/Settings/Schema.php:138
 msgid "Boxed"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:164
-#: dist/order-documents/src/Rendering/Layout.php:270
-#: src/Rendering/Layout.php:164
-#: src/Rendering/Layout.php:270
+#: src/Rendering/Layout.php:193
+#: src/Rendering/Layout.php:310
 msgid "Layout"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:167
-#: src/Rendering/Layout.php:167
+#: src/Rendering/Layout.php:196
 msgid "Label and value side by side"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:168
-#: src/Rendering/Layout.php:168
+#: src/Rendering/Layout.php:197
 msgid "Columns with the label above the value"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:171
-#: src/Rendering/Layout.php:171
+#: src/Rendering/Layout.php:200
 msgid "Columns (column layout)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:172
-#: src/Rendering/Layout.php:172
+#: src/Rendering/Layout.php:201
 msgid "Hide these rows"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:176
-#: src/Rendering/Layout.php:176
+#: src/Rendering/Layout.php:205
 msgid "Products table"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:179
-#: src/Rendering/Layout.php:179
-#: assets/editor/src/Inspector.js:373
-#: assets/editor/src/Inspector.js:644
-#: assets/editor/src/Outline.js:104
+#: src/Rendering/Layout.php:208
+#: assets/editor/src/Inspector.js:507
 msgid "Columns"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:180
-#: src/Rendering/Layout.php:180
+#: src/Rendering/Layout.php:209
 msgid "Column headings"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:181
-#: src/Rendering/Layout.php:181
+#: src/Rendering/Layout.php:210
 msgid "Image size (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:185
-#: src/Rendering/Layout.php:185
+#: src/Rendering/Layout.php:214
 msgid "Totals"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:188
-#: dist/order-documents/src/Rendering/OrderData.php:564
-#: src/Rendering/Layout.php:188
+#: src/Rendering/Layout.php:217
 #: src/Rendering/OrderData.php:564
 msgid "Subtotal"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:189
-#: dist/order-documents/src/Rendering/Layout.php:356
-#: dist/order-documents/src/Rendering/OrderData.php:571
-#: src/Rendering/Layout.php:189
-#: src/Rendering/Layout.php:356
+#: src/Rendering/Layout.php:218
+#: src/Rendering/Layout.php:434
 #: src/Rendering/OrderData.php:571
 msgid "Discount"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:190
-#: src/Rendering/Layout.php:190
+#: src/Rendering/Layout.php:219
 msgid "Shipping"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:191
-#: src/Rendering/Layout.php:191
+#: src/Rendering/Layout.php:220
 msgid "Fees"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:192
-#: src/Rendering/Layout.php:192
+#: src/Rendering/Layout.php:221
 msgid "Tax lines"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:193
-#: src/Rendering/Layout.php:193
+#: src/Rendering/Layout.php:222
 msgid "Total label"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:193
-#: dist/order-documents/src/Rendering/OrderData.php:555
-#: dist/order-documents/src/Rendering/OrderData.php:609
-#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
-#: src/Rendering/Layout.php:193
+#: src/Rendering/Layout.php:222
 #: src/Rendering/OrderData.php:555
 #: src/Rendering/OrderData.php:609
 #: templates/shared/blocks/vat_summary.php:24
 msgid "Total"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:197
-#: dist/order-documents/src/Rendering/Layout.php:199
-#: dist/order-documents/templates/shared/blocks/vat_summary.php:21
-#: src/Rendering/Layout.php:197
-#: src/Rendering/Layout.php:199
+#: src/Rendering/Layout.php:226
+#: src/Rendering/Layout.php:228
 #: templates/shared/blocks/vat_summary.php:21
 msgid "VAT summary"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:202
-#: dist/order-documents/src/Rendering/Layout.php:204
-#: dist/order-documents/src/Rendering/Placeholders.php:35
-#: dist/order-documents/templates/shared/blocks/customer_note.php:17
-#: src/Rendering/Layout.php:202
-#: src/Rendering/Layout.php:204
+#: src/Rendering/Layout.php:231
+#: src/Rendering/Layout.php:233
 #: src/Rendering/Placeholders.php:35
 #: templates/shared/blocks/customer_note.php:17
 msgid "Customer note"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:207
-#: src/Rendering/Layout.php:207
+#: src/Rendering/Layout.php:236
 msgid "Document notes"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:217
-#: src/Rendering/Layout.php:217
+#: src/Rendering/Layout.php:246
 msgid "Document notice"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:222
-#: src/Rendering/Layout.php:222
+#: src/Rendering/Layout.php:251
 msgid "Custom text"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:225
-#: src/Rendering/Layout.php:225
+#: src/Rendering/Layout.php:254
 msgid "Text (HTML and placeholders allowed)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:229
-#: src/Rendering/Layout.php:229
+#: src/Rendering/Layout.php:258
 msgid "Divider"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:232
-#: dist/order-documents/src/Rendering/Layout.php:257
-#: src/Rendering/Layout.php:232
-#: src/Rendering/Layout.php:257
+#: src/Rendering/Layout.php:261
+#: src/Rendering/Layout.php:286
 msgid "Colour"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:233
-#: src/Rendering/Layout.php:233
+#: src/Rendering/Layout.php:262
 msgid "Thickness (pt)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:234
-#: dist/order-documents/src/Settings/Schema.php:122
-#: src/Rendering/Layout.php:234
+#: src/Rendering/Layout.php:263
 #: src/Settings/Schema.php:122
 msgid "Style"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:234
-#: src/Rendering/Layout.php:234
+#: src/Rendering/Layout.php:263
 msgid "Solid"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:234
-#: src/Rendering/Layout.php:234
+#: src/Rendering/Layout.php:263
 msgid "Dashed"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:234
-#: src/Rendering/Layout.php:234
+#: src/Rendering/Layout.php:263
 msgid "Dotted"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:238
-#: src/Rendering/Layout.php:238
+#: src/Rendering/Layout.php:267
 msgid "Spacer"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:241
-#: src/Rendering/Layout.php:241
+#: src/Rendering/Layout.php:270
+#: assets/editor/src/Inspector.js:431
+#: assets/editor/src/Inspector.js:634
 msgid "Height (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:245
-#: src/Rendering/Layout.php:245
+#: src/Rendering/Layout.php:274
 msgid "Signature line"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:248
-#: src/Rendering/Layout.php:248
+#: src/Rendering/Layout.php:277
 msgid "Label"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:248
-#: dist/order-documents/templates/shared/blocks/signature.php:11
-#: dist/order-documents/templates/shared/blocks/signature_fields.php:13
-#: src/Rendering/Layout.php:248
+#: src/Rendering/Layout.php:277
 #: templates/shared/blocks/signature.php:11
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Signature"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:249
-#: src/Rendering/Layout.php:249
+#: src/Rendering/Layout.php:278
 msgid "Date line"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:253
-#: src/Rendering/Layout.php:253
+#: src/Rendering/Layout.php:282
 msgid "Paid stamp"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:256
-#: src/Rendering/Layout.php:256
+#: src/Rendering/Layout.php:285
 msgid "Text (empty = receipt setting)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:258
-#: src/Rendering/Layout.php:258
+#: src/Rendering/Layout.php:287
 msgid "Only when the order is paid"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:265
-#: src/Rendering/Layout.php:265
+#: src/Rendering/Layout.php:291
+msgid "Shape"
+msgstr ""
+
+#: src/Rendering/Layout.php:295
+msgid "Fill"
+msgstr ""
+
+#: src/Rendering/Layout.php:296
+msgid "Border colour"
+msgstr ""
+
+#: src/Rendering/Layout.php:297
+msgid "Border width (pt)"
+msgstr ""
+
+#: src/Rendering/Layout.php:298
+msgid "Corner radius (mm)"
+msgstr ""
+
+#: src/Rendering/Layout.php:305
 msgid "Text (empty = footer from the general settings)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:266
-#: src/Rendering/Layout.php:266
+#: src/Rendering/Layout.php:306
 msgid "At the bottom of every page"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:267
-#: src/Rendering/Layout.php:267
+#: src/Rendering/Layout.php:307
 msgid "Line above"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:273
-#: src/Rendering/Layout.php:273
+#: src/Rendering/Layout.php:313
 msgid "Footer text"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:274
-#: src/Rendering/Layout.php:274
+#: src/Rendering/Layout.php:314
 msgid "Shop details in three columns"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:280
-#: src/Rendering/Layout.php:280
+#: src/Rendering/Layout.php:320
 msgid "Shipping details"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:283
-#: dist/order-documents/templates/shared/blocks/shipping_info.php:42
-#: src/Rendering/Layout.php:283
+#: src/Rendering/Layout.php:323
 #: templates/shared/blocks/shipping_info.php:42
 msgid "Delivery"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:286
-#: src/Rendering/Layout.php:286
+#: src/Rendering/Layout.php:326
 msgid "Total weight"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:287
-#: dist/order-documents/templates/shared/blocks/item_count.php:23
-#: dist/order-documents/templates/shared/blocks/shipping_info.php:32
-#: src/Rendering/Layout.php:287
+#: src/Rendering/Layout.php:327
 #: templates/shared/blocks/item_count.php:23
 #: templates/shared/blocks/shipping_info.php:32
 msgid "Total quantity"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:288
-#: src/Rendering/Layout.php:288
+#: src/Rendering/Layout.php:328
 msgid "Tracking number field (order meta key)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:289
-#: src/Rendering/Layout.php:289
+#: src/Rendering/Layout.php:329
 msgid "Extra text (placeholders allowed)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:294
-#: src/Rendering/Layout.php:294
+#: src/Rendering/Layout.php:334
 msgid "Quantity summary"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:297
-#: dist/order-documents/templates/shared/blocks/item_count.php:19
-#: src/Rendering/Layout.php:297
+#: src/Rendering/Layout.php:337
 #: templates/shared/blocks/item_count.php:19
 msgid "Number of lines"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:298
-#: src/Rendering/Layout.php:298
+#: src/Rendering/Layout.php:338
 msgid "Unit after the quantity"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:298
-#: src/Rendering/Layout.php:298
+#: src/Rendering/Layout.php:338
 msgid "pcs"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:302
-#: src/Rendering/Layout.php:302
+#: src/Rendering/Layout.php:342
 msgid "Payment band"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:305
-#: src/Rendering/Layout.php:305
+#: src/Rendering/Layout.php:345
 msgid "Account label"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:305
-#: dist/order-documents/templates/shared/blocks/payment_summary.php:24
-#: src/Rendering/Layout.php:305
+#: src/Rendering/Layout.php:345
 #: templates/shared/blocks/payment_summary.php:24
 msgid "Bank account"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:306
-#: src/Rendering/Layout.php:306
+#: src/Rendering/Layout.php:346
 msgid "Reference label"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:306
-#: dist/order-documents/templates/shared/blocks/payment_summary.php:30
-#: src/Rendering/Layout.php:306
+#: src/Rendering/Layout.php:346
 #: templates/shared/blocks/payment_summary.php:30
 msgid "Payment reference"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:308
-#: dist/order-documents/templates/shared/blocks/payment_summary.php:35
-#: src/Rendering/Layout.php:308
+#: src/Rendering/Layout.php:348
 #: templates/shared/blocks/payment_summary.php:35
 msgid "Amount to pay"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:309
-#: src/Rendering/Layout.php:309
+#: src/Rendering/Layout.php:349
 msgid "Hide when the order is paid"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:313
-#: src/Rendering/Layout.php:313
+#: src/Rendering/Layout.php:353
 msgid "Signature fields"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:317
-#: src/Rendering/Layout.php:317
+#: src/Rendering/Layout.php:357
 msgid "Fields (comma separated)"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:317
-#: src/Rendering/Layout.php:317
+#: src/Rendering/Layout.php:357
 msgid "Signature, Name in print, Date"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:320
-#: src/Rendering/Layout.php:320
+#: src/Rendering/Layout.php:360
 msgid "Label position"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:323
-#: src/Rendering/Layout.php:323
+#: src/Rendering/Layout.php:363
 msgid "Above the line"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:324
-#: src/Rendering/Layout.php:324
+#: src/Rendering/Layout.php:364
 msgid "Below the line"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:346
-#: src/Rendering/Layout.php:346
+#: src/Rendering/Layout.php:424
 msgid "Picked"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:347
-#: src/Rendering/Layout.php:347
+#: src/Rendering/Layout.php:425
 msgid "Image"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:349
-#: src/Rendering/Layout.php:349
+#: src/Rendering/Layout.php:427
 msgid "Location"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:350
-#: src/Rendering/Layout.php:350
+#: src/Rendering/Layout.php:428
 msgid "Product"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:351
-#: src/Rendering/Layout.php:351
+#: src/Rendering/Layout.php:429
 msgid "Qty"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:352
-#: dist/order-documents/templates/shared/blocks/shipping_info.php:28
-#: src/Rendering/Layout.php:352
+#: src/Rendering/Layout.php:430
 #: templates/shared/blocks/shipping_info.php:28
 msgid "Weight"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:353
-#: src/Rendering/Layout.php:353
+#: src/Rendering/Layout.php:431
 msgid "Unit price"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:354
-#: src/Rendering/Layout.php:354
+#: src/Rendering/Layout.php:432
 msgid "Unit price excl. tax"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:355
-#: src/Rendering/Layout.php:355
+#: src/Rendering/Layout.php:433
 msgid "Unit price incl. tax"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:357
-#: src/Rendering/Layout.php:357
+#: src/Rendering/Layout.php:435
 msgid "VAT %"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:358
-#: dist/order-documents/src/Rendering/OrderData.php:452
-#: dist/order-documents/src/Rendering/OrderData.php:598
-#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
-#: src/Rendering/Layout.php:358
+#: src/Rendering/Layout.php:436
 #: src/Rendering/OrderData.php:452
 #: src/Rendering/OrderData.php:598
 #: templates/shared/blocks/vat_summary.php:24
 msgid "VAT"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:359
-#: src/Rendering/Layout.php:359
+#: src/Rendering/Layout.php:437
 msgid "Amount"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:360
-#: src/Rendering/Layout.php:360
+#: src/Rendering/Layout.php:438
 msgid "Amount excl. tax"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:361
-#: src/Rendering/Layout.php:361
+#: src/Rendering/Layout.php:439
 msgid "Amount incl. tax"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Layout.php:363
-#: src/Rendering/Layout.php:363
+#: src/Rendering/Layout.php:441
 msgid "Delivered"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/OrderData.php:288
 #: src/Rendering/OrderData.php:288
 msgid "Refund"
 msgstr ""
 
 #. translators: %s: SKU
-#: dist/order-documents/src/Rendering/OrderData.php:386
 #: src/Rendering/OrderData.php:386
 #, php-format
 msgid "SKU: %s"
 msgstr ""
 
 #. translators: %s: weight
-#: dist/order-documents/src/Rendering/OrderData.php:390
 #: src/Rendering/OrderData.php:390
 #, php-format
 msgid "Weight: %s"
 msgstr ""
 
 #. translators: %s: shipping method
-#: dist/order-documents/src/Rendering/OrderData.php:580
 #: src/Rendering/OrderData.php:580
 #, php-format
 msgid "Shipping: %s"
 msgstr ""
 
 #. translators: %s: tax amount
-#: dist/order-documents/src/Rendering/OrderData.php:617
 #: src/Rendering/OrderData.php:617
 msgid "Of which VAT"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/OrderData.php:669
 #: src/Rendering/OrderData.php:669
 msgid "No VAT"
 msgstr ""
 
 #. translators: 1: page number, 2: page count. Keep {PAGE_NUM} style placeholders out; numbers are filled in.
-#: dist/order-documents/src/Rendering/PdfGenerator.php:49
 #: src/Rendering/PdfGenerator.php:49
 #, php-format
 msgid "Page %1$d of %2$d"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:32
 #: src/Rendering/Placeholders.php:32
 msgid "Order total"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:36
 #: src/Rendering/Placeholders.php:36
 msgid "Any billing_ or shipping_ field, e.g. billing_company"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:40
-#: dist/order-documents/src/Settings/Schema.php:74
 #: src/Rendering/Placeholders.php:40
 #: src/Settings/Schema.php:74
 msgid "Bank account number"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:41
-#: dist/order-documents/src/Settings/Schema.php:75
 #: src/Rendering/Placeholders.php:41
 #: src/Settings/Schema.php:75
 msgid "IBAN"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:42
-#: dist/order-documents/src/Settings/Schema.php:76
 #: src/Rendering/Placeholders.php:42
 #: src/Settings/Schema.php:76
 msgid "BIC / SWIFT"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:43
 #: src/Rendering/Placeholders.php:43
 msgid "Site title"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:44
 #: src/Rendering/Placeholders.php:44
 msgid "Site address"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:45
 #: src/Rendering/Placeholders.php:45
 msgid "Current year"
 msgstr ""
 
-#: dist/order-documents/src/Rendering/Placeholders.php:46
 #: src/Rendering/Placeholders.php:46
 msgid "Any order meta field"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:62
 #: src/Settings/Schema.php:62
 msgid "Shown in the header of every document."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:69
 #: src/Settings/Schema.php:69
 msgid "For example \"Org.nr. 123 456 789 MVA\". Shown as entered."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:71
 #: src/Settings/Schema.php:71
 msgid "For example \"Foretaksregisteret\" (Norwegian limited companies)."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:72
 #: src/Settings/Schema.php:72
 msgid "Payment details"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:72
 #: src/Settings/Schema.php:72
 msgid "Available as placeholders in payment information texts."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:73
 #: src/Settings/Schema.php:73
 msgid "Bank"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:77
 #: src/Settings/Schema.php:77
 msgid "Extra texts"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:81
 #: src/Settings/Schema.php:81
 msgid "Placeholders are supported, see the list at the bottom of the page."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:82
 #: src/Settings/Schema.php:82
 msgid "Output"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:90
 #: src/Settings/Schema.php:90
 msgid "Letter"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:100
 #: src/Settings/Schema.php:100
 msgid "Open in the browser"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:101
 #: src/Settings/Schema.php:101
 msgid "Download the file"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:104
 #: src/Settings/Schema.php:104
 msgid "Date format"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:104
 #: src/Settings/Schema.php:104
 msgid "PHP date format. Leave empty to use the WordPress setting."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:108
 #: src/Settings/Schema.php:108
 msgid "Document language"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:111
 #: src/Settings/Schema.php:111
 msgid "Site language"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:112
 #: src/Settings/Schema.php:112
 msgid "Customer's profile language (when set)"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:121
 #: src/Settings/Schema.php:121
 msgid "Default template"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:125
 #: src/Settings/Schema.php:125
 msgid "Secondary text colour"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:126
 #: src/Settings/Schema.php:126
 msgid "Font"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:127
 #: src/Settings/Schema.php:127
 msgid "Base font size (pt)"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:132
 #: src/Settings/Schema.php:132
 msgid "Table style"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:135
 #: src/Settings/Schema.php:135
 msgid "Template default"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:136
 #: src/Settings/Schema.php:136
 msgid "Lines between rows"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:137
 #: src/Settings/Schema.php:137
 msgid "Striped rows"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:139
 #: src/Settings/Schema.php:139
 msgid "Plain"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:142
 #: src/Settings/Schema.php:142
 #: assets/editor/src/StylePanel.js:24
 msgid "Page"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:143
 #: src/Settings/Schema.php:143
 msgid "Top margin (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:144
 #: src/Settings/Schema.php:144
 msgid "Right margin (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:145
 #: src/Settings/Schema.php:145
 msgid "Bottom margin (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:146
 #: src/Settings/Schema.php:146
 msgid "Left margin (mm)"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:147
 #: src/Settings/Schema.php:147
 msgid "Page numbers"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:147
 #: src/Settings/Schema.php:147
 msgid "Print \"Page X of Y\" at the bottom of multi-page documents."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:153
 #: src/Settings/Schema.php:153
 msgid "Access"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:157
 #: src/Settings/Schema.php:157
 msgid "Who can create documents in the admin"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:160
 #: src/Settings/Schema.php:160
 msgid "Shop managers and administrators"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:161
 #: src/Settings/Schema.php:161
 msgid "Anyone who can edit orders"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:164
 #: src/Settings/Schema.php:164
 msgid "Guest access"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:164
 #: src/Settings/Schema.php:164
 msgid "Let customers without an account open their documents with a secure link that contains the order key."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:165
 #: src/Settings/Schema.php:165
 msgid "Previous plugin data"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:166
 #: src/Settings/Schema.php:166
 msgid "Use WooCommerce PDF Invoices & Packing Slips data"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:166
 #: src/Settings/Schema.php:166
 msgid "Orders that already have an invoice (or other document) from that plugin keep its number and date."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:167
 #: src/Settings/Schema.php:167
 msgid "Performance and debugging"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:168
 #: src/Settings/Schema.php:168
 msgid "Bulk limit"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:168
 #: src/Settings/Schema.php:168
 msgid "Maximum number of orders in one bulk PDF."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:169
 #: src/Settings/Schema.php:169
 msgid "Output HTML instead of PDF"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:169
 #: src/Settings/Schema.php:169
 msgid "For template development only."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:170
 #: src/Settings/Schema.php:170
 msgid "Delete settings on uninstall"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Schema.php:170
 #: src/Settings/Schema.php:170
 msgid "Removes settings, layouts and number sequences when the plugin is deleted. Document data on orders and archived PDFs are always kept."
 msgstr ""
 
-#: dist/order-documents/src/Settings/Settings.php:151
 #: src/Settings/Settings.php:151
 msgid "admin"
 msgstr ""
 
-#: dist/order-documents/src/Settings/Settings.php:153
 #: src/Settings/Settings.php:153
 msgid "Refunded order (full and partial refunds)"
 msgstr ""
 
-#: dist/order-documents/templates/business/template.php:11
 #: templates/business/template.php:11
 msgid "Business"
 msgstr ""
 
-#: dist/order-documents/templates/business/template.php:12
 #: templates/business/template.php:12
 msgid "Boxed sections and a boxed product table, formal and easy to scan."
 msgstr ""
 
-#: dist/order-documents/templates/classic/template.php:11
 #: templates/classic/template.php:11
 msgid "Classic"
 msgstr ""
 
-#: dist/order-documents/templates/classic/template.php:12
 #: templates/classic/template.php:12
 msgid "Timeless layout with the logo on the left and shop details on the right."
 msgstr ""
 
-#: dist/order-documents/templates/compact/template.php:11
 #: templates/compact/template.php:11
 msgid "Compact"
 msgstr ""
 
-#: dist/order-documents/templates/compact/template.php:12
 #: templates/compact/template.php:12
 msgid "Dense one-line header and tight rows. Fits many products on a page; good for packing slips and picking lists."
 msgstr ""
 
 #. translators: %s: customer first name
-#: dist/order-documents/templates/emails/odocs-document.php:17
-#: dist/order-documents/templates/emails/plain/odocs-document.php:17
 #: templates/emails/odocs-document.php:17
 #: templates/emails/plain/odocs-document.php:17
 #, php-format
@@ -2749,236 +2153,331 @@ msgid "Hi %s,"
 msgstr ""
 
 #. translators: 1: document title, 2: order number
-#: dist/order-documents/templates/emails/odocs-document.php:22
-#: dist/order-documents/templates/emails/plain/odocs-document.php:19
 #: templates/emails/odocs-document.php:22
 #: templates/emails/plain/odocs-document.php:19
 #, php-format
 msgid "Please find your %1$s for order #%2$s attached to this e-mail."
 msgstr ""
 
-#: dist/order-documents/templates/fresh/template.php:16
 #: templates/fresh/template.php:16
 msgid "Fresh"
 msgstr ""
 
-#: dist/order-documents/templates/fresh/template.php:17
 #: templates/fresh/template.php:17
 msgid "Rounded boxes, product images, a tinted table header, a large total and a payment band."
 msgstr ""
 
-#: dist/order-documents/templates/minimal/template.php:11
 #: templates/minimal/template.php:11
 msgid "Minimal"
 msgstr ""
 
-#: dist/order-documents/templates/minimal/template.php:12
 #: templates/minimal/template.php:12
 msgid "Large title, generous white space and hairlines only."
 msgstr ""
 
-#: dist/order-documents/templates/modern/template.php:11
 #: templates/modern/template.php:11
 msgid "Modern"
 msgstr ""
 
-#: dist/order-documents/templates/modern/template.php:12
 #: templates/modern/template.php:12
 msgid "Coloured title band, striped product table and a highlighted total."
 msgstr ""
 
-#: dist/order-documents/templates/receipt-80mm/template.php:11
 #: templates/receipt-80mm/template.php:11
 msgid "Receipt 80 mm"
 msgstr ""
 
-#: dist/order-documents/templates/receipt-80mm/template.php:12
 #: templates/receipt-80mm/template.php:12
 msgid "Narrow single-column layout for 80 mm receipt printers."
 msgstr ""
 
 #. translators: %s: document number
-#: dist/order-documents/templates/shared/blocks/document_title.php:24
 #: templates/shared/blocks/document_title.php:24
 #, php-format
 msgid "No. %s"
 msgstr ""
 
 #. translators: %s: order number
-#: dist/order-documents/templates/shared/blocks/document_title.php:27
 #: templates/shared/blocks/document_title.php:27
 #, php-format
 msgid "Order %s"
 msgstr ""
 
 #. translators: %s: VAT number
-#: dist/order-documents/templates/shared/blocks/footer.php:17
-#: dist/order-documents/templates/shared/blocks/shop_info.php:39
 #: templates/shared/blocks/footer.php:17
 #: templates/shared/blocks/shop_info.php:39
 #, php-format
 msgid "VAT: %s"
 msgstr ""
 
-#: dist/order-documents/templates/shared/blocks/shipping_info.php:22
 #: templates/shared/blocks/shipping_info.php:22
 msgid "Tracking number"
 msgstr ""
 
-#: dist/order-documents/templates/shared/blocks/signature.php:14
 #: templates/shared/blocks/signature.php:14
 msgid "Place and date"
 msgstr ""
 
-#: dist/order-documents/templates/shared/blocks/signature_fields.php:13
 #: templates/shared/blocks/signature_fields.php:13
 msgid "Name in print"
 msgstr ""
 
-#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
 #: templates/shared/blocks/vat_summary.php:24
 msgid "Rate"
 msgstr ""
 
-#: dist/order-documents/templates/shared/blocks/vat_summary.php:24
 #: templates/shared/blocks/vat_summary.php:24
 msgid "Basis"
 msgstr ""
 
-#: assets/editor/src/App.js:66
-#: assets/editor/src/App.js:192
-#: assets/editor/src/TopBar.js:265
+#: assets/editor/src/App.js:85
+#: assets/editor/src/App.js:222
+#: assets/editor/src/TopBar.js:272
 msgid "Undo"
 msgstr ""
 
-#: assets/editor/src/App.js:67
-#: assets/editor/src/TopBar.js:273
+#: assets/editor/src/App.js:86
+#: assets/editor/src/TopBar.js:280
 msgid "Redo"
 msgstr ""
 
-#: assets/editor/src/App.js:70
-msgid "Duplicate the selected block or row"
+#: assets/editor/src/App.js:87
+msgid "Nudge the selection one grid step"
 msgstr ""
 
-#: assets/editor/src/App.js:72
-msgid "Delete the selected block or row"
+#: assets/editor/src/App.js:88
+msgid "Nudge the selection five grid steps"
 msgstr ""
 
-#: assets/editor/src/App.js:75
-msgid "Move the selected block or row"
+#: assets/editor/src/App.js:89
+msgid "Alt while dragging"
 msgstr ""
 
-#: assets/editor/src/App.js:77
-msgid "Move through the structure list"
+#: assets/editor/src/App.js:89
+msgid "Place freely, without snapping"
 msgstr ""
 
-#: assets/editor/src/App.js:80
-msgid "Select the parent (block → row → document)"
+#: assets/editor/src/App.js:90
+msgid "Shift while resizing"
 msgstr ""
 
-#: assets/editor/src/App.js:82
-msgid "Show these shortcuts"
+#: assets/editor/src/App.js:90
+msgid "Keep the proportions"
+msgstr ""
+
+#: assets/editor/src/App.js:91
+msgid "Shift+click"
+msgstr ""
+
+#: assets/editor/src/App.js:91
+msgid "Add to or remove from the selection"
+msgstr ""
+
+#: assets/editor/src/App.js:92
+msgid "Select everything in the section"
+msgstr ""
+
+#: assets/editor/src/App.js:93
+msgid "Duplicate the selection"
+msgstr ""
+
+#: assets/editor/src/App.js:94
+msgid "Delete the selection"
+msgstr ""
+
+#: assets/editor/src/App.js:95
+msgid "Bring forward / send backward"
+msgstr ""
+
+#: assets/editor/src/App.js:96
+msgid "Bring to front / send to back"
+msgstr ""
+
+#: assets/editor/src/App.js:97
+msgid "Select the section, then nothing"
 msgstr ""
 
 #: assets/editor/src/App.js:98
+msgid "Show these shortcuts"
+msgstr ""
+
+#: assets/editor/src/App.js:114
 msgid "Cancel"
 msgstr ""
 
-#: assets/editor/src/App.js:339
+#: assets/editor/src/App.js:377
 msgid "Saved."
 msgstr ""
 
-#: assets/editor/src/App.js:355
+#: assets/editor/src/App.js:393
 msgid "Unsaved layout changes"
 msgstr ""
 
-#: assets/editor/src/App.js:356
+#: assets/editor/src/App.js:394
 msgid "This layout has changes that are not saved yet. What do you want to do with them?"
 msgstr ""
 
-#: assets/editor/src/App.js:362
+#: assets/editor/src/App.js:400
 msgid "Discard"
 msgstr ""
 
-#: assets/editor/src/App.js:367
+#: assets/editor/src/App.js:405
 msgid "Save and continue"
 msgstr ""
 
-#: assets/editor/src/App.js:389
+#: assets/editor/src/App.js:427
 msgid "Reset layout?"
 msgstr ""
 
-#: assets/editor/src/App.js:390
+#: assets/editor/src/App.js:428
 msgid "This restores the template’s original layout for this document type. You can still undo it until you leave the editor."
 msgstr ""
 
-#: assets/editor/src/App.js:396
-#: assets/editor/src/TopBar.js:397
+#: assets/editor/src/App.js:434
+#: assets/editor/src/TopBar.js:458
 msgid "Reset layout"
 msgstr ""
 
-#: assets/editor/src/App.js:413
+#: assets/editor/src/App.js:454
 msgid "Layout reset to the template default."
 msgstr ""
 
-#. translators: %s: block name
-#: assets/editor/src/App.js:491
+#. translators: %d: number of components
+#: assets/editor/src/App.js:596
+#, js-format
+msgid "%d components deleted."
+msgstr ""
+
+#. translators: %s: component name
+#: assets/editor/src/App.js:603
 #, js-format
 msgid "%s deleted."
 msgstr ""
 
-#. translators: %d: row number
-#: assets/editor/src/App.js:529
+#: assets/editor/src/App.js:618
+#: assets/editor/src/utils.js:603
+msgid "Top"
+msgstr ""
+
+#: assets/editor/src/App.js:665
+#: assets/editor/src/Layers.js:419
+msgid "Free-form section"
+msgstr ""
+
+#: assets/editor/src/App.js:666
+#: assets/editor/src/utils.js:94
+msgid "Flowing section"
+msgstr ""
+
+#: assets/editor/src/App.js:667
+#: assets/editor/src/Layers.js:432
+#: assets/editor/src/utils.js:91
+#: assets/editor/src/utils.js:609
+msgid "Page footer"
+msgstr ""
+
+#. translators: %d: number of components
+#: assets/editor/src/App.js:695
 #, js-format
-msgid "Row %d deleted."
+msgid "Section deleted, with %d components."
 msgstr ""
 
-#: assets/editor/src/App.js:676
-#: assets/editor/src/Outline.js:437
-#: assets/editor/src/TopBar.js:328
-msgid "Structure"
+#: assets/editor/src/App.js:701
+msgid "Section deleted."
 msgstr ""
 
-#: assets/editor/src/App.js:769
-#: assets/editor/src/TopBar.js:381
+#: assets/editor/src/App.js:916
+#: assets/editor/src/Layers.js:387
+#: assets/editor/src/Layers.js:407
+#: assets/editor/src/TopBar.js:389
+msgid "Layers"
+msgstr ""
+
+#: assets/editor/src/App.js:996
+#: assets/editor/src/TopBar.js:442
 msgid "Keyboard shortcuts"
 msgstr ""
 
-#. translators: %d: row number
-#: assets/editor/src/Canvas.js:262
-#: assets/editor/src/Inspector.js:54
-#: assets/editor/src/Inspector.js:69
-#: assets/editor/src/Inspector.js:355
-#: assets/editor/src/Inspector.js:610
-#: assets/editor/src/Outline.js:598
+#: assets/editor/src/Canvas.js:1045
+msgid "Drag to change the section height"
+msgstr ""
+
+#. translators: %s: height in mm
+#: assets/editor/src/Canvas.js:1053
 #, js-format
-msgid "Row %d"
+msgid "Height %s mm"
 msgstr ""
 
-#: assets/editor/src/Canvas.js:294
-#: assets/editor/src/Outline.js:56
-#: assets/editor/src/Outline.js:150
-msgid "Move up"
+#: assets/editor/src/Canvas.js:1104
+msgid "The content is taller than the box with this order. It grows over what is below it; nothing else moves."
 msgstr ""
 
-#: assets/editor/src/Canvas.js:306
-#: assets/editor/src/Outline.js:64
-#: assets/editor/src/Outline.js:160
-msgid "Move down"
+#. translators: %d: number of components
+#: assets/editor/src/Canvas.js:1188
+#: assets/editor/src/Inspector.js:73
+#: assets/editor/src/Inspector.js:549
+#, js-format
+msgid "%d components"
 msgstr ""
 
-#: assets/editor/src/Canvas.js:318
-#: assets/editor/src/Inspector.js:679
-#: assets/editor/src/Outline.js:71
+#: assets/editor/src/Canvas.js:1271
+msgid "Snaps to the grid. Click for free placement."
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1272
+msgid "Free placement. Click to snap to the grid."
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1279
+#: assets/editor/src/Inspector.js:374
+msgid "Bring forward"
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1286
+#: assets/editor/src/Inspector.js:375
+msgid "Send backward"
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1299
+#: assets/editor/src/Layers.js:77
+#: assets/editor/src/Layers.js:261
+msgid "Unlock position"
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1300
+#: assets/editor/src/Inspector.js:410
+#: assets/editor/src/Layers.js:78
+#: assets/editor/src/Layers.js:262
+msgid "Lock position"
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1307
+#: assets/editor/src/Inspector.js:531
+#: assets/editor/src/Inspector.js:567
+#: assets/editor/src/Layers.js:84
 msgid "Duplicate"
 msgstr ""
 
-#: assets/editor/src/Canvas.js:368
+#: assets/editor/src/Canvas.js:1372
 msgid "Updating preview"
 msgstr ""
 
-#: assets/editor/src/Canvas.js:394
+#: assets/editor/src/Canvas.js:1397
 msgid "Document preview"
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1414
+msgid "Page. Click a component to select it, drag to move it."
+msgstr ""
+
+#. translators: %d: page number
+#: assets/editor/src/Canvas.js:1440
+#, js-format
+msgid "Page %d"
+msgstr ""
+
+#: assets/editor/src/Canvas.js:1469
+msgid "Preparing the free-form editor…"
 msgstr ""
 
 #: assets/editor/src/fields.js:104
@@ -3038,214 +2537,338 @@ msgstr ""
 msgid "Reset to default"
 msgstr ""
 
-#: assets/editor/src/Inserter.js:33
-msgid "Search blocks"
+#: assets/editor/src/Inserter.js:25
+msgid "Search components"
 msgstr ""
 
-#: assets/editor/src/Inserter.js:44
-msgid "Blocks"
+#: assets/editor/src/Inserter.js:34
+msgid "Drag a component onto the page, or click it to add it to the selected section."
 msgstr ""
 
-#: assets/editor/src/Inserter.js:60
+#: assets/editor/src/Inserter.js:42
+msgid "Components"
+msgstr ""
+
+#: assets/editor/src/Inserter.js:68
 msgid "Already in this layout"
 msgstr ""
 
-#: assets/editor/src/Inserter.js:70
-msgid "No blocks found."
+#: assets/editor/src/Inserter.js:78
+msgid "No components found."
 msgstr ""
 
-#: assets/editor/src/Inserter.js:100
-#: assets/editor/src/Outline.js:450
-msgid "Add block"
-msgstr ""
-
-#: assets/editor/src/Inspector.js:86
+#: assets/editor/src/Inspector.js:82
 msgid "Selection"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:168
+#: assets/editor/src/Inspector.js:160
 msgid "Turn columns on or off and drag to reorder them."
 msgstr ""
 
-#: assets/editor/src/Inspector.js:224
+#: assets/editor/src/Inspector.js:216
 msgid "Drag to reorder"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:244
+#: assets/editor/src/Inspector.js:236
 msgid "Column options"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:269
-#: assets/editor/src/Inspector.js:447
+#: assets/editor/src/Inspector.js:261
 msgid "Width %"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:273
+#: assets/editor/src/Inspector.js:265
 msgid "0 = automatic"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:288
+#: assets/editor/src/Inspector.js:280
 msgid "Align"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:337
-msgid "Top"
+#: assets/editor/src/Inspector.js:312
+msgid "Align left"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:342
-msgid "Middle"
+#: assets/editor/src/Inspector.js:313
+msgid "Align centre"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:347
-msgid "Bottom"
+#: assets/editor/src/Inspector.js:314
+msgid "Align right"
 msgstr ""
 
-#. translators: %d: number of columns
-#: assets/editor/src/Inspector.js:364
-#, js-format
-msgid "%d columns side by side."
+#: assets/editor/src/Inspector.js:315
+msgid "Align top"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:370
-msgid "One full-width column."
+#: assets/editor/src/Inspector.js:316
+msgid "Align middle"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:378
-msgid "Number of columns"
+#: assets/editor/src/Inspector.js:317
+msgid "Align bottom"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:402
-msgid "Column widths"
+#: assets/editor/src/Inspector.js:322
+msgid "Arrange"
 msgstr ""
 
-#. translators: %d: column number
+#: assets/editor/src/Inspector.js:327
+msgid "Align to each other"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:328
+msgid "Align in the section"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:345
+msgid "Spread evenly"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:350
+msgid "Spread horizontally"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:354
+msgid "Horizontally"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:359
+msgid "Spread vertically"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:363
+msgid "Vertically"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:369
+msgid "Layer"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:372
+msgid "To front"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:377
+msgid "To back"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:396
+#: assets/editor/src/Inspector.js:556
+msgid "Placement"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:399
+msgid "Moves and resizes in steps of the grid."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:400
+msgid "Moves freely, to a tenth of a millimetre. Smart guides still help you line it up."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:405
+#: assets/editor/src/TopBar.js:337
+msgid "Snap to grid"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:406
+msgid "Free"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:411
+msgid "A locked component cannot be moved or resized by accident."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:424
+msgid "Position and size"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:428
+msgid "X (mm)"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:429
+msgid "Y (mm)"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:430
 #: assets/editor/src/Inspector.js:437
+msgid "Width (mm)"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:436
+msgid "Indent (mm)"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:440
+msgid "This section grows with its content, so components are stacked under each other. Drag a component into a free-form section to place it freely."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:449
+msgid "When the content is taller than the box"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:452
+msgid "Anything below the box edge is cut off."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:453
+msgid "The box grows downwards over what is below. Nothing else moves."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:458
+msgid "Let it grow"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:459
+msgid "Cut off"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:472
+msgid "Unknown component type."
+msgstr ""
+
+#. translators: %s: section name
+#: assets/editor/src/Inspector.js:496
 #, js-format
-msgid "Column %d"
+msgid "In %s"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:466
-msgid "Vertical"
-msgstr ""
-
-#: assets/editor/src/Inspector.js:487
-#: assets/editor/src/Inspector.js:656
+#: assets/editor/src/Inspector.js:516
 msgid "Appearance"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:490
-msgid "Background"
+#: assets/editor/src/Inspector.js:563
+msgid "Drag any of them on the page to move them together. Shift-click adds or removes a component."
 msgstr ""
 
-#: assets/editor/src/Inspector.js:507
-msgid "Padding (mm)"
+#: assets/editor/src/Inspector.js:587
+#: assets/editor/src/utils.js:109
+msgid "Free-form"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:538
-msgid "Border"
+#: assets/editor/src/Inspector.js:588
+msgid "Flowing"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:552
-#: assets/editor/src/Outline.js:169
-msgid "Duplicate row"
+#: assets/editor/src/Inspector.js:597
+msgid "Section"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:560
-#: assets/editor/src/Outline.js:189
-msgid "Delete row"
-msgstr ""
-
-#: assets/editor/src/Inspector.js:581
-msgid "Unknown block type."
-msgstr ""
-
-#. translators: 1: row number, 2: column number
 #: assets/editor/src/Inspector.js:602
-#, js-format
-msgid "Row %1$d, column %2$d"
+msgid "Name"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:723
+#: assets/editor/src/Inspector.js:603
+msgid "Only shown in the editor."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:613
+msgid "Type"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:616
+msgid "Components are placed freely and never push each other. The section has a fixed height."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:617
+msgid "Components are stacked under each other and the section grows with them, across pages if needed. Use it for the products table."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:629
+msgid "Shown at the bottom of every page, inside the bottom margin. The bottom margin grows to fit it."
+msgstr ""
+
+#. translators: %s: height in mm
+#: assets/editor/src/Inspector.js:638
+#, js-format
+msgid "At least %s mm, to fit its components."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:653
+msgid "Keep on one page"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:654
+msgid "If the section does not fit at the bottom of a page, it moves to the next page as a whole."
+msgstr ""
+
+#: assets/editor/src/Inspector.js:663
+#: assets/editor/src/Layers.js:344
+msgid "Move up"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:666
+#: assets/editor/src/Layers.js:350
+msgid "Move down"
+msgstr ""
+
+#: assets/editor/src/Inspector.js:697
 msgid "Document style"
 msgstr ""
 
-#: assets/editor/src/Inspector.js:724
+#: assets/editor/src/Inspector.js:698
 msgid "Colours, fonts and margins for all documents."
 msgstr ""
 
-#: assets/editor/src/Inspector.js:736
-msgid "Tip: click any part of the page to change it."
+#: assets/editor/src/Inspector.js:702
+msgid "Tip: click a component on the page to change it, or drag it to move it. Drag on an empty spot to select several."
 msgstr ""
 
-#: assets/editor/src/Outline.js:39
+#: assets/editor/src/Layers.js:48
 msgid "Options"
 msgstr ""
 
-#: assets/editor/src/Outline.js:94
-msgid "Row options"
+#: assets/editor/src/Layers.js:61
+msgid "Bring to front"
 msgstr ""
 
-#. translators: %d: number of columns
-#: assets/editor/src/Outline.js:124
-#: assets/editor/src/Outline.js:617
-#, js-format
-msgid "%d column"
-msgid_plural "%d columns"
-msgstr[0] ""
-msgstr[1] ""
-
-#: assets/editor/src/Outline.js:177
-msgid "Insert row below"
+#: assets/editor/src/Layers.js:67
+msgid "Send to back"
 msgstr ""
 
-#. translators: 1: column number, 2: width in percent
-#: assets/editor/src/Outline.js:393
-#, js-format
-msgid "Column %1$d · %2$s%%"
+#: assets/editor/src/Layers.js:253
+msgid "Top layer"
 msgstr ""
 
-#: assets/editor/src/Outline.js:426
-msgid "Empty – drag a block here"
-msgstr ""
-
-#: assets/editor/src/Outline.js:453
-msgid "Block"
-msgstr ""
-
-#: assets/editor/src/Outline.js:462
-msgid "Document structure"
-msgstr ""
-
-#: assets/editor/src/Outline.js:564
-msgid "Expand"
-msgstr ""
-
-#: assets/editor/src/Outline.js:568
+#: assets/editor/src/Layers.js:323
 msgid "Collapse"
 msgstr ""
 
-#. translators: %d: number of blocks
-#: assets/editor/src/Outline.js:607
+#: assets/editor/src/Layers.js:323
+msgid "Expand"
+msgstr ""
+
+#: assets/editor/src/Layers.js:338
+msgid "Section options"
+msgstr ""
+
+#: assets/editor/src/Layers.js:356
+msgid "Delete section"
+msgstr ""
+
+#: assets/editor/src/Layers.js:368
+msgid "Empty – drag a component here"
+msgstr ""
+
+#: assets/editor/src/Layers.js:397
+#: assets/editor/src/Layers.js:444
+msgid "Add"
+msgstr ""
+
+#: assets/editor/src/Layers.js:414
+#: assets/editor/src/Layers.js:415
+msgid "Add section"
+msgstr ""
+
+#: assets/editor/src/Layers.js:424
+msgid "Flowing section (grows with its content)"
+msgstr ""
+
+#. translators: %s: name of the Add tab
+#: assets/editor/src/Layers.js:443
 #, js-format
-msgid "%d block"
-msgid_plural "%d blocks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: assets/editor/src/Outline.js:667
-msgid "This layout is empty. Add a row to start."
-msgstr ""
-
-#: assets/editor/src/RowLayoutPicker.js:41
-msgid "Full width"
-msgstr ""
-
-#: assets/editor/src/RowLayoutPicker.js:52
-msgid "Add row"
-msgstr ""
-
-#: assets/editor/src/RowLayoutPicker.js:75
-msgid "Choose a row layout"
+msgid "Tip: open %s to drag new components onto the page."
 msgstr ""
 
 #: assets/editor/src/StylePanel.js:16
@@ -3269,7 +2892,7 @@ msgid "Link sides"
 msgstr ""
 
 #: assets/editor/src/StylePanel.js:99
-#: assets/editor/src/TopBar.js:358
+#: assets/editor/src/TopBar.js:419
 msgid "More"
 msgstr ""
 
@@ -3277,72 +2900,118 @@ msgstr ""
 msgid "Set by this template."
 msgstr ""
 
-#: assets/editor/src/TopBar.js:102
-#: assets/editor/src/TopBar.js:110
+#: assets/editor/src/TopBar.js:109
+#: assets/editor/src/TopBar.js:117
 msgid "Back to Order Documents settings"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:131
+#: assets/editor/src/TopBar.js:138
 msgid "Turned off"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:149
+#: assets/editor/src/TopBar.js:156
 msgid "Choose a template to edit"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:197
+#: assets/editor/src/TopBar.js:204
 msgid "In use"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:211
+#: assets/editor/src/TopBar.js:218
 msgid "This document type uses another template. Choose templates under Order Documents → Documents."
 msgstr ""
 
-#: assets/editor/src/TopBar.js:218
+#: assets/editor/src/TopBar.js:225
 msgid "Not in use"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:223
+#: assets/editor/src/TopBar.js:230
 msgid "Preview with"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:227
-#: assets/editor/src/TopBar.js:238
+#: assets/editor/src/TopBar.js:234
+#: assets/editor/src/TopBar.js:245
 msgid "Sample data"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:242
+#: assets/editor/src/TopBar.js:249
 msgid "A made-up order with every field filled in"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:282
+#: assets/editor/src/TopBar.js:289
 msgid "Zoom"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:293
+#: assets/editor/src/TopBar.js:300
 msgid "Fit to width"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:321
+#: assets/editor/src/TopBar.js:327
+msgid "Grid and guides"
+msgstr ""
+
+#: assets/editor/src/TopBar.js:338
+msgid "Hold Alt while dragging to place freely."
+msgstr ""
+
+#: assets/editor/src/TopBar.js:344
+msgid "Show grid"
+msgstr ""
+
+#: assets/editor/src/TopBar.js:350
+msgid "Smart guides"
+msgstr ""
+
+#: assets/editor/src/TopBar.js:351
+msgid "Line components up with each other and the section edges."
+msgstr ""
+
+#: assets/editor/src/TopBar.js:359
+msgid "Grid size (mm)"
+msgstr ""
+
+#: assets/editor/src/TopBar.js:382
 msgid "Saving…"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:323
+#: assets/editor/src/TopBar.js:384
 msgid "Unsaved changes"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:324
+#: assets/editor/src/TopBar.js:385
 msgid "All changes saved"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:343
+#: assets/editor/src/TopBar.js:404
 msgid "Preview PDF"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:372
+#: assets/editor/src/TopBar.js:433
 msgid "Full screen"
 msgstr ""
 
-#: assets/editor/src/TopBar.js:392
+#: assets/editor/src/TopBar.js:453
 msgid "Restore the template’s original layout"
+msgstr ""
+
+#. translators: %d: section number
+#: assets/editor/src/utils.js:97
+#, js-format
+msgid "Section %d"
+msgstr ""
+
+#: assets/editor/src/utils.js:104
+msgid "Grows with its content"
+msgstr ""
+
+#: assets/editor/src/utils.js:107
+msgid "Bottom of every page"
+msgstr ""
+
+#: assets/editor/src/utils.js:604
+msgid "Products"
+msgstr ""
+
+#: assets/editor/src/utils.js:607
+msgid "Below products"
 msgstr ""

@@ -8,6 +8,7 @@
  *   DELETE /layout?template=&type=     reset to the template default
  *   POST   /design                     save design settings {style}
  *   POST   /preview                    HTML preview {template, type, layout, style, order_id}
+ *   POST   /measure                    Where a rows layout puts each row and block in the PDF {template, type, layout, style}
  *   GET    /orders?search=             recent orders for the sample-order picker
  *
  * @package OrderDocs
@@ -23,6 +24,7 @@ use OrderDocs\Rendering\Layout;
 use OrderDocs\Rendering\PdfGenerator;
 use OrderDocs\Rendering\Placeholders;
 use OrderDocs\Rendering\Renderer;
+use OrderDocs\Rendering\OrderData;
 use OrderDocs\Rendering\TemplateRegistry;
 use OrderDocs\Settings\Schema;
 use OrderDocs\Settings\Settings;
@@ -56,6 +58,7 @@ class RestController {
 		);
 		register_rest_route( self::NS, '/design', array( 'methods' => 'POST', 'callback' => array( $this, 'save_design' ), 'permission_callback' => $perm ) );
 		register_rest_route( self::NS, '/preview', array( 'methods' => 'POST', 'callback' => array( $this, 'preview' ), 'permission_callback' => $perm ) );
+		register_rest_route( self::NS, '/measure', array( 'methods' => 'POST', 'callback' => array( $this, 'measure' ), 'permission_callback' => $perm ) );
 		register_rest_route( self::NS, '/orders', array( 'methods' => 'GET', 'callback' => array( $this, 'orders' ), 'permission_callback' => $perm ) );
 	}
 
@@ -236,6 +239,106 @@ class RestController {
 	/**
 	 * PDF preview from the editor (form POST into a new tab), using the unsaved layout.
 	 */
+	/**
+	 * Renders a rows (version 1) layout to PDF with the sample order and reports where every row and
+	 * block ends up, in CSS pixels (96 dpi) from the top left of its page. The editor uses this to turn
+	 * the layout into free-form sections that print exactly like before.
+	 */
+	public function measure( \WP_REST_Request $request ) {
+		$target = $this->check_target( $request );
+		if ( is_wp_error( $target ) ) {
+			return $target;
+		}
+		list( $template, $type ) = $target;
+		$document = self::preview_document( $type, 0 );
+		if ( ! $document ) {
+			return new \WP_Error( 'odocs_invalid', __( 'Could not build a preview.', 'order-documents' ), array( 'status' => 400 ) );
+		}
+		$overrides            = $this->preview_overrides( $request, $template );
+		$overrides['measure'] = true;
+		$renderer             = new Renderer( 'pdf', $overrides );
+		$html                 = $renderer->render( array( $document ) );
+		$margins              = $renderer->margins( $document );
+		$paper                = $renderer->paper( $document, count( ( new OrderData( $document, 'html' ) )->items() ) );
+		$px                   = 96 / 72;
+		$found                = array(
+			'rows'   => array(),
+			'blocks' => array(),
+		);
+		$page                 = 0;
+		$record               = static function ( $frame ) use ( &$found, &$page, $px ) {
+			$node = $frame->get_node();
+			if ( ! $node instanceof \DOMElement ) {
+				return;
+			}
+			$box  = $frame->get_border_box();
+			$rect = array(
+				'left'   => round( (float) $box['x'] * $px, 2 ),
+				'top'    => round( (float) $box['y'] * $px, 2 ),
+				'width'  => round( (float) $box['w'] * $px, 2 ),
+				'height' => round( (float) $box['h'] * $px, 2 ),
+				'page'   => $page,
+			);
+			$row = $node->getAttribute( 'data-odocs-row' );
+			if ( '' !== $row && ! isset( $found['rows'][ $row ] ) ) {
+				$found['rows'][ $row ] = array(
+					'rect'   => $rect,
+					'radius' => round( (float) $frame->get_style()->border_top_left_radius * $px, 2 ),
+				);
+			}
+			$block = $node->getAttribute( 'data-odocs-block' );
+			if ( '' !== $block && ! isset( $found['blocks'][ $block ] ) ) {
+				$found['blocks'][ $block ] = $rect;
+			}
+			if ( 'img' === $node->nodeName ) {
+				for ( $p = $node->parentNode; $p instanceof \DOMElement; $p = $p->parentNode ) {
+					$id = $p->getAttribute( 'data-odocs-block' );
+					if ( '' !== $id ) {
+						if ( isset( $found['blocks'][ $id ] ) && ! isset( $found['blocks'][ $id ]['img'] ) ) {
+							$found['blocks'][ $id ]['img'] = $rect;
+						}
+						break;
+					}
+				}
+			}
+		};
+		try {
+			$dompdf = PdfGenerator::dompdf();
+			$dompdf->setPaper( $paper['size'], 'portrait' );
+			$dompdf->setCallbacks(
+				array(
+					array(
+						'event' => 'begin_page_render',
+						'f'     => static function () use ( &$page ) {
+							++$page;
+						},
+					),
+					array(
+						'event' => 'begin_frame',
+						'f'     => $record,
+					),
+				)
+			);
+			$dompdf->loadHtml( $html, 'UTF-8' );
+			$dompdf->render();
+		} catch ( \Throwable $e ) {
+			return new \WP_Error( 'odocs_measure', $e->getMessage(), array( 'status' => 500 ) );
+		}
+		$mm = 96 / 25.4;
+		return rest_ensure_response(
+			array(
+				'content'      => array(
+					'left' => round( $margins[3] * $mm, 2 ),
+					'top'  => round( $margins[0] * $mm, 2 ),
+				),
+				'marginBottom' => (float) $margins[2],
+				'contentWidth' => round( ( (float) $paper['width_mm'] - $margins[1] - $margins[3] ) * $mm, 2 ),
+				'rows'         => (object) $found['rows'],
+				'blocks'       => (object) $found['blocks'],
+			)
+		);
+	}
+
 	public function preview_pdf(): void {
 		check_admin_referer( 'odocs_preview_pdf' );
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {

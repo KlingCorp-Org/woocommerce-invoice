@@ -16,6 +16,7 @@ return array(
 	'name'         => __( 'Fresh', 'order-documents' ),
 	'description'  => __( 'Rounded boxes, product images, a tinted table header, a large total and a payment band.', 'order-documents' ),
 	'table_style'  => 'plain',
+	'box_padding'  => array( 2.8, 5.3 ),
 	'heading_font' => 'fredoka',
 	'style'        => array(
 		'accent_color'  => '#1F7A36',

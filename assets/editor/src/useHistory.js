@@ -46,6 +46,16 @@ export default function useHistory( initial = null ) {
 		setState( { past: [], present, future: [] } );
 	}, [] );
 
+	/** Replaces the present state without adding an undo step. */
+	const replace = useCallback( ( updater ) => {
+		last.current = { key: null, time: 0 };
+		setState( ( s ) => ( {
+			...s,
+			present:
+				typeof updater === 'function' ? updater( s.present ) : updater,
+		} ) );
+	}, [] );
+
 	const undo = useCallback( () => {
 		last.current = { key: null, time: 0 };
 		setState( ( s ) =>
@@ -76,6 +86,7 @@ export default function useHistory( initial = null ) {
 		present: state.present,
 		set,
 		reset,
+		replace,
 		undo,
 		redo,
 		canUndo: state.past.length > 0,

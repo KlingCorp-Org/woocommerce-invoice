@@ -1,47 +1,45 @@
 /**
- * Block inserter: searchable grid of block types.
+ * Component library: a searchable grid of component types. Drag a tile onto the
+ * page to place it exactly, or click it to add it to the selected section.
  */
 import { useState } from '@wordpress/element';
-import {
-	Button,
-	Dashicon,
-	Dropdown,
-	SearchControl,
-} from '@wordpress/components';
+import { Dashicon, SearchControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { plus } from '@wordpress/icons';
+import { allItems } from './utils';
+import { DRAG_TYPE } from './Canvas';
 
-function InserterContent( { blockTypes, used, onInsert, onClose } ) {
+export default function Library( { blockTypes, layout, onInsert } ) {
 	const [ query, setQuery ] = useState( '' );
 	const q = query.trim().toLowerCase();
+	const used = new Set( allItems( layout ).map( ( b ) => b.type ) );
 	const items = Object.entries( blockTypes ).filter(
 		( [ type, def ] ) =>
 			! q || def.label.toLowerCase().includes( q ) || type.includes( q )
 	);
-	const pick = ( type ) => {
-		onInsert( type );
-		onClose();
-	};
 	return (
 		<div className="odocs-inserter">
 			<SearchControl
 				__nextHasNoMarginBottom
-				// eslint-disable-next-line jsx-a11y/no-autofocus
-				autoFocus
 				value={ query }
 				onChange={ setQuery }
-				placeholder={ __( 'Search blocks', 'order-documents' ) }
+				placeholder={ __( 'Search components', 'order-documents' ) }
 				onKeyDown={ ( e ) => {
 					if ( e.key === 'Enter' && items.length ) {
 						e.preventDefault();
-						pick( items[ 0 ][ 0 ] );
+						onInsert( items[ 0 ][ 0 ] );
 					}
 				} }
 			/>
+			<p className="odocs-help">
+				{ __(
+					'Drag a component onto the page, or click it to add it to the selected section.',
+					'order-documents'
+				) }
+			</p>
 			<div
 				className="odocs-inserter-grid"
 				role="listbox"
-				aria-label={ __( 'Blocks', 'order-documents' ) }
+				aria-label={ __( 'Components', 'order-documents' ) }
 			>
 				{ items.map( ( [ type, def ] ) => (
 					<button
@@ -50,7 +48,17 @@ function InserterContent( { blockTypes, used, onInsert, onClose } ) {
 						role="option"
 						aria-selected="false"
 						className="odocs-inserter-item"
-						onClick={ () => pick( type ) }
+						draggable
+						onDragStart={ ( e ) => {
+							e.dataTransfer.effectAllowed = 'copy';
+							e.dataTransfer.setData( DRAG_TYPE, type );
+							e.dataTransfer.setData( 'text/plain', def.label );
+							window.odocsDragType = type;
+						} }
+						onDragEnd={ () => {
+							window.odocsDragType = null;
+						} }
+						onClick={ () => onInsert( type ) }
 					>
 						<Dashicon icon={ def.icon || 'block-default' } />
 						<span>{ def.label }</span>
@@ -67,50 +75,10 @@ function InserterContent( { blockTypes, used, onInsert, onClose } ) {
 				) ) }
 				{ ! items.length && (
 					<p className="odocs-help">
-						{ __( 'No blocks found.', 'order-documents' ) }
+						{ __( 'No components found.', 'order-documents' ) }
 					</p>
 				) }
 			</div>
 		</div>
-	);
-}
-
-export default function Inserter( {
-	blockTypes,
-	layout,
-	onInsert,
-	renderToggle,
-	placement = 'right-start',
-} ) {
-	const used = new Set(
-		layout.rows.flatMap( ( row ) =>
-			row.columns.flatMap( ( col ) => col.blocks.map( ( b ) => b.type ) )
-		)
-	);
-	return (
-		<Dropdown
-			popoverProps={ { placement, offset: 8 } }
-			contentClassName="odocs-popover"
-			renderToggle={
-				renderToggle ||
-				( ( { isOpen, onToggle } ) => (
-					<Button
-						size="small"
-						icon={ plus }
-						label={ __( 'Add block', 'order-documents' ) }
-						onClick={ onToggle }
-						aria-expanded={ isOpen }
-					/>
-				) )
-			}
-			renderContent={ ( { onClose } ) => (
-				<InserterContent
-					blockTypes={ blockTypes }
-					used={ used }
-					onInsert={ onInsert }
-					onClose={ onClose }
-				/>
-			) }
-		/>
 	);
 }

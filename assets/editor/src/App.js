@@ -18,28 +18,36 @@ import {
 import apiFetch from '@wordpress/api-fetch';
 import { __, sprintf } from '@wordpress/i18n';
 import TopBar, { SAMPLE } from './TopBar';
-import Outline from './Outline';
+import Layers from './Layers';
 import Canvas from './Canvas';
 import Inspector from './Inspector';
 import useHistory from './useHistory';
 import {
-	blockDefaults,
-	duplicateBlock,
-	duplicateRow,
-	findBlock,
-	findRow,
-	insertBlock,
-	insertionPoint,
-	insertRow,
-	moveBlockBy,
-	moveRow,
-	removeBlock,
-	rowWithWidths,
+	alignItems,
+	clone,
+	convertV1,
+	distributeItems,
+	duplicateItems,
+	findItem,
+	findSection,
+	fitSections,
+	insertItem,
+	isFree,
+	isV2,
+	newItem,
+	newSection,
+	removeItems,
+	reorderLayer,
+	setFrame,
+	tidy,
 	uid,
+	updateItems,
 } from './utils';
 
 const boot = window.odocsEditor || {};
 const MENU_KEY = 'odocs-editor-wp-menu';
+const GRID_KEY = 'odocs-editor-grid';
+const GRID_DEFAULT = { show: false, snap: true, size: 2, guides: true };
 
 const storage = {
 	get( key ) {
@@ -56,6 +64,17 @@ const storage = {
 	},
 };
 
+function loadGrid() {
+	try {
+		return {
+			...GRID_DEFAULT,
+			...JSON.parse( storage.get( GRID_KEY ) || '{}' ),
+		};
+	} catch ( e ) {
+		return GRID_DEFAULT;
+	}
+}
+
 const isMac =
 	typeof navigator !== 'undefined' &&
 	/Mac|iPhone|iPad/.test( navigator.platform || '' );
@@ -65,20 +84,17 @@ const SHORTCUTS = [
 	[ `${ MOD }+S`, __( 'Save', 'order-documents' ) ],
 	[ `${ MOD }+Z`, __( 'Undo', 'order-documents' ) ],
 	[ `${ MOD }+Shift+Z`, __( 'Redo', 'order-documents' ) ],
-	[
-		`${ MOD }+D`,
-		__( 'Duplicate the selected block or row', 'order-documents' ),
-	],
-	[ 'Delete', __( 'Delete the selected block or row', 'order-documents' ) ],
-	[
-		'Alt+↑ / Alt+↓',
-		__( 'Move the selected block or row', 'order-documents' ),
-	],
-	[ '↑ / ↓', __( 'Move through the structure list', 'order-documents' ) ],
-	[
-		'Esc',
-		__( 'Select the parent (block → row → document)', 'order-documents' ),
-	],
+	[ '← ↑ → ↓', __( 'Nudge the selection one grid step', 'order-documents' ) ],
+	[ 'Shift+← ↑ → ↓', __( 'Nudge the selection five grid steps', 'order-documents' ) ],
+	[ __( 'Alt while dragging', 'order-documents' ), __( 'Place freely, without snapping', 'order-documents' ) ],
+	[ __( 'Shift while resizing', 'order-documents' ), __( 'Keep the proportions', 'order-documents' ) ],
+	[ __( 'Shift+click', 'order-documents' ), __( 'Add to or remove from the selection', 'order-documents' ) ],
+	[ `${ MOD }+A`, __( 'Select everything in the section', 'order-documents' ) ],
+	[ `${ MOD }+D`, __( 'Duplicate the selection', 'order-documents' ) ],
+	[ 'Delete', __( 'Delete the selection', 'order-documents' ) ],
+	[ `${ MOD }+] / ${ MOD }+[`, __( 'Bring forward / send backward', 'order-documents' ) ],
+	[ `${ MOD }+Shift+] / ${ MOD }+Shift+[`, __( 'Bring to front / send to back', 'order-documents' ) ],
+	[ 'Esc', __( 'Select the section, then nothing', 'order-documents' ) ],
 	[ '?', __( 'Show these shortcuts', 'order-documents' ) ],
 ];
 
@@ -127,7 +143,10 @@ export default function App() {
 	const history = useHistory( null );
 	const [ saved, setSaved ] = useState( { layout: null, style: null } );
 	const [ customized, setCustomized ] = useState( false );
-	const [ selected, setSelected ] = useState( null );
+	const [ selection, setSelection ] = useState( null );
+	const [ converting, setConverting ] = useState( false );
+	const [ grid, setGridState ] = useState( loadGrid );
+	const [ contentWidth, setContentWidth ] = useState( 182 );
 	const [ html, setHtml ] = useState( '' );
 	const [ palette, setPalette ] = useState( {} );
 	const [ effectiveStyle, setEffectiveStyle ] = useState( {} );
@@ -140,6 +159,10 @@ export default function App() {
 	const [ zoom, setZoom ] = useState( 'fit' );
 	const [ scale, setScale ] = useState( 1 );
 	const [ wpMenu, setWpMenu ] = useState( storage.get( MENU_KEY ) === '1' );
+	const setGrid = ( next ) => {
+		setGridState( next );
+		storage.set( GRID_KEY, JSON.stringify( next ) );
+	};
 	const [ panes, setPanes ] = useState( {
 		structure: window.innerWidth >= 1100,
 		settings: true,
@@ -151,9 +174,16 @@ export default function App() {
 	styleRef.current = style || config?.design || null;
 
 	const dirtyLayout = useMemo(
-		() => !! layout && !! saved.layout && ! same( layout, saved.layout ),
-		[ layout, saved.layout ]
+		() =>
+			! converting &&
+			!! layout &&
+			!! saved.layout &&
+			! same( layout, saved.layout ),
+		[ layout, saved.layout, converting ]
 	);
+	const layoutRef = useRef( null );
+	layoutRef.current = layout;
+	const convertMode = useRef( null );
 	const dirtyStyle = useMemo(
 		() => !! style && !! saved.style && ! same( style, saved.style ),
 		[ style, saved.style ]
@@ -225,7 +255,7 @@ export default function App() {
 			return;
 		}
 		let cancelled = false;
-		setSelected( null );
+		setSelection( null );
 		apiFetch( {
 			path: `/odocs/v1/layout?template=${ template }&type=${ type }`,
 		} )
@@ -237,8 +267,16 @@ export default function App() {
 					layout: res.layout,
 					style: styleRef.current,
 				} );
-				setSaved( ( s ) => ( { ...s, layout: res.layout } ) );
 				setCustomized( res.customized );
+				if ( isV2( res.layout ) ) {
+					setConverting( false );
+					setSaved( ( s ) => ( { ...s, layout: res.layout } ) );
+				} else {
+					// Rows layout: shown once, measured and turned into free-form sections.
+					convertMode.current = 'load';
+					setConverting( true );
+					setSaved( ( s ) => ( { ...s, layout: null } ) );
+				}
 			} )
 			.catch( ( e ) => setError( e.message ) );
 		const url = new URL( window.location.href );
@@ -402,13 +440,16 @@ export default function App() {
 								path: `/odocs/v1/layout?template=${ template }&type=${ type }`,
 								method: 'DELETE',
 							} );
-							setLayout( res.layout );
-							setSaved( ( s ) => ( {
-								...s,
-								layout: res.layout,
-							} ) );
 							setCustomized( false );
-							setSelected( null );
+							setSelection( null );
+							if ( isV2( res.layout ) ) {
+								setLayout( res.layout );
+								setSaved( ( s ) => ( { ...s, layout: res.layout } ) );
+							} else {
+								convertMode.current = 'reset';
+								setConverting( true );
+								setLayout( res.layout );
+							}
 							snack(
 								__(
 									'Layout reset to the template default.',
@@ -453,97 +494,248 @@ export default function App() {
 		form.remove();
 	};
 
-	const label = ( block ) =>
-		config.blockTypes[ block.type ]?.label || block.type;
+	const label = ( item ) =>
+		config.blockTypes[ item.type ]?.label || item.type;
+
+	// A rows layout is measured in the PDF and turned into free-form sections that print the same.
+	useEffect( () => {
+		if ( ! converting || ! layout || isV2( layout ) || ! style ) {
+			return;
+		}
+		let cancelled = false;
+		apiFetch( {
+			path: '/odocs/v1/measure',
+			method: 'POST',
+			data: { template, type, layout, style },
+		} )
+			.then( ( m ) => {
+				if ( cancelled ) {
+					return;
+				}
+				const next = convertV1( layout, m, config.blockTypes );
+				history.replace( ( d ) => ( { ...d, layout: next } ) );
+				setSaved( ( s ) => ( { ...s, layout: next } ) );
+				convertMode.current = null;
+				setConverting( false );
+			} )
+			.catch( ( e ) => ! cancelled && setError( e.message ) );
+		return () => {
+			cancelled = true;
+		};
+	}, [ converting, layout ] ); // eslint-disable-line react-hooks/exhaustive-deps
+
+	/** Section that new components go to: the selected one, else the first free-form one. */
+	const targetSection = () => {
+		if ( selection?.kind === 'section' ) {
+			return findSection( layout, selection.id );
+		}
+		if ( selection?.kind === 'items' ) {
+			const pos = findItem( layout, selection.ids[ 0 ] );
+			if ( pos ) {
+				return pos.s;
+			}
+		}
+		return layout.sections.findIndex( ( x ) => x.kind === 'canvas' );
+	};
+
+	const FULL_WIDTH = [
+		'items_table',
+		'divider',
+		'payment_summary',
+		'signature_fields',
+		'footer',
+	];
 
 	const actions = {
-		select: setSelected,
-		addBlock( blockType, point ) {
-			const block = {
-				id: uid( 'b' ),
-				type: blockType,
-				settings: blockDefaults(
-					config.blockTypes,
-					config.columnTypes,
-					blockType
-				),
-			};
-			const at = point || insertionPoint( layout, selected );
-			if ( ! at ) {
-				const row = rowWithWidths( [ 100 ] );
-				row.columns[ 0 ].blocks.push( block );
-				setLayout( insertRow( layout, layout.rows.length, row ) );
-			} else {
-				setLayout( insertBlock( layout, at.r, at.c, at.index, block ) );
-			}
-			setSelected( { kind: 'block', id: block.id } );
+		select: setSelection,
+		change: ( next, key ) => setLayout( next, key ),
+		setFrame( id, frame, key ) {
+			setLayout( setFrame( layout, id, frame ), key );
 		},
-		removeBlock( id ) {
-			const pos = findBlock( layout, id );
-			if ( ! pos ) {
+		changeItems( ids, fn, key ) {
+			setLayout( fitSections( updateItems( layout, ids, fn ) ), key );
+		},
+		setSnap( ids, on ) {
+			actions.changeItems( ids, ( it ) => ( it.snap = on ? 1 : 0 ) );
+		},
+		setLocked( ids, on ) {
+			actions.changeItems( ids, ( it ) => ( it.locked = on ? 1 : 0 ) );
+		},
+		layer( ids, how ) {
+			setLayout( reorderLayer( layout, ids, how ) );
+		},
+		align( ids, how ) {
+			setLayout( alignItems( layout, ids, how, contentWidth ) );
+		},
+		distribute( ids, axis ) {
+			setLayout( distributeItems( layout, ids, axis ) );
+		},
+		duplicate( ids ) {
+			const [ next, newIds ] = duplicateItems(
+				layout,
+				ids,
+				Math.max( 2, grid.size * 2 )
+			);
+			if ( newIds.length ) {
+				setLayout( next );
+				setSelection( { kind: 'items', ids: newIds } );
+			}
+		},
+		remove( ids ) {
+			const list = ids
+				.map( ( id ) => findItem( layout, id ) )
+				.filter( Boolean );
+			if ( ! list.length ) {
 				return;
 			}
-			const block = layout.rows[ pos.r ].columns[ pos.c ].blocks[ pos.b ];
-			setLayout( removeBlock( layout, id ) );
-			setSelected( { kind: 'row', id: layout.rows[ pos.r ].id } );
+			setLayout( removeItems( layout, ids ) );
+			setSelection( null );
 			snack(
-				sprintf(
-					/* translators: %s: block name */ __(
-						'%s deleted.',
-						'order-documents'
-					),
-					label( block )
-				),
+				list.length > 1
+					? sprintf(
+							/* translators: %d: number of components */ __(
+								'%d components deleted.',
+								'order-documents'
+							),
+							list.length
+					  )
+					: sprintf(
+							/* translators: %s: component name */ __(
+								'%s deleted.',
+								'order-documents'
+							),
+							label( list[ 0 ].item )
+					  ),
 				true
 			);
 		},
-		duplicateBlock( id ) {
-			const [ next, newId ] = duplicateBlock( layout, id );
-			if ( newId ) {
-				setLayout( next );
-				setSelected( { kind: 'block', id: newId } );
+		add( type ) {
+			let next = layout;
+			let s = targetSection();
+			if ( s === -1 ) {
+				next = clone( layout );
+				next.sections.unshift(
+					newSection( 'canvas', __( 'Top', 'order-documents' ) )
+				);
+				s = 0;
 			}
+			const section = next.sections[ s ];
+			const item = newItem( config.blockTypes, config.columnTypes, type );
+			item.w = tidy(
+				FULL_WIDTH.includes( type )
+					? contentWidth
+					: Math.min( item.w, contentWidth )
+			);
+			if ( isFree( section ) ) {
+				// Cascade from the top left so a new component never hides exactly under another.
+				let k = 0;
+				while (
+					k < 20 &&
+					section.items.some(
+						( it ) =>
+							Math.abs( it.x - k * 5 ) < 0.5 &&
+							Math.abs( it.y - k * 5 ) < 0.5
+					)
+				) {
+					k++;
+				}
+				item.x = k * 5;
+				item.y = k * 5;
+			}
+			setLayout( insertItem( next, s, item ) );
+			setSelection( { kind: 'items', ids: [ item.id ] } );
 		},
-		moveBlockBy( id, dir ) {
-			setLayout( moveBlockBy( layout, id, dir ) );
-		},
-		addRow( widths, index = layout.rows.length ) {
-			const row = rowWithWidths( widths );
-			setLayout( insertRow( layout, index, row ) );
-			setSelected( { kind: 'row', id: row.id } );
-		},
-		duplicateRow( r ) {
-			const [ next, newId ] = duplicateRow( layout, r );
-			setLayout( next );
-			setSelected( { kind: 'row', id: newId } );
-		},
-		removeRow( r ) {
-			const next = {
-				...layout,
-				rows: layout.rows.filter( ( _, i ) => i !== r ),
-			};
-			setLayout( next );
-			setSelected( null );
-			snack(
-				sprintf(
-					/* translators: %d: row number */ __(
-						'Row %d deleted.',
-						'order-documents'
-					),
-					r + 1
+		insertAt( type, t ) {
+			const item = newItem( config.blockTypes, config.columnTypes, type, {
+				x: t.x,
+				y: t.y || 0,
+				w: tidy(
+					FULL_WIDTH.includes( type ) && t.index !== undefined
+						? contentWidth
+						: t.w
 				),
+				h: t.h,
+			} );
+			setLayout( insertItem( layout, t.s, item, t.index ?? null ) );
+			setSelection( { kind: 'items', ids: [ item.id ] } );
+		},
+		addSection( kind ) {
+			const next = clone( layout );
+			const names = {
+				canvas: __( 'Free-form section', 'order-documents' ),
+				flow: __( 'Flowing section', 'order-documents' ),
+				footer: __( 'Page footer', 'order-documents' ),
+			};
+			const section = newSection( kind, names[ kind ] );
+			if ( kind === 'footer' ) {
+				section.height = 20;
+				next.sections.push( section );
+			} else {
+				const footerAt = next.sections.findIndex(
+					( x ) => x.kind === 'footer'
+				);
+				next.sections.splice(
+					footerAt === -1 ? next.sections.length : footerAt,
+					0,
+					section
+				);
+			}
+			setLayout( next );
+			setSelection( { kind: 'section', id: section.id } );
+		},
+		removeSection( s ) {
+			const section = layout.sections[ s ];
+			const next = clone( layout );
+			next.sections.splice( s, 1 );
+			setLayout( next );
+			setSelection( null );
+			snack(
+				section.items.length
+					? sprintf(
+							/* translators: %d: number of components */ __(
+								'Section deleted, with %d components.',
+								'order-documents'
+							),
+							section.items.length
+					  )
+					: __( 'Section deleted.', 'order-documents' ),
 				true
 			);
 		},
-		moveRow( from, to ) {
-			setLayout( moveRow( layout, from, to ) );
+		moveSection( from, to ) {
+			if ( to < 0 || to >= layout.sections.length ) {
+				return;
+			}
+			const next = clone( layout );
+			const [ section ] = next.sections.splice( from, 1 );
+			next.sections.splice( to, 0, section );
+			setLayout( next );
+		},
+		setSectionKind( s, kind ) {
+			const next = clone( layout );
+			const section = next.sections[ s ];
+			if ( section.kind === kind ) {
+				return;
+			}
+			if ( kind === 'flow' ) {
+				section.items.sort( ( a, b ) => a.y - b.y || a.x - b.x );
+			} else {
+				let y = 0;
+				section.items.forEach( ( it ) => {
+					it.y = tidy( y );
+					y += it.h + 2;
+				} );
+				section.height = tidy( Math.max( section.height, y ) );
+			}
+			section.kind = kind;
+			setLayout( fitSections( next ) );
 		},
 	};
 
 	// Keyboard shortcuts (also forwarded from the preview frame).
 	const keyHandler = useRef();
 	keyHandler.current = ( e ) => {
-		if ( ! layout || confirm || showShortcuts ) {
+		if ( ! isV2( layout ) || converting || confirm || showShortcuts ) {
 			return;
 		}
 		const mod = e.ctrlKey || e.metaKey;
@@ -577,40 +769,86 @@ export default function App() {
 			e.preventDefault();
 			return setShowShortcuts( true );
 		}
-		if ( ! selected ) {
-			return;
-		}
-		const isBlock = selected.kind === 'block';
-		const r = isBlock
-			? findBlock( layout, selected.id )?.r
-			: findRow( layout, selected.id );
-		if ( r === undefined || r === -1 ) {
-			return;
+		const ids = selection?.kind === 'items' ? selection.ids : [];
+		if ( mod && key === 'a' ) {
+			e.preventDefault();
+			let s =
+				selection?.kind === 'section'
+					? findSection( layout, selection.id )
+					: -1;
+			if ( ids.length ) {
+				s = findItem( layout, ids[ 0 ] )?.s ?? -1;
+			}
+			const pool =
+				s === -1
+					? layout.sections.flatMap( ( x ) => x.items )
+					: layout.sections[ s ].items;
+			return setSelection(
+				pool.length
+					? { kind: 'items', ids: pool.map( ( it ) => it.id ) }
+					: null
+			);
 		}
 		if ( key === 'Escape' ) {
 			e.preventDefault();
-			return setSelected(
-				isBlock ? { kind: 'row', id: layout.rows[ r ].id } : null
-			);
+			if ( ids.length ) {
+				const pos = findItem( layout, ids[ 0 ] );
+				return setSelection(
+					pos ? { kind: 'section', id: pos.section.id } : null
+				);
+			}
+			return setSelection( null );
+		}
+		if ( ! ids.length ) {
+			return;
 		}
 		if ( key === 'Delete' || key === 'Backspace' ) {
 			e.preventDefault();
-			return isBlock
-				? actions.removeBlock( selected.id )
-				: actions.removeRow( r );
+			return actions.remove( ids );
 		}
 		if ( mod && key === 'd' ) {
 			e.preventDefault();
-			return isBlock
-				? actions.duplicateBlock( selected.id )
-				: actions.duplicateRow( r );
+			return actions.duplicate( ids );
 		}
-		if ( e.altKey && ( key === 'ArrowUp' || key === 'ArrowDown' ) ) {
+		let bracket = null;
+		if ( e.code === 'BracketRight' || key === ']' || key === '}' ) {
+			bracket = 'up';
+		} else if ( e.code === 'BracketLeft' || key === '[' || key === '{' ) {
+			bracket = 'down';
+		}
+		if ( mod && bracket ) {
 			e.preventDefault();
-			const dir = key === 'ArrowUp' ? -1 : 1;
-			return isBlock
-				? actions.moveBlockBy( selected.id, dir )
-				: actions.moveRow( r, r + dir );
+			let how = e.shiftKey ? 'back' : 'backward';
+			if ( bracket === 'up' ) {
+				how = e.shiftKey ? 'front' : 'forward';
+			}
+			return actions.layer( ids, how );
+		}
+		const arrows = {
+			ArrowLeft: [ -1, 0 ],
+			ArrowRight: [ 1, 0 ],
+			ArrowUp: [ 0, -1 ],
+			ArrowDown: [ 0, 1 ],
+		};
+		const inPane = t && t.closest( '.odocs-pane, .odocs-topbar' );
+		if ( arrows[ key ] && ! mod && ! e.altKey && ! inPane ) {
+			e.preventDefault();
+			const step =
+				( grid.snap ? grid.size : 0.5 ) * ( e.shiftKey ? 5 : 1 );
+			const [ dx, dy ] = arrows[ key ];
+			return actions.changeItems(
+				ids,
+				( it, section ) => {
+					if ( it.locked ) {
+						return;
+					}
+					it.x = tidy( it.x + dx * step );
+					if ( isFree( section ) ) {
+						it.y = tidy( Math.max( 0, it.y + dy * step ) );
+					}
+				},
+				'nudge:' + ids.join( ',' )
+			);
 		}
 	};
 	const onKeyDown = useCallback( ( e ) => keyHandler.current( e ), [] );
@@ -666,6 +904,8 @@ export default function App() {
 				canReset={ customized || dirtyLayout }
 				wpMenu={ wpMenu }
 				toggleWpMenu={ () => setWpMenu( ! wpMenu ) }
+				grid={ grid }
+				setGrid={ setGrid }
 				openShortcuts={ () => setShowShortcuts( true ) }
 				settingsUrl={ boot.settingsUrl }
 			/>
@@ -673,14 +913,13 @@ export default function App() {
 				{ panes.structure && (
 					<aside
 						className="odocs-pane odocs-pane-structure"
-						aria-label={ __( 'Structure', 'order-documents' ) }
+						aria-label={ __( 'Layers', 'order-documents' ) }
 					>
-						{ layout ? (
-							<Outline
+						{ isV2( layout ) ? (
+							<Layers
 								layout={ layout }
-								setLayout={ setLayout }
 								config={ config }
-								selected={ selected }
+								selection={ selection }
 								actions={ actions }
 							/>
 						) : (
@@ -698,19 +937,21 @@ export default function App() {
 							{ error }
 						</Notice>
 					) }
-					{ layout && (
-						<Canvas
-							html={ html }
-							loading={ loading }
-							zoom={ zoom }
-							onScale={ setScale }
-							selected={ selected }
-							layout={ layout }
-							blockTypes={ config.blockTypes }
-							actions={ actions }
-							onKeyDown={ onKeyDown }
-						/>
-					) }
+						{ layout && (
+							<Canvas
+								html={ html }
+								loading={ loading }
+								zoom={ zoom }
+								onScale={ setScale }
+								selection={ selection }
+								layout={ layout }
+								blockTypes={ config.blockTypes }
+								actions={ actions }
+								grid={ grid }
+								converting={ converting }
+								onContentWidth={ setContentWidth }
+							/>
+						) }
 					<SnackbarList
 						className="odocs-snackbars"
 						notices={ snacks }
@@ -726,31 +967,17 @@ export default function App() {
 						className="odocs-pane odocs-pane-settings"
 						aria-label={ __( 'Settings', 'order-documents' ) }
 					>
-						{ layout && style ? (
+						{ isV2( layout ) && style ? (
 							<Inspector
 								layout={ layout }
-								setLayout={ setLayout }
 								style={ style }
 								setStyle={ setStyle }
-								selected={ selected }
-								onSelect={ setSelected }
+								selection={ selection }
+								onSelect={ setSelection }
 								config={ config }
 								palette={ palette }
 								effectiveStyle={ effectiveStyle }
-								onDuplicate={ () =>
-									selected?.kind === 'block'
-										? actions.duplicateBlock( selected.id )
-										: actions.duplicateRow(
-												findRow( layout, selected.id )
-										  )
-								}
-								onDelete={ () =>
-									selected?.kind === 'block'
-										? actions.removeBlock( selected.id )
-										: actions.removeRow(
-												findRow( layout, selected.id )
-										  )
-								}
+								actions={ actions }
 							/>
 						) : (
 							<Spinner />
@@ -772,7 +999,7 @@ export default function App() {
 				>
 					<dl>
 						{ SHORTCUTS.map( ( [ keys, what ] ) => (
-							<div key={ keys }>
+							<div key={ keys + what }>
 								<dt>{ what }</dt>
 								<dd>
 									{ keys.split( ' / ' ).map( ( k, i ) => (

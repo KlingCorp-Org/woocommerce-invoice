@@ -142,6 +142,14 @@ class Renderer {
 		$template = TemplateRegistry::get( $this->template_id( $document ) );
 		if ( $template && '80mm' === ( $template['paper'] ?? null ) ) {
 			$height = max( 180, 190 + 16 * $item_count );
+			$layout = $this->layout( $document );
+			if ( Layout::is_v2( $layout ) ) {
+				$fixed = 0.0;
+				foreach ( $layout['sections'] as $section ) {
+					$fixed += 'flow' === $section['kind'] ? 0 : (float) $section['height'];
+				}
+				$height = max( 120, $fixed + 30 + 9 * $item_count );
+			}
 			return array(
 				'size'      => array( 0, 0, self::mm_to_pt( 80 ), self::mm_to_pt( $height ) ),
 				'width_mm'  => 80,
@@ -171,8 +179,27 @@ class Renderer {
 		if ( $template && ! empty( $template['margins'] ) ) {
 			return array_map( 'floatval', $template['margins'] );
 		}
-		$style = $this->style();
-		return array( (float) $style['margin_top'], (float) $style['margin_right'], (float) $style['margin_bottom'], (float) $style['margin_left'] );
+		$style  = $this->style();
+		$footer = $this->footer_section( $document );
+		$bottom = (float) $style['margin_bottom'];
+		if ( $footer ) {
+			// The page footer section lives in the bottom margin, so the margin is at least as tall as it.
+			$bottom = max( $bottom, (float) $footer['height'] );
+		}
+		return array( (float) $style['margin_top'], (float) $style['margin_right'], $bottom, (float) $style['margin_left'] );
+	}
+
+	/**
+	 * The page footer section of a free-form layout, if there is one.
+	 */
+	public function footer_section( Document $document ): ?array {
+		$layout = $this->layout( $document );
+		foreach ( $layout['sections'] ?? array() as $section ) {
+			if ( 'footer' === $section['kind'] ) {
+				return $section;
+			}
+		}
+		return null;
 	}
 
 	public static function mm_to_pt( float $mm ): float {
@@ -246,7 +273,11 @@ class Renderer {
 
 		$fixed  = '';
 		$rows   = '';
-		foreach ( $layout['rows'] as $row ) {
+		if ( Layout::is_v2( $layout ) ) {
+			list( $rows, $fixed ) = $this->sections_html( $layout, $document, $data );
+			$layout['rows']       = array();
+		}
+		foreach ( $layout['rows'] ?? array() as $row ) {
 			// Fixed footers are taken out of the flow and repeated on every page (single documents in PDF mode only).
 			if ( $this->is_pdf() && ! $this->bulk ) {
 				foreach ( $row['columns'] as $c => $column ) {
@@ -261,12 +292,13 @@ class Renderer {
 			$rows .= $this->row_html( $row, $document, $data );
 		}
 
-		$classes = 'odocs-document' . ( $index > 0 ? ' odocs-page-break' : '' );
-		$html    = '<div class="' . esc_attr( $classes ) . '">';
+		$classes = 'odocs-document' . ( $index > 0 ? ' odocs-page-break' : '' ) . ( Layout::is_v2( $layout ) ? ' odocs-free' : '' );
+		// Dompdf only repeats fixed elements on every page when they come before the document wrapper.
+		$html = $this->is_pdf() ? $fixed : '';
+		$html .= '<div class="' . esc_attr( $classes ) . '">';
 		if ( ! $this->is_pdf() ) {
-			$html .= '<div class="odocs-sheet">';
+			$html .= '<div class="odocs-sheet">' . $fixed;
 		}
-		$html .= $fixed;
 		ob_start();
 		do_action( 'odocs_before_document', $document, $data, $this );
 		$html .= ob_get_clean();
@@ -279,6 +311,120 @@ class Renderer {
 		}
 		$html .= '</div>';
 		return $html;
+	}
+
+	/**
+	 * HTML of a free-form (version 2) layout.
+	 *
+	 * @return array [ body HTML, page footer HTML ]
+	 */
+	protected function sections_html( array $layout, Document $document, OrderData $data ): array {
+		$preview = 'preview' === $this->mode;
+		$body    = '';
+		$footer  = '';
+		foreach ( $layout['sections'] as $section ) {
+			$attr = $preview ? ' data-odocs-section="' . esc_attr( $section['id'] ) . '"' : '';
+			if ( 'flow' === $section['kind'] ) {
+				$inner = '';
+				foreach ( $section['items'] as $item ) {
+					$inner .= $this->flow_item_html( $item, $document, $data );
+				}
+				if ( '' === $inner && ! $preview ) {
+					continue;
+				}
+				$body .= sprintf( '<div class="odocs-section odocs-section-flow"%s>%s</div>', $attr, $inner );
+				continue;
+			}
+			$inner = '';
+			foreach ( array_values( $section['items'] ) as $z => $item ) {
+				$inner .= $this->canvas_item_html( $item, $z + 1, $document, $data );
+			}
+			$height = (float) $section['height'];
+			if ( 'footer' === $section['kind'] ) {
+				if ( $this->is_pdf() && ! $this->bulk ) {
+					// Repeated at the bottom of every page, inside the bottom margin.
+					$margins = $this->margins( $document );
+					$style   = sprintf( 'position:fixed;left:0;right:0;bottom:-%smm;height:%smm', (float) $margins[2], $height );
+				} elseif ( $this->is_pdf() ) {
+					// Several documents in one PDF: at the bottom of the last page of each document.
+					$margins = $this->margins( $document );
+					$style   = sprintf( 'position:absolute;left:0;right:0;bottom:-%smm;height:%smm', (float) $margins[2], $height );
+				} else {
+					$margins = $this->margins( $document );
+					$paper   = $this->paper( $document );
+					$style   = sprintf( 'position:absolute;left:%smm;width:%smm;bottom:0;height:%smm', (float) $margins[3], (float) $paper['width_mm'] - (float) $margins[1] - (float) $margins[3], $height );
+				}
+				$footer .= sprintf( '<div class="odocs-section odocs-section-footer" style="%s"%s>%s</div>', esc_attr( $style ), $attr, $inner );
+				continue;
+			}
+			if ( '' === $inner && ! $preview && $height <= 0 ) {
+				continue;
+			}
+			$style = sprintf( 'position:relative;height:%smm', $height );
+			if ( ! empty( $section['keep_together'] ) ) {
+				$style .= ';page-break-inside:avoid';
+			}
+			$body .= sprintf( '<div class="odocs-section odocs-section-canvas" style="%s"%s>%s</div>', esc_attr( $style ), $attr, $inner );
+		}
+		if ( $this->is_pdf() && $this->bulk ) {
+			// After the content, so it lands on the document's last page.
+			$body  .= $footer;
+			$footer = '';
+		}
+		return array( $body, $footer );
+	}
+
+	/**
+	 * A component placed freely: absolutely positioned at its spot, it never moves anything else.
+	 */
+	protected function canvas_item_html( array $item, int $z, Document $document, OrderData $data ): string {
+		$inner = $this->block_html( $item, $document, $data, 'canvas' );
+		if ( '' === $inner ) {
+			return '';
+		}
+		$style = array(
+			'position:absolute',
+			'left:' . (float) $item['x'] . 'mm',
+			'top:' . (float) $item['y'] . 'mm',
+			'width:' . (float) $item['w'] . 'mm',
+			'z-index:' . $z,
+		);
+		if ( 'clip' === $item['overflow'] ) {
+			$style[] = 'height:' . (float) $item['h'] . 'mm';
+			$style[] = 'overflow:hidden';
+		} else {
+			$style[] = 'min-height:' . (float) $item['h'] . 'mm';
+		}
+		$attr = 'preview' === $this->mode ? ' data-odocs-item="' . esc_attr( $item['id'] ) . '"' : '';
+		return sprintf( '<div class="odocs-item" style="%s"%s>%s</div>', esc_attr( implode( ';', $style ) ), $attr, $inner );
+	}
+
+	/**
+	 * A component in a flowing section: stacked under the previous one, can break across pages.
+	 */
+	protected function flow_item_html( array $item, Document $document, OrderData $data ): string {
+		$inner = $this->block_html( $item, $document, $data, 'flow' );
+		if ( '' === $inner ) {
+			return '';
+		}
+		$style = sprintf( 'margin-left:%smm;width:%smm', (float) $item['x'], (float) $item['w'] );
+		$attr  = 'preview' === $this->mode ? ' data-odocs-item="' . esc_attr( $item['id'] ) . '"' : '';
+		return sprintf( '<div class="odocs-flow-item" style="%s"%s>%s</div>', esc_attr( $style ), $attr, $inner );
+	}
+
+	/**
+	 * Whether rows and blocks carry their ids: in the editor preview, and when measuring a layout.
+	 */
+	protected function show_ids(): bool {
+		return 'preview' === $this->mode || ! empty( $this->overrides['measure'] );
+	}
+
+	/**
+	 * Box padding (vertical, horizontal in mm) of the "Box" setting for the current template.
+	 */
+	public function box_padding(): array {
+		$template = TemplateRegistry::get( (string) $this->current_template ) ?: array();
+		return array_map( 'floatval', $template['box_padding'] ?? array( 3, 4.5 ) );
 	}
 
 	protected function row_html( array $row, Document $document, OrderData $data ): string {
@@ -324,7 +470,7 @@ class Renderer {
 			$table_style[] = 'padding:' . (float) $s['padding'] . 'mm';
 		}
 		$classes = 'odocs-row' . ( $s['border'] ? ' odocs-row-border' : '' ) . ( $s['background'] ? ' odocs-row-band' : '' );
-		$attr    = 'preview' === $this->mode ? ' data-odocs-row="' . esc_attr( $row['id'] ) . '"' : '';
+		$attr    = $this->show_ids() ? ' data-odocs-row="' . esc_attr( $row['id'] ) . '"' : '';
 		if ( 1 === $count ) {
 			// Single column: plain blocks, so long content (e.g. the products table) can break across pages.
 			$column = array_values( $row['columns'] )[0];
@@ -354,12 +500,17 @@ class Renderer {
 	/**
 	 * HTML of one block, wrapped with its common styling. Empty blocks render nothing.
 	 */
-	public function block_html( array $block, Document $document, OrderData $data ): string {
+	public function block_html( array $block, Document $document, OrderData $data, string $context = '' ): string {
 		$types = Layout::block_types();
 		if ( ! isset( $types[ $block['type'] ] ) ) {
 			return '';
 		}
 		$settings = array_merge( Layout::sanitize_settings( array(), $types[ $block['type'] ]['settings'], $block['type'], $document->get_type() ), (array) $block['settings'] );
+		$frame    = array(
+			'context' => $context,
+			'w'       => (float) ( $block['w'] ?? 0 ),
+			'h'       => (float) ( $block['h'] ?? 0 ),
+		);
 		$inner    = $this->partial(
 			$this->template_id( $document ),
 			'blocks/' . $block['type'] . '.php',
@@ -368,23 +519,26 @@ class Renderer {
 				'document' => $document,
 				'data'     => $data,
 				'r'        => $this,
+				'frame'    => $frame,
 			)
 		);
 		$inner = apply_filters( 'odocs_block_html', $inner, $block, $document, $data );
 		if ( '' === trim( $inner ) ) {
 			if ( 'preview' === $this->mode ) {
-				return sprintf( '<div class="odocs-block odocs-block-empty" data-odocs-block="%s"><span>%s</span></div>', esc_attr( $block['id'] ?? '' ), esc_html( $types[ $block['type'] ]['label'] ) );
+				$size = 'canvas' === $context ? sprintf( ' style="height:%smm;box-sizing:border-box;margin:0"', $frame['h'] ) : '';
+				return sprintf( '<div class="odocs-block odocs-block-empty" data-odocs-block="%s"%s><span>%s</span></div>', esc_attr( $block['id'] ?? '' ), $size, esc_html( $types[ $block['type'] ]['label'] ) );
 			}
 			return '';
 		}
-		$style = array( 'margin-bottom:' . (float) $settings['margin_bottom'] . 'mm' );
-		if ( $settings['align'] ) {
-			$style[] = 'text-align:' . $settings['align'];
+		$align = (string) ( $settings['align'] ?? '' );
+		$style = array( 'margin-bottom:' . ( 'canvas' === $context ? 0 : (float) ( $settings['margin_bottom'] ?? 0 ) ) . 'mm' );
+		if ( $align ) {
+			$style[] = 'text-align:' . $align;
 		}
-		if ( (float) $settings['font_size'] > 0 ) {
+		if ( (float) ( $settings['font_size'] ?? 0 ) > 0 ) {
 			$style[] = 'font-size:' . (float) $settings['font_size'] . 'pt';
 		}
-		if ( $settings['text_color'] ) {
+		if ( ! empty( $settings['text_color'] ) ) {
 			$style[] = 'color:' . $this->color( $settings['text_color'] );
 		}
 		$box = (string) ( $settings['box'] ?? '' );
@@ -393,11 +547,18 @@ class Renderer {
 		} elseif ( 'filled' === $box ) {
 			$style[] = 'background-color:' . $this->palette()['tint'];
 		}
-		$attr = 'preview' === $this->mode ? ' data-odocs-block="' . esc_attr( $block['id'] ?? '' ) . '"' : '';
+		if ( $box && 'canvas' === $context ) {
+			// Dompdf has no box-sizing: the box fills its frame by taking the padding and border off the height.
+			list( $pad_v, $pad_h ) = $this->box_padding();
+			$style[] = sprintf( 'padding:%smm %smm', $pad_v, $pad_h );
+			$style[] = 'min-height:' . max( 0, round( $frame['h'] - 2 * $pad_v - ( 'border' === $box ? 0.53 : 0 ), 2 ) ) . 'mm';
+		}
+		$attr = $this->show_ids() ? ' data-odocs-block="' . esc_attr( $block['id'] ?? '' ) . '"' : '';
 		return sprintf(
-			'<div class="odocs-block odocs-block-%s%s%s" style="%s"%s>%s</div>',
+			'<div class="odocs-block odocs-block-%s%s%s%s" style="%s"%s>%s</div>',
 			esc_attr( str_replace( '_', '-', $block['type'] ) ),
-			$settings['align'] ? ' odocs-align-' . esc_attr( $settings['align'] ) : '',
+			$align ? ' odocs-align-' . esc_attr( $align ) : '',
+			! empty( $settings['text_color'] ) ? ' odocs-colored' : '',
 			$box ? ' odocs-box odocs-box-' . esc_attr( $box ) : '',
 			esc_attr( implode( ';', $style ) ),
 			$attr,
@@ -476,7 +637,36 @@ class Renderer {
 		$css .= $this->partial( $template_id, 'base.css.php', $vars );
 		$css .= $this->partial( $template_id, 'style.css.php', $vars );
 		$css .= $this->partial( $template_id, 'custom.css', $vars );
+		if ( ! $this->is_pdf() ) {
+			$css = $this->match_pdf_line_heights( $css, (string) $style['font_family'], (string) ( $template['heading_font'] ?? '' ) );
+		}
 		return (string) apply_filters( 'odocs_css', $css, $template_id, $style, $this );
+	}
+
+	/**
+	 * Scales the unitless line heights of a stylesheet so a browser sets lines as tall as Dompdf does.
+	 * Rules that switch to the heading font use that font's factor.
+	 */
+	protected function match_pdf_line_heights( string $css, string $font, string $heading_font ): string {
+		$body    = Fonts::line_factor( $font );
+		$heading = '' !== $heading_font ? Fonts::line_factor( $heading_font ) : $body;
+		$family  = '' !== $heading_font ? Fonts::get( $heading_font )['family'] : '';
+		$scaled  = preg_replace_callback(
+			'/([^{}]*)\{([^{}]*)\}/',
+			static function ( $rule ) use ( $body, $heading, $family ) {
+				$factor = ( '' !== $family && false !== strpos( $rule[2], $family ) ) ? $heading : $body;
+				$decls  = preg_replace_callback(
+					'/line-height\s*:\s*([0-9]*\.?[0-9]+)\s*(;|$|!)/',
+					static function ( $m ) use ( $factor ) {
+						return 'line-height: ' . round( (float) $m[1] * $factor, 4 ) . $m[2];
+					},
+					$rule[2]
+				);
+				return $rule[1] . '{' . $decls . '}';
+			},
+			$css
+		);
+		return null === $scaled ? $css : $scaled . sprintf( "\nhtml { line-height: %s; }\n", round( 1.2 * $body, 4 ) );
 	}
 
 	/**

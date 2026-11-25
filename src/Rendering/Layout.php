@@ -1,8 +1,22 @@
 <?php
 /**
- * Document layouts: rows of 1-3 columns holding blocks. Stored per template and document type.
+ * Document layouts. Stored per template and document type.
  *
- * Layout format:
+ * Version 2 (free-form sections, made by the editor since 1.1.1):
+ * {
+ *   "version": 2,
+ *   "sections": [
+ *     { "id": "s1", "kind": "canvas|flow|footer", "name": "", "height": 92, "keep_together": 1,
+ *       "items": [ { "id": "i1", "type": "logo", "settings": { ... }, "x": 0, "y": 0, "w": 50, "h": 18,
+ *                    "snap": 1, "locked": 0, "overflow": "grow|clip" } ] }
+ *   ]
+ * }
+ * Positions and sizes are in mm. x is measured from the left page margin, y from the top of the section.
+ * Item order is the layer order (last = on top). Canvas items never push each other; flow sections
+ * stack their items and can break across pages (the products table); the footer section sits at the
+ * bottom of every page.
+ *
+ * Version 1 (rows of 1-3 columns, still rendered as before):
  * {
  *   "rows": [
  *     { "id": "r1", "settings": { "background": "", "padding": 0, "margin_bottom": 6, "text_color": "" },
@@ -28,7 +42,7 @@ class Layout {
 	 */
 	public static function get( string $template, string $type ): array {
 		$saved = get_option( self::option_name( $template, $type ) );
-		if ( is_array( $saved ) && ! empty( $saved['rows'] ) ) {
+		if ( self::has_content( $saved ) ) {
 			$layout = self::sanitize( $saved, $type );
 		} else {
 			$layout = self::default_layout( $template, $type );
@@ -37,8 +51,23 @@ class Layout {
 	}
 
 	public static function is_customized( string $template, string $type ): bool {
-		$saved = get_option( self::option_name( $template, $type ) );
-		return is_array( $saved ) && ! empty( $saved['rows'] );
+		return self::has_content( get_option( self::option_name( $template, $type ) ) );
+	}
+
+	/**
+	 * Whether a stored value is a usable layout (rows or sections).
+	 *
+	 * @param mixed $layout Stored value.
+	 */
+	private static function has_content( $layout ): bool {
+		return is_array( $layout ) && ( ! empty( $layout['rows'] ) || ! empty( $layout['sections'] ) );
+	}
+
+	/**
+	 * Whether a (sanitized) layout uses free-form sections.
+	 */
+	public static function is_v2( array $layout ): bool {
+		return isset( $layout['sections'] );
 	}
 
 	public static function save( string $template, string $type, array $layout ): array {
@@ -94,7 +123,7 @@ class Layout {
 				'label'    => __( 'Logo', 'order-documents' ),
 				'icon'     => 'format-image',
 				'settings' => array(
-					'max_height'   => array( 'type' => 'number', 'label' => __( 'Height (mm, 0 = design setting)', 'order-documents' ), 'default' => 0, 'min' => 0, 'max' => 100 ),
+					'max_height'   => array( 'type' => 'number', 'label' => __( 'Logo height (mm, 0 = automatic)', 'order-documents' ), 'description' => __( 'Automatic: fills the box on the page, or uses the logo height from the design settings.', 'order-documents' ), 'default' => 0, 'min' => 0, 'max' => 100 ),
 					'name_fallback' => array( 'type' => 'checkbox', 'label' => __( 'Show the shop name when there is no logo', 'order-documents' ), 'default' => 1 ),
 				),
 			),
@@ -258,6 +287,17 @@ class Layout {
 					'only_if_paid' => array( 'type' => 'checkbox', 'label' => __( 'Only when the order is paid', 'order-documents' ), 'default' => 1 ),
 				),
 			),
+			'shape'             => array(
+				'label'    => __( 'Shape', 'order-documents' ),
+				'icon'     => 'admin-appearance',
+				'common'   => false,
+				'settings' => array(
+					'fill'         => array( 'type' => 'color', 'label' => __( 'Fill', 'order-documents' ), 'default' => 'tint' ),
+					'border_color' => array( 'type' => 'color', 'label' => __( 'Border colour', 'order-documents' ), 'default' => '' ),
+					'border_width' => array( 'type' => 'number', 'label' => __( 'Border width (pt)', 'order-documents' ), 'default' => 0, 'min' => 0, 'max' => 10, 'step' => 0.25 ),
+					'radius'       => array( 'type' => 'number', 'label' => __( 'Corner radius (mm)', 'order-documents' ), 'default' => 0, 'min' => 0, 'max' => 50, 'step' => 0.5 ),
+				),
+			),
 			'footer'            => array(
 				'label'    => __( 'Footer', 'order-documents' ),
 				'icon'     => 'editor-insertmore',
@@ -328,11 +368,49 @@ class Layout {
 			),
 		);
 
+		$sizes = self::default_sizes();
 		foreach ( $types as $id => &$type ) {
-			$type['settings'] = array_merge( $type['settings'], self::common_settings() );
-			$type['id']       = $id;
+			if ( false !== ( $type['common'] ?? true ) ) {
+				$type['settings'] = array_merge( $type['settings'], self::common_settings() );
+			}
+			$type['common'] = false !== ( $type['common'] ?? true );
+			$type['size']   = $type['size'] ?? ( $sizes[ $id ] ?? array( 70, 15 ) );
+			$type['id']     = $id;
 		}
+		unset( $type );
 		return apply_filters( 'odocs_block_types', $types );
+	}
+
+	/**
+	 * Size (width, height in mm) of a newly inserted component.
+	 */
+	private static function default_sizes(): array {
+		return array(
+			'logo'             => array( 50, 18 ),
+			'shop_info'        => array( 60, 30 ),
+			'document_title'   => array( 90, 12 ),
+			'billing_address'  => array( 58, 28 ),
+			'shipping_address' => array( 58, 28 ),
+			'document_data'    => array( 60, 28 ),
+			'items_table'      => array( 182, 40 ),
+			'totals'           => array( 75, 32 ),
+			'vat_summary'      => array( 90, 20 ),
+			'customer_note'    => array( 90, 16 ),
+			'document_notes'   => array( 90, 16 ),
+			'payment_info'     => array( 90, 20 ),
+			'document_notice'  => array( 90, 10 ),
+			'custom_text'      => array( 70, 10 ),
+			'divider'          => array( 182, 2 ),
+			'spacer'           => array( 182, 5 ),
+			'signature'        => array( 80, 20 ),
+			'paid_stamp'       => array( 40, 12 ),
+			'shape'            => array( 60, 20 ),
+			'footer'           => array( 182, 12 ),
+			'shipping_info'    => array( 70, 25 ),
+			'item_count'       => array( 60, 8 ),
+			'payment_summary'  => array( 182, 18 ),
+			'signature_fields' => array( 182, 22 ),
+		);
 	}
 
 	/**
@@ -390,6 +468,9 @@ class Layout {
 
 	public static function sanitize( $layout, string $type = '' ): array {
 		$layout = is_array( $layout ) ? $layout : array();
+		if ( isset( $layout['sections'] ) ) {
+			return self::sanitize_sections( $layout, $type );
+		}
 		$rows   = array();
 		$types  = self::block_types();
 		foreach ( array_values( (array) ( $layout['rows'] ?? array() ) ) as $r_index => $row ) {
@@ -440,6 +521,67 @@ class Layout {
 			);
 		}
 		return array( 'version' => 1, 'rows' => $rows );
+	}
+
+	/**
+	 * Sanitizes a version 2 (free-form sections) layout.
+	 *
+	 * @param array  $layout Layout with "sections".
+	 * @param string $type   Document type.
+	 */
+	private static function sanitize_sections( array $layout, string $type ): array {
+		$types      = self::block_types();
+		$sections   = array();
+		$has_footer = false;
+		foreach ( array_slice( array_values( (array) $layout['sections'] ), 0, 20 ) as $s_index => $section ) {
+			if ( ! is_array( $section ) ) {
+				continue;
+			}
+			$kind = in_array( $section['kind'] ?? '', array( 'canvas', 'flow', 'footer' ), true ) ? $section['kind'] : 'canvas';
+			if ( 'footer' === $kind ) {
+				$kind       = $has_footer ? 'canvas' : 'footer';
+				$has_footer = true;
+			}
+			$items = array();
+			foreach ( array_slice( array_values( (array) ( $section['items'] ?? array() ) ), 0, 80 ) as $i_index => $item ) {
+				$block_type = is_array( $item ) ? sanitize_key( $item['type'] ?? '' ) : '';
+				if ( ! isset( $types[ $block_type ] ) ) {
+					continue;
+				}
+				$size    = $types[ $block_type ]['size'];
+				$items[] = array(
+					'id'       => self::sanitize_id( $item['id'] ?? '', 'i' . $s_index . '_' . $i_index . '_' . $block_type ),
+					'type'     => $block_type,
+					'settings' => self::sanitize_settings( (array) ( $item['settings'] ?? array() ), $types[ $block_type ]['settings'], $block_type, $type ),
+					'x'        => self::clamp( $item['x'] ?? 0, -60, 400 ),
+					'y'        => self::clamp( $item['y'] ?? 0, 0, 1500 ),
+					'w'        => self::clamp( $item['w'] ?? $size[0], 2, 400 ),
+					'h'        => self::clamp( $item['h'] ?? $size[1], 1, 1500 ),
+					'snap'     => array_key_exists( 'snap', $item ) && empty( $item['snap'] ) ? 0 : 1,
+					'locked'   => empty( $item['locked'] ) ? 0 : 1,
+					'overflow' => 'clip' === ( $item['overflow'] ?? '' ) ? 'clip' : 'grow',
+				);
+			}
+			$sections[] = array(
+				'id'            => self::sanitize_id( $section['id'] ?? '', 's' . $s_index ),
+				'kind'          => $kind,
+				'name'          => substr( sanitize_text_field( (string) ( $section['name'] ?? '' ) ), 0, 60 ),
+				'height'        => self::clamp( $section['height'] ?? 0, 0, 1500 ),
+				'keep_together' => array_key_exists( 'keep_together', $section ) && empty( $section['keep_together'] ) ? 0 : 1,
+				'items'         => $items,
+			);
+		}
+		return array( 'version' => 2, 'sections' => $sections );
+	}
+
+	/**
+	 * Number limited to a range and rounded to 0.01.
+	 *
+	 * @param mixed $value Value.
+	 */
+	private static function clamp( $value, float $min, float $max ): float {
+		$value = is_numeric( $value ) ? (float) $value : max( $min, 0.0 );
+		return round( max( $min, min( $max, $value ) ), 2 );
 	}
 
 	/**
