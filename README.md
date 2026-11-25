@@ -29,7 +29,7 @@ PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, re
 
 | Type | Notes |
 |---|---|
-| Invoice | Always numbered. Due date, delivery date, customer number, KID (MOD10/MOD11), payment information text. |
+| Invoice | Always numbered. Due date, delivery date, customer number, payment information text. |
 | Packing slip | No prices. Shipping address first. Optional number. |
 | Delivery note | Packing slip with prices. |
 | Credit note | One per WooCommerce refund. Own number sequence, or shared with invoices. Shows the original invoice and the reason. Attached to the refund e-mail. |
@@ -111,6 +111,10 @@ bin/build.sh                                               # dist/order-document
 - **Translations** live in `languages/`. Regenerate the template with `wp i18n make-pot . languages/order-documents.pot --exclude=node_modules,vendor,vendor-prefixed,assets/editor/build,tests,bin`.
 
 ## Changelog
+
+### 1.1.3
+- Removed the Norwegian KID payment reference (the setting, the `{{kid}}` placeholder and the KID row). The payment band uses the document number as the payment reference.
+- The business register text example is now Swedish ("Godkänd för F-skatt").
 
 ### 1.1.2
 - The zip file is named after the plugin version, for example `order-documents-1.1.2.zip`.

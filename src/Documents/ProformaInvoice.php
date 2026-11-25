@@ -62,19 +62,11 @@ class ProformaInvoice extends Document {
 		return $date;
 	}
 
-	public function get_kid(): string {
-		return Kid::generate( $this, (string) $this->setting( 'kid', 'none' ), (int) $this->setting( 'kid_length', 0 ) );
-	}
-
 	public function data_rows(): array {
 		$rows = parent::data_rows();
 		$due  = $this->get_due_date();
 		if ( $due ) {
 			$rows['due_date'] = array( 'label' => __( 'Due date', 'order-documents' ), 'value' => odocs_format_date( $due ) );
-		}
-		$kid = $this->get_kid();
-		if ( '' !== $kid ) {
-			$rows['kid'] = array( 'label' => __( 'KID', 'order-documents' ), 'value' => $kid );
 		}
 		return $rows;
 	}

@@ -2,9 +2,9 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Order Documents for WooCommerce 1.1.2\n"
+"Project-Id-Version: Order Documents for WooCommerce 1.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/order-documents\n"
-"POT-Creation-Date: 2026-11-25T11:48:41+00:00\n"
+"POT-Creation-Date: 2026-11-25T14:37:21+00:00\n"
 "PO-Revision-Date: 2026-11-23 22:30+0100\n"
 "Last-Translator: Order Documents\n"
 "Language-Team: da_DK\n"
@@ -669,7 +669,7 @@ msgid "Document date"
 msgstr "Dokumentdato"
 
 #: src/Documents/Document.php:174 src/Rendering/Layout.php:186
-#: src/Rendering/OrderData.php:245 src/Rendering/Placeholders.php:31
+#: src/Rendering/OrderData.php:245 src/Rendering/Placeholders.php:30
 msgid "Order date"
 msgstr "Ordredato"
 
@@ -873,65 +873,24 @@ msgstr "Betalingsoplysninger"
 #: src/Documents/Invoice.php:70
 msgid ""
 "Shown in the \"Payment information\" block, e.g. \"Pay to account "
-"{{bank_account}}, KID {{kid}}, due {{due_date}}\"."
+"{{bank_account}}, reference {{document_number}}, due {{due_date}}\"."
 msgstr ""
-"Vises i blokken »Betalingsoplysninger«, f.eks. »Betal til konto "
-"{{bank_account}}, KID {{kid}}, forfald {{due_date}}«."
+"Vises i blokken \"Betalingsoplysninger\", f.eks. \"Betal til konto "
+"{{bank_account}}, reference {{document_number}}, forfalder {{due_date}}\"."
 
-#: src/Documents/Invoice.php:74 src/Rendering/Placeholders.php:29
-msgid "KID payment reference"
-msgstr "KID-reference"
-
-#: src/Documents/Invoice.php:77 src/Rendering/Layout.php:100
-#: src/Rendering/Layout.php:159
-msgid "None"
-msgstr "Ingen"
-
-#: src/Documents/Invoice.php:78
-msgid "MOD10 (Luhn)"
-msgstr "MOD10 (Luhn)"
-
-#: src/Documents/Invoice.php:79
-msgid "MOD11"
-msgstr "MOD11"
-
-#: src/Documents/Invoice.php:81
-msgid ""
-"Norwegian payment reference available as {{kid}}, built from the document "
-"number (or the order number when the document has none)."
-msgstr ""
-"Norsk betalingsreference som {{kid}}, dannet ud fra dokumentnummeret (eller "
-"ordrenummeret, når dokumentet ikke har et nummer)."
-
-#: src/Documents/Invoice.php:83
-msgid "KID length"
-msgstr "KID-længde"
-
-#: src/Documents/Invoice.php:83
-msgid ""
-"Total length including the check digit, padded with zeros. 0 means no "
-"padding."
-msgstr ""
-"Samlet længde inkl. kontrolciffer, udfyldt med nuller. 0 betyder ingen "
-"udfyldning."
-
-#: src/Documents/Invoice.php:105 src/Documents/ProformaInvoice.php:73
+#: src/Documents/Invoice.php:88 src/Documents/ProformaInvoice.php:69
 #: src/Rendering/Layout.php:347 src/Rendering/Placeholders.php:28
-#: templates/shared/blocks/payment_summary.php:32
+#: templates/shared/blocks/payment_summary.php:29
 msgid "Due date"
 msgstr "Forfaldsdato"
 
-#: src/Documents/Invoice.php:108
+#: src/Documents/Invoice.php:91
 msgid "Delivery date"
 msgstr "Leveringsdato"
 
-#: src/Documents/Invoice.php:111 src/Documents/PackingSlip.php:45
+#: src/Documents/Invoice.php:94 src/Documents/PackingSlip.php:45
 msgid "Customer number"
 msgstr "Kundenummer"
-
-#: src/Documents/Invoice.php:115 src/Documents/ProformaInvoice.php:77
-msgid "KID"
-msgstr "KID"
 
 #: src/Documents/PackingSlip.php:19
 msgid "Packing slip"
@@ -1169,7 +1128,7 @@ msgid "Could not build a preview."
 msgstr "Kunne ikke lave forhåndsvisning."
 
 #: src/Migration/WpoImporter.php:213 src/Rendering/Layout.php:134
-#: src/Rendering/Placeholders.php:37 src/Settings/Schema.php:64
+#: src/Rendering/Placeholders.php:36 src/Settings/Schema.php:64
 msgid "Shop name"
 msgstr "Butiksnavn"
 
@@ -1188,12 +1147,12 @@ msgid "E-mail"
 msgstr "E-mail"
 
 #: src/Migration/WpoImporter.php:235 src/Rendering/Layout.php:140
-#: src/Rendering/Placeholders.php:39 src/Settings/Schema.php:70
+#: src/Rendering/Placeholders.php:38 src/Settings/Schema.php:70
 msgid "VAT number"
 msgstr "Momsnummer"
 
 #: src/Migration/WpoImporter.php:236 src/Rendering/Layout.php:139
-#: src/Rendering/Placeholders.php:38 src/Settings/Schema.php:69
+#: src/Rendering/Placeholders.php:37 src/Settings/Schema.php:69
 msgid "Organisation number"
 msgstr "CVR-nummer"
 
@@ -1257,31 +1216,31 @@ msgstr "Statusser i Min konto"
 msgid "Due days"
 msgstr "Forfaldsdage"
 
-#: src/Rendering/DefaultLayouts.php:243 src/Rendering/DefaultLayouts.php:252
+#: src/Rendering/DefaultLayouts.php:242 src/Rendering/DefaultLayouts.php:251
 msgid "Delivery address"
 msgstr "Leveringsadresse"
 
-#: src/Rendering/DefaultLayouts.php:262
+#: src/Rendering/DefaultLayouts.php:261
 msgid "Ordered"
 msgstr "Bestilt"
 
-#: src/Rendering/DefaultLayouts.php:263
+#: src/Rendering/DefaultLayouts.php:262
 msgid "Done"
 msgstr "Færdig"
 
-#: src/Rendering/DefaultLayouts.php:285
+#: src/Rendering/DefaultLayouts.php:284
 msgid "Picked by"
 msgstr "Plukket af"
 
-#: src/Rendering/DefaultLayouts.php:285
+#: src/Rendering/DefaultLayouts.php:284
 msgid "Checked by"
 msgstr "Kontrolleret af"
 
-#: src/Rendering/DefaultLayouts.php:285
+#: src/Rendering/DefaultLayouts.php:284
 msgid "Received by / date"
 msgstr "Modtaget af / dato"
 
-#: src/Rendering/DefaultLayouts.php:302
+#: src/Rendering/DefaultLayouts.php:301
 msgid "Goods received"
 msgstr "Varerne modtaget"
 
@@ -1360,6 +1319,10 @@ msgstr "Tekstfarve"
 #: src/Rendering/Layout.php:100
 msgid "Box"
 msgstr "Boks"
+
+#: src/Rendering/Layout.php:100 src/Rendering/Layout.php:159
+msgid "None"
+msgstr "Ingen"
 
 #: src/Rendering/Layout.php:100
 msgid "Rounded border"
@@ -1448,7 +1411,7 @@ msgid "Document number"
 msgstr "Dokumentnummer"
 
 #: src/Rendering/Layout.php:161 src/Rendering/Layout.php:185
-#: src/Rendering/OrderData.php:244 src/Rendering/Placeholders.php:30
+#: src/Rendering/OrderData.php:244 src/Rendering/Placeholders.php:29
 msgid "Order number"
 msgstr "Ordrenummer"
 
@@ -1462,19 +1425,19 @@ msgid "Show the billing address when there is no separate delivery address"
 msgstr "Vis faktureringsadressen, når der ikke er en separat leveringsadresse"
 
 #: src/Rendering/Layout.php:187 src/Rendering/OrderData.php:247
-#: src/Rendering/Placeholders.php:33
+#: src/Rendering/Placeholders.php:32
 msgid "Payment method"
 msgstr "Betalingsmetode"
 
 #: src/Rendering/Layout.php:188 src/Rendering/Layout.php:325
-#: src/Rendering/OrderData.php:250 src/Rendering/Placeholders.php:34
+#: src/Rendering/OrderData.php:250 src/Rendering/Placeholders.php:33
 #: templates/shared/blocks/shipping_info.php:16
 msgid "Shipping method"
 msgstr "Leveringsmetode"
 
 #: src/Rendering/Layout.php:189
-msgid "Other details (due date, KID, references...)"
-msgstr "Andre oplysninger (forfaldsdato, KID, referencer …)"
+msgid "Other details (due date, references...)"
+msgstr "Andre oplysninger (forfaldsdato, referencer ...)"
 
 #: src/Rendering/Layout.php:190 src/Settings/Schema.php:138
 msgid "Boxed"
@@ -1556,7 +1519,7 @@ msgid "VAT summary"
 msgstr "Momsoversigt"
 
 #: src/Rendering/Layout.php:231 src/Rendering/Layout.php:233
-#: src/Rendering/Placeholders.php:35
+#: src/Rendering/Placeholders.php:34
 #: templates/shared/blocks/customer_note.php:17
 msgid "Customer note"
 msgstr "Kundens bemærkning"
@@ -1740,11 +1703,11 @@ msgstr "Bankkonto"
 msgid "Reference label"
 msgstr "Etiket for reference"
 
-#: src/Rendering/Layout.php:346 templates/shared/blocks/payment_summary.php:30
+#: src/Rendering/Layout.php:346 templates/shared/blocks/payment_summary.php:27
 msgid "Payment reference"
 msgstr "Betalingsreference"
 
-#: src/Rendering/Layout.php:348 templates/shared/blocks/payment_summary.php:35
+#: src/Rendering/Layout.php:348 templates/shared/blocks/payment_summary.php:32
 msgid "Amount to pay"
 msgstr "At betale"
 
@@ -1875,39 +1838,39 @@ msgstr "Uden moms"
 msgid "Page %1$d of %2$d"
 msgstr "Side %1$d af %2$d"
 
-#: src/Rendering/Placeholders.php:32
+#: src/Rendering/Placeholders.php:31
 msgid "Order total"
 msgstr "Ordretotal"
 
-#: src/Rendering/Placeholders.php:36
+#: src/Rendering/Placeholders.php:35
 msgid "Any billing_ or shipping_ field, e.g. billing_company"
 msgstr "Ethvert billing_- eller shipping_-felt, f.eks. billing_company"
 
-#: src/Rendering/Placeholders.php:40 src/Settings/Schema.php:74
+#: src/Rendering/Placeholders.php:39 src/Settings/Schema.php:74
 msgid "Bank account number"
 msgstr "Kontonummer"
 
-#: src/Rendering/Placeholders.php:41 src/Settings/Schema.php:75
+#: src/Rendering/Placeholders.php:40 src/Settings/Schema.php:75
 msgid "IBAN"
 msgstr "IBAN"
 
-#: src/Rendering/Placeholders.php:42 src/Settings/Schema.php:76
+#: src/Rendering/Placeholders.php:41 src/Settings/Schema.php:76
 msgid "BIC / SWIFT"
 msgstr "BIC / SWIFT"
 
-#: src/Rendering/Placeholders.php:43
+#: src/Rendering/Placeholders.php:42
 msgid "Site title"
 msgstr "Webstedets titel"
 
-#: src/Rendering/Placeholders.php:44
+#: src/Rendering/Placeholders.php:43
 msgid "Site address"
 msgstr "Webstedets adresse"
 
-#: src/Rendering/Placeholders.php:45
+#: src/Rendering/Placeholders.php:44
 msgid "Current year"
 msgstr "Indeværende år"
 
-#: src/Rendering/Placeholders.php:46
+#: src/Rendering/Placeholders.php:45
 msgid "Any order meta field"
 msgstr "Ethvert metafelt på ordren"
 
@@ -1920,8 +1883,8 @@ msgid "For example \"Org.nr. 123 456 789 MVA\". Shown as entered."
 msgstr "For eksempel »CVR-nr. 12345678«. Vises som indtastet."
 
 #: src/Settings/Schema.php:71
-msgid "For example \"Foretaksregisteret\" (Norwegian limited companies)."
-msgstr "For eksempel »Foretaksregisteret« (norske aktieselskaber)."
+msgid "For example \"Godkänd för F-skatt\"."
+msgstr "For eksempel \"Godkänd för F-skatt\"."
 
 #: src/Settings/Schema.php:72
 msgid "Payment details"

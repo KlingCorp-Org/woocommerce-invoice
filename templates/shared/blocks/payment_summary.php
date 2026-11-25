@@ -1,6 +1,6 @@
 <?php
 /**
- * Payment band: account, payment reference (KID/OCR or document number), due date and amount to pay.
+ * Payment band: account, payment reference (the document number), due date and amount to pay.
  *
  * @var array                          $block
  * @var \OrderDocs\Documents\Document  $document
@@ -23,10 +23,7 @@ $account = trim( (string) ( $general['bank_account'] ?: $general['iban'] ) );
 if ( '' !== $account ) {
 	$cells[] = array( '' !== $block['account_label'] ? $block['account_label'] : __( 'Bank account', 'order-documents' ), esc_html( $account ) );
 }
-$reference = method_exists( $document, 'get_kid' ) ? $document->get_kid() : '';
-if ( '' === $reference ) {
-	$reference = $document->get_number() ?: (string) $order->get_order_number();
-}
+$reference = $document->get_number() ?: (string) $order->get_order_number();
 $cells[] = array( '' !== $block['reference_label'] ? $block['reference_label'] : __( 'Payment reference', 'order-documents' ), esc_html( $reference ) );
 if ( $block['show_due'] && method_exists( $document, 'get_due_date' ) && $document->get_due_date() ) {
 	$cells[] = array( __( 'Due date', 'order-documents' ), esc_html( odocs_format_date( $document->get_due_date() ) ) );

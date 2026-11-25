@@ -3,7 +3,6 @@ namespace OrderDocs\Tests;
 
 use OrderDocs\Documents\Number\NumberFormatter;
 use OrderDocs\Documents\Number\Sequence;
-use OrderDocs\Documents\Kid;
 
 class NumberingTest extends TestCase {
 
@@ -29,11 +28,5 @@ class NumberingTest extends TestCase {
 		$this->assertSame( 500, Sequence::peek( $name ) );
 		$this->assertSame( 500, Sequence::claim( $name ) );
 		$this->assertSame( 501, Sequence::peek( $name ) );
-	}
-
-	public function test_kid_check_digits(): void {
-		$this->assertSame( '3', Kid::mod10( '7992739871' ) );
-		$this->assertSame( '5', Kid::mod11( '12345678' ) );
-		$this->assertSame( '0', Kid::mod11( '0' ) );
 	}
 }

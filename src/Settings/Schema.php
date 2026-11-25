@@ -68,7 +68,7 @@ class Schema {
 			array( 'id' => 'shop_website', 'type' => 'text', 'label' => __( 'Website', 'order-documents' ), 'default' => preg_replace( '#^https?://#', '', home_url() ) ),
 			array( 'id' => 'org_number', 'type' => 'text', 'label' => __( 'Organisation number', 'order-documents' ), 'default' => '', 'description' => __( 'For example "Org.nr. 123 456 789 MVA". Shown as entered.', 'order-documents' ) ),
 			array( 'id' => 'vat_number', 'type' => 'text', 'label' => __( 'VAT number', 'order-documents' ), 'default' => '' ),
-			array( 'id' => 'register_text', 'type' => 'text', 'label' => __( 'Business register text', 'order-documents' ), 'default' => '', 'description' => __( 'For example "Foretaksregisteret" (Norwegian limited companies).', 'order-documents' ) ),
+			array( 'id' => 'register_text', 'type' => 'text', 'label' => __( 'Business register text', 'order-documents' ), 'default' => '', 'description' => __( 'For example "Godkänd för F-skatt".', 'order-documents' ) ),
 			array( 'type' => 'heading', 'label' => __( 'Payment details', 'order-documents' ), 'description' => __( 'Available as placeholders in payment information texts.', 'order-documents' ) ),
 			array( 'id' => 'bank_name', 'type' => 'text', 'label' => __( 'Bank', 'order-documents' ), 'default' => '' ),
 			array( 'id' => 'bank_account', 'type' => 'text', 'label' => __( 'Bank account number', 'order-documents' ), 'default' => '' ),

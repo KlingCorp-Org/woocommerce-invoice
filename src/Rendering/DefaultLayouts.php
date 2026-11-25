@@ -231,7 +231,6 @@ class DefaultLayouts {
 			'show_order_date'     => $is_shipping_doc ? 1 : 0,
 			'show_order_number'   => $is_shipping_doc ? 0 : 1,
 			'show_payment_method' => 0,
-			'exclude'             => 'kid',
 			'margin_bottom'       => 4,
 		);
 		$rows[] = self::row( array( array( 100, array( self::b( 'document_data', $data ) ) ) ), array( 'margin_bottom' => 0 ) );

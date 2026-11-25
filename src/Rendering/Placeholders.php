@@ -26,7 +26,6 @@ class Placeholders {
 			'{{invoice_number}}'   => __( 'Invoice number', 'order-documents' ),
 			'{{invoice_date}}'     => __( 'Invoice date', 'order-documents' ),
 			'{{due_date}}'         => __( 'Due date', 'order-documents' ),
-			'{{kid}}'              => __( 'KID payment reference', 'order-documents' ),
 			'{{order_number}}'     => __( 'Order number', 'order-documents' ),
 			'{{order_date}}'       => __( 'Order date', 'order-documents' ),
 			'{{order_total}}'      => __( 'Order total', 'order-documents' ),
@@ -95,8 +94,6 @@ class Placeholders {
 				return 'invoice_number' === $key ? $invoice->get_number() : odocs_format_date( $invoice->get_display_date() );
 			case 'due_date':
 				return method_exists( $document, 'get_due_date' ) && $document->get_due_date() ? odocs_format_date( $document->get_due_date() ) : '';
-			case 'kid':
-				return method_exists( $document, 'get_kid' ) ? $document->get_kid() : '';
 			case 'order_number':
 				return (string) $order->get_order_number();
 			case 'order_date':

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Order Documents for WooCommerce 1.1.2\n"
+"Project-Id-Version: Order Documents for WooCommerce 1.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/order-documents\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-25T11:48:41+00:00\n"
+"POT-Creation-Date: 2026-11-25T14:37:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: order-documents\n"
@@ -634,7 +634,7 @@ msgstr ""
 #: src/Documents/Document.php:174
 #: src/Rendering/Layout.php:186
 #: src/Rendering/OrderData.php:245
-#: src/Rendering/Placeholders.php:31
+#: src/Rendering/Placeholders.php:30
 msgid "Order date"
 msgstr ""
 
@@ -843,60 +843,24 @@ msgid "Payment information"
 msgstr ""
 
 #: src/Documents/Invoice.php:70
-msgid "Shown in the \"Payment information\" block, e.g. \"Pay to account {{bank_account}}, KID {{kid}}, due {{due_date}}\"."
+msgid "Shown in the \"Payment information\" block, e.g. \"Pay to account {{bank_account}}, reference {{document_number}}, due {{due_date}}\"."
 msgstr ""
 
-#: src/Documents/Invoice.php:74
-#: src/Rendering/Placeholders.php:29
-msgid "KID payment reference"
-msgstr ""
-
-#: src/Documents/Invoice.php:77
-#: src/Rendering/Layout.php:100
-#: src/Rendering/Layout.php:159
-msgid "None"
-msgstr ""
-
-#: src/Documents/Invoice.php:78
-msgid "MOD10 (Luhn)"
-msgstr ""
-
-#: src/Documents/Invoice.php:79
-msgid "MOD11"
-msgstr ""
-
-#: src/Documents/Invoice.php:81
-msgid "Norwegian payment reference available as {{kid}}, built from the document number (or the order number when the document has none)."
-msgstr ""
-
-#: src/Documents/Invoice.php:83
-msgid "KID length"
-msgstr ""
-
-#: src/Documents/Invoice.php:83
-msgid "Total length including the check digit, padded with zeros. 0 means no padding."
-msgstr ""
-
-#: src/Documents/Invoice.php:105
-#: src/Documents/ProformaInvoice.php:73
+#: src/Documents/Invoice.php:88
+#: src/Documents/ProformaInvoice.php:69
 #: src/Rendering/Layout.php:347
 #: src/Rendering/Placeholders.php:28
-#: templates/shared/blocks/payment_summary.php:32
+#: templates/shared/blocks/payment_summary.php:29
 msgid "Due date"
 msgstr ""
 
-#: src/Documents/Invoice.php:108
+#: src/Documents/Invoice.php:91
 msgid "Delivery date"
 msgstr ""
 
-#: src/Documents/Invoice.php:111
+#: src/Documents/Invoice.php:94
 #: src/Documents/PackingSlip.php:45
 msgid "Customer number"
-msgstr ""
-
-#: src/Documents/Invoice.php:115
-#: src/Documents/ProformaInvoice.php:77
-msgid "KID"
 msgstr ""
 
 #: src/Documents/PackingSlip.php:19
@@ -1121,7 +1085,7 @@ msgstr ""
 
 #: src/Migration/WpoImporter.php:213
 #: src/Rendering/Layout.php:134
-#: src/Rendering/Placeholders.php:37
+#: src/Rendering/Placeholders.php:36
 #: src/Settings/Schema.php:64
 msgid "Shop name"
 msgstr ""
@@ -1145,14 +1109,14 @@ msgstr ""
 
 #: src/Migration/WpoImporter.php:235
 #: src/Rendering/Layout.php:140
-#: src/Rendering/Placeholders.php:39
+#: src/Rendering/Placeholders.php:38
 #: src/Settings/Schema.php:70
 msgid "VAT number"
 msgstr ""
 
 #: src/Migration/WpoImporter.php:236
 #: src/Rendering/Layout.php:139
-#: src/Rendering/Placeholders.php:38
+#: src/Rendering/Placeholders.php:37
 #: src/Settings/Schema.php:69
 msgid "Organisation number"
 msgstr ""
@@ -1225,32 +1189,32 @@ msgstr ""
 msgid "Due days"
 msgstr ""
 
-#: src/Rendering/DefaultLayouts.php:243
-#: src/Rendering/DefaultLayouts.php:252
+#: src/Rendering/DefaultLayouts.php:242
+#: src/Rendering/DefaultLayouts.php:251
 msgid "Delivery address"
 msgstr ""
 
-#: src/Rendering/DefaultLayouts.php:262
+#: src/Rendering/DefaultLayouts.php:261
 msgid "Ordered"
 msgstr ""
 
-#: src/Rendering/DefaultLayouts.php:263
+#: src/Rendering/DefaultLayouts.php:262
 msgid "Done"
 msgstr ""
 
-#: src/Rendering/DefaultLayouts.php:285
+#: src/Rendering/DefaultLayouts.php:284
 msgid "Picked by"
 msgstr ""
 
-#: src/Rendering/DefaultLayouts.php:285
+#: src/Rendering/DefaultLayouts.php:284
 msgid "Checked by"
 msgstr ""
 
-#: src/Rendering/DefaultLayouts.php:285
+#: src/Rendering/DefaultLayouts.php:284
 msgid "Received by / date"
 msgstr ""
 
-#: src/Rendering/DefaultLayouts.php:302
+#: src/Rendering/DefaultLayouts.php:301
 msgid "Goods received"
 msgstr ""
 
@@ -1331,6 +1295,11 @@ msgstr ""
 
 #: src/Rendering/Layout.php:100
 msgid "Box"
+msgstr ""
+
+#: src/Rendering/Layout.php:100
+#: src/Rendering/Layout.php:159
+msgid "None"
 msgstr ""
 
 #: src/Rendering/Layout.php:100
@@ -1426,7 +1395,7 @@ msgstr ""
 #: src/Rendering/Layout.php:161
 #: src/Rendering/Layout.php:185
 #: src/Rendering/OrderData.php:244
-#: src/Rendering/Placeholders.php:30
+#: src/Rendering/Placeholders.php:29
 msgid "Order number"
 msgstr ""
 
@@ -1441,20 +1410,20 @@ msgstr ""
 
 #: src/Rendering/Layout.php:187
 #: src/Rendering/OrderData.php:247
-#: src/Rendering/Placeholders.php:33
+#: src/Rendering/Placeholders.php:32
 msgid "Payment method"
 msgstr ""
 
 #: src/Rendering/Layout.php:188
 #: src/Rendering/Layout.php:325
 #: src/Rendering/OrderData.php:250
-#: src/Rendering/Placeholders.php:34
+#: src/Rendering/Placeholders.php:33
 #: templates/shared/blocks/shipping_info.php:16
 msgid "Shipping method"
 msgstr ""
 
 #: src/Rendering/Layout.php:189
-msgid "Other details (due date, KID, references...)"
+msgid "Other details (due date, references...)"
 msgstr ""
 
 #: src/Rendering/Layout.php:190
@@ -1546,7 +1515,7 @@ msgstr ""
 
 #: src/Rendering/Layout.php:231
 #: src/Rendering/Layout.php:233
-#: src/Rendering/Placeholders.php:35
+#: src/Rendering/Placeholders.php:34
 #: templates/shared/blocks/customer_note.php:17
 msgid "Customer note"
 msgstr ""
@@ -1739,12 +1708,12 @@ msgid "Reference label"
 msgstr ""
 
 #: src/Rendering/Layout.php:346
-#: templates/shared/blocks/payment_summary.php:30
+#: templates/shared/blocks/payment_summary.php:27
 msgid "Payment reference"
 msgstr ""
 
 #: src/Rendering/Layout.php:348
-#: templates/shared/blocks/payment_summary.php:35
+#: templates/shared/blocks/payment_summary.php:32
 msgid "Amount to pay"
 msgstr ""
 
@@ -1877,42 +1846,42 @@ msgstr ""
 msgid "Page %1$d of %2$d"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:32
+#: src/Rendering/Placeholders.php:31
 msgid "Order total"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:36
+#: src/Rendering/Placeholders.php:35
 msgid "Any billing_ or shipping_ field, e.g. billing_company"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:40
+#: src/Rendering/Placeholders.php:39
 #: src/Settings/Schema.php:74
 msgid "Bank account number"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:41
+#: src/Rendering/Placeholders.php:40
 #: src/Settings/Schema.php:75
 msgid "IBAN"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:42
+#: src/Rendering/Placeholders.php:41
 #: src/Settings/Schema.php:76
 msgid "BIC / SWIFT"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:43
+#: src/Rendering/Placeholders.php:42
 msgid "Site title"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:44
+#: src/Rendering/Placeholders.php:43
 msgid "Site address"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:45
+#: src/Rendering/Placeholders.php:44
 msgid "Current year"
 msgstr ""
 
-#: src/Rendering/Placeholders.php:46
+#: src/Rendering/Placeholders.php:45
 msgid "Any order meta field"
 msgstr ""
 
@@ -1925,7 +1894,7 @@ msgid "For example \"Org.nr. 123 456 789 MVA\". Shown as entered."
 msgstr ""
 
 #: src/Settings/Schema.php:71
-msgid "For example \"Foretaksregisteret\" (Norwegian limited companies)."
+msgid "For example \"Godkänd för F-skatt\"."
 msgstr ""
 
 #: src/Settings/Schema.php:72

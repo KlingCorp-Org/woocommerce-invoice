@@ -63,24 +63,11 @@ class Invoice extends Document {
 	}
 
 	/**
-	 * Payment information and KID fields, shared with the proforma invoice.
+	 * Payment information field, shared with the proforma invoice.
 	 */
 	public static function payment_fields(): array {
 		return array(
-			array( 'id' => 'payment_info', 'type' => 'textarea', 'label' => __( 'Payment information', 'order-documents' ), 'default' => '', 'description' => __( 'Shown in the "Payment information" block, e.g. "Pay to account {{bank_account}}, KID {{kid}}, due {{due_date}}".', 'order-documents' ) ),
-			array(
-				'id'      => 'kid',
-				'type'    => 'select',
-				'label'   => __( 'KID payment reference', 'order-documents' ),
-				'default' => 'none',
-				'options' => array(
-					'none'  => __( 'None', 'order-documents' ),
-					'mod10' => __( 'MOD10 (Luhn)', 'order-documents' ),
-					'mod11' => __( 'MOD11', 'order-documents' ),
-				),
-				'description' => __( 'Norwegian payment reference available as {{kid}}, built from the document number (or the order number when the document has none).', 'order-documents' ),
-			),
-			array( 'id' => 'kid_length', 'type' => 'number', 'label' => __( 'KID length', 'order-documents' ), 'default' => 0, 'min' => 0, 'max' => 25, 'description' => __( 'Total length including the check digit, padded with zeros. 0 means no padding.', 'order-documents' ) ),
+			array( 'id' => 'payment_info', 'type' => 'textarea', 'label' => __( 'Payment information', 'order-documents' ), 'default' => '', 'description' => __( 'Shown in the "Payment information" block, e.g. "Pay to account {{bank_account}}, reference {{document_number}}, due {{due_date}}".', 'order-documents' ) ),
 		);
 	}
 
@@ -94,10 +81,6 @@ class Invoice extends Document {
 		return $date;
 	}
 
-	public function get_kid(): string {
-		return Kid::generate( $this, (string) $this->setting( 'kid', 'none' ), (int) $this->setting( 'kid_length', 0 ) );
-	}
-
 	public function data_rows(): array {
 		$rows = parent::data_rows();
 		$due  = $this->get_due_date();
@@ -109,10 +92,6 @@ class Invoice extends Document {
 		}
 		if ( $this->setting( 'show_customer_number' ) && $this->order->get_customer_id() ) {
 			$rows['customer_number'] = array( 'label' => __( 'Customer number', 'order-documents' ), 'value' => (string) $this->order->get_customer_id() );
-		}
-		$kid = $this->get_kid();
-		if ( '' !== $kid ) {
-			$rows['kid'] = array( 'label' => __( 'KID', 'order-documents' ), 'value' => $kid );
 		}
 		return $rows;
 	}

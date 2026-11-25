@@ -186,7 +186,7 @@ class Layout {
 					'show_order_date'      => array( 'type' => 'checkbox', 'label' => __( 'Order date', 'order-documents' ), 'default' => 1 ),
 					'show_payment_method'  => array( 'type' => 'checkbox', 'label' => __( 'Payment method', 'order-documents' ), 'default' => 1 ),
 					'show_shipping_method' => array( 'type' => 'checkbox', 'label' => __( 'Shipping method', 'order-documents' ), 'default' => 0 ),
-					'show_other'           => array( 'type' => 'checkbox', 'label' => __( 'Other details (due date, KID, references...)', 'order-documents' ), 'default' => 1 ),
+					'show_other'           => array( 'type' => 'checkbox', 'label' => __( 'Other details (due date, references...)', 'order-documents' ), 'default' => 1 ),
 					'boxed'                => array( 'type' => 'checkbox', 'label' => __( 'Boxed', 'order-documents' ), 'default' => 0 ),
 					'layout'               => array(
 						'type'    => 'select',
@@ -198,7 +198,7 @@ class Layout {
 						),
 					),
 					'grid_columns'         => array( 'type' => 'number', 'label' => __( 'Columns (column layout)', 'order-documents' ), 'default' => 4, 'min' => 1, 'max' => 6 ),
-					'exclude'              => array( 'type' => 'text', 'label' => __( 'Hide these rows', 'order-documents' ), 'default' => '', 'placeholder' => 'kid, payment_method' ),
+					'exclude'              => array( 'type' => 'text', 'label' => __( 'Hide these rows', 'order-documents' ), 'default' => '', 'placeholder' => 'due_date, payment_method' ),
 				),
 			),
 			'items_table'       => array(
