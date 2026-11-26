@@ -2,9 +2,9 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Order Documents for WooCommerce 1.1.3\n"
+"Project-Id-Version: Order Documents for WooCommerce 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/order-documents\n"
-"POT-Creation-Date: 2026-11-25T14:37:21+00:00\n"
+"POT-Creation-Date: 2026-11-26T14:50:17+00:00\n"
 "PO-Revision-Date: 2026-11-23 22:30+0100\n"
 "Last-Translator: Order Documents\n"
 "Language-Team: sv_SE\n"
@@ -211,23 +211,29 @@ msgid "Not allowed."
 msgstr "Inte tillåtet."
 
 #. translators: %s: document title, e.g. "Invoice"
-#: src/Admin/OrderActions.php:38
+#: src/Admin/OrderActions.php:41
 #, php-format
 msgid "E-mail %s to customer"
 msgstr "Skicka %s till kunden via e-post"
 
-#: src/Admin/OrderActions.php:40
+#. translators: 1: document title, e.g. "invoice", 2: e-mail address
+#: src/Admin/OrderActions.php:45
+#, php-format
+msgid "E-mail %1$s to %2$s"
+msgstr "Skicka %1$s till %2$s via e-post"
+
+#: src/Admin/OrderActions.php:48
 msgid "Regenerate archived document PDFs"
 msgstr "Skapa om arkiverade dokument-PDF:er"
 
 #. translators: 1: document title, 2: reason
-#: src/Admin/OrderActions.php:64
+#: src/Admin/OrderActions.php:76
 #, php-format
 msgid "%1$s was not sent: %2$s"
 msgstr "%1$s skickades inte: %2$s"
 
 #. translators: %d: number of documents
-#: src/Admin/OrderActions.php:87
+#: src/Admin/OrderActions.php:99
 #, php-format
 msgid "%d archived document PDF will be regenerated."
 msgid_plural "%d archived document PDFs will be regenerated."
@@ -262,7 +268,7 @@ msgstr "Återbetalning %s"
 msgid "No document types are enabled. %s"
 msgstr "Inga dokumenttyper är aktiverade. %s"
 
-#: src/Admin/OrderMetaBoxes.php:102 src/Plugin.php:94
+#: src/Admin/OrderMetaBoxes.php:102 src/Plugin.php:98
 #: assets/editor/src/App.js:968 assets/editor/src/TopBar.js:395
 msgid "Settings"
 msgstr "Inställningar"
@@ -363,7 +369,7 @@ msgstr "%s raderades."
 msgid "Order Documents"
 msgstr "Orderdokument"
 
-#: src/Admin/SettingsPage.php:113 src/Documents/Document.php:129
+#: src/Admin/SettingsPage.php:113 src/Documents/Document.php:134
 #: src/Documents/PickingList.php:56
 msgid "General"
 msgstr "Allmänt"
@@ -430,7 +436,7 @@ msgstr ""
 msgid "Sequence"
 msgstr "Serie"
 
-#: src/Admin/SettingsPage.php:213 src/Documents/Document.php:152
+#: src/Admin/SettingsPage.php:213 src/Documents/Document.php:157
 msgid "Next number"
 msgstr "Nästa nummer"
 
@@ -508,7 +514,7 @@ msgstr "Kreditfaktura"
 msgid "Credit notes"
 msgstr "Kreditfakturor"
 
-#: src/Documents/CreditNote.php:52 src/Documents/Document.php:257
+#: src/Documents/CreditNote.php:52 src/Documents/Document.php:267
 msgid "Own sequence"
 msgstr "Egen serie"
 
@@ -516,39 +522,39 @@ msgstr "Egen serie"
 msgid "Shared with invoices"
 msgstr "Delad med fakturor"
 
-#: src/Documents/CreditNote.php:66
+#: src/Documents/CreditNote.php:65
 msgid "Credit note details"
 msgstr "Detaljer för kreditfaktura"
 
-#: src/Documents/CreditNote.php:67
+#: src/Documents/CreditNote.php:66
 msgid "Only for orders with an invoice"
 msgstr "Endast för ordrar med faktura"
 
-#: src/Documents/CreditNote.php:68
+#: src/Documents/CreditNote.php:67
 msgid "Show amounts as negative numbers"
 msgstr "Visa belopp som negativa tal"
 
-#: src/Documents/CreditNote.php:69
+#: src/Documents/CreditNote.php:68
 msgid "Show the refund reason"
 msgstr "Visa orsaken till återbetalningen"
 
-#: src/Documents/CreditNote.php:80
+#: src/Documents/CreditNote.php:79
 msgid "A credit note belongs to a refund. Refund the order first."
 msgstr "En kreditfaktura hör till en återbetalning. Återbetala ordern först."
 
-#: src/Documents/CreditNote.php:86
+#: src/Documents/CreditNote.php:85
 msgid "Create the invoice before the credit note."
 msgstr "Skapa fakturan före kreditfakturan."
 
-#: src/Documents/CreditNote.php:101
+#: src/Documents/CreditNote.php:100
 msgid "Original invoice"
 msgstr "Ursprunglig faktura"
 
-#: src/Documents/CreditNote.php:102 src/Rendering/Placeholders.php:27
+#: src/Documents/CreditNote.php:101 src/Rendering/Placeholders.php:27
 msgid "Invoice date"
 msgstr "Fakturadatum"
 
-#: src/Documents/CreditNote.php:105
+#: src/Documents/CreditNote.php:104
 msgid "Reason"
 msgstr "Orsak"
 
@@ -560,37 +566,37 @@ msgstr "Följesedel"
 msgid "Delivery notes"
 msgstr "Följesedlar"
 
-#: src/Documents/Document.php:130 src/Documents/PickingList.php:57
+#: src/Documents/Document.php:135 src/Documents/PickingList.php:57
 #: src/Migration/WpoImporter.php:272
 msgid "Enabled"
 msgstr "Aktiverad"
 
 #. translators: %s: document type
-#: src/Documents/Document.php:130
+#: src/Documents/Document.php:135
 #, php-format
 msgid "Show %s buttons and allow creating this document."
 msgstr "Visa knappar för %s och tillåt att dokumentet skapas."
 
 #. translators: %s: document type
-#: src/Documents/Document.php:131 src/Documents/PickingList.php:58
+#: src/Documents/Document.php:136 src/Documents/PickingList.php:58
 #: src/Rendering/Layout.php:148 src/Rendering/Placeholders.php:23
 msgid "Document title"
 msgstr "Dokumentrubrik"
 
-#: src/Documents/Document.php:135 src/Documents/PickingList.php:62
+#: src/Documents/Document.php:140 src/Documents/PickingList.php:62
 #: src/Settings/Schema.php:120 assets/editor/src/TopBar.js:149
 msgid "Template"
 msgstr "Mall"
 
-#: src/Documents/Document.php:138 src/Documents/PickingList.php:65
+#: src/Documents/Document.php:143 src/Documents/PickingList.php:65
 msgid "Use the default template"
 msgstr "Använd standardmallen"
 
-#: src/Documents/Document.php:141 src/Documents/PickingList.php:68
+#: src/Documents/Document.php:146 src/Documents/PickingList.php:68
 msgid "File name"
 msgstr "Filnamn"
 
-#: src/Documents/Document.php:141
+#: src/Documents/Document.php:146
 msgid ""
 "Without \".pdf\". Placeholders such as {{document_number}}, {{order_number}}"
 " and {{document_title}} are supported."
@@ -598,19 +604,19 @@ msgstr ""
 "Utan ”.pdf”. Platshållare som {{document_number}}, {{order_number}} och "
 "{{document_title}} stöds."
 
-#: src/Documents/Document.php:144
+#: src/Documents/Document.php:149
 msgid "Numbering"
 msgstr "Numrering"
 
-#: src/Documents/Document.php:146
+#: src/Documents/Document.php:151
 msgid "Give this document a number"
 msgstr "Ge det här dokumentet ett nummer"
 
-#: src/Documents/Document.php:150
+#: src/Documents/Document.php:155
 msgid "Number sequence"
 msgstr "Nummerserie"
 
-#: src/Documents/Document.php:152
+#: src/Documents/Document.php:157
 msgid ""
 "The number the next document gets. Change it only if you are sure, numbers "
 "must stay unique."
@@ -618,11 +624,11 @@ msgstr ""
 "Numret som nästa dokument får. Ändra det bara om du är säker – numren måste "
 "vara unika."
 
-#: src/Documents/Document.php:153 src/Migration/WpoImporter.php:306
+#: src/Documents/Document.php:158 src/Migration/WpoImporter.php:306
 msgid "Prefix"
 msgstr "Prefix"
 
-#: src/Documents/Document.php:153
+#: src/Documents/Document.php:158
 msgid ""
 "Supports {{year}}, {{month}}, {{day}}, {{order_year}}, {{order_month}} and "
 "{{order_number}}."
@@ -630,172 +636,201 @@ msgstr ""
 "Stöder {{year}}, {{month}}, {{day}}, {{order_year}}, {{order_month}} och "
 "{{order_number}}."
 
-#: src/Documents/Document.php:154 src/Migration/WpoImporter.php:307
+#: src/Documents/Document.php:159 src/Migration/WpoImporter.php:307
 msgid "Suffix"
 msgstr "Suffix"
 
-#: src/Documents/Document.php:155 src/Migration/WpoImporter.php:309
+#: src/Documents/Document.php:160 src/Migration/WpoImporter.php:309
 msgid "Padding"
 msgstr "Utfyllnad"
 
-#: src/Documents/Document.php:155
+#: src/Documents/Document.php:160
 msgid "Minimum number of digits, for example 5 turns 42 into 00042."
 msgstr "Minsta antal siffror, till exempel gör 5 talet 42 till 00042."
 
-#: src/Documents/Document.php:159 src/Migration/WpoImporter.php:313
+#: src/Documents/Document.php:164 src/Migration/WpoImporter.php:313
 msgid "Restart numbering"
 msgstr "Börja om numreringen"
 
-#: src/Documents/Document.php:162 src/Documents/Document.php:238
+#: src/Documents/Document.php:167 src/Documents/Document.php:248
 msgid "Never"
 msgstr "Aldrig"
 
-#: src/Documents/Document.php:163 src/Migration/WpoImporter.php:313
+#: src/Documents/Document.php:168 src/Migration/WpoImporter.php:313
 msgid "Every year"
 msgstr "Varje år"
 
-#: src/Documents/Document.php:164
+#: src/Documents/Document.php:169
 msgid "Every month"
 msgstr "Varje månad"
 
-#: src/Documents/Document.php:170
+#: src/Documents/Document.php:175
 msgid "Date shown on the document"
 msgstr "Datum som visas på dokumentet"
 
-#: src/Documents/Document.php:173 src/Rendering/Layout.php:184
+#: src/Documents/Document.php:178 src/Rendering/Layout.php:184
 #: src/Rendering/Placeholders.php:25
 msgid "Document date"
 msgstr "Dokumentdatum"
 
-#: src/Documents/Document.php:174 src/Rendering/Layout.php:186
+#: src/Documents/Document.php:179 src/Rendering/Layout.php:186
 #: src/Rendering/OrderData.php:245 src/Rendering/Placeholders.php:30
 msgid "Order date"
 msgstr "Orderdatum"
 
-#: src/Documents/Document.php:179 assets/editor/src/Inspector.js:502
+#: src/Documents/Document.php:184 assets/editor/src/Inspector.js:502
 msgid "Content"
 msgstr "Innehåll"
 
-#: src/Documents/Document.php:183 src/Migration/WpoImporter.php:294
+#: src/Documents/Document.php:188 src/Migration/WpoImporter.php:294
 #: src/Rendering/Layout.php:167 src/Rendering/Layout.php:169
 #: templates/shared/blocks/billing_address.php:17
 msgid "Billing address"
 msgstr "Fakturaadress"
 
-#: src/Documents/Document.php:186
+#: src/Documents/Document.php:191
 msgid "Show"
 msgstr "Visa"
 
-#: src/Documents/Document.php:187 src/Documents/Document.php:198
+#: src/Documents/Document.php:192 src/Documents/Document.php:203
 msgid "Hide"
 msgstr "Dölj"
 
-#: src/Documents/Document.php:193 src/Migration/WpoImporter.php:291
+#: src/Documents/Document.php:198 src/Migration/WpoImporter.php:291
 #: src/Rendering/Layout.php:172
 msgid "Shipping address"
 msgstr "Leveransadress"
 
-#: src/Documents/Document.php:196
+#: src/Documents/Document.php:201
 msgid "Always show"
 msgstr "Visa alltid"
 
-#: src/Documents/Document.php:197
+#: src/Documents/Document.php:202
 msgid "Only when different from the billing address"
 msgstr "Endast när den skiljer sig från fakturaadressen"
 
-#: src/Documents/Document.php:201
+#: src/Documents/Document.php:206
 msgid "Customer e-mail"
 msgstr "Kundens e-post"
 
-#: src/Documents/Document.php:202
+#: src/Documents/Document.php:207
 msgid "Customer phone"
 msgstr "Kundens telefon"
 
-#: src/Documents/Document.php:203 src/Documents/PickingList.php:85
+#: src/Documents/Document.php:208 src/Documents/PickingList.php:85
 msgid "SKU under the product name"
 msgstr "Artikelnummer under produktnamnet"
 
-#: src/Documents/Document.php:204 src/Documents/PickingList.php:86
+#: src/Documents/Document.php:209 src/Documents/PickingList.php:86
 msgid "Weight under the product name"
 msgstr "Vikt under produktnamnet"
 
-#: src/Documents/Document.php:205 src/Documents/PickingList.php:87
+#: src/Documents/Document.php:210 src/Documents/PickingList.php:87
 msgid "Product options and variation details"
 msgstr "Produktval och variantdetaljer"
 
-#: src/Documents/Document.php:210
+#: src/Documents/Document.php:215
 msgid "Prices"
 msgstr "Priser"
 
-#: src/Documents/Document.php:213
+#: src/Documents/Document.php:218
 msgid "Excluding tax, with tax lines in the totals"
 msgstr "Exklusive moms, med momsrader i summeringen"
 
-#: src/Documents/Document.php:214
+#: src/Documents/Document.php:219
 msgid "Including tax"
 msgstr "Inklusive moms"
 
-#: src/Documents/Document.php:220
+#: src/Documents/Document.php:225
 msgid "Automation"
 msgstr "Automatisering"
 
-#: src/Documents/Document.php:221 src/Migration/WpoImporter.php:275
+#: src/Documents/Document.php:226 src/Migration/WpoImporter.php:275
 msgid "Attach to e-mails"
 msgstr "Bifoga till e-post"
 
-#: src/Documents/Document.php:222
+#: src/Documents/Document.php:227
 msgid "Create automatically when the order status becomes"
 msgstr "Skapa automatiskt när orderstatus blir"
 
-#: src/Documents/Document.php:225
+#: src/Documents/Document.php:229
+msgid "E-mail to the customer when the order status becomes"
+msgstr "Skicka till kunden via e-post när orderstatus blir"
+
+#: src/Documents/Document.php:229
+msgid "Sends the PDF in its own e-mail to the customer, once per order."
+msgstr ""
+"Skickar PDF:en i ett eget e-postmeddelande till kunden, en gång per order."
+
+#: src/Documents/Document.php:230
+msgid "E-mail to a fixed address when the order status becomes"
+msgstr "Skicka till en fast adress via e-post när orderstatus blir"
+
+#: src/Documents/Document.php:230
+msgid "Sends the PDF to the address below, once per order."
+msgstr "Skickar PDF:en till adressen nedan, en gång per order."
+
+#: src/Documents/Document.php:231
+msgid "Fixed e-mail address"
+msgstr "Fast e-postadress"
+
+#: src/Documents/Document.php:231
+msgid ""
+"For example the company that handles your invoice payments. Separate several"
+" addresses with commas."
+msgstr ""
+"Till exempel företaget som hanterar era fakturabetalningar. Separera flera "
+"adresser med kommatecken."
+
+#: src/Documents/Document.php:235
 msgid "Restrictions"
 msgstr "Begränsningar"
 
-#: src/Documents/Document.php:226
+#: src/Documents/Document.php:236
 msgid "Not available for orders with status"
 msgstr "Inte tillgängligt för ordrar med status"
 
-#: src/Documents/Document.php:227
+#: src/Documents/Document.php:237
 msgid "Not available for free orders"
 msgstr "Inte tillgängligt för gratisordrar"
 
-#: src/Documents/Document.php:228
+#: src/Documents/Document.php:238
 msgid "Not available for payment methods"
 msgstr "Inte tillgängligt för betalsätt"
 
-#: src/Documents/Document.php:231
+#: src/Documents/Document.php:241
 msgid "My Account"
 msgstr "Mitt konto"
 
-#: src/Documents/Document.php:235
+#: src/Documents/Document.php:245
 msgid "Download button for customers"
 msgstr "Nedladdningsknapp för kunder"
 
-#: src/Documents/Document.php:239
+#: src/Documents/Document.php:249
 msgid "Only when the document has been created"
 msgstr "Endast när dokumentet har skapats"
 
-#: src/Documents/Document.php:240
+#: src/Documents/Document.php:250
 msgid "Always (created on demand)"
 msgstr "Alltid (skapas vid behov)"
 
-#: src/Documents/Document.php:241
+#: src/Documents/Document.php:251
 msgid "For the order statuses below"
 msgstr "För orderstatusarna nedan"
 
-#: src/Documents/Document.php:244
+#: src/Documents/Document.php:254
 msgid "Order statuses"
 msgstr "Orderstatusar"
 
-#: src/Documents/Document.php:247
+#: src/Documents/Document.php:257
 msgid "Archive"
 msgstr "Arkiv"
 
-#: src/Documents/Document.php:248
+#: src/Documents/Document.php:258
 msgid "Keep an archived copy"
 msgstr "Behåll en arkiverad kopia"
 
-#: src/Documents/Document.php:248
+#: src/Documents/Document.php:258
 msgid ""
 "Saves the PDF the first time it is generated and always serves that copy "
 "afterwards, so the document never changes. Recommended for invoices and "
@@ -805,30 +840,30 @@ msgstr ""
 " så att dokumentet aldrig ändras. Rekommenderas för fakturor och "
 "kreditfakturor."
 
-#: src/Documents/Document.php:406 src/Documents/PickingList.php:118
+#: src/Documents/Document.php:416 src/Documents/PickingList.php:118
 msgid "This document type is disabled."
 msgstr "Den här dokumenttypen är inaktiverad."
 
-#: src/Documents/Document.php:409
+#: src/Documents/Document.php:419
 msgid "Not available for this order status."
 msgstr "Inte tillgängligt för den här orderstatusen."
 
-#: src/Documents/Document.php:412
+#: src/Documents/Document.php:422
 msgid "Not available for free orders."
 msgstr "Inte tillgängligt för gratisordrar."
 
-#: src/Documents/Document.php:415
+#: src/Documents/Document.php:425
 msgid "Not available for this payment method."
 msgstr "Inte tillgängligt för det här betalsättet."
 
 #. translators: %s: document title, e.g. Invoice
-#: src/Documents/Document.php:630
+#: src/Documents/Document.php:657
 #, php-format
 msgid "%s number"
 msgstr "%snummer"
 
 #. translators: %s: document title, e.g. Invoice
-#: src/Documents/Document.php:636
+#: src/Documents/Document.php:663
 #, php-format
 msgid "%s date"
 msgstr "%sdatum"
@@ -841,36 +876,36 @@ msgstr "Faktura"
 msgid "Invoices"
 msgstr "Fakturor"
 
-#: src/Documents/Invoice.php:56
+#: src/Documents/Invoice.php:55
 msgid "Invoice details"
 msgstr "Fakturadetaljer"
 
-#: src/Documents/Invoice.php:57
+#: src/Documents/Invoice.php:56
 msgid "Due date (days after the invoice date)"
 msgstr "Förfallodatum (dagar efter fakturadatum)"
 
-#: src/Documents/Invoice.php:57
+#: src/Documents/Invoice.php:56
 msgid "0 hides the due date."
 msgstr "0 döljer förfallodatumet."
 
-#: src/Documents/Invoice.php:58
+#: src/Documents/Invoice.php:57
 msgid "Show delivery date"
 msgstr "Visa leveransdatum"
 
-#: src/Documents/Invoice.php:58
+#: src/Documents/Invoice.php:57
 msgid "The date the order was completed."
 msgstr "Datumet då ordern slutfördes."
 
-#: src/Documents/Invoice.php:59
+#: src/Documents/Invoice.php:58
 msgid "Show customer number"
 msgstr "Visa kundnummer"
 
-#: src/Documents/Invoice.php:70 src/Rendering/Layout.php:241
+#: src/Documents/Invoice.php:69 src/Rendering/Layout.php:241
 #: src/Rendering/Layout.php:243 templates/shared/blocks/payment_info.php:17
 msgid "Payment information"
 msgstr "Betalningsinformation"
 
-#: src/Documents/Invoice.php:70
+#: src/Documents/Invoice.php:69
 msgid ""
 "Shown in the \"Payment information\" block, e.g. \"Pay to account "
 "{{bank_account}}, reference {{document_number}}, due {{due_date}}\"."
@@ -878,17 +913,17 @@ msgstr ""
 "Visas i blocket \"Betalningsinformation\", t.ex. \"Betala till konto "
 "{{bank_account}}, referens {{document_number}}, förfaller {{due_date}}\"."
 
-#: src/Documents/Invoice.php:88 src/Documents/ProformaInvoice.php:69
+#: src/Documents/Invoice.php:87 src/Documents/ProformaInvoice.php:69
 #: src/Rendering/Layout.php:347 src/Rendering/Placeholders.php:28
 #: templates/shared/blocks/payment_summary.php:29
 msgid "Due date"
 msgstr "Förfallodatum"
 
-#: src/Documents/Invoice.php:91
+#: src/Documents/Invoice.php:90
 msgid "Delivery date"
 msgstr "Leveransdatum"
 
-#: src/Documents/Invoice.php:94 src/Documents/PackingSlip.php:45
+#: src/Documents/Invoice.php:93 src/Documents/PackingSlip.php:45
 msgid "Customer number"
 msgstr "Kundnummer"
 
@@ -1048,17 +1083,47 @@ msgstr "Betald"
 msgid "Transaction ID"
 msgstr "Transaktions-ID"
 
-#: src/Emails/DocumentEmail.php:26
+#. translators: 1: document title, 2: reason
+#: src/Emails/AutoSend.php:104
+#, php-format
+msgid "%1$s was not e-mailed automatically: %2$s"
+msgstr "%1$s skickades inte automatiskt via e-post: %2$s"
+
+#: src/Emails/DocumentAddressEmail.php:24
+msgid "Order document to a fixed address"
+msgstr "Orderdokument till en fast adress"
+
+#: src/Emails/DocumentAddressEmail.php:25
+msgid ""
+"Sent to the fixed address in the document settings (for example the company "
+"that handles your invoice payments) when the order reaches a chosen status, "
+"or from the order screen. The PDF is attached."
+msgstr ""
+"Skickas till den fasta adressen i dokumentinställningarna (till exempel "
+"företaget som hanterar era fakturabetalningar) när ordern når en vald "
+"status, eller från ordersidan. PDF:en bifogas."
+
+#: src/Emails/DocumentAddressEmail.php:39
+msgid "{document_title} {document_number} – order #{order_number}"
+msgstr "{document_title} {document_number} – order #{order_number}"
+
+#: src/Emails/DocumentAddressEmail.php:43
+msgid "{document_title} {document_number}"
+msgstr "{document_title} {document_number}"
+
+#: src/Emails/DocumentEmail.php:27
 msgid "Order document"
 msgstr "Orderdokument"
 
-#: src/Emails/DocumentEmail.php:27
+#: src/Emails/DocumentEmail.php:28
 msgid ""
-"Sent when you e-mail an invoice, packing slip or other document to the "
-"customer from the order screen. The PDF is attached."
+"Sent to the customer when you e-mail a document from the order screen, or "
+"automatically when the order reaches a status chosen in the document "
+"settings. The PDF is attached."
 msgstr ""
-"Skickas när du skickar en faktura, packsedel eller ett annat dokument till "
-"kunden från ordersidan. PDF:en bifogas."
+"Skickas till kunden när du skickar ett dokument via e-post från ordersidan, "
+"eller automatiskt när ordern når en status som valts i "
+"dokumentinställningarna. PDF:en bifogas."
 
 #: src/Emails/DocumentEmail.php:51
 msgid "{document_title} {document_number} for order #{order_number}"
@@ -1072,14 +1137,36 @@ msgstr "Din {document_title}"
 msgid "Thank you for your order."
 msgstr "Tack för din beställning."
 
+#. translators: 1: document title, 2: e-mail name
+#: src/Emails/DocumentEmail.php:95
+#, php-format
+msgid ""
+"%1$s was not e-mailed: the \"%2$s\" e-mail is turned off in WooCommerce → "
+"Settings → E-mails."
+msgstr ""
+"%1$s skickades inte: e-postmeddelandet \"%2$s\" är avstängt under "
+"WooCommerce → Inställningar → E-post."
+
+#. translators: %s: document title
+#: src/Emails/DocumentEmail.php:98
+#, php-format
+msgid "%s was not e-mailed: there is no e-mail address to send it to."
+msgstr "%s skickades inte: det finns ingen e-postadress att skicka till."
+
 #. translators: 1: document title, 2: e-mail address
-#: src/Emails/DocumentEmail.php:84
+#: src/Emails/DocumentEmail.php:103
+#, php-format
+msgid "%1$s could not be e-mailed to %2$s: the PDF could not be created."
+msgstr "%1$s kunde inte skickas till %2$s: PDF:en kunde inte skapas."
+
+#. translators: 1: document title, 2: e-mail address
+#: src/Emails/DocumentEmail.php:109
 #, php-format
 msgid "%1$s e-mailed to %2$s."
 msgstr "%1$s skickades via e-post till %2$s."
 
 #. translators: 1: document title, 2: e-mail address
-#: src/Emails/DocumentEmail.php:84
+#: src/Emails/DocumentEmail.php:109
 #, php-format
 msgid "%1$s could not be e-mailed to %2$s."
 msgstr "%1$s kunde inte skickas via e-post till %2$s."
@@ -2081,11 +2168,11 @@ msgstr ""
 "Tar bort inställningar, layouter och nummerserier när tillägget raderas. "
 "Dokumentdata på ordrar och arkiverade PDF:er behålls alltid."
 
-#: src/Settings/Settings.php:151
+#: src/Settings/Settings.php:169
 msgid "admin"
 msgstr "admin"
 
-#: src/Settings/Settings.php:153
+#: src/Settings/Settings.php:171
 msgid "Refunded order (full and partial refunds)"
 msgstr "Återbetald order (hel och delvis återbetalning)"
 
@@ -2118,6 +2205,13 @@ msgid ""
 msgstr ""
 "Tätt sidhuvud på en rad och täta rader. Rymmer många produkter per sida; bra"
 " för packsedlar och plocklistor."
+
+#. translators: 1: document title and number, 2: order number, 3: shop name
+#: templates/emails/odocs-document-address.php:21
+#: templates/emails/plain/odocs-document-address.php:19
+#, php-format
+msgid "%1$s for order #%2$s from %3$s is attached to this e-mail."
+msgstr "Bifogat finns %1$s för order #%2$s från %3$s."
 
 #. translators: %s: customer first name
 #: templates/emails/odocs-document.php:17

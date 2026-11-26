@@ -8,10 +8,10 @@ PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, re
 
 ## Installing
 
-1. Go to **Plugins → Add New → Upload Plugin** and choose `order-documents-<version>.zip` (for example `order-documents-1.1.2.zip`). Then activate it.
+1. Go to **Plugins → Add New → Upload Plugin** and choose `order-documents-<version>.zip` (for example `order-documents-1.2.0.zip`). Then activate it.
 2. Go to **WooCommerce → Order Documents**:
    - **General:** shop name, address, org.nr., logo, bank details, footer.
-   - **Documents:** turn on the document types you want and set numbering, e-mail attachments and My Account buttons.
+   - **Documents:** turn on the document types you want and set numbering, automatic e-mails and My Account buttons.
    - **Design:** pick a template, colours and font, or open the **visual editor**.
 
 ## Where the buttons are
@@ -22,7 +22,7 @@ PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, re
 | Order edit screen, **Document data** box | Number, date and notes of every document. **Edit** (saved with the order), **Regenerate PDF** and **Delete**. |
 | Orders list, **Documents** column | Invoice number and date, plus an icon per document. |
 | Orders list, **Bulk actions** | "PDF: Invoices", "PDF: Packing slips", "PDF: Picking lists" and so on. Opens one merged PDF. |
-| Order actions dropdown | "E-mail invoice to customer" (one entry per type), and "Regenerate archived document PDFs". |
+| Order actions dropdown | "E-mail invoice to customer" (one entry per type), "E-mail invoice to *address*" (when a fixed address is set), and "Regenerate archived document PDFs". |
 | My Account (orders list and order page) | Download buttons, per the "My Account" setting of each type. |
 
 ## Document types
@@ -36,6 +36,20 @@ PDF invoices, packing slips, delivery notes, credit notes, proforma invoices, re
 | Proforma invoice | Optional number (`PF-` prefix). Disclaimer text. |
 | Receipt | Paid orders only. Paid stamp and transaction ID. Can reuse the invoice number. |
 | Picking list | One or many orders. Same products are added up, sorted by SKU, name, category or stock location. |
+
+## Automatic e-mails
+
+Nothing is e-mailed automatically until you turn it on. Each document type has three options under **Documents → [type] → Automation**:
+
+- **Attach to e-mails:** adds the PDF to WooCommerce's own e-mails, such as *Completed order*.
+- **E-mail to the customer when the order status becomes:** sends the PDF to the customer in its own e-mail (*Order document*). For example, send the delivery note when the order is completed.
+- **E-mail to a fixed address when the order status becomes**, plus **Fixed e-mail address:** sends the PDF to the same address for every order, for example the company that handles your invoice payments (*Order document to a fixed address*).
+
+Notes on the two status options:
+- The document is created when needed, and each document is sent at most once per order to each recipient. Reaching the status again sends nothing; use the order action to send it again by hand.
+- Sending runs in the background through Action Scheduler, usually within a minute, and each send is logged as an order note.
+- Edit the subject, heading and text of both e-mails in **WooCommerce → Settings → E-mails**.
+- Credit notes and picking lists don't have the status options.
 
 ## Numbering
 
@@ -111,6 +125,13 @@ bin/build.sh                                               # dist/order-document
 - **Translations** live in `languages/`. Regenerate the template with `wp i18n make-pot . languages/order-documents.pot --exclude=node_modules,vendor,vendor-prefixed,assets/editor/build,tests,bin`.
 
 ## Changelog
+
+### 1.2.0
+- Nothing is e-mailed automatically by default any more. New installs no longer attach the invoice and credit note to WooCommerce e-mails. Choices already saved on a store are kept.
+- New: e-mail a document to the customer automatically when the order reaches a chosen status, for example the delivery note when the order is completed.
+- New: e-mail a document to a fixed address when the order reaches a chosen status, for example every invoice to the company that handles your invoice payments. There is also an order action to send it by hand.
+- Each automatic e-mail is sent once per document and logged as an order note. A document e-mail is no longer sent without its PDF.
+- Fixed: the plugin's own e-mail no longer appears in the "Attach to e-mails" list.
 
 ### 1.1.3
 - Removed the Norwegian KID payment reference (the setting, the `{{kid}}` placeholder and the KID row). The payment band uses the document number as the payment reference.

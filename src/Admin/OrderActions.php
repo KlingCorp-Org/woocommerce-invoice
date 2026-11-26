@@ -1,6 +1,7 @@
 <?php
 /**
- * Entries in the "Order actions" dropdown: e-mail a document to the customer, regenerate archived PDFs.
+ * Entries in the "Order actions" dropdown: e-mail a document to the customer or to the fixed address,
+ * regenerate archived PDFs.
  *
  * @package OrderDocs
  */
@@ -9,6 +10,7 @@ namespace OrderDocs\Admin;
 
 use OrderDocs\Documents\Archive;
 use OrderDocs\Documents\DocumentRegistry;
+use OrderDocs\Settings\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -18,6 +20,7 @@ class OrderActions {
 		add_filter( 'woocommerce_order_actions', array( $this, 'actions' ), 20, 2 );
 		foreach ( array_keys( DocumentRegistry::types() ) as $type ) {
 			add_action( 'woocommerce_order_action_odocs_email_' . $type, array( $this, 'email' ) );
+			add_action( 'woocommerce_order_action_odocs_email_address_' . $type, array( $this, 'email' ) );
 		}
 		add_action( 'woocommerce_order_action_odocs_regenerate', array( $this, 'regenerate' ) );
 	}
@@ -36,6 +39,11 @@ class OrderActions {
 			}
 			/* translators: %s: document title, e.g. "Invoice" */
 			$actions[ 'odocs_email_' . $type ] = sprintf( __( 'E-mail %s to customer', 'order-documents' ), strtolower( $class::label() ) );
+			$address = $class::supports_auto_send() ? (string) Settings::doc( $type, 'email_address', '' ) : '';
+			if ( '' !== $address ) {
+				/* translators: 1: document title, e.g. "invoice", 2: e-mail address */
+				$actions[ 'odocs_email_address_' . $type ] = sprintf( __( 'E-mail %1$s to %2$s', 'order-documents' ), strtolower( $class::label() ), $address );
+			}
 		}
 		$actions['odocs_regenerate'] = __( 'Regenerate archived document PDFs', 'order-documents' );
 		return $actions;
@@ -45,10 +53,14 @@ class OrderActions {
 	 * @param \WC_Order $order Order.
 	 */
 	public function email( $order ): void {
-		$type = str_replace( 'woocommerce_order_action_odocs_email_', '', current_action() );
-		$mailer = WC()->mailer();
-		$emails = $mailer->get_emails();
-		if ( empty( $emails['OrderDocs_Document_Email'] ) ) {
+		$type      = str_replace( 'woocommerce_order_action_odocs_email_', '', current_action() );
+		$email_key = 'OrderDocs_Document_Email';
+		if ( 0 === strpos( $type, 'address_' ) ) {
+			$type      = substr( $type, strlen( 'address_' ) );
+			$email_key = 'OrderDocs_Document_Address_Email';
+		}
+		$emails = WC()->mailer()->get_emails();
+		if ( empty( $emails[ $email_key ] ) ) {
 			return;
 		}
 		$refund = null;
@@ -65,7 +77,7 @@ class OrderActions {
 			return;
 		}
 		$document->ensure( 'email' );
-		$emails['OrderDocs_Document_Email']->trigger( $order, $document );
+		$emails[ $email_key ]->trigger( $order, $document );
 	}
 
 	/**

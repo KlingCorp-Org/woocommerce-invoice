@@ -1,6 +1,7 @@
 <?php
 /**
- * "Order document" e-mail: sends any document to the customer from the order actions.
+ * "Order document" e-mail: sends a document to the customer, from the order actions or automatically
+ * when the order reaches a status chosen in the document settings.
  *
  * @package OrderDocs
  */
@@ -24,7 +25,7 @@ class DocumentEmail extends \WC_Email {
 		$this->id             = 'odocs_document';
 		$this->customer_email = true;
 		$this->title          = __( 'Order document', 'order-documents' );
-		$this->description    = __( 'Sent when you e-mail an invoice, packing slip or other document to the customer from the order screen. The PDF is attached.', 'order-documents' );
+		$this->description    = __( 'Sent to the customer when you e-mail a document from the order screen, or automatically when the order reaches a status chosen in the document settings. The PDF is attached.', 'order-documents' );
 		$this->template_html  = 'emails/odocs-document.php';
 		$this->template_plain = 'emails/plain/odocs-document.php';
 		$this->template_base  = ODOCS_DIR . 'templates/';
@@ -35,7 +36,6 @@ class DocumentEmail extends \WC_Email {
 			'{document_number}' => '',
 		);
 		parent::__construct();
-		$this->manual = true;
 	}
 
 	/**
@@ -60,37 +60,64 @@ class DocumentEmail extends \WC_Email {
 	}
 
 	/**
+	 * Recipient(s) of the document.
+	 *
+	 * @param \WC_Order $order    Order.
+	 * @param Document  $document Document.
+	 */
+	protected function recipient_for( $order, $document ): string {
+		return (string) $order->get_billing_email();
+	}
+
+	/**
+	 * Sends the document. Returns true when the e-mail was sent.
+	 *
 	 * @param \WC_Order $order    Order.
 	 * @param Document  $document Document.
 	 */
 	public function trigger( $order, $document = null ) {
 		if ( ! $order instanceof \WC_Order || ! $document instanceof Document ) {
-			return;
+			return false;
 		}
 		$this->setup_locale();
 		$this->object                            = $order;
 		$this->document                          = $document;
-		$this->recipient                         = $order->get_billing_email();
+		$this->recipient                         = $this->recipient_for( $order, $document );
 		$this->placeholders['{order_date}']      = wc_format_datetime( $order->get_date_created() );
 		$this->placeholders['{order_number}']    = $order->get_order_number();
 		$this->placeholders['{document_title}']  = $document->get_title();
 		$this->placeholders['{document_number}'] = $document->get_number();
 
-		if ( $this->is_enabled() && $this->get_recipient() ) {
-			$sent = $this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
-			$order->add_order_note(
-				sprintf(
-					/* translators: 1: document title, 2: e-mail address */
-					$sent ? __( '%1$s e-mailed to %2$s.', 'order-documents' ) : __( '%1$s could not be e-mailed to %2$s.', 'order-documents' ),
-					$document->get_title() . ( $document->get_number() ? ' ' . $document->get_number() : '' ),
-					$this->get_recipient()
-				),
-				false,
-				true
-			);
+		$sent  = false;
+		$title = $document->get_title() . ( $document->get_number() ? ' ' . $document->get_number() : '' );
+		if ( ! $this->is_enabled() ) {
+			/* translators: 1: document title, 2: e-mail name */
+			$order->add_order_note( sprintf( __( '%1$s was not e-mailed: the "%2$s" e-mail is turned off in WooCommerce → Settings → E-mails.', 'order-documents' ), $title, $this->get_title() ) );
+		} elseif ( ! $this->get_recipient() ) {
+			/* translators: %s: document title */
+			$order->add_order_note( sprintf( __( '%s was not e-mailed: there is no e-mail address to send it to.', 'order-documents' ), $title ) );
+		} else {
+			$attachments = $this->get_attachments();
+			if ( ! $attachments ) {
+				/* translators: 1: document title, 2: e-mail address */
+				$order->add_order_note( sprintf( __( '%1$s could not be e-mailed to %2$s: the PDF could not be created.', 'order-documents' ), $title, $this->get_recipient() ) );
+			} else {
+				$sent = (bool) $this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $attachments );
+				$order->add_order_note(
+					sprintf(
+						/* translators: 1: document title, 2: e-mail address */
+						$sent ? __( '%1$s e-mailed to %2$s.', 'order-documents' ) : __( '%1$s could not be e-mailed to %2$s.', 'order-documents' ),
+						$title,
+						$this->get_recipient()
+					),
+					false,
+					true
+				);
+			}
 		}
 		$this->restore_locale();
 		$this->document = null;
+		return $sent;
 	}
 
 	public function get_content_html() {

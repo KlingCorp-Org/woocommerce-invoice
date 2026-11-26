@@ -45,7 +45,6 @@ class Invoice extends Document {
 
 	protected static function field_defaults(): array {
 		return array(
-			'attach_to_emails' => array( 'customer_completed_order', 'customer_invoice' ),
 			'my_account'       => 'created',
 		);
 	}

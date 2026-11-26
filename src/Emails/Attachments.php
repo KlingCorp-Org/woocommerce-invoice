@@ -35,8 +35,8 @@ class Attachments {
 			return $attachments;
 		}
 
-		// Our own "send document" e-mail carries the exact document.
-		if ( 'odocs_document' === $email_id && $email instanceof DocumentEmail && $email->document instanceof Document ) {
+		// Our own "send document" e-mails carry the exact document.
+		if ( in_array( $email_id, array( 'odocs_document', 'odocs_document_address' ), true ) && $email instanceof DocumentEmail && $email->document instanceof Document ) {
 			$path = $this->file_for( $email->document );
 			if ( $path ) {
 				$attachments[] = $path;

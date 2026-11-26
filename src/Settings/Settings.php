@@ -88,6 +88,9 @@ class Settings {
 				case 'textarea':
 					$output[ $id ] = wp_kses_post( (string) $raw );
 					break;
+				case 'email_list':
+					$output[ $id ] = self::sanitize_email_list( (string) $raw );
+					break;
 				case 'color':
 					$output[ $id ] = sanitize_hex_color( (string) $raw ) ?: ( $field['default'] ?? '' );
 					break;
@@ -141,11 +144,26 @@ class Settings {
 		return is_callable( $options ) ? (array) call_user_func( $options ) : (array) $options;
 	}
 
+	/**
+	 * Cleans a comma separated list of e-mail addresses, dropping invalid ones.
+	 */
+	public static function sanitize_email_list( string $raw ): string {
+		$valid = array();
+		foreach ( preg_split( '/[\s,;]+/', $raw, -1, PREG_SPLIT_NO_EMPTY ) as $address ) {
+			$address = sanitize_email( $address );
+			if ( $address && is_email( $address ) && ! in_array( $address, $valid, true ) ) {
+				$valid[] = $address;
+			}
+		}
+		return implode( ', ', $valid );
+	}
+
 	public static function email_options(): array {
 		$options = array();
 		if ( function_exists( 'WC' ) && WC()->mailer() ) {
 			foreach ( WC()->mailer()->get_emails() as $email ) {
-				if ( empty( $email->id ) || 'OrderDocs_Document_Email' === get_class( $email ) ) {
+				// Our own document e-mails carry their document already.
+				if ( empty( $email->id ) || $email instanceof \OrderDocs\Emails\DocumentEmail ) {
 					continue;
 				}
 				$options[ $email->id ] = $email->get_title() . ( $email->is_customer_email() ? '' : ' (' . __( 'admin', 'order-documents' ) . ')' );

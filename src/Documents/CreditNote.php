@@ -56,7 +56,6 @@ class CreditNote extends Document {
 
 	protected static function field_defaults(): array {
 		return array(
-			'attach_to_emails' => array( 'customer_refunded_order' ),
 			'my_account'       => 'created',
 		);
 	}

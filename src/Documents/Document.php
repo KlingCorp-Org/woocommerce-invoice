@@ -93,6 +93,11 @@ abstract class Document {
 		return false;
 	}
 
+	/** Can be e-mailed automatically when the order reaches a status (one document per order). */
+	public static function supports_auto_send(): bool {
+		return static::supports_emails() && ! static::is_per_refund() && ! static::is_multi_order();
+	}
+
 	public static function is_multi_order(): bool {
 		return false;
 	}
@@ -220,6 +225,11 @@ abstract class Document {
 			$fields[] = array( 'type' => 'heading', 'label' => __( 'Automation', 'order-documents' ) );
 			$fields[] = array( 'id' => 'attach_to_emails', 'type' => 'emails', 'label' => __( 'Attach to e-mails', 'order-documents' ), 'default' => $def( 'attach_to_emails', array() ) );
 			$fields[] = array( 'id' => 'auto_create_statuses', 'type' => 'statuses', 'label' => __( 'Create automatically when the order status becomes', 'order-documents' ), 'default' => $def( 'auto_create_statuses', array() ) );
+			if ( static::supports_auto_send() ) {
+				$fields[] = array( 'id' => 'email_customer_statuses', 'type' => 'statuses', 'label' => __( 'E-mail to the customer when the order status becomes', 'order-documents' ), 'description' => __( 'Sends the PDF in its own e-mail to the customer, once per order.', 'order-documents' ), 'default' => array() );
+				$fields[] = array( 'id' => 'email_address_statuses', 'type' => 'statuses', 'label' => __( 'E-mail to a fixed address when the order status becomes', 'order-documents' ), 'description' => __( 'Sends the PDF to the address below, once per order.', 'order-documents' ), 'default' => array() );
+				$fields[] = array( 'id' => 'email_address', 'type' => 'email_list', 'label' => __( 'Fixed e-mail address', 'order-documents' ), 'default' => '', 'description' => __( 'For example the company that handles your invoice payments. Separate several addresses with commas.', 'order-documents' ) );
+			}
 		}
 
 		$fields[] = array( 'type' => 'heading', 'label' => __( 'Restrictions', 'order-documents' ) );
@@ -569,6 +579,23 @@ abstract class Document {
 
 	public function set_notes( string $notes ): void {
 		$this->data['notes'] = $notes;
+	}
+
+	/**
+	 * Has this document already been e-mailed automatically to a target ('customer' or 'address')?
+	 */
+	public function was_emailed( string $target ): bool {
+		return ! empty( $this->data['emailed'][ $target ] );
+	}
+
+	/**
+	 * Remembers that the document was e-mailed automatically to a target.
+	 */
+	public function mark_emailed( string $target ): void {
+		$emailed              = isset( $this->data['emailed'] ) && is_array( $this->data['emailed'] ) ? $this->data['emailed'] : array();
+		$emailed[ $target ]   = time();
+		$this->data['emailed'] = $emailed;
+		$this->save();
 	}
 
 	/**

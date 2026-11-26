@@ -15,6 +15,8 @@ use OrderDocs\Admin\OrderMetaBoxes;
 use OrderDocs\Admin\SettingsPage;
 use OrderDocs\Documents\AutoCreate;
 use OrderDocs\Emails\Attachments;
+use OrderDocs\Emails\AutoSend;
+use OrderDocs\Emails\DocumentAddressEmail;
 use OrderDocs\Emails\DocumentEmail;
 use OrderDocs\Endpoints\DocumentEndpoint;
 use OrderDocs\Endpoints\RestController;
@@ -51,6 +53,7 @@ final class Plugin {
 		( new RestController() )->register();
 		( new Attachments() )->register();
 		( new AutoCreate() )->register();
+		( new AutoSend() )->register();
 		( new MyAccount() )->register();
 		( new WpoImporter() )->register();
 
@@ -80,7 +83,8 @@ final class Plugin {
 	 * @return array
 	 */
 	public function register_email( $emails ) {
-		$emails['OrderDocs_Document_Email'] = new DocumentEmail();
+		$emails['OrderDocs_Document_Email']         = new DocumentEmail();
+		$emails['OrderDocs_Document_Address_Email'] = new DocumentAddressEmail();
 		return $emails;
 	}
 
